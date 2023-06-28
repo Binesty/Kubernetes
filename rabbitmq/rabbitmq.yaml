@@ -1,14 +1,14 @@
 apiVersion: v1 
 kind: Namespace
 metadata: 
-  name: messages
+  name: rabbitmq
 ---
 
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: rabbitmq-config
-  namespace: messages
+  namespace: rabbitmq
 data:
   enabled_plugins: |
     [rabbitmq_federation,rabbitmq_management,rabbitmq_peer_discovery_k8s, rabbitmq_prometheus, rabbitmq_tracing].
@@ -26,14 +26,14 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: rabbitmq
-  namespace: messages
+  namespace: rabbitmq
 ---
 
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rabbitmq
-  namespace: messages
+  namespace: rabbitmq
 rules:
 - apiGroups: 
     - ""
@@ -49,11 +49,11 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rabbitmq
-  namespace: messages
+  namespace: rabbitmq
 subjects:
 - kind: ServiceAccount
   name: rabbitmq
-  namespace: messages
+  namespace: rabbitmq
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -64,7 +64,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: rabbit-secret
-  namespace: messages
+  namespace: rabbitmq
 type: Opaque
 data:
   # echo -n "cookie-value" | base64
@@ -75,7 +75,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: rabbitmq
-  namespace: messages
+  namespace: rabbitmq
 spec:
   serviceName: rabbitmq
   replicas: 3
@@ -171,7 +171,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rabbitmq-management
-  namespace: messages
+  namespace: rabbitmq
 spec:
   type: ClusterIP
   ports:
@@ -186,7 +186,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rabbitmq
-  namespace: messages
+  namespace: rabbitmq
 spec:
   type: NodePort
   ports:  
@@ -203,7 +203,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: stream
-  namespace: messages
+  namespace: rabbitmq
 spec:
   type: NodePort
   ports:  
@@ -223,7 +223,7 @@ metadata:
     kubernetes.io/ingress.class: nginx    
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: rabbitmq-ingress
-  namespace: messages
+  namespace: rabbitmq
 spec:
   rules:
   - host: rabbitmq.binesty.net
