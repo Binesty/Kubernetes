@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  creationTimestamp: '2023-06-28T22:44:59Z'
+  generation: 3
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:description: {}
+          f:destinations: {}
+          f:sourceRepos: {}
+        f:status: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-06-28T22:45:11Z'
+  name: applications
+  namespace: argocd
+  resourceVersion: '16076638'
+  uid: 9727874c-06cd-43b8-a28a-a405edab1352
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/appprojects/applications
+status: {}
+spec:
+  description: apps projects
+  destinations:
+    - name: '*'
+      namespace: '*'
+      server: '*'
+  sourceRepos:
+    - '*'

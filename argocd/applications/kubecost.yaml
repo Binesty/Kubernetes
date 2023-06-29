@@ -1,0 +1,1136 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2023-06-29T20:48:51Z'
+  generation: 212
+  labels:
+    source: external
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:helm:
+              .: {}
+              f:parameters: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-06-29T23:04:39Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2023-06-29T23:24:53Z'
+  name: kubecost
+  namespace: argocd
+  resourceVersion: '16369846'
+  uid: 6928ca7e-74cb-40dc-9443-a3023615791c
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kubecost
+status:
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2023-06-29T20:49:06Z'
+      deployedAt: '2023-06-29T20:49:14Z'
+      id: 0
+      revision: 1.104.2
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hosts[0]
+              value: kubecost.binesty.net
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.104.2
+    - deployStartedAt: '2023-06-29T21:22:02Z'
+      deployedAt: '2023-06-29T21:22:07Z'
+      id: 1
+      revision: 1.104.2
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hosts[0]
+              value: kubecost.binesty.net
+            - name: service.type
+              value: LoadBalancer
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.104.2
+    - deployStartedAt: '2023-06-29T21:31:43Z'
+      deployedAt: '2023-06-29T21:31:49Z'
+      id: 2
+      revision: 1.104.2
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hosts[0]
+              value: kubecost.binesty.net
+            - name: service.type
+              value: ClusterIP
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.104.2
+    - deployStartedAt: '2023-06-29T21:51:05Z'
+      deployedAt: '2023-06-29T21:51:23Z'
+      id: 3
+      revision: 1.105.0-rc.3
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hosts[0]
+              value: kubecost.binesty.net
+            - name: service.type
+              value: ClusterIP
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.105.0-rc.3
+    - deployStartedAt: '2023-06-29T21:59:21Z'
+      deployedAt: '2023-06-29T21:59:53Z'
+      id: 4
+      revision: 1.105.0-rc.3
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hosts[0]
+              value: kubecost.binesty.net
+            - name: service.type
+              value: ClusterIP
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.105.0-rc.3
+    - deployStartedAt: '2023-06-29T22:57:41Z'
+      deployedAt: '2023-06-29T22:58:00Z'
+      id: 5
+      revision: 1.105.0-rc.3
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: service.type
+              value: ClusterIP
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.105.0-rc.3
+    - deployStartedAt: '2023-06-29T23:04:39Z'
+      deployedAt: '2023-06-29T23:05:15Z'
+      id: 6
+      revision: 1.105.0-rc.3
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: service.type
+              value: ClusterIP
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.105.0-rc.3
+  operationState:
+    finishedAt: '2023-06-29T23:05:15Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 1.105.0-rc.3
+        syncOptions:
+          - CreateNamespace=true
+          - Replace=true
+        syncStrategy:
+          hook:
+            force: true
+    phase: Succeeded
+    startedAt: '2023-06-29T23:04:39Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "kubecost-prometheus-node-exporter" deleted
+            serviceaccount/kubecost-prometheus-node-exporter replaced
+          name: kubecost-prometheus-node-exporter
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "kubecost-cost-analyzer" deleted
+            serviceaccount/kubecost-cost-analyzer replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "kubecost-grafana" deleted
+            serviceaccount/kubecost-grafana replaced
+          name: kubecost-grafana
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "kubecost-prometheus-server" deleted
+            serviceaccount/kubecost-prometheus-server replaced
+          name: kubecost-prometheus-server
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "kubecost-kube-state-metrics" deleted
+            serviceaccount/kubecost-kube-state-metrics replaced
+          name: kubecost-kube-state-metrics
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: |-
+            secret "kubecost-grafana" deleted
+            secret/kubecost-grafana replaced
+          name: kubecost-grafana
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "kubecost-grafana" deleted
+            configmap/kubecost-grafana replaced
+          name: kubecost-grafana
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "kubecost-cost-analyzer" deleted
+            configmap/kubecost-cost-analyzer replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "nginx-conf" deleted
+            configmap/nginx-conf replaced
+          name: nginx-conf
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "attached-disk-metrics-dashboard" deleted
+            configmap/attached-disk-metrics-dashboard replaced
+          name: attached-disk-metrics-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "kubecost-prometheus-server" deleted
+            configmap/kubecost-prometheus-server replaced
+          name: kubecost-prometheus-server
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "kubecost-grafana-config-dashboards" deleted
+            configmap/kubecost-grafana-config-dashboards replaced
+          name: kubecost-grafana-config-dashboards
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "grafana-dashboard-kubernetes-resource-efficiency" deleted
+            configmap/grafana-dashboard-kubernetes-resource-efficiency replaced
+          name: grafana-dashboard-kubernetes-resource-efficiency
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "pod-utilization-dashboard" deleted
+            configmap/pod-utilization-dashboard replaced
+          name: pod-utilization-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "namespace-utilization-dashboard" deleted
+            configmap/namespace-utilization-dashboard replaced
+          name: namespace-utilization-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "label-cost-dashboard" deleted
+            configmap/label-cost-dashboard replaced
+          name: label-cost-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "grafana-dashboard-networkcosts-metrics" deleted
+            configmap/grafana-dashboard-networkcosts-metrics replaced
+          name: grafana-dashboard-networkcosts-metrics
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "grafana-dashboard-pod-utilization-multi-cluster" deleted
+            configmap/grafana-dashboard-pod-utilization-multi-cluster replaced
+          name: grafana-dashboard-pod-utilization-multi-cluster
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "node-utilization-dashboard" deleted
+            configmap/node-utilization-dashboard replaced
+          name: node-utilization-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "deployment-utilization-dashboard" deleted
+            configmap/deployment-utilization-dashboard replaced
+          name: deployment-utilization-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "cluster-metrics-dashboard" deleted
+            configmap/cluster-metrics-dashboard replaced
+          name: cluster-metrics-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "cluster-utilization-dashboard" deleted
+            configmap/cluster-utilization-dashboard replaced
+          name: cluster-utilization-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "prom-benchmark-dashboard" deleted
+            configmap/prom-benchmark-dashboard replaced
+          name: prom-benchmark-dashboard
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: PersistentVolumeClaim
+          message: persistentvolumeclaim/kubecost-prometheus-server created
+          name: kubecost-prometheus-server
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: PersistentVolumeClaim
+          message: persistentvolumeclaim/kubecost-cost-analyzer created
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/kubecost-prometheus-server
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "kubecost-prometheus-server" deleted
+
+            clusterrole.rbac.authorization.k8s.io/kubecost-prometheus-server
+            replaced
+          name: kubecost-prometheus-server
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/kubecost-grafana-clusterrole
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "kubecost-grafana-clusterrole" deleted
+
+            clusterrole.rbac.authorization.k8s.io/kubecost-grafana-clusterrole
+            replaced
+          name: kubecost-grafana-clusterrole
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/kubecost-cost-analyzer
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "kubecost-cost-analyzer" deleted
+
+            clusterrole.rbac.authorization.k8s.io/kubecost-cost-analyzer
+            replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/kubecost-kube-state-metrics
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "kubecost-kube-state-metrics" deleted
+
+            clusterrole.rbac.authorization.k8s.io/kubecost-kube-state-metrics
+            replaced
+          name: kubecost-kube-state-metrics
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-kube-state-metrics
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io
+            "kubecost-kube-state-metrics" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-kube-state-metrics
+            replaced
+          name: kubecost-kube-state-metrics
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-prometheus-server
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io
+            "kubecost-prometheus-server" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-prometheus-server
+            replaced
+          name: kubecost-prometheus-server
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-cost-analyzer
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io
+            "kubecost-cost-analyzer" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-cost-analyzer
+            replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-grafana-clusterrolebinding
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io
+            "kubecost-grafana-clusterrolebinding" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/kubecost-grafana-clusterrolebinding
+            replaced
+          name: kubecost-grafana-clusterrolebinding
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: >-
+            role.rbac.authorization.k8s.io/kubecost-grafana reconciled.
+            role.rbac.authorization.k8s.io "kubecost-grafana" deleted
+
+            role.rbac.authorization.k8s.io/kubecost-grafana replaced
+          name: kubecost-grafana
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: >-
+            role.rbac.authorization.k8s.io/kubecost-cost-analyzer reconciled.
+            role.rbac.authorization.k8s.io "kubecost-cost-analyzer" deleted
+
+            role.rbac.authorization.k8s.io/kubecost-cost-analyzer replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/kubecost-cost-analyzer
+            reconciled. rolebinding.rbac.authorization.k8s.io
+            "kubecost-cost-analyzer" deleted
+
+            rolebinding.rbac.authorization.k8s.io/kubecost-cost-analyzer
+            replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/kubecost-grafana reconciled.
+            rolebinding.rbac.authorization.k8s.io "kubecost-grafana" deleted
+
+            rolebinding.rbac.authorization.k8s.io/kubecost-grafana replaced
+          name: kubecost-grafana
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "kubecost-prometheus-node-exporter" deleted
+            service/kubecost-prometheus-node-exporter replaced
+          name: kubecost-prometheus-node-exporter
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "kubecost-kube-state-metrics" deleted
+            service/kubecost-kube-state-metrics replaced
+          name: kubecost-kube-state-metrics
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "kubecost-prometheus-server" deleted
+            service/kubecost-prometheus-server replaced
+          name: kubecost-prometheus-server
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "kubecost-grafana" deleted
+            service/kubecost-grafana replaced
+          name: kubecost-grafana
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "kubecost-cost-analyzer" deleted
+            service/kubecost-cost-analyzer replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: DaemonSet
+          message: |-
+            daemonset.apps "kubecost-prometheus-node-exporter" deleted
+            daemonset.apps/kubecost-prometheus-node-exporter replaced
+          name: kubecost-prometheus-node-exporter
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: |-
+            deployment.apps "kubecost-kube-state-metrics" deleted
+            deployment.apps/kubecost-kube-state-metrics replaced
+          name: kubecost-kube-state-metrics
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: |-
+            deployment.apps "kubecost-prometheus-server" deleted
+            deployment.apps/kubecost-prometheus-server replaced
+          name: kubecost-prometheus-server
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: |-
+            deployment.apps "kubecost-grafana" deleted
+            deployment.apps/kubecost-grafana replaced
+          name: kubecost-grafana
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: |-
+            deployment.apps "kubecost-cost-analyzer" deleted
+            deployment.apps/kubecost-cost-analyzer replaced
+          name: kubecost-cost-analyzer
+          namespace: kubecost
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 1.105.0-rc.3
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: service.type
+              value: ClusterIP
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.105.0-rc.3
+  reconciledAt: '2023-06-29T23:24:52Z'
+  resources:
+    - kind: ConfigMap
+      name: attached-disk-metrics-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: cluster-metrics-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: cluster-utilization-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: deployment-utilization-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: grafana-dashboard-kubernetes-resource-efficiency
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: grafana-dashboard-networkcosts-metrics
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: grafana-dashboard-pod-utilization-multi-cluster
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: kubecost-cost-analyzer
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: kubecost-grafana
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: kubecost-grafana-config-dashboards
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: kubecost-prometheus-server
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: label-cost-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: namespace-utilization-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: nginx-conf
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: node-utilization-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: pod-utilization-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: prom-benchmark-dashboard
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: PersistentVolumeClaim
+      name: kubecost-cost-analyzer
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: PersistentVolumeClaim
+      name: kubecost-prometheus-server
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: kubecost-grafana
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: kubecost-cost-analyzer
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: kubecost-grafana
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: kubecost-kube-state-metrics
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: kubecost-prometheus-node-exporter
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: kubecost-prometheus-server
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: kubecost-cost-analyzer
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: kubecost-grafana
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: kubecost-kube-state-metrics
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: kubecost-prometheus-node-exporter
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: kubecost-prometheus-server
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: DaemonSet
+      name: kubecost-prometheus-node-exporter
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: kubecost-cost-analyzer
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: kubecost-grafana
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: kubecost-kube-state-metrics
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: kubecost-prometheus-server
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: kubecost-cost-analyzer
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: kubecost-grafana-clusterrole
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: kubecost-kube-state-metrics
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: kubecost-prometheus-server
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: kubecost-cost-analyzer
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: kubecost-grafana-clusterrolebinding
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: kubecost-kube-state-metrics
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: kubecost-prometheus-server
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: kubecost-cost-analyzer
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: kubecost-grafana
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: kubecost-cost-analyzer
+      namespace: kubecost
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: kubecost-grafana
+      namespace: kubecost
+      status: Synced
+      version: v1
+  sourceType: Helm
+  summary:
+    images:
+      - gcr.io/kubecost1/cost-model:prod-1.105.0-rc.3
+      - gcr.io/kubecost1/frontend:prod-1.105.0-rc.3
+      - grafana/grafana:9.4.7
+      - jimmidyson/configmap-reload:v0.7.1
+      - kiwigrid/k8s-sidecar:1.23.1
+      - prom/node-exporter:v1.5.0
+      - quay.io/prometheus/prometheus:v2.35.0
+      - registry.k8s.io/kube-state-metrics/kube-state-metrics:v1.9.8
+  sync:
+    comparedTo:
+      destination:
+        namespace: kubecost
+        server: https://kubernetes.default.svc
+      source:
+        chart: cost-analyzer
+        helm:
+          parameters:
+            - name: kubecostToken
+              value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+            - name: service.type
+              value: ClusterIP
+        repoURL: https://kubecost.github.io/cost-analyzer/
+        targetRevision: 1.105.0-rc.3
+    revision: 1.105.0-rc.3
+    status: Synced
+spec:
+  destination:
+    namespace: kubecost
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: cost-analyzer
+    helm:
+      parameters:
+        - name: kubecostToken
+          value: dmxhZGltaXIubWF0b3NAb3V0bG9vay5jb20=xm343yadf98
+        - name: service.type
+          value: ClusterIP
+    repoURL: https://kubecost.github.io/cost-analyzer/
+    targetRevision: 1.105.0-rc.3
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

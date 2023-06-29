@@ -1,0 +1,498 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2023-06-29T01:29:13Z'
+  generation: 444
+  labels:
+    source: external
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:helm:
+              .: {}
+              f:parameters: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-06-29T19:49:45Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:prune: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2023-06-29T23:27:52Z'
+  name: keycloak
+  namespace: argocd
+  resourceVersion: '16370768'
+  uid: 13470ae0-57d1-4e3e-a3f2-3ab5ef473daa
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keycloak
+status:
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2023-06-29T01:30:27Z'
+      deployedAt: '2023-06-29T01:30:31Z'
+      id: 0
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: auth.adminPassword
+              value: keycl0ak
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    - deployStartedAt: '2023-06-29T12:54:17Z'
+      deployedAt: '2023-06-29T12:54:18Z'
+      id: 1
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    - deployStartedAt: '2023-06-29T13:06:19Z'
+      deployedAt: '2023-06-29T13:06:21Z'
+      id: 2
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    - deployStartedAt: '2023-06-29T14:55:05Z'
+      deployedAt: '2023-06-29T14:55:09Z'
+      id: 3
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    - deployStartedAt: '2023-06-29T19:31:42Z'
+      deployedAt: '2023-06-29T19:31:44Z'
+      id: 4
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    - deployStartedAt: '2023-06-29T19:34:55Z'
+      deployedAt: '2023-06-29T19:34:56Z'
+      id: 5
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    - deployStartedAt: '2023-06-29T19:42:47Z'
+      deployedAt: '2023-06-29T19:42:49Z'
+      id: 6
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    - deployStartedAt: '2023-06-29T19:49:45Z'
+      deployedAt: '2023-06-29T19:49:47Z'
+      id: 7
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+  operationState:
+    finishedAt: '2023-06-29T19:49:47Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        prune: true
+        revision: 15.1.6
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
+          - Replace=true
+        syncStrategy:
+          hook:
+            force: true
+    phase: Succeeded
+    startedAt: '2023-06-29T19:49:45Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "keycloak" deleted
+            serviceaccount/keycloak replaced
+          name: keycloak
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: |-
+            secret "keycloak-postgresql" deleted
+            secret/keycloak-postgresql replaced
+          name: keycloak-postgresql
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: |-
+            secret "keycloak" deleted
+            secret/keycloak replaced
+          name: keycloak
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "keycloak-env-vars" deleted
+            configmap/keycloak-env-vars replaced
+          name: keycloak-env-vars
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "keycloak-headless" deleted
+            service/keycloak-headless replaced
+          name: keycloak-headless
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "keycloak-postgresql-hl" deleted
+            service/keycloak-postgresql-hl replaced
+          name: keycloak-postgresql-hl
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "keycloak" deleted
+            service/keycloak replaced
+          name: keycloak
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "keycloak-postgresql" deleted
+            service/keycloak-postgresql replaced
+          name: keycloak-postgresql
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: |-
+            statefulset.apps "keycloak" deleted
+            statefulset.apps/keycloak replaced
+          name: keycloak
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: |-
+            statefulset.apps "keycloak-postgresql" deleted
+            statefulset.apps/keycloak-postgresql replaced
+          name: keycloak-postgresql
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: |-
+            ingress.networking.k8s.io "keycloak" deleted
+            ingress.networking.k8s.io/keycloak replaced
+          name: keycloak
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 15.1.6
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+  reconciledAt: '2023-06-29T23:27:52Z'
+  resources:
+    - kind: ConfigMap
+      name: keycloak-env-vars
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: keycloak
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: keycloak-postgresql
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: keycloak
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: keycloak-headless
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: keycloak-postgresql
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: keycloak-postgresql-hl
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: keycloak
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 1 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: keycloak
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 1 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: keycloak-postgresql
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: keycloak
+      namespace: keycloak
+      status: Synced
+      version: v1
+  sourceType: Helm
+  summary:
+    externalURLs:
+      - http://keycloak.binesty.net/
+    images:
+      - docker.io/bitnami/keycloak:21.1.2-debian-11-r0
+      - docker.io/bitnami/postgresql:15.3.0-debian-11-r7
+  sync:
+    comparedTo:
+      destination:
+        namespace: keycloak
+        server: https://kubernetes.default.svc
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 15.1.6
+    revision: 15.1.6
+    status: Synced
+spec:
+  destination:
+    namespace: keycloak
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: keycloak
+    helm:
+      parameters:
+        - name: ingress.enabled
+          value: 'true'
+        - name: ingress.hostname
+          value: keycloak.binesty.net
+        - name: ingress.ingressClassName
+          value: nginx
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 15.1.6
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

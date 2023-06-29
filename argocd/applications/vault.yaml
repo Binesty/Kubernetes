@@ -1,0 +1,454 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2023-06-29T00:37:32Z'
+  generation: 357
+  labels:
+    source: external
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:helm:
+              .: {}
+              f:parameters: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-06-29T20:03:35Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2023-06-29T23:24:52Z'
+  name: vault
+  namespace: argocd
+  resourceVersion: '16369833'
+  uid: 6b583a1e-62ce-437b-b791-9b92fa60a56d
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/vault
+status:
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2023-06-29T00:37:43Z'
+      deployedAt: '2023-06-29T00:37:48Z'
+      id: 0
+      revision: 0.25.0
+      source:
+        chart: vault
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+    - deployStartedAt: '2023-06-29T03:34:50Z'
+      deployedAt: '2023-06-29T03:34:52Z'
+      id: 1
+      revision: 0.25.0
+      source:
+        chart: vault
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+    - deployStartedAt: '2023-06-29T12:44:45Z'
+      deployedAt: '2023-06-29T12:44:47Z'
+      id: 2
+      revision: 0.25.0
+      source:
+        chart: vault
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+    - deployStartedAt: '2023-06-29T15:00:23Z'
+      deployedAt: '2023-06-29T15:00:33Z'
+      id: 3
+      revision: 0.25.0
+      source:
+        chart: vault
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+    - deployStartedAt: '2023-06-29T20:03:36Z'
+      deployedAt: '2023-06-29T20:03:37Z'
+      id: 4
+      revision: 0.25.0
+      source:
+        chart: vault
+        helm:
+          parameters:
+            - name: server.ingress.enabled
+              value: 'true'
+            - name: server.ingress.hosts[0].host
+              value: vault.binesty.net
+            - name: server.ingress.ingressClassName
+              value: nginx
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+  operationState:
+    finishedAt: '2023-06-29T20:03:37Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: 0.25.0
+        syncOptions:
+          - CreateNamespace=true
+    phase: Succeeded
+    startedAt: '2023-06-29T20:03:36Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/vault unchanged
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/vault-agent-injector unchanged
+          name: vault-agent-injector
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/vault-config unchanged
+          name: vault-config
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/vault-agent-injector-clusterrole
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/vault-agent-injector-clusterrole
+            unchanged
+          name: vault-agent-injector-clusterrole
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/vault-server-binding
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/vault-server-binding
+            unchanged
+          name: vault-server-binding
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/vault-agent-injector-binding
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/vault-agent-injector-binding
+            unchanged
+          name: vault-agent-injector-binding
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/vault unchanged
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/vault-agent-injector-svc unchanged
+          name: vault-agent-injector-svc
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/vault-internal unchanged
+          name: vault-internal
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/vault-agent-injector configured
+          name: vault-agent-injector
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: statefulset.apps/vault configured
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/vault created
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: admissionregistration.k8s.io
+          hookPhase: Running
+          kind: MutatingWebhookConfiguration
+          message: >-
+            mutatingwebhookconfiguration.admissionregistration.k8s.io/vault-agent-injector-cfg
+            configured
+          name: vault-agent-injector-cfg
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 0.25.0
+      source:
+        chart: vault
+        helm:
+          parameters:
+            - name: server.ingress.enabled
+              value: 'true'
+            - name: server.ingress.hosts[0].host
+              value: vault.binesty.net
+            - name: server.ingress.ingressClassName
+              value: nginx
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+  reconciledAt: '2023-06-29T23:24:52Z'
+  resources:
+    - kind: ConfigMap
+      name: vault-config
+      namespace: vault
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: vault
+      namespace: vault
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: vault-agent-injector-svc
+      namespace: vault
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: vault-internal
+      namespace: vault
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: vault
+      namespace: vault
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: vault-agent-injector
+      namespace: vault
+      status: Synced
+      version: v1
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      name: vault-agent-injector-cfg
+      status: OutOfSync
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: vault-agent-injector
+      namespace: vault
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: statefulset has 1 ready pods
+        status: Healthy
+      kind: StatefulSet
+      name: vault
+      namespace: vault
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: vault
+      namespace: vault
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: vault-agent-injector-clusterrole
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: vault-agent-injector-binding
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: vault-server-binding
+      status: Synced
+      version: v1
+  sourceType: Helm
+  summary:
+    externalURLs:
+      - http://vault.binesty.net/
+    images:
+      - hashicorp/vault-k8s:1.2.1
+      - hashicorp/vault:1.14.0
+  sync:
+    comparedTo:
+      destination:
+        namespace: vault
+        server: https://kubernetes.default.svc
+      source:
+        chart: vault
+        helm:
+          parameters:
+            - name: server.ingress.enabled
+              value: 'true'
+            - name: server.ingress.hosts[0].host
+              value: vault.binesty.net
+            - name: server.ingress.ingressClassName
+              value: nginx
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+    revision: 0.25.0
+    status: OutOfSync
+spec:
+  destination:
+    namespace: vault
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: vault
+    helm:
+      parameters:
+        - name: server.ingress.enabled
+          value: 'true'
+        - name: server.ingress.hosts[0].host
+          value: vault.binesty.net
+        - name: server.ingress.ingressClassName
+          value: nginx
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: 0.25.0
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
