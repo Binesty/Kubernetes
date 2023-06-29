@@ -215,25 +215,3 @@ spec:
   selector:
     app: rabbitmq
 ---
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:    
-    kubernetes.io/ingress.class: nginx    
-    nginx.ingress.kubernetes.io/rewrite-target: /
-  name: rabbitmq-ingress
-  namespace: rabbitmq
-spec:
-  rules:
-  - host: rabbitmq.binesty.net
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: rabbitmq-management
-            port:
-              number: 80
----

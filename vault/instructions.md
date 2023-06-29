@@ -11,7 +11,7 @@ Vault state is inactive because it is unsealed
 ## Initialize vault
 
 ````bash
-kubectl exec -ti [vault-pod] -n vault -- vault operator init
+kubectl exec -ti vault-0 -n vault -- vault operator init
 ````
 
 output
