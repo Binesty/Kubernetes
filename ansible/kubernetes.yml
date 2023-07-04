@@ -1,0 +1,104 @@
+---
+- name: Installing Kubernetes with Containerd
+  hosts: all
+  become: true
+
+  vars:
+    kubernetes_version: "1.25.0"
+    containerd_version: "1.6.8"
+
+  tasks:
+    - name: Install Kubernetes dependencies
+      apt:
+        name: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg-agent', 'software-properties-common']
+        state: present
+
+    - name: Add Kubernetes GPG Key
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+
+    - name: Add Kubernetes repository
+      apt_repository:
+        repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+        state: present
+
+    - name: Install Kubernetes packages
+      apt:
+        name: ['kubelet={{ kubernetes_version }}-00', 'kubeadm={{ kubernetes_version }}-00', 'kubectl={{ kubernetes_version }}-00']
+        state: present
+        update_cache: true
+
+    - name: Configure Containerd
+      copy:
+        dest: /etc/modules-load.d/containerd.conf
+        content: |
+          overlay
+          br_netfilter
+        mode: '0644'
+
+    # - name: Load kernel modules for Containerd
+    #   command: modules-load.d/containerd.conf
+    #   args:
+    #     chdir: /etc
+    #   become: true
+    #   ignore_errors: true
+
+    - name: Restart the Kernel Modules Service
+      command: modprobe overlay
+      ignore_errors: yes
+
+    - name: Restart the Kernel Modules Service
+      command: modprobe br_netfilter
+      ignore_errors: yes
+
+    - name: Disabled swap
+      command: swapoff -a
+      ignore_errors: true
+
+    - name: Remove the swap entry from /etc/fstab
+      lineinfile:
+        path: /etc/fstab
+        state: absent
+        regexp: '^.*\sswap\s.*$'
+
+    - name: Configure sysctl
+      sysctl:
+        name: "{{ item }}"
+        value: 1
+        sysctl_set: yes
+        state: present
+        reload: yes
+      with_items:
+        - net.bridge.bridge-nf-call-iptables
+        - net.bridge.bridge-nf-call-ip6tables
+        - net.ipv4.ip_forward
+
+    - name: Start and enable kubelet
+      service:
+        name: kubelet
+        state: started
+        enabled: yes
+
+    - name: Initialize the master node with kubeadm
+      command: kubeadm init --pod-network-cidr=10.10.0.0/16
+      args:
+        creates: /etc/kubernetes/admin.conf
+      register: kubeadm_init_output
+      changed_when: "'kubeadm init' not in kubeadm_init_output.stderr"
+      when: inventory_hostname == 'binesty-master'
+
+    - name: Print join token
+      debug:
+        msg: "Token de junção: {{ kubeadm_init_output.stdout_lines | last }}"
+      when: inventory_hostname == 'binesty-master'
+
+    - name: Print join command for worker nodes
+      debug:
+        msg: "{{ kubeadm_init_output.stdout_lines | last }}"
+      when: inventory_hostname == 'binesty-master'
+
+    - name: Join the working nodes to the master
+      shell: "{{ item }}"
+      with_items: "{{ groups['workers'] }}"
+      when: inventory_hostname == 'binesty-master'

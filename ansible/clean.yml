@@ -1,0 +1,24 @@
+---
+- name: Clear Hosts
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Verify Installation of Kubernetes Packages
+      shell: dpkg -s {{ item }}
+      ignore_errors: true
+      register: package_check
+      with_items:
+        - kubeadm
+        - kubectl
+        - kubelet
+        - docker
+        - kubernetes-cni      
+
+    - name: Remove Packages if Installed
+      apt:
+        name: "{{ item.item }}"
+        state: absent
+      when: item.rc == 0
+      with_items: "{{ package_check.results }}"
