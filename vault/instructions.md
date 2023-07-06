@@ -8,7 +8,7 @@ kubectl create namespace vault
 
 Vault state is inactive because it is unsealed 
 
-## Initialize vault
+## Initialize vault production
 
 ````bash
 kubectl exec -ti vault-0 -n vault -- vault operator init
@@ -69,7 +69,7 @@ spec:
               number: 8200
 ````
 
-## Access webapp vault
+## Access webapp development
 
 Access: http://vault.binesty.net/ui  
-Initial Root Token: [token]
+Initial Root Token: hvs.WhCerZdt30LAcCvf27CJXSCK

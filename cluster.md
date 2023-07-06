@@ -3,10 +3,15 @@
 mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && chown $(id -u):$(id -g) $HOME/.kube/config
 ````
 
+## Taint
+- remove taint of master
+````bash
+kubectl taint nodes binesty-master node-role.kubernetes.io/control-plane:NoSchedule-
+````
+
 ## Label nodes
 
 - include label node role node and node-group
-
 ````bash
 kubectl label --overwrite nodes binesty-worker-01 kubernetes.io/role=worker-01
 kubectl label --overwrite nodes binesty-worker-02 kubernetes.io/role=worker-02
