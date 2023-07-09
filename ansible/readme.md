@@ -9,3 +9,8 @@ Install Kubernetes
 ````bash
 ansible-playbook -i hosts.ini kubernetes.yml --ask-become-pass
 ````
+
+Prune Images
+````bash
+ansible-playbook -i hosts.ini prune.yml --ask-become-pass
+````

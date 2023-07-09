@@ -1,0 +1,10 @@
+---
+- name: Clear Hosts
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Prune images containerd all hosts
+      shell: crictl rmi --prune
+      ignore_errors: true

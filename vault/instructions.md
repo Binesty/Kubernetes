@@ -44,6 +44,23 @@ Key-3
 kubectl exec -ti [vault-pod] -n vault -- vault operator unseal [key-3]
 ````
 
+Sample
+````bash
+kubectl exec -ti vault-0 -n vault -- vault operator init 
+
+Unseal Key 1: ix2OgoILVTeGZx+OXqQ4ze2iI82S6WpzkWsTp5ejJQ9l
+Unseal Key 2: b72ARUuzpyQUL63RUv3OSeGRDlG2ZvR2AwG2cvYe/8Pk
+Unseal Key 3: 3CYMyETcA+nBMT0JaKX254lidNn2o6WrtwYDV6iB6Xtg
+Unseal Key 4: XznJKYs+u2pG6c7BXe0Oj1wF3Dv6VbTr2KwFedl8Z5U+
+Unseal Key 5: XC5S9eb75wr2a94e75Wnf0u/1hFNsqHBVAfX5vtQcN8X
+
+Initial Root Token: hvs.6wgRqlgOj9aQUqVeDQTyT6Nv
+
+kubectl exec -ti vault-0 -n vault -- vault operator unseal ix2OgoILVTeGZx+OXqQ4ze2iI82S6WpzkWsTp5ejJQ9l  
+kubectl exec -ti vault-0 -n vault -- vault operator unseal b72ARUuzpyQUL63RUv3OSeGRDlG2ZvR2AwG2cvYe/8Pk  
+kubectl exec -ti vault-0 -n vault -- vault operator unseal 3CYMyETcA+nBMT0JaKX254lidNn2o6WrtwYDV6iB6Xtg
+````
+
 ## Create service and ingress to access vault
 
 ````yaml
@@ -73,3 +90,19 @@ spec:
 
 Access: http://vault.binesty.net/ui  
 Initial Root Token: hvs.WhCerZdt30LAcCvf27CJXSCK
+
+
+
+## Polices
+
+create a police to get secret
+````bash
+path "secret/*" {
+  capabilities = ["create", "read", "update", "patch", "delete", "list"]
+}
+
+path "secret/*" {
+  capabilities = ["create", "read", "update", "patch", "delete", "list"]
+}
+
+````
