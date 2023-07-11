@@ -103,18 +103,16 @@ spec:
           mountPath: /etc/rabbitmq/
       containers:
       - name: rabbitmq
-        image: rabbitmq:3.12-management
+        image: rabbitmq:3.9-management
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4369
           name: discovery
         - containerPort: 5672
-          name: amqp
-        - containerPort: 5552
-          name: stream   
+          name: amqp 
         resources:
           limits:
-            memory: "400Mi"
+            memory: "700Mi"
             cpu: "0.5"
         env:
         - name: RABBIT_POD_NAME
@@ -127,7 +125,7 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: RABBITMQ_NODENAME
-          value: rabbit@$(RABBIT_POD_NAME).rabbitmq.$(RABBIT_POD_NAMESPACE).svc.cluster.local
+          value: rabbitmq.$(RABBIT_POD_NAMESPACE).svc.cluster.local
         - name: RABBITMQ_USE_LONGNAME 
           value: "true"
         - name: RABBITMQ_CONFIG_FILE
