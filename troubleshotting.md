@@ -19,4 +19,14 @@ blacklist {
 }
 ````
 
+Restart Service
+````bash
+systemctl restart multipathd.service
+````
+
+Verify configuration
+````bash
+multipath -t
+````
+
 Referente [longhorn](https://longhorn.io/kb/troubleshooting-volume-with-multipath/)

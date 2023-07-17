@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio-secret
+  namespace: longhorn-system
+type: Opaque
+data:
+  AWS_ACCESS_KEY_ID: RzByNEgwY1RDbGtWdE5ZS2pFNjY=
+  AWS_SECRET_ACCESS_KEY: U1FSaGFQb3NvQ2FNYTdLaUFvNmFMSG1ZcVNLMERoQ2xjenQ1eDRPMg==
+  AWS_ENDPOINT: aHR0cDovL21pbmlvLmJpbmVzdHkubmV0Lw==  
