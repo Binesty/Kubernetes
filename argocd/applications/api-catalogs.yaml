@@ -1,0 +1,274 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2023-07-31T18:10:17Z'
+  generation: 1000
+  labels:
+    source: internal
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-07-31T20:39:28Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2023-08-03T20:25:40Z'
+  name: api-catalogs
+  namespace: argocd
+  resourceVersion: '4518323'
+  uid: 365ef184-5cae-47a6-85d2-a87129fee93b
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/api-catalogs
+status:
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2023-07-31T18:11:10Z'
+      deployedAt: '2023-07-31T18:11:13Z'
+      id: 0
+      revision: 13e9c21dbd928308f0e93a39488fea053f27cfd0
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-07-31T18:36:53Z'
+      deployedAt: '2023-07-31T18:36:54Z'
+      id: 1
+      revision: 7e74d4ab362e069f1cbc6c9aadacb7c4259aa45a
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-07-31T18:56:44Z'
+      deployedAt: '2023-07-31T18:56:46Z'
+      id: 2
+      revision: 3f8a566cdddce6b3be5304c0c8b8ba9f02fa58c3
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-07-31T19:21:26Z'
+      deployedAt: '2023-07-31T19:21:29Z'
+      id: 3
+      revision: 8f9eb1612b313f5a7c6d1dc1cd02d79d0ce378a7
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-07-31T20:39:30Z'
+      deployedAt: '2023-07-31T20:39:31Z'
+      id: 4
+      revision: c62d6d23fcd6ca6a46b9eca6189bd99a8505c2c2
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-07-31T21:20:39Z'
+      deployedAt: '2023-07-31T21:20:40Z'
+      id: 5
+      revision: 62ec907a04438772c6e27f40087cc6bd97b521f2
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-08-02T17:41:30Z'
+      deployedAt: '2023-08-02T17:41:33Z'
+      id: 6
+      revision: 940822cc7bfa15b5f1f294371f6b098abeed01d5
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-08-03T17:13:43Z'
+      deployedAt: '2023-08-03T17:13:43Z'
+      id: 7
+      revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+  operationState:
+    finishedAt: '2023-08-03T17:13:44Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+        syncOptions:
+          - CreateNamespace=true
+    phase: Succeeded
+    startedAt: '2023-08-03T17:13:43Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/api-catalogs-service unchanged
+          name: api-catalogs-service
+          namespace: workspace
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/api-catalogs configured
+          name: api-catalogs
+          namespace: workspace
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/api-catalogs-ingress unchanged
+          name: api-catalogs-ingress
+          namespace: workspace
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+  reconciledAt: '2023-08-03T20:25:40Z'
+  resources:
+    - health:
+        status: Healthy
+      kind: Service
+      name: api-catalogs-service
+      namespace: workspace
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: api-catalogs
+      namespace: workspace
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: api-catalogs-ingress
+      namespace: workspace
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary:
+    externalURLs:
+      - http://api-catalogs.binesty.net/
+    images:
+      - binesty.azurecr.io/api-catalogs:26c79b0baa614558ca3ebb3c0d66defb6a5e1676
+  sync:
+    comparedTo:
+      destination:
+        namespace: workspace
+        server: https://kubernetes.default.svc
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: HEAD
+    revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+    status: Synced
+spec:
+  destination:
+    namespace: workspace
+    server: https://kubernetes.default.svc
+  project: api
+  source:
+    path: kubernetes
+    repoURL: https://github.com/Binesty/API-Catalogs.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

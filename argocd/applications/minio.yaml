@@ -1,8 +1,49 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2023-06-29T03:08:37Z'
-  generation: 363
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2023-06-29T03:08:37Z","generation":363,"labels":{"source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2023-06-29T21:24:13Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:externalURLs":{},"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2023-06-29T23:24:52Z"}],"name":"minio","namespace":"argocd","resourceVersion":"16369829","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/minio","uid":"76b77446-b2a4-4e06-b90c-dabe25bdda8b"},"spec":{"destination":{"namespace":"minio","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"minio","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"minio.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"},"syncPolicy":{"automated":{},"syncOptions":["CreateNamespace=true"]}},"status":{"health":{"status":"Healthy"},"history":[{"deployStartedAt":"2023-06-29T03:10:25Z","deployedAt":"2023-06-29T03:10:29Z","id":0,"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"global.storageClass","value":"longhorn"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}},{"deployStartedAt":"2023-06-29T12:50:49Z","deployedAt":"2023-06-29T12:50:50Z","id":1,"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"global.storageClass","value":"longhorn"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}},{"deployStartedAt":"2023-06-29T14:56:55Z","deployedAt":"2023-06-29T14:56:59Z","id":2,"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"global.storageClass","value":"longhorn"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}},{"deployStartedAt":"2023-06-29T20:07:32Z","deployedAt":"2023-06-29T20:07:33Z","id":3,"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"global.storageClass","value":"longhorn"},{"name":"apiIngress.enabled","value":"true"},{"name":"apiIngress.hostname","value":"minio.binesty.net"},{"name":"apiIngress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}},{"deployStartedAt":"2023-06-29T20:21:59Z","deployedAt":"2023-06-29T20:21:59Z","id":4,"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"minio.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}},{"deployStartedAt":"2023-06-29T21:24:13Z","deployedAt":"2023-06-29T21:24:14Z","id":5,"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"minio.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}}],"operationState":{"finishedAt":"2023-06-29T21:24:14Z","message":"successfully
+      synced (all tasks
+      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"revision":"12.6.5","syncOptions":["CreateNamespace=true"],"syncStrategy":{"hook":{}}}},"phase":"Succeeded","startedAt":"2023-06-29T21:24:13Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/minio
+      configured. Warning: resource serviceaccounts/minio is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/minio
+      configured. Warning: resource secrets/minio is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"PersistentVolumeClaim","message":"persistentvolumeclaim/minio
+      configured. Warning: resource persistentvolumeclaims/minio is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/minio
+      configured. Warning: resource services/minio is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/minio
+      configured. Warning: resource deployments/minio is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/minio
+      configured. Warning: resource ingresses/minio is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"minio.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}}},"reconciledAt":"2023-06-29T23:24:52Z","resources":[{"health":{"status":"Healthy"},"kind":"PersistentVolumeClaim","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"kind":"Secret","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"minio","namespace":"minio","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"externalURLs":["http://minio.binesty.net/"],"images":["docker.io/bitnami/minio:2023.6.19-debian-11-r0"]},"sync":{"comparedTo":{"destination":{"namespace":"minio","server":"https://kubernetes.default.svc"},"source":{"chart":"minio","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"minio.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}},"revision":"12.6.5","status":"Synced"}}}
+  creationTimestamp: '2023-07-04T19:30:30Z'
+  generation: 6155
   labels:
     source: external
   managedFields:
@@ -10,6 +51,9 @@ metadata:
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
             f:source: {}
@@ -30,7 +74,6 @@ metadata:
             f:targetRevision: {}
           f:syncPolicy:
             .: {}
-            f:automated: {}
             f:syncOptions: {}
         f:status:
           .: {}
@@ -40,11 +83,21 @@ metadata:
             .: {}
             f:comparedTo:
               .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
+              f:destination:
+                .: {}
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+      manager: kubectl-client-side-apply
       operation: Update
-      time: '2023-06-29T21:24:13Z'
+      time: '2023-07-04T19:30:30Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -64,11 +117,14 @@ metadata:
               f:retry: {}
               f:sync:
                 .: {}
+                f:prune: {}
                 f:revision: {}
                 f:syncOptions: {}
                 f:syncStrategy:
                   .: {}
-                  f:hook: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -90,88 +146,23 @@ metadata:
             f:externalURLs: {}
             f:images: {}
           f:sync:
-            f:comparedTo:
-              f:destination:
-                f:namespace: {}
-                f:server: {}
-              f:source:
-                f:chart: {}
-                f:helm:
-                  .: {}
-                  f:parameters: {}
-                f:repoURL: {}
-                f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-06-29T23:24:52Z'
+      time: '2023-08-03T20:31:40Z'
   name: minio
   namespace: argocd
-  resourceVersion: '16369829'
-  uid: 76b77446-b2a4-4e06-b90c-dabe25bdda8b
+  resourceVersion: '4519713'
+  uid: 3f14b300-3bba-4f4e-bc9d-36bbfe339d0e
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/minio
 status:
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2023-06-29T03:10:25Z'
-      deployedAt: '2023-06-29T03:10:29Z'
-      id: 0
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: global.storageClass
-              value: longhorn
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-06-29T12:50:49Z'
-      deployedAt: '2023-06-29T12:50:50Z'
-      id: 1
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: global.storageClass
-              value: longhorn
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-06-29T14:56:55Z'
-      deployedAt: '2023-06-29T14:56:59Z'
-      id: 2
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: global.storageClass
-              value: longhorn
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-06-29T20:07:32Z'
-      deployedAt: '2023-06-29T20:07:33Z'
-      id: 3
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: global.storageClass
-              value: longhorn
-            - name: apiIngress.enabled
-              value: 'true'
-            - name: apiIngress.hostname
-              value: minio.binesty.net
-            - name: apiIngress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-06-29T20:21:59Z'
-      deployedAt: '2023-06-29T20:21:59Z'
-      id: 4
+    - deployStartedAt: '2023-07-04T19:36:03Z'
+      deployedAt: '2023-07-04T19:36:09Z'
+      id: 6
       revision: 12.6.5
       source:
         chart: minio
@@ -185,9 +176,137 @@ status:
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 12.6.5
-    - deployStartedAt: '2023-06-29T21:24:13Z'
-      deployedAt: '2023-06-29T21:24:14Z'
-      id: 5
+    - deployStartedAt: '2023-07-04T19:44:34Z'
+      deployedAt: '2023-07-04T19:44:45Z'
+      id: 7
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-07-05T19:54:19Z'
+      deployedAt: '2023-07-05T19:54:35Z'
+      id: 8
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-07-05T23:19:58Z'
+      deployedAt: '2023-07-05T23:20:16Z'
+      id: 9
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-07-06T12:37:45Z'
+      deployedAt: '2023-07-06T12:37:46Z'
+      id: 10
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-07-06T12:49:03Z'
+      deployedAt: '2023-07-06T12:49:04Z'
+      id: 11
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-07-07T13:36:47Z'
+      deployedAt: '2023-07-07T13:36:48Z'
+      id: 12
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-07-07T14:37:24Z'
+      deployedAt: '2023-07-07T14:37:26Z'
+      id: 13
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-07-07T17:10:09Z'
+      deployedAt: '2023-07-07T17:10:10Z'
+      id: 14
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-08-01T13:19:29Z'
+      deployedAt: '2023-08-01T13:19:32Z'
+      id: 15
       revision: 12.6.5
       source:
         chart: minio
@@ -202,32 +321,29 @@ status:
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 12.6.5
   operationState:
-    finishedAt: '2023-06-29T21:24:14Z'
+    finishedAt: '2023-08-01T13:19:32Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
+        prune: true
         revision: 12.6.5
         syncOptions:
           - CreateNamespace=true
+          - PruneLast=true
         syncStrategy:
-          hook: {}
+          hook:
+            force: true
     phase: Succeeded
-    startedAt: '2023-06-29T21:24:13Z'
+    startedAt: '2023-08-01T13:19:29Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: >-
-            serviceaccount/minio configured. Warning: resource
-            serviceaccounts/minio is missing the
-            kubectl.kubernetes.io/last-applied-configuration annotation which is
-            required by  apply.  apply should only be used on resources created
-            declaratively by either  create --save-config or  apply. The missing
-            annotation will be patched automatically.
+          message: serviceaccount/minio unchanged
           name: minio
           namespace: minio
           status: Synced
@@ -236,12 +352,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: >-
-            secret/minio configured. Warning: resource secrets/minio is missing
-            the kubectl.kubernetes.io/last-applied-configuration annotation
-            which is required by  apply.  apply should only be used on resources
-            created declaratively by either  create --save-config or  apply. The
-            missing annotation will be patched automatically.
+          message: secret/minio configured
           name: minio
           namespace: minio
           status: Synced
@@ -250,13 +361,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: PersistentVolumeClaim
-          message: >-
-            persistentvolumeclaim/minio configured. Warning: resource
-            persistentvolumeclaims/minio is missing the
-            kubectl.kubernetes.io/last-applied-configuration annotation which is
-            required by  apply.  apply should only be used on resources created
-            declaratively by either  create --save-config or  apply. The missing
-            annotation will be patched automatically.
+          message: persistentvolumeclaim/minio created
           name: minio
           namespace: minio
           status: Synced
@@ -265,12 +370,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: >-
-            service/minio configured. Warning: resource services/minio is
-            missing the kubectl.kubernetes.io/last-applied-configuration
-            annotation which is required by  apply.  apply should only be used
-            on resources created declaratively by either  create --save-config
-            or  apply. The missing annotation will be patched automatically.
+          message: service/minio configured
           name: minio
           namespace: minio
           status: Synced
@@ -279,13 +379,7 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: >-
-            deployment.apps/minio configured. Warning: resource
-            deployments/minio is missing the
-            kubectl.kubernetes.io/last-applied-configuration annotation which is
-            required by  apply.  apply should only be used on resources created
-            declaratively by either  create --save-config or  apply. The missing
-            annotation will be patched automatically.
+          message: deployment.apps/minio configured
           name: minio
           namespace: minio
           status: Synced
@@ -294,13 +388,7 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: >-
-            ingress.networking.k8s.io/minio configured. Warning: resource
-            ingresses/minio is missing the
-            kubectl.kubernetes.io/last-applied-configuration annotation which is
-            required by  apply.  apply should only be used on resources created
-            declaratively by either  create --save-config or  apply. The missing
-            annotation will be patched automatically.
+          message: ingress.networking.k8s.io/minio unchanged
           name: minio
           namespace: minio
           status: Synced
@@ -319,7 +407,7 @@ status:
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 12.6.5
-  reconciledAt: '2023-06-29T23:24:52Z'
+  reconciledAt: '2023-08-03T20:31:40Z'
   resources:
     - health:
         status: Healthy
@@ -331,7 +419,7 @@ status:
     - kind: Secret
       name: minio
       namespace: minio
-      status: Synced
+      status: OutOfSync
       version: v1
     - health:
         status: Healthy
@@ -351,7 +439,7 @@ status:
       kind: Deployment
       name: minio
       namespace: minio
-      status: Synced
+      status: OutOfSync
       version: v1
     - group: networking.k8s.io
       health:
@@ -385,7 +473,7 @@ status:
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 12.6.5
     revision: 12.6.5
-    status: Synced
+    status: OutOfSync
 spec:
   destination:
     namespace: minio
@@ -404,6 +492,5 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 12.6.5
   syncPolicy:
-    automated: {}
     syncOptions:
       - CreateNamespace=true

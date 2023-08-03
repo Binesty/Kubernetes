@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2023-06-28T22:55:14Z'
-  generation: 476
+  creationTimestamp: '2023-07-11T18:18:12Z'
+  generation: 4636
   labels:
-    source: internal
+    source: external
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
@@ -22,12 +22,14 @@ metadata:
           f:project: {}
           f:source:
             .: {}
-            f:path: {}
+            f:chart: {}
+            f:helm:
+              .: {}
+              f:parameters: {}
             f:repoURL: {}
             f:targetRevision: {}
           f:syncPolicy:
             .: {}
-            f:automated: {}
             f:syncOptions: {}
         f:status:
           .: {}
@@ -41,7 +43,7 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2023-06-29T17:15:29Z'
+      time: '2023-08-01T13:23:06Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -57,14 +59,15 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:automated: {}
-              f:retry:
-                .: {}
-                f:limit: {}
+                f:username: {}
+              f:retry: {}
               f:sync:
                 .: {}
                 f:revision: {}
                 f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -73,99 +76,85 @@ metadata:
               f:revision: {}
               f:source:
                 .: {}
-                f:path: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
                 f:repoURL: {}
                 f:targetRevision: {}
           f:reconciledAt: {}
           f:resources: {}
           f:sourceType: {}
-          f:summary:
-            f:externalURLs: {}
-            f:images: {}
           f:sync:
             f:comparedTo:
               f:destination:
                 f:namespace: {}
                 f:server: {}
               f:source:
-                f:path: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
                 f:repoURL: {}
                 f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-06-29T23:24:52Z'
+      time: '2023-08-03T20:31:40Z'
   name: rabbitmq
   namespace: argocd
-  resourceVersion: '16369837'
-  uid: eef7e2eb-cb80-4223-9e70-1f527fcc2e01
+  resourceVersion: '4519714'
+  uid: 4ad28479-17f6-41fa-a3fa-bd3ae25ea335
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/rabbitmq
 status:
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2023-06-28T23:08:19Z'
-      deployedAt: '2023-06-28T23:08:23Z'
+    - deployStartedAt: '2023-07-11T18:19:02Z'
+      deployedAt: '2023-07-11T18:19:14Z'
       id: 0
-      revision: d1498fbbe7e5cde593b8f9345a3724b849aa0121
+      revision: 12.0.4
       source:
-        path: rabbitmq
-        repoURL: https://github.com/Binesty/Infrastructure-Kubernetes.git
-        targetRevision: HEAD
-    - deployStartedAt: '2023-06-29T12:48:53Z'
-      deployedAt: '2023-06-29T12:48:55Z'
-      id: 1
-      revision: 65398a47321b884c477ec36fb96f888679971e65
-      source:
-        path: rabbitmq
-        repoURL: https://github.com/Binesty/Infrastructure-Kubernetes.git
-        targetRevision: HEAD
-    - deployStartedAt: '2023-06-29T14:57:54Z'
-      deployedAt: '2023-06-29T14:57:56Z'
-      id: 2
-      revision: 6cca8db8c8c17e61fa0a21df3f74c302831dff58
-      source:
-        path: rabbitmq
-        repoURL: https://github.com/Binesty/Infrastructure-Kubernetes.git
-        targetRevision: HEAD
-    - deployStartedAt: '2023-06-29T17:15:29Z'
-      deployedAt: '2023-06-29T17:15:31Z'
-      id: 3
-      revision: 74c1c9e877e4a388185c3e19ffc4ceb4161ba3ed
-      source:
-        path: rabbitmq
-        repoURL: https://github.com/Binesty/Infrastructure-Kubernetes.git
-        targetRevision: HEAD
+        chart: rabbitmq
+        helm:
+          parameters:
+            - name: auth.password
+              value: user
+            - name: replicaCount
+              value: '3'
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.0.4
   operationState:
-    finishedAt: '2023-06-29T17:15:31Z'
+    finishedAt: '2023-07-11T18:19:14Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        automated: true
-      retry:
-        limit: 5
+        username: admin
+      retry: {}
       sync:
-        revision: 74c1c9e877e4a388185c3e19ffc4ceb4161ba3ed
+        revision: 12.0.4
         syncOptions:
           - CreateNamespace=true
+        syncStrategy:
+          hook: {}
     phase: Succeeded
-    startedAt: '2023-06-29T17:15:29Z'
+    startedAt: '2023-07-11T18:19:02Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: Namespace
-          message: namespace/rabbitmq unchanged
+          message: namespace/rabbitmq created
           name: rabbitmq
-          namespace: rabbitmq
+          namespace: ''
           status: Synced
-          syncPhase: Sync
+          syncPhase: PreSync
           version: v1
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/rabbitmq unchanged
+          message: serviceaccount/rabbitmq created
           name: rabbitmq
           namespace: rabbitmq
           status: Synced
@@ -174,16 +163,16 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: secret/rabbit-secret unchanged
-          name: rabbit-secret
+          message: secret/rabbitmq created
+          name: rabbitmq
           namespace: rabbitmq
           status: Synced
           syncPhase: Sync
           version: v1
         - group: ''
           hookPhase: Running
-          kind: ConfigMap
-          message: configmap/rabbitmq-config unchanged
+          kind: Secret
+          message: secret/rabbitmq-config created
           name: rabbitmq-config
           namespace: rabbitmq
           status: Synced
@@ -192,10 +181,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: Role
-          message: >-
-            role.rbac.authorization.k8s.io/rabbitmq reconciled.
-            role.rbac.authorization.k8s.io/rabbitmq unchanged
-          name: rabbitmq
+          message: "role.rbac.authorization.k8s.io/rabbitmq-endpoint-reader reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get] APIGroups:[] Resources:[endpoints] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/rabbitmq-endpoint-reader configured. Warning: resource roles/rabbitmq-endpoint-reader is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: rabbitmq-endpoint-reader
           namespace: rabbitmq
           status: Synced
           syncPhase: Sync
@@ -203,9 +190,16 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: RoleBinding
-          message: >-
-            rolebinding.rbac.authorization.k8s.io/rabbitmq reconciled.
-            rolebinding.rbac.authorization.k8s.io/rabbitmq unchanged
+          message: "rolebinding.rbac.authorization.k8s.io/rabbitmq-endpoint-reader reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:rabbitmq Namespace:}. rolebinding.rbac.authorization.k8s.io/rabbitmq-endpoint-reader configured. Warning: resource rolebindings/rabbitmq-endpoint-reader is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: rabbitmq-endpoint-reader
+          namespace: rabbitmq
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/rabbitmq created
           name: rabbitmq
           namespace: rabbitmq
           status: Synced
@@ -214,26 +208,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/rabbitmq unchanged
-          name: rabbitmq
-          namespace: rabbitmq
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: service/stream unchanged
-          name: stream
-          namespace: rabbitmq
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: service/rabbitmq-management unchanged
-          name: rabbitmq-management
+          message: service/rabbitmq-headless created
+          name: rabbitmq-headless
           namespace: rabbitmq
           status: Synced
           syncPhase: Sync
@@ -241,42 +217,35 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: statefulset.apps/rabbitmq configured
+          message: statefulset.apps/rabbitmq created
           name: rabbitmq
           namespace: rabbitmq
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: networking.k8s.io
-          hookPhase: Running
-          kind: Ingress
-          message: ingress.networking.k8s.io/rabbitmq-ingress configured
-          name: rabbitmq-ingress
-          namespace: rabbitmq
-          status: Synced
-          syncPhase: Sync
-          version: v1
-      revision: 74c1c9e877e4a388185c3e19ffc4ceb4161ba3ed
+      revision: 12.0.4
       source:
-        path: rabbitmq
-        repoURL: https://github.com/Binesty/Infrastructure-Kubernetes.git
-        targetRevision: HEAD
-  reconciledAt: '2023-06-29T23:24:52Z'
+        chart: rabbitmq
+        helm:
+          parameters:
+            - name: auth.password
+              value: user
+            - name: replicaCount
+              value: '3'
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.0.4
+  reconciledAt: '2023-08-03T20:31:40Z'
   resources:
-    - kind: ConfigMap
+    - kind: Secret
+      name: rabbitmq
+      namespace: rabbitmq
+      status: OutOfSync
+      version: v1
+    - kind: Secret
       name: rabbitmq-config
       namespace: rabbitmq
       status: Synced
       version: v1
-    - kind: Namespace
-      name: rabbitmq
-      status: Synced
-      version: v1
-    - kind: Secret
-      name: rabbit-secret
-      namespace: rabbitmq
-      status: Synced
-      version: v1
     - health:
         status: Healthy
       kind: Service
@@ -287,14 +256,7 @@ status:
     - health:
         status: Healthy
       kind: Service
-      name: rabbitmq-management
-      namespace: rabbitmq
-      status: Synced
-      version: v1
-    - health:
-        status: Healthy
-      kind: Service
-      name: stream
+      name: rabbitmq-headless
       namespace: rabbitmq
       status: Synced
       version: v1
@@ -305,61 +267,61 @@ status:
       version: v1
     - group: apps
       health:
-        message: 'partitioned roll out complete: 3 new pods have been updated...'
+        message: >-
+          statefulset rolling update complete 0 pods at revision
+          rabbitmq-66796db755...
         status: Healthy
       kind: StatefulSet
       name: rabbitmq
       namespace: rabbitmq
-      status: Synced
-      version: v1
-    - group: networking.k8s.io
-      health:
-        status: Healthy
-      kind: Ingress
-      name: rabbitmq-ingress
-      namespace: rabbitmq
-      status: Synced
+      status: OutOfSync
       version: v1
     - group: rbac.authorization.k8s.io
       kind: Role
-      name: rabbitmq
+      name: rabbitmq-endpoint-reader
       namespace: rabbitmq
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: RoleBinding
-      name: rabbitmq
+      name: rabbitmq-endpoint-reader
       namespace: rabbitmq
       status: Synced
       version: v1
-  sourceType: Kustomize
-  summary:
-    externalURLs:
-      - http://rabbitmq.binesty.net/
-    images:
-      - busybox
-      - rabbitmq:3.9-management
+  sourceType: Helm
+  summary: {}
   sync:
     comparedTo:
       destination:
         namespace: rabbitmq
         server: https://kubernetes.default.svc
       source:
-        path: rabbitmq
-        repoURL: https://github.com/Binesty/Infrastructure-Kubernetes.git
-        targetRevision: HEAD
-    revision: 74c1c9e877e4a388185c3e19ffc4ceb4161ba3ed
-    status: Synced
+        chart: rabbitmq
+        helm:
+          parameters:
+            - name: auth.password
+              value: user
+            - name: replicaCount
+              value: '3'
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.0.4
+    revision: 12.0.4
+    status: OutOfSync
 spec:
   destination:
     namespace: rabbitmq
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    path: rabbitmq
-    repoURL: https://github.com/Binesty/Infrastructure-Kubernetes.git
-    targetRevision: HEAD
+    chart: rabbitmq
+    helm:
+      parameters:
+        - name: auth.password
+          value: user
+        - name: replicaCount
+          value: '3'
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 12.0.4
   syncPolicy:
-    automated: {}
     syncOptions:
       - CreateNamespace=true
