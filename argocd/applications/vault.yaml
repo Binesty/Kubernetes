@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-07-06T02:47:14Z'
-  generation: 8397
+  generation: 8422
   labels:
     source: external
   managedFields:
@@ -43,7 +43,7 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2023-08-16T00:40:39Z'
+      time: '2023-08-16T00:52:24Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -107,34 +107,16 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-16T00:43:14Z'
+      time: '2023-08-16T00:58:27Z'
   name: vault
   namespace: argocd
-  resourceVersion: '7018623'
+  resourceVersion: '7022578'
   uid: abf5cb85-10a5-4801-a3b0-f8bc6d8a2152
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/vault
 status:
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2023-07-06T19:50:50Z'
-      deployedAt: '2023-07-06T19:50:50Z'
-      id: 7
-      revision: 0.25.0
-      source:
-        chart: vault
-        helm:
-          parameters:
-            - name: server.ingress.enabled
-              value: 'true'
-            - name: server.ingress.hosts[0].host
-              value: vault.binesty.net
-            - name: server.ingress.ingressClassName
-              value: nginx
-            - name: ui.enabled
-              value: 'true'
-        repoURL: https://helm.releases.hashicorp.com
-        targetRevision: 0.25.0
     - deployStartedAt: '2023-08-15T23:50:52Z'
       deployedAt: '2023-08-15T23:50:57Z'
       id: 8
@@ -347,8 +329,38 @@ status:
               value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.25.0
+    - deployStartedAt: '2023-08-16T00:52:24Z'
+      deployedAt: '2023-08-16T00:52:28Z'
+      id: 17
+      revision: 0.25.0
+      source:
+        chart: vault
+        helm:
+          parameters:
+            - name: server.ingress.enabled
+              value: 'true'
+            - name: server.ingress.hosts[0].host
+              value: vault.binesty.net
+            - name: server.ingress.ingressClassName
+              value: nginx
+            - name: ui.enabled
+              value: 'true'
+            - name: server.ha.config
+              value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: server.ha.raft.config
+              value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: injector.replicas
+              value: '1'
+            - name: server.standalone.config
+              value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: server.auditStorage.size
+              value: 5Gi
+            - name: server.dataStorage.size
+              value: 5Gi
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
   operationState:
-    finishedAt: '2023-08-16T00:40:43Z'
+    finishedAt: '2023-08-16T00:52:28Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
@@ -365,7 +377,7 @@ status:
           hook:
             force: true
     phase: Succeeded
-    startedAt: '2023-08-16T00:40:39Z'
+    startedAt: '2023-08-16T00:52:24Z'
     syncResult:
       resources:
         - group: ''
@@ -450,9 +462,9 @@ status:
           hookPhase: Running
           kind: Service
           message: |-
-            service "vault-internal" deleted
-            service/vault-internal replaced
-          name: vault-internal
+            service "vault-agent-injector-svc" deleted
+            service/vault-agent-injector-svc replaced
+          name: vault-agent-injector-svc
           namespace: vault
           status: Synced
           syncPhase: Sync
@@ -461,9 +473,9 @@ status:
           hookPhase: Running
           kind: Service
           message: |-
-            service "vault-agent-injector-svc" deleted
-            service/vault-agent-injector-svc replaced
-          name: vault-agent-injector-svc
+            service "vault-internal" deleted
+            service/vault-internal replaced
+          name: vault-internal
           namespace: vault
           status: Synced
           syncPhase: Sync
@@ -558,9 +570,13 @@ status:
               value: '1'
             - name: server.standalone.config
               value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: server.auditStorage.size
+              value: 5Gi
+            - name: server.dataStorage.size
+              value: 5Gi
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.25.0
-  reconciledAt: '2023-08-16T00:40:43Z'
+  reconciledAt: '2023-08-16T00:58:27Z'
   resources:
     - kind: ConfigMap
       name: vault-config
@@ -682,6 +698,10 @@ status:
               value: '1'
             - name: server.standalone.config
               value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: server.auditStorage.size
+              value: 5Gi
+            - name: server.dataStorage.size
+              value: 5Gi
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.25.0
     revision: 0.25.0
@@ -711,6 +731,10 @@ spec:
           value: '1'
         - name: server.standalone.config
           value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+        - name: server.auditStorage.size
+          value: 5Gi
+        - name: server.dataStorage.size
+          value: 5Gi
     repoURL: https://helm.releases.hashicorp.com
     targetRevision: 0.25.0
   syncPolicy:
