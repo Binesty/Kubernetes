@@ -1,3 +1,17 @@
+## Kubernetes
+
+prune images containerd
+crictl rmi --prune
+
+
+downgrade version kubernetes
+````bash
+sudo apt-get purge kubeadm kubectl kubelet
+sudo apt-get update
+sudo apt-get install kubeadm=1.25.0-00 kubectl=1.25.0-00 kubelet=1.25.0-00
+sudo apt-mark hold kubeadm kubectl kubelet
+````
+
 ## Longhorn
 
 
@@ -30,3 +44,5 @@ multipath -t
 ````
 
 Referente [longhorn](https://longhorn.io/kb/troubleshooting-volume-with-multipath/)
+
+
