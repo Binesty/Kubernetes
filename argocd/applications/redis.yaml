@@ -2,39 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-08-17T23:34:36Z'
-  generation: 23
+  generation: 25
+  labels:
+    source: external
   managedFields:
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:spec:
-          .: {}
-          f:destination:
-            .: {}
-            f:namespace: {}
-            f:server: {}
-          f:project: {}
-          f:source:
-            .: {}
-            f:chart: {}
-            f:repoURL: {}
-            f:targetRevision: {}
-          f:syncPolicy:
-            .: {}
-            f:syncOptions: {}
-        f:status:
-          .: {}
-          f:health: {}
-          f:summary: {}
-          f:sync:
-            .: {}
-            f:comparedTo:
-              .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
-      operation: Update
-      time: '2023-08-17T23:34:53Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -88,10 +59,45 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-17T23:58:17Z'
+      time: '2023-08-18T00:04:18Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-08-18T00:05:37Z'
   name: redis
   namespace: argocd
-  resourceVersion: '7395163'
+  resourceVersion: '7396904'
   uid: c2589f2e-237d-442b-808e-51d2fb60b7ad
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/redis
 status:
@@ -227,7 +233,7 @@ status:
         chart: redis
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 17.15.5
-  reconciledAt: '2023-08-17T23:58:17Z'
+  reconciledAt: '2023-08-18T00:04:17Z'
   resources:
     - kind: ConfigMap
       name: redis-configuration

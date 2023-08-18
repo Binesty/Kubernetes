@@ -2,39 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-08-10T21:57:29Z'
-  generation: 835
+  generation: 1322
+  labels:
+    source: external
   managedFields:
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:spec:
-          .: {}
-          f:destination:
-            .: {}
-            f:namespace: {}
-            f:server: {}
-          f:project: {}
-          f:source:
-            .: {}
-            f:chart: {}
-            f:repoURL: {}
-            f:targetRevision: {}
-          f:syncPolicy:
-            .: {}
-            f:syncOptions: {}
-        f:status:
-          .: {}
-          f:health: {}
-          f:summary: {}
-          f:sync:
-            .: {}
-            f:comparedTo:
-              .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
-      operation: Update
-      time: '2023-08-10T21:57:44Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -88,10 +59,45 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-16T00:43:27Z'
+      time: '2023-08-18T00:04:17Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-08-18T00:05:07Z'
   name: kubernetes-replicator
   namespace: argocd
-  resourceVersion: '7018672'
+  resourceVersion: '7396786'
   uid: e2171c86-75e3-4884-9b12-47c2b2442cd2
   selfLink: >-
     /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kubernetes-replicator
@@ -174,7 +180,7 @@ status:
         chart: kubernetes-replicator
         repoURL: https://helm.mittwald.de
         targetRevision: 2.9.1
-  reconciledAt: '2023-08-16T00:43:27Z'
+  reconciledAt: '2023-08-18T00:04:17Z'
   resources:
     - kind: ServiceAccount
       name: kubernetes-replicator
