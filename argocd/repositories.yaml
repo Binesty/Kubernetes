@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-1490605101
+  namespace: argocd
+  uid: c8607710-8f05-4afa-8a60-90522db335dc
+  resourceVersion: '3913133'
+  creationTimestamp: '2023-07-31T18:09:34Z'
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  annotations:
+    managed-by: argocd.argoproj.io
+  managedFields:
+    - manager: argocd-server
+      operation: Update
+      apiVersion: v1
+  selfLink: /api/v1/namespaces/argocd/secrets/repo-1490605101
+data:
+  password: Z2hwX3dHWUFYSU1Xbzk0Nmx0ektXZ1RLelZLVUQ5NlNBODAybHdPQg==
+  project: YXBp
+  type: Z2l0
+  url: aHR0cHM6Ly9naXRodWIuY29tL0JpbmVzdHkvQVBJLUNhdGFsb2dzLmdpdA==
+  username: YXJnb2NkLWFjY2Vzcw==
+type: Opaque
+--- 
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-2664127192
+  namespace: argocd
+  uid: c8c92784-f176-4de1-be97-f70e99d92b34
+  resourceVersion: '11874'
+  creationTimestamp: '2023-07-04T19:34:05Z'
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  annotations:
+    managed-by: argocd.argoproj.io
+  managedFields:
+    - manager: argocd-server
+      operation: Update
+      apiVersion: v1
+  selfLink: /api/v1/namespaces/argocd/secrets/repo-2664127192
+data:
+  password: Z2hwX3dHWUFYSU1Xbzk0Nmx0ektXZ1RLelZLVUQ5NlNBODAybHdPQg==
+  type: Z2l0
+  url: aHR0cHM6Ly9naXRodWIuY29tL0JpbmVzdHkvSW5mcmFzdHJ1Y3R1cmUtS3ViZXJuZXRlcy5naXQ=
+  username: YXJnb2NkLWFjY2Vzcw==
+type: Opaque
+--- 
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-3290367199
+  namespace: argocd
+  uid: 9d6e5a19-889b-4eb3-9eb7-16037109a22a
+  resourceVersion: '7610023'
+  creationTimestamp: '2023-08-18T20:26:31Z'
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  annotations:
+    managed-by: argocd.argoproj.io
+  managedFields:
+    - manager: argocd-server
+      operation: Update
+      apiVersion: v1
+  selfLink: /api/v1/namespaces/argocd/secrets/repo-3290367199
+data:
+  password: Z2hwX3dHWUFYSU1Xbzk0Nmx0ektXZ1RLelZLVUQ5NlNBODAybHdPQg==
+  project: bWljcm9zZXJ2aWNlcw==
+  type: Z2l0
+  url: aHR0cHM6Ly9naXRodWIuY29tL0JpbmVzdHkvTWljcm9zZXJ2aWNlcy1BbmFseXNpcy5naXQ=
+  username: YXJnb2NkLWFjY2Vzcw==
+type: Opaque
+
+

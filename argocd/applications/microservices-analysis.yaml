@@ -1,0 +1,186 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2023-08-18T20:56:26Z'
+  generation: 123
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-08-18T20:56:26Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2023-08-19T02:15:41Z'
+  name: microservices-analysis
+  namespace: argocd
+  resourceVersion: '7696535'
+  uid: a6296e94-cda3-4745-83ef-57f1e94abc83
+  selfLink: >-
+    /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/microservices-analysis
+status:
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2023-08-18T20:56:27Z'
+      deployedAt: '2023-08-18T20:56:30Z'
+      id: 0
+      revision: 030e9c96622e9a1efe1392d783ba8ab630a04de3
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-08-18T20:59:54Z'
+      deployedAt: '2023-08-18T20:59:54Z'
+      id: 1
+      revision: 317550c39ca8c4c1bcea62edd1bb3aa881332d05
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: HEAD
+  operationState:
+    finishedAt: '2023-08-18T20:59:54Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: 317550c39ca8c4c1bcea62edd1bb3aa881332d05
+        syncOptions:
+          - CreateNamespace=true
+    phase: Succeeded
+    startedAt: '2023-08-18T20:59:54Z'
+    syncResult:
+      resources:
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/microservices-analysis configured
+          name: microservices-analysis
+          namespace: workspace
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 317550c39ca8c4c1bcea62edd1bb3aa881332d05
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: HEAD
+  reconciledAt: '2023-08-19T02:15:41Z'
+  resources:
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: microservices-analysis
+      namespace: workspace
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary:
+    images:
+      - >-
+        binesty.azurecr.io/microservices-analysis:a7cbabf8a47224e79bd743bc5c3d8e1d65977c1a
+  sync:
+    comparedTo:
+      destination:
+        namespace: workspace
+        server: https://kubernetes.default.svc
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: HEAD
+    revision: 317550c39ca8c4c1bcea62edd1bb3aa881332d05
+    status: Synced
+spec:
+  destination:
+    namespace: workspace
+    server: https://kubernetes.default.svc
+  project: microservices
+  source:
+    path: kubernetes
+    repoURL: https://github.com/Binesty/Microservices-Analysis.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
