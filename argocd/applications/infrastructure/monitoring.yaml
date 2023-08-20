@@ -1,0 +1,792 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2023-08-20T22:06:54Z'
+  generation: 3
+  labels:
+    source: external
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-08-20T22:07:58Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2023-08-20T22:11:06Z'
+  name: monitoring
+  namespace: argocd
+  resourceVersion: '7915104'
+  uid: 37143c97-98f0-48ad-bc32-6e2f84f14b57
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/monitoring
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  reconciledAt: '2023-08-20T22:11:03Z'
+  resources:
+    - kind: ConfigMap
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-grafana-config-dashboards
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-alertmanager-overview
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-apiserver
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-cluster-total
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-controller-manager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-etcd
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-grafana-datasource
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-grafana-overview
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-coredns
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-resources-cluster
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-resources-multicluster
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-resources-namespace
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-resources-node
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-resources-pod
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-resources-workload
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-k8s-resources-workloads-namespace
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-kubelet
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-namespace-by-pod
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-namespace-by-workload
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-node-cluster-rsrc-use
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-node-rsrc-use
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-nodes
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-nodes-darwin
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-persistentvolumesusage
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-pod-total
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-prometheus
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-proxy
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-scheduler
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: monitoring-kube-prometheus-workload-total
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: alertmanager-monitoring-kube-prometheus-alertmanager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-coredns
+      namespace: kube-system
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-kube-controller-manager
+      namespace: kube-system
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-kube-etcd
+      namespace: kube-system
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-kube-proxy
+      namespace: kube-system
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-kube-scheduler
+      namespace: kube-system
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-alertmanager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-operator
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-prometheus-prometheus
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-kube-state-metrics
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: monitoring-prometheus-node-exporter
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: monitoring-kube-prometheus-alertmanager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: monitoring-kube-prometheus-operator
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: monitoring-kube-prometheus-prometheus
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: monitoring-kube-state-metrics
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: monitoring-prometheus-node-exporter
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      name: monitoring-kube-prometheus-admission
+      status: Synced
+      version: v1
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: monitoring-kube-prometheus-admission
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: alertmanagerconfigs.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: alertmanagers.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: podmonitors.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: probes.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: prometheusagents.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: prometheuses.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: prometheusrules.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: scrapeconfigs.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: servicemonitors.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: thanosrulers.monitoring.coreos.com
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: DaemonSet
+      name: monitoring-prometheus-node-exporter
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: monitoring-kube-prometheus-operator
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: monitoring-kube-state-metrics
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: Alertmanager
+      name: monitoring-kube-prometheus-alertmanager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      health:
+        message: All instances are available
+        status: Healthy
+      kind: Prometheus
+      name: monitoring-kube-prometheus-prometheus
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-alertmanager.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-config-reloaders
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-etcd
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-general.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-k8s.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-apiserver-availability.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-apiserver-burnrate.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-apiserver-histogram.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-apiserver-slos
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-prometheus-general.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-prometheus-node-recording.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-scheduler.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kube-state-metrics
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubelet.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-apps
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-resources
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-storage
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-system
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-system-apiserver
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-system-controller-manager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-system-kube-proxy
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-system-kubelet
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-kubernetes-system-scheduler
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-node-exporter
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-node-exporter.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-node-network
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-node.rules
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-prometheus
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+      name: monitoring-kube-prometheus-prometheus-operator
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-alertmanager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-apiserver
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-coredns
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-kube-controller-manager
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-kube-etcd
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-kube-proxy
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-kube-scheduler
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-kubelet
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-operator
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-prometheus-prometheus
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-kube-state-metrics
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      name: monitoring-prometheus-node-exporter
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: monitoring-grafana-clusterrole
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: monitoring-kube-prometheus-operator
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: monitoring-kube-prometheus-prometheus
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: monitoring-kube-state-metrics
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: monitoring-grafana-clusterrolebinding
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: monitoring-kube-prometheus-operator
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: monitoring-kube-prometheus-prometheus
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: monitoring-kube-state-metrics
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: monitoring-grafana
+      namespace: monitoring
+      status: Synced
+      version: v1
+  sourceType: Helm
+  summary:
+    images:
+      - docker.io/grafana/grafana:10.0.3
+      - quay.io/kiwigrid/k8s-sidecar:1.24.6
+      - quay.io/prometheus-operator/prometheus-config-reloader:v0.66.0
+      - quay.io/prometheus-operator/prometheus-operator:v0.66.0
+      - quay.io/prometheus/alertmanager:v0.25.0
+      - quay.io/prometheus/node-exporter:v1.6.0
+      - quay.io/prometheus/prometheus:v2.45.0
+      - registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.9.2
+  sync:
+    comparedTo:
+      destination:
+        namespace: monitoring
+        server: https://kubernetes.default.svc
+      source:
+        chart: kube-prometheus-stack
+        repoURL: https://prometheus-community.github.io/helm-charts
+        targetRevision: 48.3.1
+    revision: 48.3.1
+    status: Synced
+spec:
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 48.3.1
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
