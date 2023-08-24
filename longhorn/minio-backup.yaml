@@ -5,6 +5,7 @@ metadata:
   namespace: longhorn-system
 type: Opaque
 data:
-  AWS_ACCESS_KEY_ID: RzByNEgwY1RDbGtWdE5ZS2pFNjY=
-  AWS_SECRET_ACCESS_KEY: U1FSaGFQb3NvQ2FNYTdLaUFvNmFMSG1ZcVNLMERoQ2xjenQ1eDRPMg==
-  AWS_ENDPOINT: aHR0cDovL21pbmlvLmJpbmVzdHkubmV0Lw==  
+  AWS_ACCESS_KEY_ID: YmFja3Vwcy11c2Vy
+  AWS_SECRET_ACCESS_KEY: ZWN5dUtMclJBYg==
+  AWS_ENDPOINTS: aHR0cDovL21pbmlvLm1pbmlvLnN2Yy5jbHVzdGVyLmxvY2FsOjkwMDA=
+  #AWS_CERT: your base64 encoded custom CA certificate goes here
