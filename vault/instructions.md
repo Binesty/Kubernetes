@@ -106,3 +106,20 @@ path "secret/*" {
 }
 
 ````
+
+# Auto unseal with azure key vault
+
+configuration on deploy vault to connect with azure to generate keys on the azure key vault on initialize vault
+vault hashicorp retrieve keys from azure key vault to auto unseal
+
+key name create on azure: vault-hashicorp-kubernetes-unseal-key
+
+Parameters on helm setup vault-hashicorp HA
+|  |  |
+|--|--|
+| tenant-id | Key Vault’s Directory ID |
+| client-id | Service Principal’s Application ID |
+| client-secret | Service Principal’s generated secret (the one that is not retrievable) |
+| vault-name | Name of Azure Key Vault instance  |
+| key_name | Name of generated key on Azure Key Vault |
+| subscription | ID of the Azure Subscription |
