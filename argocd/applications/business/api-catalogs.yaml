@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-07-31T18:10:17Z'
-  generation: 1000
+  generation: 8227
   labels:
     source: internal
   managedFields:
@@ -41,11 +41,12 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2023-07-31T20:39:28Z'
+      time: '2023-08-29T03:06:10Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
+          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -95,82 +96,99 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-03T20:25:40Z'
+      time: '2023-08-29T03:09:51Z'
   name: api-catalogs
   namespace: argocd
-  resourceVersion: '4518323'
+  resourceVersion: '9498059'
   uid: 365ef184-5cae-47a6-85d2-a87129fee93b
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/api-catalogs
 status:
+  controllerNamespace: argocd
   health:
-    status: Healthy
+    status: Progressing
   history:
-    - deployStartedAt: '2023-07-31T18:11:10Z'
-      deployedAt: '2023-07-31T18:11:13Z'
-      id: 0
-      revision: 13e9c21dbd928308f0e93a39488fea053f27cfd0
+    - deployStartedAt: '2023-08-21T19:26:49Z'
+      deployedAt: '2023-08-21T19:26:59Z'
+      id: 36
+      revision: 759fbcce8d399c4fbee1b167a47477ab6cf02450
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-07-31T18:36:53Z'
-      deployedAt: '2023-07-31T18:36:54Z'
-      id: 1
-      revision: 7e74d4ab362e069f1cbc6c9aadacb7c4259aa45a
+    - deployStartedAt: '2023-08-21T19:52:35Z'
+      deployedAt: '2023-08-21T19:52:36Z'
+      id: 37
+      revision: 976a927740ba73370b78098b0eb12d9a94c7446d
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-07-31T18:56:44Z'
-      deployedAt: '2023-07-31T18:56:46Z'
-      id: 2
-      revision: 3f8a566cdddce6b3be5304c0c8b8ba9f02fa58c3
+    - deployStartedAt: '2023-08-22T01:07:17Z'
+      deployedAt: '2023-08-22T01:07:19Z'
+      id: 38
+      revision: 36a18e9903ef7cf02e327dbc4f567a45329db16c
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-07-31T19:21:26Z'
-      deployedAt: '2023-07-31T19:21:29Z'
-      id: 3
-      revision: 8f9eb1612b313f5a7c6d1dc1cd02d79d0ce378a7
+    - deployStartedAt: '2023-08-22T01:19:43Z'
+      deployedAt: '2023-08-22T01:19:44Z'
+      id: 39
+      revision: 7681154df75a435984eedb020d4edc55b1b85071
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-07-31T20:39:30Z'
-      deployedAt: '2023-07-31T20:39:31Z'
-      id: 4
-      revision: c62d6d23fcd6ca6a46b9eca6189bd99a8505c2c2
+    - deployStartedAt: '2023-08-22T23:16:45Z'
+      deployedAt: '2023-08-22T23:16:46Z'
+      id: 40
+      revision: d9ebfad6c5335fc5826efaecc996f77db965e872
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-07-31T21:20:39Z'
-      deployedAt: '2023-07-31T21:20:40Z'
-      id: 5
-      revision: 62ec907a04438772c6e27f40087cc6bd97b521f2
+    - deployStartedAt: '2023-08-22T23:17:26Z'
+      deployedAt: '2023-08-22T23:17:27Z'
+      id: 41
+      revision: 20aa3af7df103a7af6f1db55e50d5c3c62524386
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-08-02T17:41:30Z'
-      deployedAt: '2023-08-02T17:41:33Z'
-      id: 6
-      revision: 940822cc7bfa15b5f1f294371f6b098abeed01d5
+    - deployStartedAt: '2023-08-22T23:43:11Z'
+      deployedAt: '2023-08-22T23:43:14Z'
+      id: 42
+      revision: 20aa3af7df103a7af6f1db55e50d5c3c62524386
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-08-03T17:13:43Z'
-      deployedAt: '2023-08-03T17:13:43Z'
-      id: 7
-      revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+    - deployStartedAt: '2023-08-28T21:59:47Z'
+      deployedAt: '2023-08-28T21:59:49Z'
+      id: 43
+      revision: 98c072d88cfda5b40e00d88d64e0edb2469edd4c
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
-        targetRevision: HEAD
+        targetRevision: development
+    - deployStartedAt: '2023-08-29T02:46:02Z'
+      deployedAt: '2023-08-29T02:46:03Z'
+      id: 44
+      revision: c0680e885fa416a9bd21fc8e091db320b0b574c0
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: development
+    - deployStartedAt: '2023-08-29T03:06:12Z'
+      deployedAt: '2023-08-29T03:06:13Z'
+      id: 45
+      revision: a18e13f9e63569e4213c625ee183f8d69cab0cb0
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: development
   operationState:
-    finishedAt: '2023-08-03T17:13:44Z'
+    finishedAt: '2023-08-29T03:06:13Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
@@ -178,11 +196,11 @@ status:
       retry:
         limit: 5
       sync:
-        revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+        revision: a18e13f9e63569e4213c625ee183f8d69cab0cb0
         syncOptions:
           - CreateNamespace=true
     phase: Succeeded
-    startedAt: '2023-08-03T17:13:43Z'
+    startedAt: '2023-08-29T03:06:12Z'
     syncResult:
       resources:
         - group: ''
@@ -190,7 +208,7 @@ status:
           kind: Service
           message: service/api-catalogs-service unchanged
           name: api-catalogs-service
-          namespace: workspace
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1
@@ -199,7 +217,7 @@ status:
           kind: Deployment
           message: deployment.apps/api-catalogs configured
           name: api-catalogs
-          namespace: workspace
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1
@@ -208,38 +226,71 @@ status:
           kind: Ingress
           message: ingress.networking.k8s.io/api-catalogs-ingress unchanged
           name: api-catalogs-ingress
-          namespace: workspace
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+        - group: keda.sh
+          hookPhase: Running
+          kind: ScaledObject
+          message: scaledobject.keda.sh/scaled-cpu-api-catalogs unchanged
+          name: scaled-cpu-api-catalogs
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+        - group: keda.sh
+          hookPhase: Running
+          kind: ScaledObject
+          message: scaledobject.keda.sh/scaled-memory-api-catalogs unchanged
+          name: scaled-memory-api-catalogs
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1alpha1
+      revision: a18e13f9e63569e4213c625ee183f8d69cab0cb0
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
-        targetRevision: HEAD
-  reconciledAt: '2023-08-03T20:25:40Z'
+        targetRevision: development
+  reconciledAt: '2023-08-29T03:09:48Z'
   resources:
     - health:
         status: Healthy
       kind: Service
       name: api-catalogs-service
-      namespace: workspace
+      namespace: business
       status: Synced
       version: v1
     - group: apps
       health:
-        status: Healthy
+        message: >-
+          Waiting for rollout to finish: 0 of 1 updated replicas are
+          available...
+        status: Progressing
       kind: Deployment
       name: api-catalogs
-      namespace: workspace
+      namespace: business
       status: Synced
       version: v1
+    - group: keda.sh
+      kind: ScaledObject
+      name: scaled-cpu-api-catalogs
+      namespace: business
+      status: Synced
+      version: v1alpha1
+    - group: keda.sh
+      kind: ScaledObject
+      name: scaled-memory-api-catalogs
+      namespace: business
+      status: Synced
+      version: v1alpha1
     - group: networking.k8s.io
       health:
         status: Healthy
       kind: Ingress
       name: api-catalogs-ingress
-      namespace: workspace
+      namespace: business
       status: Synced
       version: v1
   sourceType: Kustomize
@@ -247,27 +298,27 @@ status:
     externalURLs:
       - http://api-catalogs.binesty.net/
     images:
-      - binesty.azurecr.io/api-catalogs:26c79b0baa614558ca3ebb3c0d66defb6a5e1676
+      - binesty.azurecr.io/api-catalogs:0.2.0-alpha.4
   sync:
     comparedTo:
       destination:
-        namespace: workspace
+        namespace: business
         server: https://kubernetes.default.svc
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
-        targetRevision: HEAD
-    revision: ab1cdfe43d02398aeb7352f572fdec6ebb8342fa
+        targetRevision: development
+    revision: a18e13f9e63569e4213c625ee183f8d69cab0cb0
     status: Synced
 spec:
   destination:
-    namespace: workspace
+    namespace: business
     server: https://kubernetes.default.svc
   project: api
   source:
     path: kubernetes
     repoURL: https://github.com/Binesty/API-Catalogs.git
-    targetRevision: HEAD
+    targetRevision: development
   syncPolicy:
     automated: {}
     syncOptions:

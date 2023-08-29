@@ -2,10 +2,46 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-08-18T20:56:26Z'
-  generation: 507
+  generation: 4376
   labels:
     source: internal
   managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-08-29T02:45:46Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -44,6 +80,8 @@ metadata:
           f:reconciledAt: {}
           f:resources: {}
           f:sourceType: {}
+          f:summary:
+            f:images: {}
           f:sync:
             f:comparedTo:
               f:destination:
@@ -57,104 +95,100 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-20T22:16:17Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            .: {}
-            f:source: {}
-        f:spec:
-          .: {}
-          f:destination:
-            .: {}
-            f:namespace: {}
-            f:server: {}
-          f:project: {}
-          f:source:
-            .: {}
-            f:path: {}
-            f:repoURL: {}
-            f:targetRevision: {}
-          f:syncPolicy:
-            .: {}
-            f:automated: {}
-            f:syncOptions: {}
-        f:status:
-          .: {}
-          f:health: {}
-          f:summary: {}
-          f:sync:
-            .: {}
-            f:comparedTo:
-              .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
-      operation: Update
-      time: '2023-08-20T22:18:04Z'
+      time: '2023-08-29T03:10:08Z'
   name: microservices-analysis
   namespace: argocd
-  resourceVersion: '7916792'
+  resourceVersion: '9498151'
   uid: a6296e94-cda3-4745-83ef-57f1e94abc83
   selfLink: >-
     /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/microservices-analysis
 status:
   controllerNamespace: argocd
   health:
-    status: Healthy
+    status: Progressing
   history:
-    - deployStartedAt: '2023-08-18T20:56:27Z'
-      deployedAt: '2023-08-18T20:56:30Z'
-      id: 0
-      revision: 030e9c96622e9a1efe1392d783ba8ab630a04de3
+    - deployStartedAt: '2023-08-27T14:30:35Z'
+      deployedAt: '2023-08-27T14:30:38Z'
+      id: 18
+      revision: 13387548ccfe476339f9ca719185e9099ab9ff22
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-08-18T20:59:54Z'
-      deployedAt: '2023-08-18T20:59:54Z'
-      id: 1
-      revision: 317550c39ca8c4c1bcea62edd1bb3aa881332d05
+    - deployStartedAt: '2023-08-27T15:15:23Z'
+      deployedAt: '2023-08-27T15:15:25Z'
+      id: 19
+      revision: e8dd98cbc047143829071c5a61253644cef42c1a
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-08-19T02:57:43Z'
-      deployedAt: '2023-08-19T02:57:43Z'
-      id: 2
-      revision: f41f1a56d17412a12e0b04fc177a0f01311e04f7
+    - deployStartedAt: '2023-08-27T15:40:34Z'
+      deployedAt: '2023-08-27T15:40:37Z'
+      id: 20
+      revision: 8206e923508579570ec35017aaee4ee89c2753e1
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-08-19T13:15:58Z'
-      deployedAt: '2023-08-19T13:15:59Z'
-      id: 3
-      revision: be8562622f56e76dffee7c302e64a022c8afd8d8
+    - deployStartedAt: '2023-08-27T15:43:42Z'
+      deployedAt: '2023-08-27T15:43:45Z'
+      id: 21
+      revision: ddd0d01d650913918b5d8f0efcaadfbfcb103630
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-08-19T14:27:58Z'
-      deployedAt: '2023-08-19T14:27:59Z'
-      id: 4
-      revision: 58116d9c743ac1a43c17beb878fcc3e3a19676ca
+    - deployStartedAt: '2023-08-28T15:19:50Z'
+      deployedAt: '2023-08-28T15:19:51Z'
+      id: 22
+      revision: 5e34632ba2deac0620ba4e2d61bf8c96c6304e74
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
         targetRevision: HEAD
-    - deployStartedAt: '2023-08-19T18:09:59Z'
-      deployedAt: '2023-08-19T18:10:00Z'
-      id: 5
-      revision: 612adc346829f1492575e43ed8ae560de8942282
+    - deployStartedAt: '2023-08-28T15:44:11Z'
+      deployedAt: '2023-08-28T15:44:12Z'
+      id: 23
+      revision: 6f5a9c1107511faf168909f066ac82cc40c9b3f2
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
         targetRevision: HEAD
+    - deployStartedAt: '2023-08-28T16:20:35Z'
+      deployedAt: '2023-08-28T16:20:36Z'
+      id: 24
+      revision: 6d32717f498e108b0f58e6c99c663db1706c6193
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-08-28T17:15:31Z'
+      deployedAt: '2023-08-28T17:15:32Z'
+      id: 25
+      revision: c42e70a7e4a71b8e12deebda8708d082724fd8bb
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: HEAD
+    - deployStartedAt: '2023-08-28T23:11:31Z'
+      deployedAt: '2023-08-28T23:11:33Z'
+      id: 26
+      revision: bdda4a75d1dfa2378e52e35238f05296f2176671
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: development
+    - deployStartedAt: '2023-08-29T02:45:46Z'
+      deployedAt: '2023-08-29T02:45:48Z'
+      id: 27
+      revision: d2e6d239c0de6fc34e42327957f57f39bea4d2ff
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/Microservices-Analysis.git
+        targetRevision: development
   operationState:
-    finishedAt: '2023-08-19T18:10:00Z'
+    finishedAt: '2023-08-29T02:45:48Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
@@ -162,11 +196,11 @@ status:
       retry:
         limit: 5
       sync:
-        revision: 612adc346829f1492575e43ed8ae560de8942282
+        revision: d2e6d239c0de6fc34e42327957f57f39bea4d2ff
         syncOptions:
           - CreateNamespace=true
     phase: Succeeded
-    startedAt: '2023-08-19T18:09:59Z'
+    startedAt: '2023-08-29T02:45:46Z'
     syncResult:
       resources:
         - group: apps
@@ -174,16 +208,18 @@ status:
           kind: Deployment
           message: deployment.apps/microservices-analysis configured
           name: microservices-analysis
-          namespace: workspace
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1
         - group: keda.sh
           hookPhase: Running
           kind: ScaledObject
-          message: scaledobject.keda.sh/scaler-microservices-analysis created
-          name: scaler-microservices-analysis
-          namespace: workspace
+          message: >-
+            scaledobject.keda.sh/scaled-messages-broker-microservices-analysis
+            unchanged
+          name: scaled-messages-broker-microservices-analysis
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1alpha1
@@ -191,10 +227,10 @@ status:
           hookPhase: Running
           kind: ExternalSecret
           message: >-
-            externalsecret.external-secrets.io/scaler-microservices-analysis-external-secret
+            externalsecret.external-secrets.io/scaled-microservices-analysis-external-secret
             configured
-          name: scaler-microservices-analysis-external-secret
-          namespace: workspace
+          name: scaled-microservices-analysis-external-secret
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1beta1
@@ -202,10 +238,10 @@ status:
           hookPhase: Running
           kind: TriggerAuthentication
           message: >-
-            triggerauthentication.keda.sh/scaler-microservices-analysis-rabbitmq-connection
-            created
-          name: scaler-microservices-analysis-rabbitmq-connection
-          namespace: workspace
+            triggerauthentication.keda.sh/scaled-microservices-analysis-rabbitmq-connection
+            unchanged
+          name: scaled-microservices-analysis-rabbitmq-connection
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1alpha1
@@ -213,26 +249,29 @@ status:
           hookPhase: Running
           kind: SecretStore
           message: >-
-            secretstore.external-secrets.io/scaler-microservices-analysis-secret-store
-            configured
-          name: scaler-microservices-analysis-secret-store
-          namespace: workspace
+            secretstore.external-secrets.io/scaled-microservices-analysis-secret-store
+            unchanged
+          name: scaled-microservices-analysis-secret-store
+          namespace: business
           status: Synced
           syncPhase: Sync
           version: v1beta1
-      revision: 612adc346829f1492575e43ed8ae560de8942282
+      revision: d2e6d239c0de6fc34e42327957f57f39bea4d2ff
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
-        targetRevision: HEAD
-  reconciledAt: '2023-08-20T22:16:17Z'
+        targetRevision: development
+  reconciledAt: '2023-08-29T03:10:00Z'
   resources:
     - group: apps
       health:
-        status: Healthy
+        message: >-
+          Waiting for rollout to finish: 0 of 1 updated replicas are
+          available...
+        status: Progressing
       kind: Deployment
       name: microservices-analysis
-      namespace: workspace
+      namespace: business
       status: Synced
       version: v1
     - group: external-secrets.io
@@ -240,8 +279,8 @@ status:
         message: Secret was synced
         status: Healthy
       kind: ExternalSecret
-      name: scaler-microservices-analysis-external-secret
-      namespace: workspace
+      name: scaled-microservices-analysis-external-secret
+      namespace: business
       status: Synced
       version: v1beta1
     - group: external-secrets.io
@@ -249,44 +288,46 @@ status:
         message: store validated
         status: Healthy
       kind: SecretStore
-      name: scaler-microservices-analysis-secret-store
-      namespace: workspace
+      name: scaled-microservices-analysis-secret-store
+      namespace: business
       status: Synced
       version: v1beta1
     - group: keda.sh
       kind: ScaledObject
-      name: scaler-microservices-analysis
-      namespace: workspace
+      name: scaled-messages-broker-microservices-analysis
+      namespace: business
       status: Synced
       version: v1alpha1
     - group: keda.sh
       kind: TriggerAuthentication
-      name: scaler-microservices-analysis-rabbitmq-connection
-      namespace: workspace
+      name: scaled-microservices-analysis-rabbitmq-connection
+      namespace: business
       status: Synced
       version: v1alpha1
   sourceType: Kustomize
-  summary: {}
+  summary:
+    images:
+      - binesty.azurecr.io/microservices-analysis:0.1.0-alpha.119
   sync:
     comparedTo:
       destination:
-        namespace: workspace
+        namespace: business
         server: https://kubernetes.default.svc
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/Microservices-Analysis.git
-        targetRevision: HEAD
-    revision: 612adc346829f1492575e43ed8ae560de8942282
+        targetRevision: development
+    revision: d2e6d239c0de6fc34e42327957f57f39bea4d2ff
     status: Synced
 spec:
   destination:
-    namespace: workspace
+    namespace: business
     server: https://kubernetes.default.svc
   project: microservices
   source:
     path: kubernetes
     repoURL: https://github.com/Binesty/Microservices-Analysis.git
-    targetRevision: HEAD
+    targetRevision: development
   syncPolicy:
     automated: {}
     syncOptions:

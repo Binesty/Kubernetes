@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: business
+  labels:
+    kubernetes.io/metadata.name: business
+    use-binesty-registry: 'true'
+    use-vault: 'true'
