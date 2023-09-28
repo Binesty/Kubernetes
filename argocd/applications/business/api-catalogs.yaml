@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-07-31T18:10:17Z'
-  generation: 8227
+  generation: 11211
   labels:
     source: internal
   managedFields:
@@ -27,7 +27,6 @@ metadata:
             f:targetRevision: {}
           f:syncPolicy:
             .: {}
-            f:automated: {}
             f:syncOptions: {}
         f:status:
           .: {}
@@ -41,7 +40,7 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2023-08-29T03:06:10Z'
+      time: '2023-09-28T18:26:27Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -58,14 +57,15 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:automated: {}
-              f:retry:
-                .: {}
-                f:limit: {}
+                f:username: {}
+              f:retry: {}
               f:sync:
                 .: {}
                 f:revision: {}
                 f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -96,25 +96,17 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-29T03:09:51Z'
+      time: '2023-09-28T18:42:46Z'
   name: api-catalogs
   namespace: argocd
-  resourceVersion: '9498059'
+  resourceVersion: '12043646'
   uid: 365ef184-5cae-47a6-85d2-a87129fee93b
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/api-catalogs
 status:
   controllerNamespace: argocd
   health:
-    status: Progressing
+    status: Healthy
   history:
-    - deployStartedAt: '2023-08-21T19:26:49Z'
-      deployedAt: '2023-08-21T19:26:59Z'
-      id: 36
-      revision: 759fbcce8d399c4fbee1b167a47477ab6cf02450
-      source:
-        path: kubernetes
-        repoURL: https://github.com/Binesty/API-Catalogs.git
-        targetRevision: HEAD
     - deployStartedAt: '2023-08-21T19:52:35Z'
       deployedAt: '2023-08-21T19:52:36Z'
       id: 37
@@ -187,20 +179,29 @@ status:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: development
+    - deployStartedAt: '2023-09-28T18:26:27Z'
+      deployedAt: '2023-09-28T18:26:33Z'
+      id: 46
+      revision: b955d44272c5d68d89f569a0cb7f981043dbf571
+      source:
+        path: kubernetes
+        repoURL: https://github.com/Binesty/API-Catalogs.git
+        targetRevision: development
   operationState:
-    finishedAt: '2023-08-29T03:06:13Z'
+    finishedAt: '2023-09-28T18:26:33Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        automated: true
-      retry:
-        limit: 5
+        username: admin
+      retry: {}
       sync:
-        revision: a18e13f9e63569e4213c625ee183f8d69cab0cb0
+        revision: b955d44272c5d68d89f569a0cb7f981043dbf571
         syncOptions:
           - CreateNamespace=true
+        syncStrategy:
+          hook: {}
     phase: Succeeded
-    startedAt: '2023-08-29T03:06:12Z'
+    startedAt: '2023-09-28T18:26:27Z'
     syncResult:
       resources:
         - group: ''
@@ -224,7 +225,7 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/api-catalogs-ingress unchanged
+          message: ingress.networking.k8s.io/api-catalogs-ingress configured
           name: api-catalogs-ingress
           namespace: business
           status: Synced
@@ -233,7 +234,7 @@ status:
         - group: keda.sh
           hookPhase: Running
           kind: ScaledObject
-          message: scaledobject.keda.sh/scaled-cpu-api-catalogs unchanged
+          message: scaledobject.keda.sh/scaled-cpu-api-catalogs created
           name: scaled-cpu-api-catalogs
           namespace: business
           status: Synced
@@ -242,18 +243,18 @@ status:
         - group: keda.sh
           hookPhase: Running
           kind: ScaledObject
-          message: scaledobject.keda.sh/scaled-memory-api-catalogs unchanged
+          message: scaledobject.keda.sh/scaled-memory-api-catalogs created
           name: scaled-memory-api-catalogs
           namespace: business
           status: Synced
           syncPhase: Sync
           version: v1alpha1
-      revision: a18e13f9e63569e4213c625ee183f8d69cab0cb0
+      revision: b955d44272c5d68d89f569a0cb7f981043dbf571
       source:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: development
-  reconciledAt: '2023-08-29T03:09:48Z'
+  reconciledAt: '2023-09-28T18:42:45Z'
   resources:
     - health:
         status: Healthy
@@ -264,14 +265,11 @@ status:
       version: v1
     - group: apps
       health:
-        message: >-
-          Waiting for rollout to finish: 0 of 1 updated replicas are
-          available...
-        status: Progressing
+        status: Healthy
       kind: Deployment
       name: api-catalogs
       namespace: business
-      status: Synced
+      status: OutOfSync
       version: v1
     - group: keda.sh
       kind: ScaledObject
@@ -296,9 +294,9 @@ status:
   sourceType: Kustomize
   summary:
     externalURLs:
-      - http://api-catalogs.binesty.net/
+      - http://api-catalogs.binesty.corp/
     images:
-      - binesty.azurecr.io/api-catalogs:0.2.0-alpha.4
+      - binesty.azurecr.io/api-catalogs:0.2.0-alpha.2
   sync:
     comparedTo:
       destination:
@@ -308,8 +306,8 @@ status:
         path: kubernetes
         repoURL: https://github.com/Binesty/API-Catalogs.git
         targetRevision: development
-    revision: a18e13f9e63569e4213c625ee183f8d69cab0cb0
-    status: Synced
+    revision: 19281eea6473d000921f2a476f511d1f96a05252
+    status: OutOfSync
 spec:
   destination:
     namespace: business
@@ -320,6 +318,5 @@ spec:
     repoURL: https://github.com/Binesty/API-Catalogs.git
     targetRevision: development
   syncPolicy:
-    automated: {}
     syncOptions:
       - CreateNamespace=true

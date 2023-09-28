@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-07-06T12:36:04Z'
-  generation: 5598
+  generation: 13692
   labels:
     source: external
   managedFields:
@@ -48,6 +48,7 @@ metadata:
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
+          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -103,13 +104,14 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-03T20:28:40Z'
+      time: '2023-09-28T18:45:45Z'
   name: ingress-nginx
   namespace: argocd
-  resourceVersion: '4519018'
+  resourceVersion: '12044459'
   uid: 13d0c773-63ae-4645-904f-9ebb48b355bf
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/ingress-nginx
 status:
+  controllerNamespace: argocd
   health:
     status: Healthy
   history:
@@ -232,7 +234,7 @@ status:
               value: 'false'
         repoURL: https://kubernetes.github.io/ingress-nginx
         targetRevision: 4.7.1
-  reconciledAt: '2023-08-03T20:28:40Z'
+  reconciledAt: '2023-09-28T18:45:45Z'
   resources:
     - kind: ConfigMap
       name: ingress-nginx-controller

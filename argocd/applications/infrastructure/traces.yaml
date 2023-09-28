@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2023-08-10T21:57:29Z'
-  generation: 6683
+  creationTimestamp: '2023-09-11T20:58:22Z'
+  generation: 1070
   labels:
     source: external
   managedFields:
@@ -40,7 +40,7 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2023-08-18T00:05:07Z'
+      time: '2023-09-12T12:27:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -95,48 +95,47 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-09-28T18:45:45Z'
-  name: kubernetes-replicator
+      time: '2023-09-28T18:51:45Z'
+  name: traces
   namespace: argocd
-  resourceVersion: '12044461'
-  uid: e2171c86-75e3-4884-9b12-47c2b2442cd2
-  selfLink: >-
-    /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kubernetes-replicator
+  resourceVersion: '12046098'
+  uid: 85c4cff4-1e59-4e66-b88d-83a082543d71
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/traces
 status:
   controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2023-08-10T21:57:44Z'
-      deployedAt: '2023-08-10T21:57:48Z'
+    - deployStartedAt: '2023-09-11T20:58:53Z'
+      deployedAt: '2023-09-11T20:58:58Z'
       id: 0
-      revision: 2.9.1
+      revision: 1.6.1
       source:
-        chart: kubernetes-replicator
-        repoURL: https://helm.mittwald.de
-        targetRevision: 2.9.1
+        chart: tempo
+        repoURL: https://grafana.github.io/helm-charts
+        targetRevision: 1.6.1
   operationState:
-    finishedAt: '2023-08-10T21:57:48Z'
+    finishedAt: '2023-09-11T20:58:58Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        revision: 2.9.1
+        revision: 1.6.1
         syncOptions:
           - CreateNamespace=true
         syncStrategy:
           hook: {}
     phase: Succeeded
-    startedAt: '2023-08-10T21:57:44Z'
+    startedAt: '2023-09-11T20:58:53Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: Namespace
-          message: namespace/kubernetes-replicator created
-          name: kubernetes-replicator
+          message: namespace/traces created
+          name: traces
           namespace: ''
           status: Synced
           syncPhase: PreSync
@@ -144,93 +143,98 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/kubernetes-replicator created
-          name: kubernetes-replicator
-          namespace: kubernetes-replicator
+          message: serviceaccount/traces-tempo created
+          name: traces-tempo
+          namespace: traces
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: rbac.authorization.k8s.io
+        - group: ''
           hookPhase: Running
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/kubernetes-replicator reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get watch list] APIGroups:[] Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get watch list create update patch delete] APIGroups:[] Resources:[secrets configmaps serviceaccounts] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get watch list create update patch delete] APIGroups:[rbac.authorization.k8s.io] Resources:[roles rolebindings] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/kubernetes-replicator configured. Warning: resource clusterroles/kubernetes-replicator is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: kubernetes-replicator
-          namespace: kubernetes-replicator
+          kind: ConfigMap
+          message: configmap/tempo created
+          name: tempo
+          namespace: traces
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: rbac.authorization.k8s.io
+        - group: ''
           hookPhase: Running
-          kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/kubernetes-replicator reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:kubernetes-replicator Namespace:kubernetes-replicator}. clusterrolebinding.rbac.authorization.k8s.io/kubernetes-replicator configured. Warning: resource clusterrolebindings/kubernetes-replicator is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: kubernetes-replicator
-          namespace: kubernetes-replicator
+          kind: Service
+          message: service/traces-tempo created
+          name: traces-tempo
+          namespace: traces
           status: Synced
           syncPhase: Sync
           version: v1
         - group: apps
           hookPhase: Running
-          kind: Deployment
-          message: deployment.apps/kubernetes-replicator created
-          name: kubernetes-replicator
-          namespace: kubernetes-replicator
+          kind: StatefulSet
+          message: statefulset.apps/traces-tempo created
+          name: traces-tempo
+          namespace: traces
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 2.9.1
+      revision: 1.6.1
       source:
-        chart: kubernetes-replicator
-        repoURL: https://helm.mittwald.de
-        targetRevision: 2.9.1
-  reconciledAt: '2023-09-28T18:45:45Z'
+        chart: tempo
+        repoURL: https://grafana.github.io/helm-charts
+        targetRevision: 1.6.1
+  reconciledAt: '2023-09-28T18:51:45Z'
   resources:
+    - kind: ConfigMap
+      name: tempo
+      namespace: traces
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: traces-tempo
+      namespace: traces
+      status: Synced
+      version: v1
     - kind: ServiceAccount
-      name: kubernetes-replicator
-      namespace: kubernetes-replicator
+      name: traces-tempo
+      namespace: traces
       status: Synced
       version: v1
     - group: apps
       health:
+        message: >-
+          statefulset rolling update complete 1 pods at revision
+          traces-tempo-97d7ff855...
         status: Healthy
-      kind: Deployment
-      name: kubernetes-replicator
-      namespace: kubernetes-replicator
-      status: Synced
-      version: v1
-    - group: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: kubernetes-replicator
-      status: Synced
-      version: v1
-    - group: rbac.authorization.k8s.io
-      kind: ClusterRoleBinding
-      name: kubernetes-replicator
+      kind: StatefulSet
+      name: traces-tempo
+      namespace: traces
       status: Synced
       version: v1
   sourceType: Helm
   summary:
     images:
-      - quay.io/mittwald/kubernetes-replicator:v2.9.1
+      - grafana/tempo:2.2.2
   sync:
     comparedTo:
       destination:
-        namespace: kubernetes-replicator
+        namespace: traces
         server: https://kubernetes.default.svc
       source:
-        chart: kubernetes-replicator
-        repoURL: https://helm.mittwald.de
-        targetRevision: 2.9.1
-    revision: 2.9.1
+        chart: tempo
+        repoURL: https://grafana.github.io/helm-charts
+        targetRevision: 1.6.1
+    revision: 1.6.1
     status: Synced
 spec:
   destination:
-    namespace: kubernetes-replicator
+    namespace: traces
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    chart: kubernetes-replicator
-    repoURL: https://helm.mittwald.de
-    targetRevision: 2.9.1
+    chart: tempo
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 1.6.1
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-07-06T02:47:14Z'
-  generation: 8422
+  generation: 14404
   labels:
     source: external
   managedFields:
@@ -43,11 +43,12 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2023-08-16T00:52:24Z'
+      time: '2023-09-28T18:09:16Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
+          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -63,14 +64,11 @@ metadata:
               f:retry: {}
               f:sync:
                 .: {}
-                f:prune: {}
                 f:revision: {}
                 f:syncOptions: {}
                 f:syncStrategy:
                   .: {}
-                  f:hook:
-                    .: {}
-                    f:force: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -107,36 +105,17 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-16T00:58:27Z'
+      time: '2023-09-28T18:51:45Z'
   name: vault
   namespace: argocd
-  resourceVersion: '7022578'
+  resourceVersion: '12046107'
   uid: abf5cb85-10a5-4801-a3b0-f8bc6d8a2152
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/vault
 status:
+  controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2023-08-15T23:50:52Z'
-      deployedAt: '2023-08-15T23:50:57Z'
-      id: 8
-      revision: 0.25.0
-      source:
-        chart: vault
-        helm:
-          parameters:
-            - name: server.ingress.enabled
-              value: 'true'
-            - name: server.ingress.hosts[0].host
-              value: vault.binesty.net
-            - name: server.ingress.ingressClassName
-              value: nginx
-            - name: ui.enabled
-              value: 'true'
-            - name: server.ha.config
-              value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
-        repoURL: https://helm.releases.hashicorp.com
-        targetRevision: 0.25.0
     - deployStartedAt: '2023-08-15T23:52:33Z'
       deployedAt: '2023-08-15T23:52:37Z'
       id: 9
@@ -359,196 +338,9 @@ status:
               value: 5Gi
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.25.0
-  operationState:
-    finishedAt: '2023-08-16T00:52:28Z'
-    message: successfully synced (all tasks run)
-    operation:
-      initiatedBy:
-        username: admin
-      retry: {}
-      sync:
-        prune: true
-        revision: 0.25.0
-        syncOptions:
-          - CreateNamespace=true
-          - PruneLast=true
-          - Replace=true
-        syncStrategy:
-          hook:
-            force: true
-    phase: Succeeded
-    startedAt: '2023-08-16T00:52:24Z'
-    syncResult:
-      resources:
-        - group: ''
-          hookPhase: Running
-          kind: ServiceAccount
-          message: |-
-            serviceaccount "vault-agent-injector" deleted
-            serviceaccount/vault-agent-injector replaced
-          name: vault-agent-injector
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ServiceAccount
-          message: |-
-            serviceaccount "vault" deleted
-            serviceaccount/vault replaced
-          name: vault
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ConfigMap
-          message: |-
-            configmap "vault-config" deleted
-            configmap/vault-config replaced
-          name: vault-config
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/vault-agent-injector-clusterrole
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "vault-agent-injector-clusterrole" deleted
-
-            clusterrole.rbac.authorization.k8s.io/vault-agent-injector-clusterrole
-            replaced
-          name: vault-agent-injector-clusterrole
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRoleBinding
-          message: >-
-            clusterrolebinding.rbac.authorization.k8s.io/vault-server-binding
-            reconciled. clusterrolebinding.rbac.authorization.k8s.io
-            "vault-server-binding" deleted
-
-            clusterrolebinding.rbac.authorization.k8s.io/vault-server-binding
-            replaced
-          name: vault-server-binding
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRoleBinding
-          message: >-
-            clusterrolebinding.rbac.authorization.k8s.io/vault-agent-injector-binding
-            reconciled. clusterrolebinding.rbac.authorization.k8s.io
-            "vault-agent-injector-binding" deleted
-
-            clusterrolebinding.rbac.authorization.k8s.io/vault-agent-injector-binding
-            replaced
-          name: vault-agent-injector-binding
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: |-
-            service "vault-agent-injector-svc" deleted
-            service/vault-agent-injector-svc replaced
-          name: vault-agent-injector-svc
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: |-
-            service "vault-internal" deleted
-            service/vault-internal replaced
-          name: vault-internal
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: |-
-            service "vault" deleted
-            service/vault replaced
-          name: vault
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: |-
-            service "vault-ui" deleted
-            service/vault-ui replaced
-          name: vault-ui
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apps
-          hookPhase: Running
-          kind: Deployment
-          message: |-
-            deployment.apps "vault-agent-injector" deleted
-            deployment.apps/vault-agent-injector replaced
-          name: vault-agent-injector
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apps
-          hookPhase: Running
-          kind: StatefulSet
-          message: |-
-            statefulset.apps "vault" deleted
-            statefulset.apps/vault replaced
-          name: vault
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: networking.k8s.io
-          hookPhase: Running
-          kind: Ingress
-          message: |-
-            ingress.networking.k8s.io "vault" deleted
-            ingress.networking.k8s.io/vault replaced
-          name: vault
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: admissionregistration.k8s.io
-          hookPhase: Running
-          kind: MutatingWebhookConfiguration
-          message: >-
-            mutatingwebhookconfiguration.admissionregistration.k8s.io
-            "vault-agent-injector-cfg" deleted
-
-            mutatingwebhookconfiguration.admissionregistration.k8s.io/vault-agent-injector-cfg
-            replaced
-          name: vault-agent-injector-cfg
-          namespace: vault
-          status: Synced
-          syncPhase: Sync
-          version: v1
+    - deployStartedAt: '2023-09-28T18:09:16Z'
+      deployedAt: '2023-09-28T18:09:17Z'
+      id: 18
       revision: 0.25.0
       source:
         chart: vault
@@ -557,7 +349,7 @@ status:
             - name: server.ingress.enabled
               value: 'true'
             - name: server.ingress.hosts[0].host
-              value: vault.binesty.net
+              value: vault.binesty.corp
             - name: server.ingress.ingressClassName
               value: nginx
             - name: ui.enabled
@@ -576,7 +368,269 @@ status:
               value: 5Gi
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.25.0
-  reconciledAt: '2023-08-16T00:58:27Z'
+  operationState:
+    finishedAt: '2023-09-28T18:09:18Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 0.25.0
+        syncOptions:
+          - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: '2023-09-28T18:09:16Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: >-
+            serviceaccount/vault-agent-injector configured. Warning: resource
+            serviceaccounts/vault-agent-injector is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-agent-injector
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: >-
+            serviceaccount/vault configured. Warning: resource
+            serviceaccounts/vault is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: >-
+            configmap/vault-config configured. Warning: resource
+            configmaps/vault-config is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-config
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/vault-agent-injector-clusterrole
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/vault-agent-injector-clusterrole
+            configured. Warning: resource
+            clusterroles/vault-agent-injector-clusterrole is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-agent-injector-clusterrole
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/vault-agent-injector-binding
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/vault-agent-injector-binding
+            configured. Warning: resource
+            clusterrolebindings/vault-agent-injector-binding is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-agent-injector-binding
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/vault-server-binding
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/vault-server-binding
+            configured. Warning: resource
+            clusterrolebindings/vault-server-binding is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-server-binding
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: >-
+            service/vault configured. Warning: resource services/vault is
+            missing the kubectl.kubernetes.io/last-applied-configuration
+            annotation which is required by  apply.  apply should only be used
+            on resources created declaratively by either  create --save-config
+            or  apply. The missing annotation will be patched automatically.
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: >-
+            service/vault-agent-injector-svc configured. Warning: resource
+            services/vault-agent-injector-svc is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-agent-injector-svc
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: >-
+            service/vault-ui configured. Warning: resource services/vault-ui is
+            missing the kubectl.kubernetes.io/last-applied-configuration
+            annotation which is required by  apply.  apply should only be used
+            on resources created declaratively by either  create --save-config
+            or  apply. The missing annotation will be patched automatically.
+          name: vault-ui
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: >-
+            service/vault-internal configured. Warning: resource
+            services/vault-internal is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-internal
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: >-
+            deployment.apps/vault-agent-injector configured. Warning: resource
+            deployments/vault-agent-injector is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault-agent-injector
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: >-
+            statefulset.apps/vault configured. Warning: resource
+            statefulsets/vault is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: >-
+            ingress.networking.k8s.io/vault configured. Warning: resource
+            ingresses/vault is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: vault
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: admissionregistration.k8s.io
+          hookPhase: Running
+          kind: MutatingWebhookConfiguration
+          message: >-
+            mutatingwebhookconfiguration.admissionregistration.k8s.io/vault-agent-injector-cfg
+            configured. Warning: resource
+            mutatingwebhookconfigurations/vault-agent-injector-cfg is missing
+            the kubectl.kubernetes.io/last-applied-configuration annotation
+            which is required by  apply.  apply should only be used on resources
+            created declaratively by either  create --save-config or  apply. The
+            missing annotation will be patched automatically.
+          name: vault-agent-injector-cfg
+          namespace: vault
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 0.25.0
+      source:
+        chart: vault
+        helm:
+          parameters:
+            - name: server.ingress.enabled
+              value: 'true'
+            - name: server.ingress.hosts[0].host
+              value: vault.binesty.corp
+            - name: server.ingress.ingressClassName
+              value: nginx
+            - name: ui.enabled
+              value: 'true'
+            - name: server.ha.config
+              value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: server.ha.raft.config
+              value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: injector.replicas
+              value: '1'
+            - name: server.standalone.config
+              value: '        ui = true         listener "tcp"          {           tls_disable = 1           address = "[::]:8200"           cluster_address = "[::]:8201"         }         seal "azurekeyvault"          {           tenant_id       = "d6f40208-0e69-4598-a450-1e46d6668a38"           client_id       = "560878d3-e08a-4f6b-b4c4-075d6c433e2e"           client_secret   = "ImD8Q~PTrtDXoPdD1KEMjOpteZTiXm6KLuTOubKf"           vault_name      = "binesty-key-vault"           key_name        = "vault-hashicorp-kubernetes-unseal-key"           subscription_id = "b8bdcba6-cce6-459d-a1a4-059f6b590f8e"         }         storage "raft"          {           path = "/vault/data"         }         service_registration "kubernetes" {}'
+            - name: server.auditStorage.size
+              value: 5Gi
+            - name: server.dataStorage.size
+              value: 5Gi
+        repoURL: https://helm.releases.hashicorp.com
+        targetRevision: 0.25.0
+  reconciledAt: '2023-09-28T18:51:45Z'
   resources:
     - kind: ConfigMap
       name: vault-config
@@ -624,7 +678,7 @@ status:
     - group: admissionregistration.k8s.io
       kind: MutatingWebhookConfiguration
       name: vault-agent-injector-cfg
-      status: Synced
+      status: OutOfSync
       version: v1
     - group: apps
       health:
@@ -669,7 +723,7 @@ status:
   sourceType: Helm
   summary:
     externalURLs:
-      - http://vault.binesty.net/
+      - http://vault.binesty.corp/
     images:
       - hashicorp/vault-k8s:1.2.1
       - hashicorp/vault:1.14.0
@@ -685,7 +739,7 @@ status:
             - name: server.ingress.enabled
               value: 'true'
             - name: server.ingress.hosts[0].host
-              value: vault.binesty.net
+              value: vault.binesty.corp
             - name: server.ingress.ingressClassName
               value: nginx
             - name: ui.enabled
@@ -705,7 +759,7 @@ status:
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.25.0
     revision: 0.25.0
-    status: Synced
+    status: OutOfSync
 spec:
   destination:
     namespace: vault
@@ -718,7 +772,7 @@ spec:
         - name: server.ingress.enabled
           value: 'true'
         - name: server.ingress.hosts[0].host
-          value: vault.binesty.net
+          value: vault.binesty.corp
         - name: server.ingress.ingressClassName
           value: nginx
         - name: ui.enabled

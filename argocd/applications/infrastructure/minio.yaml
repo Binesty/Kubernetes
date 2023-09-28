@@ -43,7 +43,7 @@ metadata:
       annotation will be patched
       automatically.","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"12.6.5","source":{"chart":"minio","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"minio.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}}},"reconciledAt":"2023-06-29T23:24:52Z","resources":[{"health":{"status":"Healthy"},"kind":"PersistentVolumeClaim","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"kind":"Secret","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"minio","namespace":"minio","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"externalURLs":["http://minio.binesty.net/"],"images":["docker.io/bitnami/minio:2023.6.19-debian-11-r0"]},"sync":{"comparedTo":{"destination":{"namespace":"minio","server":"https://kubernetes.default.svc"},"source":{"chart":"minio","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"minio.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"12.6.5"}},"revision":"12.6.5","status":"Synced"}}}
   creationTimestamp: '2023-07-04T19:30:30Z'
-  generation: 6155
+  generation: 14583
   labels:
     source: external
   managedFields:
@@ -67,11 +67,8 @@ metadata:
           f:source:
             .: {}
             f:chart: {}
-            f:helm:
-              .: {}
-              f:parameters: {}
+            f:helm: {}
             f:repoURL: {}
-            f:targetRevision: {}
           f:syncPolicy:
             .: {}
             f:syncOptions: {}
@@ -90,18 +87,27 @@ metadata:
               f:source:
                 .: {}
                 f:chart: {}
-                f:helm:
-                  .: {}
-                  f:parameters: {}
+                f:helm: {}
                 f:repoURL: {}
-                f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
       time: '2023-07-04T19:30:30Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:spec:
+          f:source:
+            f:helm:
+              f:parameters: {}
+            f:targetRevision: {}
+      manager: argocd-server
+      operation: Update
+      time: '2023-09-28T17:02:15Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
+          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -146,116 +152,26 @@ metadata:
             f:externalURLs: {}
             f:images: {}
           f:sync:
+            f:comparedTo:
+              f:source:
+                f:helm:
+                  f:parameters: {}
+                f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-03T20:31:40Z'
+      time: '2023-09-28T18:48:45Z'
   name: minio
   namespace: argocd
-  resourceVersion: '4519713'
+  resourceVersion: '12045275'
   uid: 3f14b300-3bba-4f4e-bc9d-36bbfe339d0e
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/minio
 status:
+  controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2023-07-04T19:36:03Z'
-      deployedAt: '2023-07-04T19:36:09Z'
-      id: 6
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-07-04T19:44:34Z'
-      deployedAt: '2023-07-04T19:44:45Z'
-      id: 7
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-07-05T19:54:19Z'
-      deployedAt: '2023-07-05T19:54:35Z'
-      id: 8
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-07-05T23:19:58Z'
-      deployedAt: '2023-07-05T23:20:16Z'
-      id: 9
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-07-06T12:37:45Z'
-      deployedAt: '2023-07-06T12:37:46Z'
-      id: 10
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    - deployStartedAt: '2023-07-06T12:49:03Z'
-      deployedAt: '2023-07-06T12:49:04Z'
-      id: 11
-      revision: 12.6.5
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
     - deployStartedAt: '2023-07-07T13:36:47Z'
       deployedAt: '2023-07-07T13:36:48Z'
       id: 12
@@ -320,8 +236,104 @@ status:
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 12.6.5
+    - deployStartedAt: '2023-08-23T23:52:05Z'
+      deployedAt: '2023-08-23T23:52:10Z'
+      id: 16
+      revision: 12.6.5
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.6.5
+    - deployStartedAt: '2023-08-24T00:09:33Z'
+      deployedAt: '2023-08-24T00:09:41Z'
+      id: 17
+      revision: 12.8.0
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.8.0
+    - deployStartedAt: '2023-08-24T01:15:32Z'
+      deployedAt: '2023-08-24T01:15:46Z'
+      id: 18
+      revision: 12.8.0
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.8.0
+    - deployStartedAt: '2023-08-24T01:53:34Z'
+      deployedAt: '2023-08-24T01:53:48Z'
+      id: 19
+      revision: 12.8.0
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.8.0
+    - deployStartedAt: '2023-09-14T21:31:17Z'
+      deployedAt: '2023-09-14T21:31:19Z'
+      id: 20
+      revision: 12.8.4
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.8.4
+    - deployStartedAt: '2023-09-28T17:02:15Z'
+      deployedAt: '2023-09-28T17:02:17Z'
+      id: 21
+      revision: 12.8.9
+      source:
+        chart: minio
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: minio.binesty.corp
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 12.8.9
   operationState:
-    finishedAt: '2023-08-01T13:19:32Z'
+    finishedAt: '2023-09-28T17:02:17Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
@@ -329,21 +341,24 @@ status:
       retry: {}
       sync:
         prune: true
-        revision: 12.6.5
+        revision: 12.8.9
         syncOptions:
           - CreateNamespace=true
           - PruneLast=true
+          - Replace=true
         syncStrategy:
           hook:
             force: true
     phase: Succeeded
-    startedAt: '2023-08-01T13:19:29Z'
+    startedAt: '2023-09-28T17:02:15Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/minio unchanged
+          message: |-
+            serviceaccount "minio" deleted
+            serviceaccount/minio replaced
           name: minio
           namespace: minio
           status: Synced
@@ -352,7 +367,9 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: secret/minio configured
+          message: |-
+            secret "minio" deleted
+            secret/minio replaced
           name: minio
           namespace: minio
           status: Synced
@@ -370,7 +387,9 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/minio configured
+          message: |-
+            service "minio" deleted
+            service/minio replaced
           name: minio
           namespace: minio
           status: Synced
@@ -379,7 +398,9 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: deployment.apps/minio configured
+          message: |-
+            deployment.apps "minio" deleted
+            deployment.apps/minio replaced
           name: minio
           namespace: minio
           status: Synced
@@ -388,13 +409,15 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/minio unchanged
+          message: |-
+            ingress.networking.k8s.io "minio" deleted
+            ingress.networking.k8s.io/minio replaced
           name: minio
           namespace: minio
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 12.6.5
+      revision: 12.8.9
       source:
         chart: minio
         helm:
@@ -402,12 +425,12 @@ status:
             - name: ingress.enabled
               value: 'true'
             - name: ingress.hostname
-              value: minio.binesty.net
+              value: minio.binesty.corp
             - name: ingress.ingressClassName
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-  reconciledAt: '2023-08-03T20:31:40Z'
+        targetRevision: 12.8.9
+  reconciledAt: '2023-09-28T18:48:45Z'
   resources:
     - health:
         status: Healthy
@@ -419,7 +442,7 @@ status:
     - kind: Secret
       name: minio
       namespace: minio
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
         status: Healthy
@@ -439,7 +462,7 @@ status:
       kind: Deployment
       name: minio
       namespace: minio
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: networking.k8s.io
       health:
@@ -452,9 +475,9 @@ status:
   sourceType: Helm
   summary:
     externalURLs:
-      - http://minio.binesty.net/
+      - http://minio.binesty.corp/
     images:
-      - docker.io/bitnami/minio:2023.6.19-debian-11-r0
+      - docker.io/bitnami/minio:2023.9.23-debian-11-r0
   sync:
     comparedTo:
       destination:
@@ -467,13 +490,13 @@ status:
             - name: ingress.enabled
               value: 'true'
             - name: ingress.hostname
-              value: minio.binesty.net
+              value: minio.binesty.corp
             - name: ingress.ingressClassName
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 12.6.5
-    revision: 12.6.5
-    status: OutOfSync
+        targetRevision: 12.8.9
+    revision: 12.8.9
+    status: Synced
 spec:
   destination:
     namespace: minio
@@ -486,11 +509,11 @@ spec:
         - name: ingress.enabled
           value: 'true'
         - name: ingress.hostname
-          value: minio.binesty.net
+          value: minio.binesty.corp
         - name: ingress.ingressClassName
           value: nginx
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 12.6.5
+    targetRevision: 12.8.9
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

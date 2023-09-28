@@ -2,64 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-08-17T23:34:36Z'
-  generation: 25
+  generation: 5909
   labels:
     source: external
   managedFields:
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:status:
-          f:health:
-            f:status: {}
-          f:history: {}
-          f:operationState:
-            .: {}
-            f:finishedAt: {}
-            f:message: {}
-            f:operation:
-              .: {}
-              f:initiatedBy:
-                .: {}
-                f:username: {}
-              f:retry: {}
-              f:sync:
-                .: {}
-                f:revision: {}
-                f:syncOptions: {}
-                f:syncStrategy:
-                  .: {}
-                  f:hook: {}
-            f:phase: {}
-            f:startedAt: {}
-            f:syncResult:
-              .: {}
-              f:resources: {}
-              f:revision: {}
-              f:source:
-                .: {}
-                f:chart: {}
-                f:repoURL: {}
-                f:targetRevision: {}
-          f:reconciledAt: {}
-          f:resources: {}
-          f:sourceType: {}
-          f:summary:
-            f:images: {}
-          f:sync:
-            f:comparedTo:
-              f:destination:
-                f:namespace: {}
-                f:server: {}
-              f:source:
-                f:chart: {}
-                f:repoURL: {}
-                f:targetRevision: {}
-            f:revision: {}
-            f:status: {}
-      manager: argocd-application-controller
-      operation: Update
-      time: '2023-08-18T00:04:18Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -94,13 +40,72 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2023-08-18T00:05:37Z'
+      time: '2023-09-14T21:27:29Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:prune: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2023-09-28T18:51:45Z'
   name: redis
   namespace: argocd
-  resourceVersion: '7396904'
+  resourceVersion: '12046105'
   uid: c2589f2e-237d-442b-808e-51d2fb60b7ad
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/redis
 status:
+  controllerNamespace: argocd
   health:
     status: Healthy
   history:
@@ -112,36 +117,73 @@ status:
         chart: redis
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 17.15.5
+    - deployStartedAt: '2023-08-23T23:50:15Z'
+      deployedAt: '2023-08-23T23:50:17Z'
+      id: 1
+      revision: 17.15.5
+      source:
+        chart: redis
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 17.15.5
+    - deployStartedAt: '2023-08-24T00:32:49Z'
+      deployedAt: '2023-08-24T00:33:02Z'
+      id: 2
+      revision: 17.15.5
+      source:
+        chart: redis
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 17.15.5
+    - deployStartedAt: '2023-08-24T01:00:26Z'
+      deployedAt: '2023-08-24T01:00:38Z'
+      id: 3
+      revision: 17.16.0
+      source:
+        chart: redis
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 17.16.0
+    - deployStartedAt: '2023-08-24T01:35:37Z'
+      deployedAt: '2023-08-24T01:35:50Z'
+      id: 4
+      revision: 17.16.0
+      source:
+        chart: redis
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 17.16.0
+    - deployStartedAt: '2023-09-14T21:27:29Z'
+      deployedAt: '2023-09-14T21:27:31Z'
+      id: 5
+      revision: 18.0.4
+      source:
+        chart: redis
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 18.0.4
   operationState:
-    finishedAt: '2023-08-17T23:34:59Z'
+    finishedAt: '2023-09-14T21:27:31Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        revision: 17.15.5
+        prune: true
+        revision: 18.0.4
         syncOptions:
           - CreateNamespace=true
+          - PruneLast=true
+          - Replace=true
         syncStrategy:
-          hook: {}
+          hook:
+            force: true
     phase: Succeeded
-    startedAt: '2023-08-17T23:34:54Z'
+    startedAt: '2023-09-14T21:27:29Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
-          kind: Namespace
-          message: namespace/redis created
-          name: redis
-          namespace: ''
-          status: Synced
-          syncPhase: PreSync
-          version: v1
-        - group: ''
-          hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/redis created
+          message: |-
+            serviceaccount "redis" deleted
+            serviceaccount/redis replaced
           name: redis
           namespace: redis
           status: Synced
@@ -150,7 +192,9 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: secret/redis created
+          message: |-
+            secret "redis" deleted
+            secret/redis replaced
           name: redis
           namespace: redis
           status: Synced
@@ -159,7 +203,9 @@ status:
         - group: ''
           hookPhase: Running
           kind: ConfigMap
-          message: configmap/redis-health created
+          message: |-
+            configmap "redis-health" deleted
+            configmap/redis-health replaced
           name: redis-health
           namespace: redis
           status: Synced
@@ -168,16 +214,9 @@ status:
         - group: ''
           hookPhase: Running
           kind: ConfigMap
-          message: configmap/redis-configuration created
-          name: redis-configuration
-          namespace: redis
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ConfigMap
-          message: configmap/redis-scripts created
+          message: |-
+            configmap "redis-scripts" deleted
+            configmap/redis-scripts replaced
           name: redis-scripts
           namespace: redis
           status: Synced
@@ -185,8 +224,32 @@ status:
           version: v1
         - group: ''
           hookPhase: Running
+          kind: ConfigMap
+          message: |-
+            configmap "redis-configuration" deleted
+            configmap/redis-configuration replaced
+          name: redis-configuration
+          namespace: redis
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
           kind: Service
-          message: service/redis-headless created
+          message: |-
+            service "redis-replicas" deleted
+            service/redis-replicas replaced
+          name: redis-replicas
+          namespace: redis
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "redis-headless" deleted
+            service/redis-headless replaced
           name: redis-headless
           namespace: redis
           status: Synced
@@ -195,16 +258,9 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/redis-replicas created
-          name: redis-replicas
-          namespace: redis
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: service/redis-master created
+          message: |-
+            service "redis-master" deleted
+            service/redis-master replaced
           name: redis-master
           namespace: redis
           status: Synced
@@ -213,7 +269,9 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: statefulset.apps/redis-master created
+          message: |-
+            statefulset.apps "redis-master" deleted
+            statefulset.apps/redis-master replaced
           name: redis-master
           namespace: redis
           status: Synced
@@ -222,18 +280,20 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: statefulset.apps/redis-replicas created
+          message: |-
+            statefulset.apps "redis-replicas" deleted
+            statefulset.apps/redis-replicas replaced
           name: redis-replicas
           namespace: redis
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 17.15.5
+      revision: 18.0.4
       source:
         chart: redis
         repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 17.15.5
-  reconciledAt: '2023-08-18T00:04:17Z'
+        targetRevision: 18.0.4
+  reconciledAt: '2023-09-28T18:51:45Z'
   resources:
     - kind: ConfigMap
       name: redis-configuration
@@ -253,7 +313,7 @@ status:
     - kind: Secret
       name: redis
       namespace: redis
-      status: Synced
+      status: OutOfSync
       version: v1
     - health:
         status: Healthy
@@ -285,28 +345,28 @@ status:
       health:
         message: >-
           statefulset rolling update complete 1 pods at revision
-          redis-master-7bf67f789b...
+          redis-master-5d8c69f69f...
         status: Healthy
       kind: StatefulSet
       name: redis-master
       namespace: redis
-      status: Synced
+      status: OutOfSync
       version: v1
     - group: apps
       health:
         message: >-
           statefulset rolling update complete 3 pods at revision
-          redis-replicas-6dc9b8c698...
+          redis-replicas-78cb75657c...
         status: Healthy
       kind: StatefulSet
       name: redis-replicas
       namespace: redis
-      status: Synced
+      status: OutOfSync
       version: v1
   sourceType: Helm
   summary:
     images:
-      - docker.io/bitnami/redis:7.2.0-debian-11-r0
+      - docker.io/bitnami/redis:7.2.1-debian-11-r0
   sync:
     comparedTo:
       destination:
@@ -315,9 +375,9 @@ status:
       source:
         chart: redis
         repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 17.15.5
-    revision: 17.15.5
-    status: Synced
+        targetRevision: 18.0.4
+    revision: 18.0.4
+    status: OutOfSync
 spec:
   destination:
     namespace: redis
@@ -326,7 +386,7 @@ spec:
   source:
     chart: redis
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 17.15.5
+    targetRevision: 18.0.4
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

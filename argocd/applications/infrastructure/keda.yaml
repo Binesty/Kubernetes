@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2023-07-20T02:15:09Z'
-  generation: 2804
+  generation: 11253
   labels:
     source: external
   managedFields:
@@ -45,6 +45,7 @@ metadata:
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
+          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -95,13 +96,14 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2023-08-03T20:28:41Z'
+      time: '2023-09-28T18:45:45Z'
   name: keda
   namespace: argocd
-  resourceVersion: '4519029'
+  resourceVersion: '12044471'
   uid: 79248f7c-99e8-4e3f-abc9-e1f51b3c522f
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keda
 status:
+  controllerNamespace: argocd
   health:
     status: Healthy
   history:
@@ -360,7 +362,7 @@ status:
         chart: keda
         repoURL: https://kedacore.github.io/charts
         targetRevision: 2.11.0
-  reconciledAt: '2023-08-03T20:28:40Z'
+  reconciledAt: '2023-09-28T18:45:45Z'
   resources:
     - health:
         status: Healthy
