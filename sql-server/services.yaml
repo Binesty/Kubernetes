@@ -4,11 +4,12 @@ metadata:
   name: sql-server-service
   namespace: databases
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     statefulset.kubernetes.io/pod-name: sql-server-0
   ports:
     - protocol: TCP
       port: 1433
       targetPort: 1433
+      nodePort: 31433
       name: tcp
