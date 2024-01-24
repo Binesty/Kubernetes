@@ -17,11 +17,11 @@ spec:
     spec:
       securityContext:
         fsGroup: 10001
+      nodeSelector:
+        node-group: management
       containers:
         - name: sql-server
           image: mcr.microsoft.com/mssql/server:2019-latest
-          nodeSelector:
-            node-group: management
           ports:
             - containerPort: 1433
               name: tcpsql
