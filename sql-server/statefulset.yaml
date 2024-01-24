@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sql-server
+  namespace: databases
+spec:
+  serviceName: "sql-server"
+  replicas: 1 
+  podManagementPolicy: Parallel
+  selector:
+    matchLabels:
+      app: sql-server
+  template:
+    metadata:
+      labels:
+        app: sql-server
+    spec:
+      securityContext:
+        fsGroup: 10001
+      containers:
+        - name: sql-server
+          image: mcr.microsoft.com/mssql/server:2019-latest
+          ports:
+            - containerPort: 1433
+              name: tcpsql
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: MSSQL_ENABLE_HADR
+              value: "1"
+            - name: MSSQL_AGENT_ENABLED
+              value: "1"
+            - name: MSSQL_SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sql-server
+                  key: MSSQL_SA_PASSWORD
+          volumeMounts:
+            - name: sql-server
+              mountPath: "/var/opt/mssql"
+  volumeClaimTemplates:
+    - metadata:
+        name: sql-server
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
