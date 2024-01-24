@@ -33,7 +33,7 @@ spec:
             - name: MSSQL_SA_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: sql-server
+                  name: secret-sql-server-credential
                   key: MSSQL_SA_PASSWORD
           volumeMounts:
             - name: sql-server
