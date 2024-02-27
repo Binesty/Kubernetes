@@ -1,0 +1,38 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: "my-user"
+spec:
+  authentication:
+    type: tls
+  authorization:
+    type: simple
+    acls:
+      - type: allow # default allow. deny is not supported (0.37.0)
+        resource:
+          type: topic
+          name: my-topic
+          patternType: prefix
+        operations:
+          - Read
+          - Write
+      - resource:
+          type: topic
+          name: my
+          patternType: prefix
+        operations:
+          - Read
+          - Write
+          - Describe
+          - Create
+        host: 127.0.0.1
+      - resource:
+          type: group
+          name: my-group
+        operations:
+          - Read
+        host: 127.0.0.1
+      - resource:
+          type: cluster
+        operations:
+          - Read

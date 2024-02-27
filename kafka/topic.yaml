@@ -1,0 +1,31 @@
+# Checar as apiversion com k api-resources | grep -i kafka
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic # TopicOperator
+metadata:
+  name: clickssite-com                  # Name of the topic
+  namespace: kafka                      # Namespace where the cluster lives
+  labels:
+    strimzi.io/cluster: kafka-cluster   # Cluster Name to create the topic
+spec:
+  partitions: 3     # Number of desired partitions
+  replicas: 2       # Number of desired replicas
+  topicName: clickssite.com
+  # config:
+  #   retention.ms: 7200000
+  #   segment.bytes: 1073741824
+---
+# Checar as apiversion com k api-resources | grep -i kafka
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic # TopicOperator
+metadata:
+  name: test-topic                  # Name of the topic
+  namespace: kafka                      # Namespace where the cluster lives
+  labels:
+    strimzi.io/cluster: teste   # Cluster Name to create the topic
+spec:
+  partitions: 3     # Number of desired partitions
+  replicas: 2       # Number of desired replicas
+  #topicName: clickssite.com
+  # config:
+  #   retention.ms: 7200000
+  #   segment.bytes: 1073741824
