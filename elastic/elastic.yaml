@@ -1,11 +1,19 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: elastic-stack
+  labels:
+    kubernetes.io/metadata.name: business    
+    use-vault: 'true'
+---
+
+apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs-backup-elastic
-  namespace: elastic-stack
+  name: nfs-backup-elastic  
 spec:
   capacity:
-    storage: 100Mi
+    storage: 1Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -30,7 +38,7 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
 ---      
 
 apiVersion: v1
@@ -578,4 +586,3 @@ spec:
             port:
               number: 80
 ---
-
