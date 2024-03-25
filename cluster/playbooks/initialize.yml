@@ -1,6 +1,7 @@
 - name: Installing NFS server
   hosts: commands
-  gather_facts: False  
+  gather_facts: False
+
   tasks:
     - name: Apply argocd projects
     command: kubectl apply -f /cluster/argocd/projects
