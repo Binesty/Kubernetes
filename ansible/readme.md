@@ -14,3 +14,8 @@ Prune Images
 ````bash
 ansible-playbook -i hosts.ini prune.yml --ask-become-pass
 ````
+
+Update Nodes
+````bash
+ansible-playbook -i hosts.ini update-nodes.yml --ask-become-pass
+````

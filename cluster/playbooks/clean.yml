@@ -1,0 +1,77 @@
+- name: Installing Kubernetes with Containerd
+  hosts: all  
+
+  tasks:
+    - name: Reset kubeadm
+      shell: kubeadm reset
+      ignore_errors: yes
+
+    - name: Remove Kubernetes packages
+      apt:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - kubeadm
+        - kubectl
+        - kubelet
+        - kubernetes-cni
+      ignore_errors: yes
+
+    - name: Remove Docker images
+      shell: docker image prune -a
+      ignore_errors: yes
+
+    - name: Restart Docker service
+      service:
+        name: docker
+        state: restarted
+      ignore_errors: yes
+
+    - name: Purge Docker packages
+      apt:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - docker-engine
+        - docker
+        - docker.io
+        - docker-ce
+        - docker-ce-cli
+        - containerd
+        - containerd.io
+        - runc
+      ignore_errors: yes
+
+    - name: Autoremove unused packages
+      apt:
+        autoremove: yes
+
+    - name: Remove Kubernetes directories and files
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - ~/.kube
+        - /etc/cni
+        - /etc/kubernetes
+        - /var/lib/dockershim
+        - /var/lib/etcd
+        - /var/lib/kubelet
+        - /var/lib/etcd2/
+        - /var/run/kubernetes
+        - /var/lib/docker
+        - /etc/docker
+        - /var/run/docker.sock
+        - /etc/apparmor.d/docker
+        - /etc/systemd/system/etcd*
+      ignore_errors: yes
+
+    - name: Remove docker group
+      group:
+        name: docker
+        state: absent
+      ignore_errors: yes
+
+    - name: Flush iptables rules
+      shell: iptables -F && iptables -X && iptables -t nat -F && iptables -t nat -X && iptables -t raw -F && iptables -t raw -X && iptables -t mangle -F && iptables -t mangle -X
+      ignore_errors: yes

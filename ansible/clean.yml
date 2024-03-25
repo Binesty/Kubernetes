@@ -1,11 +1,11 @@
----
-- name: Clear Hosts
+- name: Installing Kubernetes with Containerd
   hosts: all
   become: true
-  gather_facts: false
-
+  
   tasks:
-    - name: Verify Installation of Kubernetes Packages
+
+    ##### Remove ####  
+    - name: Verify to remove Installation of Kubernetes Packages
       shell: dpkg -s {{ item }}
       ignore_errors: true
       register: package_check
@@ -14,6 +14,7 @@
         - kubectl
         - kubelet
         - docker
+        - containerd
         - kubernetes-cni      
 
     - name: Remove Packages if Installed
@@ -22,3 +23,18 @@
         state: absent
       when: item.rc == 0
       with_items: "{{ package_check.results }}"
+
+    - name: Remove Docker apt source file
+      file:
+        path: /etc/apt/sources.list.d/docker.list
+        state: absent
+
+    - name: Remove Kubernetes source file
+      file:
+        path: /etc/apt/sources.list.d/kubernetes.list
+        state: absent
+
+    - name: Remove Kubernetes apt source file
+      file:
+        path: /etc/apt/sources.list.d/apt_kubernetes_io.list
+        state: absent   

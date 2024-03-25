@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  generation: 1
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      manager: argocd-server
+  name: applications
+  namespace: argocd
+  resourceVersion: '136989'
+  uid: d33c85d2-6dbc-4082-bdeb-9adb3ed49386
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/appprojects/applications
+spec:
+  description: applications projects

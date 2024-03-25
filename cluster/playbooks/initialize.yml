@@ -1,0 +1,12 @@
+- name: Installing NFS server
+  hosts: commands
+  gather_facts: False  
+  tasks:
+    - name: Apply argocd projects
+    command: kubectl apply -f /cluster/argocd/projects
+
+    - name: Apply argocd repositories
+    command: kubectl apply -f /cluster/argocd/repositories
+    
+    - name: Apply argocd applications
+    command: kubectl apply -f /cluster/argocd/applications

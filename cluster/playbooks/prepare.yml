@@ -1,0 +1,58 @@
+- name: Installing NFS server
+  hosts: nfs
+  gather_facts: False  
+  tasks:
+    - name: Install NFS server on master
+      apt:  
+        name: nfs-kernel-server
+        state: present  
+
+    - name: Create directory NFS
+      file:
+        path: /var/nfs
+        state: directory
+        owner: 1000
+
+    - name: Add NFS export configuration
+      blockinfile:
+        path: /etc/exports
+        block: |
+          /var/nfs    *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
+
+    - name: Enable and start NFS server service
+      systemd:
+        name: nfs-server
+        enabled: yes
+        state: started
+
+    - name: Export NFS shares
+      command: exportfs -rav
+
+    - name: Show exported NFS shares
+      command: showmount -e localhost
+
+
+
+
+- name: Installing components all hosts
+  hosts: all  
+  tasks:
+    - name: Install nano
+      apt:  
+        name: nano
+        state: present
+
+    - name: Install open-iscsi
+      apt:        
+        name: open-iscsi
+        state: present
+
+    - name: Install nfs-common
+      apt:        
+        name: nfs-common
+        state: present
+
+    - name: Install openssh-server
+      apt:
+        name: openssh-server
+        state: present  
