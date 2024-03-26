@@ -6,9 +6,9 @@
     - name: Apply argocd project manifests
       command: kubectl apply -f "{{ item }}"
       with_fileglob:
-        - "../cluster/argocd/projects/"
+        - "cluster/argocd/projects"
 
     - name: Apply argocd repositories manifests
       command: kubectl apply -f "{{ item }}"
       with_fileglob:
-        - "../cluster/argocd/repositories/"
+        - "cluster/argocd/repositories"
