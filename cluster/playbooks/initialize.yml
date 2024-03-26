@@ -6,14 +6,14 @@
     - name: Apply argocd project manifests
       command: kubectl apply -f "{{ item }}"
       with_fileglob:
-        - "./argocd/projects/*.yaml"
+        - "\argocd\projects\"
 
     - name: Apply argocd repositories manifests
       command: kubectl apply -f "{{ item }}"
       with_fileglob:
-        - "./argocd/repositories/*.yaml"
+        - "\argocd\repositories\"
 
     - name: Apply argocd applications manifests
       command: kubectl apply -f "{{ item }}"
       with_fileglob:
-        - "./argocd/applications/*.yaml"
+        - "\argocd\applications\"
