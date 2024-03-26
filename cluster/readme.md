@@ -32,7 +32,7 @@ semaphore user add --admin --login binesty --name binesty --email binesty@exampl
 ## Configure semaphore UI
 You can change configurations in page home, like languages and dark themes
 
-## Access
+## Access Hosts
 - Create SSH keys container semaphore and copy public key in the hosts from kubernetes cluster
 - In the menu semaphore set SSH Key access your hosts inventory
 - Configure Key none to access repository github kubespray
@@ -50,6 +50,8 @@ cat <<EOF > ~/.ssh/authorized_keys
 EOF
 ```
 
+## Access Git
+The same ssh key generate before add to acess readonly on private repositories git
 
 ## Repositories
 Configure repository to kubespray  

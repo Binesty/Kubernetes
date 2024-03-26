@@ -1,7 +1,14 @@
-- name: Installing NFS server
+- name: Installing argocd packages
   hosts: commands
   gather_facts: False
 
-  tasks:
+  tasks:    
+    - name: Copy local folder to remote host
+      ansible.builtin.copy:
+        src: semaphore/argocd
+        dest: /tmp/semaphore/argocd
+
     - name: Apply argocd projects manifests
-      command: kubectl apply -f "cluster/argocd/projects/"
+      command: kubectl apply -f "{{ item }}"
+      with_fileglob:
+        - "/tmp/semaphore/argocd/projects/*.yaml"

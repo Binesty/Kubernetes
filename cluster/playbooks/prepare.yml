@@ -1,3 +1,15 @@
+- name: Installing components to commands host
+  hosts: commands
+  gather_facts: False  
+  tasks:
+    - name: Install git
+      apt:  
+        name: git
+        state: present
+
+
+
+
 - name: Installing NFS server
   hosts: nfs
   gather_facts: False  
