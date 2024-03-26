@@ -8,8 +8,6 @@
         state: present
 
 
-
-
 - name: Installing NFS server
   hosts: nfs
   gather_facts: False  
@@ -44,10 +42,9 @@
       command: showmount -e localhost
 
 
-
-
 - name: Installing components all hosts
   hosts: all  
+  gather_facts: False  
   tasks:
     - name: Install nano
       apt:  
