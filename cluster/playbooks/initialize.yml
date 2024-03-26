@@ -4,6 +4,4 @@
 
   tasks:
     - name: Apply argocd projects manifests
-      command: kubectl apply -f "{{ item }}"
-      with_fileglob:
-        - "cluster/argocd/projects/*.yaml"
+      command: kubectl apply -f "cluster/argocd/projects/"
