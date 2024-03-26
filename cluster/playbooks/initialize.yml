@@ -3,11 +3,17 @@
   gather_facts: False
 
   tasks:
-    - name: Apply argocd projects
-    command: kubectl apply -f .\argocd\projects\
+    - name: Apply argocd project manifests
+      command: kubectl apply -f "{{ item }}"
+      with_fileglob:
+        - "./argocd/projects/*.yaml"
 
-    - name: Apply argocd repositories
-    command: kubectl apply -f .\argocd\repositories\
-    
-    - name: Apply argocd applications
-    command: kubectl apply -f .\argocd\applications
+    - name: Apply argocd repositories manifests
+      command: kubectl apply -f "{{ item }}"
+      with_fileglob:
+        - "./argocd/repositories/*.yaml"
+
+    - name: Apply argocd applications manifests
+      command: kubectl apply -f "{{ item }}"
+      with_fileglob:
+        - "./argocd/applications/*.yaml"
