@@ -60,8 +60,3 @@
       apt:        
         name: nfs-common
         state: present
-
-    - name: Install openssh-server
-      apt:
-        name: openssh-server
-        state: present  
