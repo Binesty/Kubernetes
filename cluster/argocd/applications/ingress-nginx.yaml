@@ -1,49 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-03-29T01:52:16Z'
-  generation: 92
+  creationTimestamp: '2024-04-02T13:37:18Z'
+  generation: 74
   labels:
     source: external
   managedFields:
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            .: {}
-            f:source: {}
-        f:spec:
-          .: {}
-          f:destination:
-            .: {}
-            f:namespace: {}
-            f:server: {}
-          f:project: {}
-          f:source:
-            .: {}
-            f:chart: {}
-            f:helm:
-              .: {}
-              f:parameters: {}
-            f:repoURL: {}
-            f:targetRevision: {}
-          f:syncPolicy:
-            .: {}
-            f:syncOptions: {}
-        f:status:
-          .: {}
-          f:health: {}
-          f:summary: {}
-          f:sync:
-            .: {}
-            f:comparedTo:
-              .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-03-29T02:09:40Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -104,51 +66,69 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-03-29T02:09:55Z'
+      time: '2024-04-02T13:41:44Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:helm:
+              .: {}
+              f:parameters: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-02T13:42:03Z'
   name: ingress-nginx
   namespace: argocd
-  resourceVersion: '16244'
-  uid: 8ab93687-2f43-4aef-b6a6-4fc19b163cba
+  resourceVersion: '51009'
+  uid: cec16820-c320-4d04-80a4-bdd983ff2fe3
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/ingress-nginx
 status:
   controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2024-03-29T01:52:30Z'
-      deployedAt: '2024-03-29T01:56:12Z'
+    - deployStartedAt: '2024-04-02T13:40:50Z'
+      deployedAt: '2024-04-02T13:41:44Z'
       id: 0
       revision: 4.10.0
       source:
         chart: ingress-nginx
-        repoURL: https://kubernetes.github.io/ingress-nginx
-        targetRevision: 4.10.0
-    - deployStartedAt: '2024-03-29T01:57:49Z'
-      deployedAt: '2024-03-29T01:58:03Z'
-      id: 1
-      revision: 4.10.0
-      source:
-        chart: ingress-nginx
         helm:
           parameters:
-            - name: controller.service.internal.loadBalancerIP
-              value: 192.168.0.30
-        repoURL: https://kubernetes.github.io/ingress-nginx
-        targetRevision: 4.10.0
-    - deployStartedAt: '2024-03-29T02:09:40Z'
-      deployedAt: '2024-03-29T02:09:54Z'
-      id: 2
-      revision: 4.10.0
-      source:
-        chart: ingress-nginx
-        helm:
-          parameters:
-            - name: controller.service.internal.loadBalancerIP
-              value: 192.168.0.30
+            - name: controller.service.loadBalancerIP
         repoURL: https://kubernetes.github.io/ingress-nginx
         targetRevision: 4.10.0
   operationState:
-    finishedAt: '2024-03-29T02:09:54Z'
+    finishedAt: '2024-04-02T13:41:44Z'
     message: successfully synced (no more tasks)
     operation:
       initiatedBy:
@@ -161,7 +141,7 @@ status:
         syncStrategy:
           hook: {}
     phase: Succeeded
-    startedAt: '2024-03-29T02:09:40Z'
+    startedAt: '2024-04-02T13:40:50Z'
     syncResult:
       resources:
         - group: ''
@@ -293,7 +273,7 @@ status:
         - group: ''
           hookPhase: Succeeded
           kind: Service
-          message: service/ingress-nginx-controller unchanged
+          message: service/ingress-nginx-controller configured
           name: ingress-nginx-controller
           namespace: ingress-nginx
           status: Synced
@@ -387,11 +367,10 @@ status:
         chart: ingress-nginx
         helm:
           parameters:
-            - name: controller.service.internal.loadBalancerIP
-              value: 192.168.0.30
+            - name: controller.service.loadBalancerIP
         repoURL: https://kubernetes.github.io/ingress-nginx
         targetRevision: 4.10.0
-  reconciledAt: '2024-03-29T02:09:55Z'
+  reconciledAt: '2024-04-02T13:41:44Z'
   resources:
     - kind: ConfigMap
       name: ingress-nginx-controller
@@ -471,8 +450,7 @@ status:
         chart: ingress-nginx
         helm:
           parameters:
-            - name: controller.service.internal.loadBalancerIP
-              value: 192.168.0.30
+            - name: controller.service.loadBalancerIP
         repoURL: https://kubernetes.github.io/ingress-nginx
         targetRevision: 4.10.0
     revision: 4.10.0
@@ -486,10 +464,10 @@ spec:
     chart: ingress-nginx
     helm:
       parameters:
-        - name: controller.service.internal.loadBalancerIP
-          value: 192.168.0.30
+        - name: controller.service.loadBalancerIP
     repoURL: https://kubernetes.github.io/ingress-nginx
     targetRevision: 4.10.0
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true

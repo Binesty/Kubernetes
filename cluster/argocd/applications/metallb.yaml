@@ -1,46 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-03-29T01:47:53Z'
-  generation: 24
+  creationTimestamp: '2024-04-02T13:19:34Z'
+  generation: 13
   labels:
-    source: external
+    source: internal
   managedFields:
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            .: {}
-            f:source: {}
-        f:spec:
-          .: {}
-          f:destination:
-            .: {}
-            f:namespace: {}
-            f:server: {}
-          f:project: {}
-          f:source:
-            .: {}
-            f:chart: {}
-            f:repoURL: {}
-            f:targetRevision: {}
-          f:syncPolicy:
-            .: {}
-            f:syncOptions: {}
-        f:status:
-          .: {}
-          f:health: {}
-          f:summary: {}
-          f:sync:
-            .: {}
-            f:comparedTo:
-              .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-03-29T02:07:27Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -57,15 +22,13 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:username: {}
-              f:retry: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
               f:sync:
                 .: {}
                 f:revision: {}
-                f:syncOptions: {}
-                f:syncStrategy:
-                  .: {}
-                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -74,7 +37,7 @@ metadata:
               f:revision: {}
               f:source:
                 .: {}
-                f:chart: {}
+                f:path: {}
                 f:repoURL: {}
                 f:targetRevision: {}
           f:reconciledAt: {}
@@ -88,63 +51,87 @@ metadata:
                 f:namespace: {}
                 f:server: {}
               f:source:
-                f:chart: {}
+                f:path: {}
                 f:repoURL: {}
                 f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-03-29T02:11:33Z'
+      time: '2024-04-02T13:20:00Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-02T13:20:06Z'
   name: metallb
   namespace: argocd
-  resourceVersion: '16530'
-  uid: c367d57f-300b-4bf7-a6c7-98b0cef892da
+  resourceVersion: '46541'
+  uid: 89523660-01ca-4713-aa86-5b4be24e41e0
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metallb
 status:
   controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2024-03-29T01:48:00Z'
-      deployedAt: '2024-03-29T01:48:05Z'
+    - deployStartedAt: '2024-04-02T13:19:37Z'
+      deployedAt: '2024-04-02T13:19:40Z'
       id: 0
-      revision: 0.14.4
+      revision: 5d32afa8071be936466c2429c4cc5b3b59ddd04c
       source:
-        chart: metallb
-        repoURL: https://metallb.github.io/metallb
-        targetRevision: 0.14.4
+        path: cluster/argocd/sources/metallb
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-03-29T01:48:05Z'
+    finishedAt: '2024-04-02T13:19:40Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        username: admin
-      retry: {}
+        automated: true
+      retry:
+        limit: 5
       sync:
-        revision: 0.14.4
-        syncOptions:
-          - CreateNamespace=true
-        syncStrategy:
-          hook: {}
+        revision: 5d32afa8071be936466c2429c4cc5b3b59ddd04c
     phase: Succeeded
-    startedAt: '2024-03-29T01:48:00Z'
+    startedAt: '2024-04-02T13:19:37Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: Namespace
-          message: namespace/metallb-system created
+          message: namespace/metallb-system configured
           name: metallb-system
-          namespace: ''
-          status: Synced
-          syncPhase: PreSync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ServiceAccount
-          message: serviceaccount/metallb-controller created
-          name: metallb-controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -152,8 +139,17 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/metallb-speaker created
-          name: metallb-speaker
+          message: serviceaccount/controller created
+          name: controller
+          namespace: metallb-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/speaker created
+          name: speaker
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -176,43 +172,12 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ConfigMap
-          message: configmap/metallb-frr-startup created
-          name: metallb-frr-startup
-          namespace: metallb-system
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apiextensions.k8s.io
-          hookPhase: Running
-          kind: CustomResourceDefinition
-          message: >-
-            customresourcedefinition.apiextensions.k8s.io/servicel2statuses.metallb.io
-            created
-          name: servicel2statuses.metallb.io
-          namespace: metallb-system
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apiextensions.k8s.io
-          hookPhase: Running
-          kind: CustomResourceDefinition
-          message: >-
-            customresourcedefinition.apiextensions.k8s.io/bgppeers.metallb.io
-            created
-          name: bgppeers.metallb.io
-          namespace: metallb-system
-          status: Synced
-          syncPhase: Sync
-          version: v1
         - group: apiextensions.k8s.io
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
             customresourcedefinition.apiextensions.k8s.io/communities.metallb.io
-            created
+            unchanged
           name: communities.metallb.io
           namespace: metallb-system
           status: Synced
@@ -222,8 +187,19 @@ status:
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
+            customresourcedefinition.apiextensions.k8s.io/servicel2statuses.metallb.io
+            unchanged
+          name: servicel2statuses.metallb.io
+          namespace: metallb-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
             customresourcedefinition.apiextensions.k8s.io/bfdprofiles.metallb.io
-            created
+            unchanged
           name: bfdprofiles.metallb.io
           namespace: metallb-system
           status: Synced
@@ -233,19 +209,8 @@ status:
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/ipaddresspools.metallb.io
-            created
-          name: ipaddresspools.metallb.io
-          namespace: metallb-system
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apiextensions.k8s.io
-          hookPhase: Running
-          kind: CustomResourceDefinition
-          message: >-
             customresourcedefinition.apiextensions.k8s.io/l2advertisements.metallb.io
-            created
+            unchanged
           name: l2advertisements.metallb.io
           namespace: metallb-system
           status: Synced
@@ -255,18 +220,31 @@ status:
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
+            customresourcedefinition.apiextensions.k8s.io/ipaddresspools.metallb.io
+            unchanged
+          name: ipaddresspools.metallb.io
+          namespace: metallb-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
             customresourcedefinition.apiextensions.k8s.io/bgpadvertisements.metallb.io
-            created
+            unchanged
           name: bgpadvertisements.metallb.io
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: rbac.authorization.k8s.io
+        - group: apiextensions.k8s.io
           hookPhase: Running
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/metallb:controller reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[services namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list] APIGroups:[] Resources:[nodes] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[] Resources:[services/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list patch update watch] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[metallb-webhook-configuration] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list patch update watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[bfdprofiles.metallb.io bgpadvertisements.metallb.io bgppeers.metallb.io ipaddresspools.metallb.io l2advertisements.metallb.io communities.metallb.io] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/metallb:controller configured. Warning: resource clusterroles/metallb:controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb:controller
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/bgppeers.metallb.io
+            configured
+          name: bgppeers.metallb.io
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -274,8 +252,17 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/metallb:speaker reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[services endpoints nodes namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[discovery.k8s.io] Resources:[endpointslices] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[metallb.io] Resources:[servicel2statuses servicel2statuses/status] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/metallb:speaker configured. Warning: resource clusterroles/metallb:speaker is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb:speaker
+          message: "clusterrole.rbac.authorization.k8s.io/metallb-system:speaker reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[*] APIGroups:[metallb.io] Resources:[servicel2statuses servicel2statuses/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[services endpoints nodes namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[discovery.k8s.io] Resources:[endpointslices] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[use] APIGroups:[policy] Resources:[podsecuritypolicies] ResourceNames:[speaker] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/metallb-system:speaker configured. Warning: resource clusterroles/metallb-system:speaker is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: metallb-system:speaker
+          namespace: metallb-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/metallb-system:controller reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[services namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list] APIGroups:[] Resources:[nodes] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[] Resources:[services/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[use] APIGroups:[policy] Resources:[podsecuritypolicies] ResourceNames:[controller] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list patch update watch] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[metallb-webhook-configuration] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list patch update watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[bfdprofiles.metallb.io bgpadvertisements.metallb.io bgppeers.metallb.io ipaddresspools.metallb.io l2advertisements.metallb.io communities.metallb.io] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/metallb-system:controller configured. Warning: resource clusterroles/metallb-system:controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: metallb-system:controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -283,8 +270,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/metallb:controller reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metallb-controller Namespace:metallb-system}. clusterrolebinding.rbac.authorization.k8s.io/metallb:controller configured. Warning: resource clusterrolebindings/metallb:controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb:controller
+          message: "clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:controller Namespace:metallb-system}. clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller configured. Warning: resource clusterrolebindings/metallb-system:controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: metallb-system:controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -292,8 +279,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/metallb:speaker reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metallb-speaker Namespace:metallb-system}. clusterrolebinding.rbac.authorization.k8s.io/metallb:speaker configured. Warning: resource clusterrolebindings/metallb:speaker is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb:speaker
+          message: "clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:speaker Namespace:metallb-system}. clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker configured. Warning: resource clusterrolebindings/metallb-system:speaker is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: metallb-system:speaker
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -301,8 +288,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: Role
-          message: "role.rbac.authorization.k8s.io/metallb-pod-lister reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[list] APIGroups:[] Resources:[pods] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[configmaps] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bfdprofiles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bgppeers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[l2advertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bgpadvertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[ipaddresspools] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[communities] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/metallb-pod-lister configured. Warning: resource roles/metallb-pod-lister is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb-pod-lister
+          message: "role.rbac.authorization.k8s.io/controller reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create delete get list patch update watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list] APIGroups:[] Resources:[secrets] ResourceNames:[memberlist] NonResourceURLs:[]}\n\t\t{Verbs:[get] APIGroups:[apps] Resources:[deployments] ResourceNames:[controller] NonResourceURLs:[]}\n\t\t{Verbs:[get list] APIGroups:[metallb.io] Resources:[bgppeers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bfdprofiles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[ipaddresspools] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bgpadvertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[l2advertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[communities] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/controller configured. Warning: resource roles/controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -310,8 +297,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: Role
-          message: "role.rbac.authorization.k8s.io/metallb-controller reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list] APIGroups:[] Resources:[secrets] ResourceNames:[metallb-memberlist] NonResourceURLs:[]}\n\t\t{Verbs:[get] APIGroups:[apps] Resources:[deployments] ResourceNames:[metallb-controller] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list patch update watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[ipaddresspools] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list] APIGroups:[metallb.io] Resources:[bgppeers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list] APIGroups:[metallb.io] Resources:[bgpadvertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list] APIGroups:[metallb.io] Resources:[l2advertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[communities] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bfdprofiles] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/metallb-controller configured. Warning: resource roles/metallb-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb-controller
+          message: "role.rbac.authorization.k8s.io/pod-lister reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[list] APIGroups:[] Resources:[pods] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[configmaps] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bfdprofiles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bgppeers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[l2advertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[bgpadvertisements] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[ipaddresspools] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io] Resources:[communities] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/pod-lister configured. Warning: resource roles/pod-lister is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: pod-lister
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -319,8 +306,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: RoleBinding
-          message: "rolebinding.rbac.authorization.k8s.io/metallb-pod-lister reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metallb-speaker Namespace:}. rolebinding.rbac.authorization.k8s.io/metallb-pod-lister configured. Warning: resource rolebindings/metallb-pod-lister is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb-pod-lister
+          message: "rolebinding.rbac.authorization.k8s.io/controller reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:controller Namespace:metallb-system}. rolebinding.rbac.authorization.k8s.io/controller configured. Warning: resource rolebindings/controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -328,8 +315,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: RoleBinding
-          message: "rolebinding.rbac.authorization.k8s.io/metallb-controller reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metallb-controller Namespace:}. rolebinding.rbac.authorization.k8s.io/metallb-controller configured. Warning: resource rolebindings/metallb-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metallb-controller
+          message: "rolebinding.rbac.authorization.k8s.io/pod-lister reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:speaker Namespace:metallb-system}. rolebinding.rbac.authorization.k8s.io/pod-lister configured. Warning: resource rolebindings/pod-lister is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: pod-lister
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -346,8 +333,8 @@ status:
         - group: apps
           hookPhase: Running
           kind: DaemonSet
-          message: daemonset.apps/metallb-speaker created
-          name: metallb-speaker
+          message: daemonset.apps/speaker created
+          name: speaker
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -355,12 +342,30 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: deployment.apps/metallb-controller created
-          name: metallb-controller
+          message: deployment.apps/controller created
+          name: controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
           version: v1
+        - group: metallb.io
+          hookPhase: Running
+          kind: L2Advertisement
+          message: l2advertisement.metallb.io/binesty-net configured
+          name: binesty-net
+          namespace: metallb-system
+          status: Synced
+          syncPhase: Sync
+          version: v1beta1
+        - group: metallb.io
+          hookPhase: Running
+          kind: IPAddressPool
+          message: ipaddresspool.metallb.io/cheap configured
+          name: cheap
+          namespace: metallb-system
+          status: Synced
+          syncPhase: Sync
+          version: v1beta1
         - group: admissionregistration.k8s.io
           hookPhase: Running
           kind: ValidatingWebhookConfiguration
@@ -372,21 +377,20 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 0.14.4
+      revision: 5d32afa8071be936466c2429c4cc5b3b59ddd04c
       source:
-        chart: metallb
-        repoURL: https://metallb.github.io/metallb
-        targetRevision: 0.14.4
-  reconciledAt: '2024-03-29T02:11:32Z'
+        path: cluster/argocd/sources/metallb
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-04-02T13:19:40Z'
   resources:
     - kind: ConfigMap
       name: metallb-excludel2
       namespace: metallb-system
       status: Synced
       version: v1
-    - kind: ConfigMap
-      name: metallb-frr-startup
-      namespace: metallb-system
+    - kind: Namespace
+      name: metallb-system
       status: Synced
       version: v1
     - kind: Secret
@@ -402,12 +406,12 @@ status:
       status: Synced
       version: v1
     - kind: ServiceAccount
-      name: metallb-controller
+      name: controller
       namespace: metallb-system
       status: Synced
       version: v1
     - kind: ServiceAccount
-      name: metallb-speaker
+      name: speaker
       namespace: metallb-system
       status: Synced
       version: v1
@@ -455,7 +459,7 @@ status:
       health:
         status: Healthy
       kind: DaemonSet
-      name: metallb-speaker
+      name: speaker
       namespace: metallb-system
       status: Synced
       version: v1
@@ -463,58 +467,69 @@ status:
       health:
         status: Healthy
       kind: Deployment
-      name: metallb-controller
+      name: controller
       namespace: metallb-system
+      status: Synced
+      version: v1
+    - group: metallb.io
+      kind: IPAddressPool
+      name: cheap
+      namespace: metallb-system
+      status: Synced
+      version: v1beta1
+    - group: metallb.io
+      kind: L2Advertisement
+      name: binesty-net
+      namespace: metallb-system
+      status: Synced
+      version: v1beta1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: metallb-system:controller
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
-      name: metallb:controller
-      status: Synced
-      version: v1
-    - group: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: metallb:speaker
+      name: metallb-system:speaker
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: ClusterRoleBinding
-      name: metallb:controller
+      name: metallb-system:controller
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: ClusterRoleBinding
-      name: metallb:speaker
+      name: metallb-system:speaker
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: Role
-      name: metallb-controller
+      name: controller
       namespace: metallb-system
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: Role
-      name: metallb-pod-lister
+      name: pod-lister
       namespace: metallb-system
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: RoleBinding
-      name: metallb-controller
+      name: controller
       namespace: metallb-system
       status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
       kind: RoleBinding
-      name: metallb-pod-lister
+      name: pod-lister
       namespace: metallb-system
       status: Synced
       version: v1
-  sourceType: Helm
+  sourceType: Kustomize
   summary:
     images:
-      - quay.io/frrouting/frr:9.0.2
       - quay.io/metallb/controller:v0.14.4
       - quay.io/metallb/speaker:v0.14.4
   sync:
@@ -523,10 +538,10 @@ status:
         namespace: metallb-system
         server: https://kubernetes.default.svc
       source:
-        chart: metallb
-        repoURL: https://metallb.github.io/metallb
-        targetRevision: 0.14.4
-    revision: 0.14.4
+        path: cluster/argocd/sources/metallb
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: 5d32afa8071be936466c2429c4cc5b3b59ddd04c
     status: OutOfSync
 spec:
   destination:
@@ -534,29 +549,10 @@ spec:
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    chart: metallb
-    repoURL: https://metallb.github.io/metallb
-    targetRevision: 0.14.4
+    path: cluster/argocd/sources/metallb
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true
----
-
-apiVersion: metallb.io/v1beta1
-kind: IPAddressPool
-metadata:
-  name: cheap
-  namespace: metallb-system
-spec:
-  addresses:
-  - 192.168.0.30-192.168.0.30
----
-
-apiVersion: metallb.io/v1beta1
-kind: L2Advertisement
-metadata:
-  name: binesty-net
-  namespace: metallb-system
-spec:
-  ipAddressPools:
-  - cheap

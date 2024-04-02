@@ -37,6 +37,7 @@
 
     - name: Remove Taint NoSchedule
       command: kubectl taint nodes binesty-master node-role.kubernetes.io/control-plane:NoSchedule- --overwrite
+      ignore_errors: yes
 
     - name: Copy argocd folder to remote
       copy:
