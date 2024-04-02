@@ -19,6 +19,7 @@ kubectl label --overwrite nodes binesty-worker-03 kubernetes.io/role=worker-03
 kubectl label --overwrite nodes binesty-worker-04 kubernetes.io/role=worker-04
 kubectl label --overwrite nodes binesty-worker-05 kubernetes.io/role=worker-05
 kubectl label --overwrite nodes binesty-worker-06 kubernetes.io/role=worker-06
+kubectl label --overwrite nodes binesty-worker-07 kubernetes.io/role=worker-07
 
 kubectl label nodes binesty-master node-group=management
 kubectl label nodes binesty-worker-01 node-group=application
@@ -27,4 +28,5 @@ kubectl label nodes binesty-worker-03 node-group=application
 kubectl label nodes binesty-worker-04 node-group=application
 kubectl label nodes binesty-worker-05 node-group=application
 kubectl label nodes binesty-worker-06 node-group=application
+kubectl label nodes binesty-worker-07 node-group=application
 ````

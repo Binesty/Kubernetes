@@ -1,0 +1,10 @@
+- name: Reboot Hosts Cluster
+  hosts: all 
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Reboot Hosts
+      reboot:
+      async: 120
+      poll: 0
+      ignore_errors: yes

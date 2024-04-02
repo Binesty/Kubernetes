@@ -1,13 +1,24 @@
 {
   "cluster_name": "binesty",
-  "kube_version": "v1.29.2",
-  "kube_network_plugin": "calico",
-  "allow_unsupported_distribution_setup": "true",
-  "registry_enabled": "true",
+  "kube_version": "v1.29.2",  
+  "kube_network_plugin": "calico", 
+  "kube_pods_subnet": "10.233.64.0/18",     
   "metrics_server_enabled": "true",
   "local_path_provisioner_enabled": "true",    
+  "ingress_nginx_enabled": "true",
+  "metallb_enabled": "true",
+  "metallb_config": 
+  {
+    "address_pools": 
+    {
+      "primary": 
+      {
+        "ip_range": ["192.168.0.30-192.168.0.30"],
+        "auto_assign": true
+      }
+    }
+  },
   "container_manager": "containerd",  
-  "kube_pods_subnet": "10.10.0.0/16",  
   "argocd_enabled": "true",
   "argocd_admin_password": "changeme",
   "kube_proxy_strict_arp": "true"  

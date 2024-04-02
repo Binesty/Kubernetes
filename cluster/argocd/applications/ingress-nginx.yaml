@@ -1,0 +1,495 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-03-29T01:52:16Z'
+  generation: 92
+  labels:
+    source: external
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:helm:
+              .: {}
+              f:parameters: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-03-29T02:09:40Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-03-29T02:09:55Z'
+  name: ingress-nginx
+  namespace: argocd
+  resourceVersion: '16244'
+  uid: 8ab93687-2f43-4aef-b6a6-4fc19b163cba
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/ingress-nginx
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-03-29T01:52:30Z'
+      deployedAt: '2024-03-29T01:56:12Z'
+      id: 0
+      revision: 4.10.0
+      source:
+        chart: ingress-nginx
+        repoURL: https://kubernetes.github.io/ingress-nginx
+        targetRevision: 4.10.0
+    - deployStartedAt: '2024-03-29T01:57:49Z'
+      deployedAt: '2024-03-29T01:58:03Z'
+      id: 1
+      revision: 4.10.0
+      source:
+        chart: ingress-nginx
+        helm:
+          parameters:
+            - name: controller.service.internal.loadBalancerIP
+              value: 192.168.0.30
+        repoURL: https://kubernetes.github.io/ingress-nginx
+        targetRevision: 4.10.0
+    - deployStartedAt: '2024-03-29T02:09:40Z'
+      deployedAt: '2024-03-29T02:09:54Z'
+      id: 2
+      revision: 4.10.0
+      source:
+        chart: ingress-nginx
+        helm:
+          parameters:
+            - name: controller.service.internal.loadBalancerIP
+              value: 192.168.0.30
+        repoURL: https://kubernetes.github.io/ingress-nginx
+        targetRevision: 4.10.0
+  operationState:
+    finishedAt: '2024-03-29T02:09:54Z'
+    message: successfully synced (no more tasks)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 4.10.0
+        syncOptions:
+          - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: '2024-03-29T02:09:40Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Succeeded
+          hookType: PreSync
+          kind: ServiceAccount
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PreSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PreSync
+          kind: ClusterRole
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PreSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PreSync
+          kind: ClusterRoleBinding
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PreSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PreSync
+          kind: Role
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PreSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PreSync
+          kind: RoleBinding
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PreSync
+          version: v1
+        - group: batch
+          hookPhase: Succeeded
+          hookType: PreSync
+          kind: Job
+          message: job.batch/ingress-nginx-admission-create created
+          name: ingress-nginx-admission-create
+          namespace: ingress-nginx
+          syncPhase: PreSync
+          version: v1
+        - group: ''
+          hookPhase: Succeeded
+          kind: ServiceAccount
+          message: serviceaccount/ingress-nginx unchanged
+          name: ingress-nginx
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Succeeded
+          kind: ConfigMap
+          message: configmap/ingress-nginx-controller unchanged
+          name: ingress-nginx-controller
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/ingress-nginx reconciled.
+            clusterrole.rbac.authorization.k8s.io/ingress-nginx unchanged
+          name: ingress-nginx
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx unchanged
+          name: ingress-nginx
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: Role
+          message: >-
+            role.rbac.authorization.k8s.io/ingress-nginx reconciled.
+            role.rbac.authorization.k8s.io/ingress-nginx unchanged
+          name: ingress-nginx
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/ingress-nginx reconciled.
+            rolebinding.rbac.authorization.k8s.io/ingress-nginx unchanged
+          name: ingress-nginx
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Succeeded
+          kind: Service
+          message: service/ingress-nginx-controller-admission unchanged
+          name: ingress-nginx-controller-admission
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Succeeded
+          kind: Service
+          message: service/ingress-nginx-controller unchanged
+          name: ingress-nginx-controller
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Succeeded
+          kind: Deployment
+          message: deployment.apps/ingress-nginx-controller configured
+          name: ingress-nginx-controller
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Succeeded
+          kind: IngressClass
+          message: ingressclass.networking.k8s.io/nginx unchanged
+          name: nginx
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: admissionregistration.k8s.io
+          hookPhase: Succeeded
+          kind: ValidatingWebhookConfiguration
+          message: >-
+            validatingwebhookconfiguration.admissionregistration.k8s.io/ingress-nginx-admission
+            configured
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Succeeded
+          hookType: PostSync
+          kind: ServiceAccount
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PostSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PostSync
+          kind: ClusterRole
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PostSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PostSync
+          kind: ClusterRoleBinding
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PostSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PostSync
+          kind: Role
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PostSync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          hookType: PostSync
+          kind: RoleBinding
+          message: ingress-nginx-admission created
+          name: ingress-nginx-admission
+          namespace: ingress-nginx
+          syncPhase: PostSync
+          version: v1
+        - group: batch
+          hookPhase: Succeeded
+          hookType: PostSync
+          kind: Job
+          message: job.batch/ingress-nginx-admission-patch created
+          name: ingress-nginx-admission-patch
+          namespace: ingress-nginx
+          syncPhase: PostSync
+          version: v1
+      revision: 4.10.0
+      source:
+        chart: ingress-nginx
+        helm:
+          parameters:
+            - name: controller.service.internal.loadBalancerIP
+              value: 192.168.0.30
+        repoURL: https://kubernetes.github.io/ingress-nginx
+        targetRevision: 4.10.0
+  reconciledAt: '2024-03-29T02:09:55Z'
+  resources:
+    - kind: ConfigMap
+      name: ingress-nginx-controller
+      namespace: ingress-nginx
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: ingress-nginx-controller
+      namespace: ingress-nginx
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: ingress-nginx-controller-admission
+      namespace: ingress-nginx
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: ingress-nginx
+      namespace: ingress-nginx
+      status: Synced
+      version: v1
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: ingress-nginx-admission
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: ingress-nginx-controller
+      namespace: ingress-nginx
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      kind: IngressClass
+      name: nginx
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: ingress-nginx
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: ingress-nginx
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: ingress-nginx
+      namespace: ingress-nginx
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: ingress-nginx
+      namespace: ingress-nginx
+      status: Synced
+      version: v1
+  sourceType: Helm
+  summary:
+    images:
+      - >-
+        registry.k8s.io/ingress-nginx/controller:v1.10.0@sha256:42b3f0e5d0846876b1791cd3afeb5f1cbbe4259d6f35651dcc1b5c980925379c
+  sync:
+    comparedTo:
+      destination:
+        namespace: ingress-nginx
+        server: https://kubernetes.default.svc
+      source:
+        chart: ingress-nginx
+        helm:
+          parameters:
+            - name: controller.service.internal.loadBalancerIP
+              value: 192.168.0.30
+        repoURL: https://kubernetes.github.io/ingress-nginx
+        targetRevision: 4.10.0
+    revision: 4.10.0
+    status: Synced
+spec:
+  destination:
+    namespace: ingress-nginx
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: ingress-nginx
+    helm:
+      parameters:
+        - name: controller.service.internal.loadBalancerIP
+          value: 192.168.0.30
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    targetRevision: 4.10.0
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

@@ -11,6 +11,7 @@
 - name: Installing NFS server
   hosts: nfs
   gather_facts: False  
+  become: yes
   tasks:
     - name: Install NFS server on master
       apt:  
@@ -22,12 +23,16 @@
         path: /var/nfs
         state: directory
         owner: 1000
-
-    - name: Add NFS export configuration
-      blockinfile:
+    
+    - name: Create file /etc/exports
+      ansible.builtin.file:
         path: /etc/exports
-        block: |
-          /var/nfs    *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
+        state: touch
+
+    - name: Content file nfs /etc/exports
+      ansible.builtin.lineinfile:
+        path: /etc/exports
+        line: "/var/nfs *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
 
     - name: Enable and start NFS server service
       systemd:
@@ -60,3 +65,16 @@
       apt:        
         name: nfs-common
         state: present
+
+    - name: Install runc
+      apt:        
+        name: runc
+        state: present
+
+    - name: Remove temp data
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /tmp
+      ignore_errors: yes            

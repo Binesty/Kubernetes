@@ -1,16 +1,29 @@
 - name: Installing Kubernetes with Containerd
   hosts: all  
-
+  gather_facts: False  
+  become: yes
   tasks:
+    - name: Uninstall base packages
+      apt:
+        name: "{{ item }}"
+        state: absent
+      ignore_errors: yes  
+      loop:
+        - git
+        - nano
+        - open-iscsi
+        - nfs-common
+        - nfs-kernel-server
+
     - name: Reset kubeadm
-      shell: kubeadm reset
+      shell: kubeadm reset --force 
       ignore_errors: yes
 
     - name: Remove Kubernetes packages
       apt:
         name: "{{ item }}"
         state: absent
-      with_items:
+      with_items:        
         - kubeadm
         - kubectl
         - kubelet
@@ -27,7 +40,7 @@
         state: restarted
       ignore_errors: yes
 
-    - name: Purge Docker packages
+    - name: Purge Container run time
       apt:
         name: "{{ item }}"
         state: absent
@@ -52,6 +65,17 @@
         state: absent
       with_items:
         - ~/.kube
+        - /usr/bin/kubelet
+        - /usr/bin/kube-proxy
+        - /usr/bin/kube-scheduler
+        - /usr/bin/kube-controller-manager
+        - /usr/bin/kube-apiserver
+        - /usr/bin/kubectl
+        - /usr/bin/kubeadm                
+        - /usr/bin/etcd        
+        - /usr/local/bin/kubeadm
+        - /usr/local/bin/kubelet
+        - /usr/local/bin/kubectl
         - /etc/cni
         - /etc/kubernetes
         - /var/lib/dockershim
@@ -64,6 +88,8 @@
         - /var/run/docker.sock
         - /etc/apparmor.d/docker
         - /etc/systemd/system/etcd*
+        - /etc/exports
+        - /var/nfs
       ignore_errors: yes
 
     - name: Remove docker group

@@ -27,6 +27,12 @@ RUN cd /tmp && wget https://github.com/ansible-semaphore/semaphore/releases/\
 download/v2.9.45/semaphore_2.9.45_linux_amd64.deb 
 RUN dpkg -i /tmp/semaphore_2.9.45_linux_amd64.deb 
 
+# Copy playbooks
+COPY playbooks /semaphore/playbooks
+
+# Copy argocd manifests
+COPY argocd /semaphore/argocd
+
 # Copy semaphore config
 COPY configurations.json /semaphore/config_template.json
 COPY entrypoint.sh /semaphore/entrypoint.sh
