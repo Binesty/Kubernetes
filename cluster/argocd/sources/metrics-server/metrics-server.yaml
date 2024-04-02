@@ -143,6 +143,7 @@ spec:
         - --secure-port=10250
         - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
         - --kubelet-use-node-status-port
+        - --kubelet-insecure-tls
         - --metric-resolution=15s
         image: registry.k8s.io/metrics-server/metrics-server:v0.7.1
         imagePullPolicy: IfNotPresent
@@ -171,8 +172,8 @@ spec:
             cpu: 100m
             memory: 200Mi
           limits:
-            cpu: 200m
-            memory: 300Mi            
+            cpu: 100m
+            memory: 200Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
