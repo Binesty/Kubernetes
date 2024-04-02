@@ -205,7 +205,7 @@ metadata:
 spec:
   group: metrics.k8s.io
   groupPriorityMinimum: 100
-  insecureSkipTLSVerify: true
+  insecureSkipTLSVerify: false
   service:
     name: metrics-server
     namespace: kube-system
