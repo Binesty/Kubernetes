@@ -27,7 +27,7 @@ metadata:
   namespace: longhorn-system
 type: Opaque
 data:
-  AWS_ACCESS_KEY_ID: backups-user
-  AWS_SECRET_ACCESS_KEY: ecyuKLrRAb
-  AWS_ENDPOINTS: http://minio-service.minio.svc.cluster.local:9090
+  AWS_ACCESS_KEY_ID: YmFja3Vwcy11c2Vy
+  AWS_SECRET_ACCESS_KEY: ZWN5dUtMclJBYg==
+  AWS_ENDPOINTS: aHR0cDovL21pbmlvLXNlcnZpY2UubWluaW8uc3ZjLmNsdXN0ZXIubG9jYWw6OTA5MA==
   #AWS_CERT: your base64 encoded custom CA certificate goes here
