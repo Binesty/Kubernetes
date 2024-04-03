@@ -1,3 +1,135 @@
+- name: Installing components all hosts
+  hosts: all  
+  gather_facts: False  
+  tasks:
+    - name: Uninstall base packages
+      apt:
+        name: "{{ item }}"
+        state: absent
+      ignore_errors: yes  
+      loop:
+        - git
+        - nano
+        - open-iscsi
+        - nfs-common
+        - nfs-kernel-server
+
+    - name: Reset kubeadm
+      shell: kubeadm reset --force 
+      ignore_errors: yes
+
+    - name: Remove Kubernetes packages
+      apt:
+        name: "{{ item }}"
+        state: absent
+      with_items:        
+        - kubeadm
+        - kubectl
+        - kubelet
+        - kubernetes-cni
+      ignore_errors: yes
+
+    - name: Remove Docker images
+      shell: docker image prune -a
+      ignore_errors: yes
+
+    - name: Restart Docker service
+      service:
+        name: docker
+        state: restarted
+      ignore_errors: yes
+
+    - name: Purge Container run time
+      apt:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - docker-engine
+        - docker
+        - docker.io
+        - docker-ce
+        - docker-ce-cli
+        - containerd
+        - containerd.io
+        - runc
+      ignore_errors: yes
+
+    - name: Autoremove unused packages
+      apt:
+        autoremove: yes
+
+    - name: Remove Kubernetes directories and files
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - ~/.kube
+        - /usr/bin/kubelet
+        - /usr/bin/kube-proxy
+        - /usr/bin/kube-scheduler
+        - /usr/bin/kube-controller-manager
+        - /usr/bin/kube-apiserver
+        - /usr/bin/kubectl
+        - /usr/bin/kubeadm                
+        - /usr/bin/etcd        
+        - /usr/local/bin/kubeadm
+        - /usr/local/bin/kubelet
+        - /usr/local/bin/kubectl
+        - /etc/cni
+        - /etc/kubernetes
+        - /var/lib/dockershim
+        - /var/lib/etcd
+        - /var/lib/kubelet
+        - /var/lib/etcd2/
+        - /var/run/kubernetes
+        - /var/lib/docker
+        - /etc/docker
+        - /var/run/docker.sock
+        - /etc/apparmor.d/docker
+        - /etc/systemd/system/etcd*
+        - /etc/exports
+        - /var/nfs
+      ignore_errors: yes
+
+    - name: Remove docker group
+      group:
+        name: docker
+        state: absent
+      ignore_errors: yes
+
+    - name: Flush iptables rules
+      shell: iptables -F && iptables -X && iptables -t nat -F && iptables -t nat -X && iptables -t raw -F && iptables -t raw -X && iptables -t mangle -F && iptables -t mangle -X
+      ignore_errors: yes
+
+    - name: Install nano
+      apt:  
+        name: nano
+        state: present
+
+    - name: Install open-iscsi
+      apt:        
+        name: open-iscsi
+        state: present
+
+    - name: Install nfs-common
+      apt:        
+        name: nfs-common
+        state: present
+
+    - name: Install runc
+      apt:        
+        name: runc
+        state: present
+
+    - name: Remove temp data
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /tmp
+      ignore_errors: yes     
+
+
 - name: Installing components to commands host
   hosts: commands
   gather_facts: False  
@@ -45,36 +177,3 @@
 
     - name: Show exported NFS shares
       command: showmount -e localhost
-
-
-- name: Installing components all hosts
-  hosts: all  
-  gather_facts: False  
-  tasks:
-    - name: Install nano
-      apt:  
-        name: nano
-        state: present
-
-    - name: Install open-iscsi
-      apt:        
-        name: open-iscsi
-        state: present
-
-    - name: Install nfs-common
-      apt:        
-        name: nfs-common
-        state: present
-
-    - name: Install runc
-      apt:        
-        name: runc
-        state: present
-
-    - name: Remove temp data
-      file:
-        path: "{{ item }}"
-        state: absent
-      with_items:
-        - /tmp
-      ignore_errors: yes            
