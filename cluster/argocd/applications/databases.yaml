@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-04-03T01:02:28Z'
-  generation: 60
+  creationTimestamp: '2024-04-03T01:35:45Z'
+  generation: 11
   labels:
     source: internal
   managedFields:
@@ -41,7 +41,7 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-03T01:22:51Z'
+      time: '2024-04-03T01:37:32Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -58,18 +58,14 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:username: {}
-              f:retry: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
               f:sync:
                 .: {}
-                f:prune: {}
                 f:revision: {}
                 f:syncOptions: {}
-                f:syncStrategy:
-                  .: {}
-                  f:hook:
-                    .: {}
-                    f:force: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -99,68 +95,45 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-03T01:24:07Z'
+      time: '2024-04-03T01:37:35Z'
   name: databases
   namespace: argocd
-  resourceVersion: '123405'
-  uid: 2a939475-0bbd-4924-b637-861f805091dc
+  resourceVersion: '127899'
+  uid: e1075755-475f-412e-b6b2-e8320a44420a
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/databases
 status:
   controllerNamespace: argocd
   health:
-    status: Progressing
+    status: Healthy
   history:
-    - deployStartedAt: '2024-04-03T01:02:32Z'
-      deployedAt: '2024-04-03T01:02:35Z'
+    - deployStartedAt: '2024-04-03T01:35:47Z'
+      deployedAt: '2024-04-03T01:35:48Z'
       id: 0
-      revision: 29a7f183ee43def87f6be56a5b786b0df5f829eb
-      source:
-        path: cluster/argocd/sources/databases
-        repoURL: git@github.com:Binesty/Kubernetes.git
-        targetRevision: main
-    - deployStartedAt: '2024-04-03T01:22:39Z'
-      deployedAt: '2024-04-03T01:22:41Z'
-      id: 1
-      revision: 7ec77baa7129f74ce4a93ff928a64d5ea6bf22ac
-      source:
-        path: cluster/argocd/sources/databases
-        repoURL: git@github.com:Binesty/Kubernetes.git
-        targetRevision: main
-    - deployStartedAt: '2024-04-03T01:22:51Z'
-      deployedAt: '2024-04-03T01:22:53Z'
-      id: 2
-      revision: 7ec77baa7129f74ce4a93ff928a64d5ea6bf22ac
+      revision: 33e658e040ec1f3ced4d90a2cf78aff9f84882dd
       source:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
   operationState:
-    finishedAt: '2024-04-03T01:22:53Z'
+    finishedAt: '2024-04-03T01:35:48Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        username: admin
-      retry: {}
+        automated: true
+      retry:
+        limit: 5
       sync:
-        prune: true
-        revision: 7ec77baa7129f74ce4a93ff928a64d5ea6bf22ac
+        revision: 33e658e040ec1f3ced4d90a2cf78aff9f84882dd
         syncOptions:
           - CreateNamespace=true
-          - PruneLast=true
-          - Replace=true
-        syncStrategy:
-          hook:
-            force: true
     phase: Succeeded
-    startedAt: '2024-04-03T01:22:51Z'
+    startedAt: '2024-04-03T01:35:47Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: PersistentVolumeClaim
-          message: |-
-            persistentvolumeclaim "postgres-pvc" deleted
-            persistentvolumeclaim/postgres-pvc replaced
+          message: persistentvolumeclaim/postgres-pvc created
           name: postgres-pvc
           namespace: databases
           status: Synced
@@ -169,21 +142,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: |-
-            service "postgres" deleted
-            service/postgres replaced
+          message: service/postgres created
           name: postgres
-          namespace: databases
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: |-
-            service "sql-server-service" deleted
-            service/sql-server-service replaced
-          name: sql-server-service
           namespace: databases
           status: Synced
           syncPhase: Sync
@@ -191,31 +151,18 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: |-
-            statefulset.apps "sql-server" deleted
-            statefulset.apps/sql-server replaced
-          name: sql-server
-          namespace: databases
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apps
-          hookPhase: Running
-          kind: StatefulSet
-          message: |-
-            statefulset.apps "postgres" deleted
-            statefulset.apps/postgres replaced
+          message: statefulset.apps/postgres created
           name: postgres
           namespace: databases
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 7ec77baa7129f74ce4a93ff928a64d5ea6bf22ac
+      revision: 33e658e040ec1f3ced4d90a2cf78aff9f84882dd
       source:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-03T01:22:54Z'
+  reconciledAt: '2024-04-03T01:35:48Z'
   resources:
     - health:
         status: Healthy
@@ -231,13 +178,6 @@ status:
       namespace: databases
       status: Synced
       version: v1
-    - health:
-        status: Healthy
-      kind: Service
-      name: sql-server-service
-      namespace: databases
-      status: Synced
-      version: v1
     - group: apps
       health:
         message: 'partitioned roll out complete: 1 new pods have been updated...'
@@ -247,19 +187,9 @@ status:
       namespace: databases
       status: Synced
       version: v1
-    - group: apps
-      health:
-        message: Waiting for 1 pods to be ready...
-        status: Progressing
-      kind: StatefulSet
-      name: sql-server
-      namespace: databases
-      status: Synced
-      version: v1
   sourceType: Kustomize
   summary:
     images:
-      - mcr.microsoft.com/mssql/server:2019-latest
       - postgres:13
   sync:
     comparedTo:
@@ -270,7 +200,7 @@ status:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: 7ec77baa7129f74ce4a93ff928a64d5ea6bf22ac
+    revision: 33e658e040ec1f3ced4d90a2cf78aff9f84882dd
     status: Synced
 spec:
   destination:
