@@ -1,8 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-04-02T18:37:42Z'
-  generation: 5
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-02T18:37:42Z","generation":5,"labels":{"source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-02T18:38:04Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:path":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-02T18:38:07Z"}],"name":"longhorn","namespace":"argocd","resourceVersion":"11782","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/longhorn","uid":"a43a4be7-e3e6-4e4e-9bdf-d8550dde9925"},"spec":{"destination":{"namespace":"longhorn-system","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/longhorn","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Missing"},"reconciledAt":"2024-04-02T18:38:04Z","resources":[{"health":{"status":"Missing"},"kind":"ConfigMap","name":"longhorn-default-setting","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"ConfigMap","name":"longhorn-storageclass","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Namespace","name":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Service","name":"longhorn-admission-webhook","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Service","name":"longhorn-backend","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Service","name":"longhorn-conversion-webhook","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Service","name":"longhorn-engine-manager","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Service","name":"longhorn-frontend","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Service","name":"longhorn-recovery-backend","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"Service","name":"longhorn-replica-manager","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"ServiceAccount","name":"longhorn-service-account","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"ServiceAccount","name":"longhorn-support-bundle","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"health":{"status":"Missing"},"kind":"ServiceAccount","name":"longhorn-ui-service-account","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"backingimagedatasources.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"backingimagemanagers.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"backingimages.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"backupbackingimages.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"backups.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"backuptargets.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"backupvolumes.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"engineimages.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"engines.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"instancemanagers.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"nodes.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"orphans.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"recurringjobs.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"replicas.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"settings.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"sharemanagers.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"snapshots.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"supportbundles.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"systembackups.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"systemrestores.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"volumeattachments.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","health":{"status":"Missing"},"kind":"CustomResourceDefinition","name":"volumes.longhorn.io","status":"OutOfSync","version":"v1"},{"group":"apps","health":{"status":"Missing"},"kind":"DaemonSet","name":"longhorn-manager","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"group":"apps","health":{"status":"Missing"},"kind":"Deployment","name":"longhorn-driver-deployer","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"group":"apps","health":{"status":"Missing"},"kind":"Deployment","name":"longhorn-ui","namespace":"longhorn-system","status":"OutOfSync","version":"v1"},{"group":"rbac.authorization.k8s.io","health":{"status":"Missing"},"kind":"ClusterRole","name":"longhorn-role","status":"OutOfSync","version":"v1"},{"group":"rbac.authorization.k8s.io","health":{"status":"Missing"},"kind":"ClusterRoleBinding","name":"longhorn-bind","status":"OutOfSync","version":"v1"},{"group":"rbac.authorization.k8s.io","health":{"status":"Missing"},"kind":"ClusterRoleBinding","name":"longhorn-support-bundle","status":"OutOfSync","version":"v1"},{"group":"scheduling.k8s.io","health":{"status":"Missing"},"kind":"PriorityClass","name":"longhorn-critical","status":"OutOfSync","version":"v1"}],"sourceType":"Kustomize","summary":{},"sync":{"comparedTo":{"destination":{"namespace":"longhorn-system","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/longhorn","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"30cb844659599c088f0929a88cddc9fba31cea98","status":"OutOfSync"}}}
+  creationTimestamp: '2024-04-03T03:30:48Z'
+  generation: 250
   labels:
     source: internal
   managedFields:
@@ -10,6 +13,9 @@ metadata:
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
             f:source: {}
@@ -30,350 +36,816 @@ metadata:
             f:syncOptions: {}
         f:status:
           .: {}
+          f:controllerNamespace: {}
           f:health: {}
           f:summary: {}
           f:sync:
             .: {}
             f:comparedTo:
               .: {}
-              f:destination: {}
-              f:source: {}
+              f:destination:
+                .: {}
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: '2024-04-03T03:30:48Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:syncPolicy:
+            f:automated: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-02T18:38:04Z'
+      time: '2024-04-03T20:32:07Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
-          f:controllerNamespace: {}
           f:health:
             f:status: {}
-          f:reconciledAt: {}
-          f:resources: {}
-          f:sourceType: {}
-          f:sync:
-            f:comparedTo:
-              f:destination:
-                f:namespace: {}
-                f:server: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
               f:source:
+                .: {}
                 f:path: {}
                 f:repoURL: {}
                 f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-02T18:38:07Z'
+      time: '2024-04-03T20:32:21Z'
   name: longhorn
   namespace: argocd
-  resourceVersion: '11782'
-  uid: a43a4be7-e3e6-4e4e-9bdf-d8550dde9925
+  resourceVersion: '187464'
+  uid: 653d0462-4939-439c-b555-934149c000ed
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/longhorn
 status:
   controllerNamespace: argocd
   health:
-    status: Missing
-  reconciledAt: '2024-04-02T18:38:04Z'
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-04-03T03:33:50Z'
+      deployedAt: '2024-04-03T03:34:01Z'
+      id: 0
+      revision: d8e282f19ee31e7766ef7675b19067d881379410
+      source:
+        path: cluster/argocd/sources/longhorn
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-04-03T20:32:07Z'
+      deployedAt: '2024-04-03T20:32:10Z'
+      id: 1
+      revision: f57ed94e9c7fa0ff796ad0f0522acc78671b10b5
+      source:
+        path: cluster/argocd/sources/longhorn
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  operationState:
+    finishedAt: '2024-04-03T20:32:10Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: f57ed94e9c7fa0ff796ad0f0522acc78671b10b5
+        syncOptions:
+          - CreateNamespace=true
+    phase: Succeeded
+    startedAt: '2024-04-03T20:32:07Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: Namespace
+          message: namespace/longhorn-system unchanged
+          name: longhorn-system
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/longhorn-ui-service-account unchanged
+          name: longhorn-ui-service-account
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/longhorn-support-bundle unchanged
+          name: longhorn-support-bundle
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/longhorn-service-account unchanged
+          name: longhorn-service-account
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/longhorn-storageclass unchanged
+          name: longhorn-storageclass
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/longhorn-default-setting unchanged
+          name: longhorn-default-setting
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/sharemanagers.longhorn.io
+            configured
+          name: sharemanagers.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/backups.longhorn.io
+            configured
+          name: backups.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/recurringjobs.longhorn.io
+            configured
+          name: recurringjobs.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/backingimagedatasources.longhorn.io
+            configured
+          name: backingimagedatasources.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/backupvolumes.longhorn.io
+            configured
+          name: backupvolumes.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/systemrestores.longhorn.io
+            configured
+          name: systemrestores.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/backingimagemanagers.longhorn.io
+            configured
+          name: backingimagemanagers.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/backingimages.longhorn.io
+            configured
+          name: backingimages.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/snapshots.longhorn.io
+            configured
+          name: snapshots.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/volumeattachments.longhorn.io
+            configured
+          name: volumeattachments.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/backuptargets.longhorn.io
+            configured
+          name: backuptargets.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/settings.longhorn.io
+            configured
+          name: settings.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/orphans.longhorn.io
+            configured
+          name: orphans.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/backupbackingimages.longhorn.io
+            configured
+          name: backupbackingimages.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/replicas.longhorn.io
+            configured
+          name: replicas.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/engineimages.longhorn.io
+            configured
+          name: engineimages.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/nodes.longhorn.io
+            configured
+          name: nodes.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/instancemanagers.longhorn.io
+            configured
+          name: instancemanagers.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/engines.longhorn.io
+            configured
+          name: engines.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/volumes.longhorn.io
+            configured
+          name: volumes.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/supportbundles.longhorn.io
+            configured
+          name: supportbundles.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/systembackups.longhorn.io
+            configured
+          name: systembackups.longhorn.io
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/longhorn-role reconciled.
+            clusterrole.rbac.authorization.k8s.io/longhorn-role unchanged
+          name: longhorn-role
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/longhorn-support-bundle
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/longhorn-support-bundle
+            unchanged
+          name: longhorn-support-bundle
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/longhorn-bind
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/longhorn-bind unchanged
+          name: longhorn-bind
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/longhorn-engine-manager unchanged
+          name: longhorn-engine-manager
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/longhorn-backend unchanged
+          name: longhorn-backend
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/longhorn-conversion-webhook unchanged
+          name: longhorn-conversion-webhook
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/longhorn-recovery-backend unchanged
+          name: longhorn-recovery-backend
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/longhorn-admission-webhook unchanged
+          name: longhorn-admission-webhook
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/longhorn-replica-manager unchanged
+          name: longhorn-replica-manager
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/longhorn-frontend configured
+          name: longhorn-frontend
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: DaemonSet
+          message: daemonset.apps/longhorn-manager unchanged
+          name: longhorn-manager
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/longhorn-ui unchanged
+          name: longhorn-ui
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/longhorn-driver-deployer unchanged
+          name: longhorn-driver-deployer
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/longhorn-ingress created
+          name: longhorn-ingress
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: scheduling.k8s.io
+          hookPhase: Running
+          kind: PriorityClass
+          message: priorityclass.scheduling.k8s.io/longhorn-critical configured
+          name: longhorn-critical
+          namespace: longhorn-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: f57ed94e9c7fa0ff796ad0f0522acc78671b10b5
+      source:
+        path: cluster/argocd/sources/longhorn
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-04-03T20:32:11Z'
   resources:
-    - health:
-        status: Missing
-      kind: ConfigMap
+    - kind: ConfigMap
       name: longhorn-default-setting
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
-    - health:
-        status: Missing
-      kind: ConfigMap
+    - kind: ConfigMap
       name: longhorn-storageclass
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
-    - health:
-        status: Missing
-      kind: Namespace
+    - kind: Namespace
       name: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
-        status: Missing
+        status: Healthy
       kind: Service
       name: longhorn-admission-webhook
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
-        status: Missing
+        status: Healthy
       kind: Service
       name: longhorn-backend
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
-        status: Missing
+        status: Healthy
       kind: Service
       name: longhorn-conversion-webhook
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
-        status: Missing
+        status: Healthy
       kind: Service
       name: longhorn-engine-manager
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
-        status: Missing
+        status: Healthy
       kind: Service
       name: longhorn-frontend
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
-        status: Missing
+        status: Healthy
       kind: Service
       name: longhorn-recovery-backend
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - health:
-        status: Missing
+        status: Healthy
       kind: Service
       name: longhorn-replica-manager
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
-    - health:
-        status: Missing
-      kind: ServiceAccount
+    - kind: ServiceAccount
       name: longhorn-service-account
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
-    - health:
-        status: Missing
-      kind: ServiceAccount
+    - kind: ServiceAccount
       name: longhorn-support-bundle
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
-    - health:
-        status: Missing
-      kind: ServiceAccount
+    - kind: ServiceAccount
       name: longhorn-ui-service-account
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: backingimagedatasources.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: backingimagemanagers.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: backingimages.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: backupbackingimages.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: backups.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: backuptargets.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: backupvolumes.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: engineimages.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: engines.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: instancemanagers.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: nodes.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: orphans.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: recurringjobs.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: replicas.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: settings.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: sharemanagers.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: snapshots.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: supportbundles.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: systembackups.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: systemrestores.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: volumeattachments.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apiextensions.k8s.io
-      health:
-        status: Missing
       kind: CustomResourceDefinition
       name: volumes.longhorn.io
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apps
       health:
-        status: Missing
+        status: Healthy
       kind: DaemonSet
       name: longhorn-manager
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apps
       health:
-        status: Missing
+        status: Healthy
       kind: Deployment
       name: longhorn-driver-deployer
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: apps
       health:
-        status: Missing
+        status: Healthy
       kind: Deployment
       name: longhorn-ui
       namespace: longhorn-system
-      status: OutOfSync
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: longhorn-ingress
+      namespace: longhorn-system
+      status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
-      health:
-        status: Missing
       kind: ClusterRole
       name: longhorn-role
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
-      health:
-        status: Missing
       kind: ClusterRoleBinding
       name: longhorn-bind
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: rbac.authorization.k8s.io
-      health:
-        status: Missing
       kind: ClusterRoleBinding
       name: longhorn-support-bundle
-      status: OutOfSync
+      status: Synced
       version: v1
     - group: scheduling.k8s.io
-      health:
-        status: Missing
       kind: PriorityClass
       name: longhorn-critical
-      status: OutOfSync
+      status: Synced
       version: v1
   sourceType: Kustomize
-  summary: {}
+  summary:
+    externalURLs:
+      - http://longhorn.binesty.corp/
+    images:
+      - longhornio/longhorn-manager:v1.6.1
+      - longhornio/longhorn-ui:v1.6.1
   sync:
     comparedTo:
       destination:
@@ -383,8 +855,8 @@ status:
         path: cluster/argocd/sources/longhorn
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: 30cb844659599c088f0929a88cddc9fba31cea98
-    status: OutOfSync
+    revision: f57ed94e9c7fa0ff796ad0f0522acc78671b10b5
+    status: Synced
 spec:
   destination:
     namespace: longhorn-system
@@ -395,5 +867,6 @@ spec:
     repoURL: git@github.com:Binesty/Kubernetes.git
     targetRevision: main
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true
