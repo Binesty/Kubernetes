@@ -77,3 +77,28 @@ A sample in file __environment.json__
 - inform playbook filename: "cluster.yml" this is name file configuration default to kubespray  
 - select inventory, environment and vault access (key) created before  
 - check option allow CLI args in tasks
+
+
+## Disks configurations Longhorn
+after install longhorn if you need configure aditional disks falow steps below  
+
+- execute lsblk on nodes
+```bash
+lsblk
+```
+
+view disks to configure longhorn __hdd aditional__  
+- add node tag on longhorn set name in column node   
+- add disk tag on longhorn set sdd and hdd disk  
+
+|   node        |   disk   |   size    |   path   |  reserve |
+|---------------|----------|-----------|----------|----------|
+|   master      |    -     |     -     |    -     |    -     |
+|   worker-01   |   sda    |   931 Gi  |  /data   |  50 Gi   |
+|   worker-02   |   sda    |   465 Gi  |  /data   |  30 Gi   |
+|   worker-03   |   sda    |   698 Gi  |  /data   |  40 Gi   |
+|   worker-04   |   sda    |   465 Gi  |  /data   |  30 Gi   |
+|   worker-05   |   sda    |   465 Gi  |  /data   |  30 Gi   |
+|   worker-06   |   sda    |   465 Gi  |  /data   |  30 Gi   |
+|   worker-07   |    -     |     -     |    -     |    -     |
+|                                                            |

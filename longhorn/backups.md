@@ -1,9 +1,10 @@
 # Configure backup longhorn to the minio
 
 On the minio enviroment create user and policy to access bucket to backups
-Sample:
-user: backup-user
-policy: backups
+Sample: 
+- bucket: __backups__  
+- user: __backup-user__  
+- policy: __backup-policy__  
 
 Policy:
 ```json
@@ -20,8 +21,8 @@ Policy:
         "s3:DeleteObject"
       ],
       "Resource": [
-        "arn:aws:s3:::<your-bucket-name>",
-        "arn:aws:s3:::<your-bucket-name>/*"
+        "arn:aws:s3:::backups",
+        "arn:aws:s3:::backups/*"
       ]
     }
   ]
@@ -39,7 +40,7 @@ metadata:
 type: Opaque
 data:
   AWS_ACCESS_KEY_ID: [user]
-  AWS_SECRET_ACCESS_KEY: [password]]
+  AWS_SECRET_ACCESS_KEY: [password]
   AWS_ENDPOINTS: [endpoint service minio]  
 ```
 the [manifest](minio-backup.yaml) to deploy

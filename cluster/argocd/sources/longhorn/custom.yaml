@@ -19,3 +19,15 @@ spec:
             port:
               number: 80
 ---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio-secret
+  namespace: longhorn-system
+type: Opaque
+data:
+  AWS_ACCESS_KEY_ID: backups-user
+  AWS_SECRET_ACCESS_KEY: ecyuKLrRAb
+  AWS_ENDPOINTS: http://minio-service.minio.svc.cluster.local:9090
+  #AWS_CERT: your base64 encoded custom CA certificate goes here
