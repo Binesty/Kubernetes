@@ -1,0 +1,263 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-04-03T19:07:53Z'
+  generation: 9
+  labels:
+    source: internal
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-04-03T19:08:00Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-03T19:08:15Z'
+  name: minio
+  namespace: argocd
+  resourceVersion: '163592'
+  uid: f586be06-497a-476d-877d-b8b1738e95b1
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/minio
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-04-03T19:07:56Z'
+      deployedAt: '2024-04-03T19:07:57Z'
+      id: 0
+      revision: c73e2302561b0054d395a9c7561d272f2f0b828f
+      source:
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  operationState:
+    finishedAt: '2024-04-03T19:07:57Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: c73e2302561b0054d395a9c7561d272f2f0b828f
+        syncOptions:
+          - CreateNamespace=true
+    phase: Succeeded
+    startedAt: '2024-04-03T19:07:56Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: Namespace
+          message: namespace/minio configured
+          name: minio
+          namespace: minio
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: PersistentVolume
+          message: persistentvolume/nfs-minio configured
+          name: nfs-minio
+          namespace: minio
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: PersistentVolumeClaim
+          message: persistentvolumeclaim/nfs-minio configured
+          name: nfs-minio
+          namespace: minio
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/minio-service configured
+          name: minio-service
+          namespace: minio
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: statefulset.apps/minio configured
+          name: minio
+          namespace: minio
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/minio-ingress configured
+          name: minio-ingress
+          namespace: minio
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: c73e2302561b0054d395a9c7561d272f2f0b828f
+      source:
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-04-03T19:08:00Z'
+  resources:
+    - kind: Namespace
+      name: minio
+      status: Synced
+      version: v1
+    - kind: PersistentVolume
+      name: nfs-minio
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: PersistentVolumeClaim
+      name: nfs-minio
+      namespace: minio
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: minio-service
+      namespace: minio
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 2 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: minio
+      namespace: minio
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: minio-ingress
+      namespace: minio
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary:
+    externalURLs:
+      - http://minio.binesty.corp/
+    images:
+      - quay.io/minio/minio:latest
+  sync:
+    comparedTo:
+      destination:
+        namespace: minio
+        server: https://kubernetes.default.svc
+      source:
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: c73e2302561b0054d395a9c7561d272f2f0b828f
+    status: Synced
+spec:
+  destination:
+    namespace: minio
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    path: cluster/argocd/sources/minio
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
