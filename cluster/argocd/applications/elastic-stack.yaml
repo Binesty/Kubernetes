@@ -1,0 +1,445 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-04-03T12:19:12Z'
+  generation: 17
+  labels:
+    source: internal
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-03T12:19:39Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:automated: {}
+              f:retry:
+                .: {}
+                f:limit: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-04-03T12:22:04Z'
+  name: elastic-stack
+  namespace: argocd
+  resourceVersion: '51397'
+  uid: 314d1c79-eefa-4138-8d27-7173fdf39a14
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/elastic-stack
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-04-03T12:19:16Z'
+      deployedAt: '2024-04-03T12:19:19Z'
+      id: 0
+      revision: 53f4740cd97f9e6c04976c5200d47dfb28480237
+      source:
+        path: cluster/argocd/sources/elastic-stack
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  operationState:
+    finishedAt: '2024-04-03T12:19:19Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: 53f4740cd97f9e6c04976c5200d47dfb28480237
+        syncOptions:
+          - CreateNamespace=true
+    phase: Succeeded
+    startedAt: '2024-04-03T12:19:16Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: Namespace
+          message: namespace/elastic-stack created
+          name: elastic-stack
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: secret/elastic-secret created
+          name: elastic-secret
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/apm-server-config created
+          name: apm-server-config
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/logstash-configmap created
+          name: logstash-configmap
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: PersistentVolume
+          message: persistentvolume/nfs-backup-elastic created
+          name: nfs-backup-elastic
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: PersistentVolumeClaim
+          message: persistentvolumeclaim/nfs-backup-elastic created
+          name: nfs-backup-elastic
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/elasticsearch created
+          name: elasticsearch
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/apm-server created
+          name: apm-server
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/kibana-service created
+          name: kibana-service
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/logstash-service created
+          name: logstash-service
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/kibana created
+          name: kibana
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/logstash created
+          name: logstash
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: statefulset.apps/elasticsearch-cluster created
+          name: elasticsearch-cluster
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: statefulset.apps/apm-server created
+          name: apm-server
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/elasticsearch-ingress created
+          name: elasticsearch-ingress
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/kibana-ingress created
+          name: kibana-ingress
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/apm-ingress created
+          name: apm-ingress
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 53f4740cd97f9e6c04976c5200d47dfb28480237
+      source:
+        path: cluster/argocd/sources/elastic-stack
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-04-03T12:19:19Z'
+  resources:
+    - kind: ConfigMap
+      name: apm-server-config
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: logstash-configmap
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - kind: Namespace
+      name: elastic-stack
+      status: Synced
+      version: v1
+    - kind: PersistentVolume
+      name: nfs-backup-elastic
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: PersistentVolumeClaim
+      name: nfs-backup-elastic
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: elastic-secret
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: apm-server
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: elasticsearch
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: kibana-service
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: logstash-service
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: kibana
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: logstash
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 1 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: apm-server
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 1 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: elasticsearch-cluster
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: apm-ingress
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: elasticsearch-ingress
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: kibana-ingress
+      namespace: elastic-stack
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary:
+    externalURLs:
+      - http://apm.binesty.corp/
+      - http://elasticsearch.binesty.corp/
+      - http://kibana.binesty.corp/
+    images:
+      - busybox
+      - docker.elastic.co/apm/apm-server:7.17.9
+      - docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+      - docker.elastic.co/kibana/kibana:7.17.9
+      - docker.elastic.co/logstash/logstash:7.17.9
+  sync:
+    comparedTo:
+      destination:
+        namespace: elastic-stack
+        server: https://kubernetes.default.svc
+      source:
+        path: cluster/argocd/sources/elastic-stack
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: 53f4740cd97f9e6c04976c5200d47dfb28480237
+    status: Synced
+spec:
+  destination:
+    namespace: elastic-stack
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    path: cluster/argocd/sources/elastic-stack
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
