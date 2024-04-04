@@ -518,7 +518,7 @@ metadata:
       service_registration \"kubernetes\"
       {}"},{"name":"server.auditStorage.size","value":"5Gi"},{"name":"server.dataStorage.size","value":"5Gi"}]},"repoURL":"https://helm.releases.hashicorp.com","targetRevision":"0.25.0"}},"revision":"0.25.0","status":"OutOfSync"}}}
   creationTimestamp: '2024-04-03T13:01:01Z'
-  generation: 31
+  generation: 565
   labels:
     source: external
   managedFields:
@@ -553,7 +553,6 @@ metadata:
           .: {}
           f:controllerNamespace: {}
           f:health: {}
-          f:sourceType: {}
           f:summary: {}
           f:sync:
             .: {}
@@ -579,9 +578,11 @@ metadata:
         f:spec:
           f:source:
             f:targetRevision: {}
+          f:syncPolicy:
+            f:automated: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-03T13:03:18Z'
+      time: '2024-04-04T23:03:51Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -623,6 +624,7 @@ metadata:
                 f:targetRevision: {}
           f:reconciledAt: {}
           f:resources: {}
+          f:sourceType: {}
           f:summary:
             f:externalURLs: {}
             f:images: {}
@@ -634,10 +636,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-03T13:22:09Z'
+      time: '2024-04-04T23:03:53Z'
   name: vault
   namespace: argocd
-  resourceVersion: '68556'
+  resourceVersion: '556517'
   uid: 45bdddac-c29e-49d8-b6bd-711c22ddf6e3
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/vault
 status:
@@ -965,7 +967,7 @@ status:
               value: 5Gi
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.27.0
-  reconciledAt: '2024-04-03T13:22:09Z'
+  reconciledAt: '2024-04-04T23:03:52Z'
   resources:
     - kind: ConfigMap
       name: vault-config
@@ -1127,5 +1129,6 @@ spec:
     repoURL: https://helm.releases.hashicorp.com
     targetRevision: 0.27.0
   syncPolicy:
+    automated: {}
     syncOptions:
       - CreateNamespace=true
