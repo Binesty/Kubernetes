@@ -1,9 +1,7 @@
----
-- name: Clear Hosts
-  hosts: all
-  become: true
-  gather_facts: false
-
+- name: Prune all images on all hosts
+  hosts: all  
+  gather_facts: False  
+  become: yes
   tasks:
     - name: Prune images containerd all hosts
       shell: crictl rmi --prune

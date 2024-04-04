@@ -9,23 +9,42 @@ Sample:
 Policy:
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "GrantLonghornBackupstoreAccess0",
-      "Effect": "Allow",
-      "Action": [
-        "s3:PutObject",
-        "s3:GetObject",
-        "s3:ListBucket",
-        "s3:DeleteObject"
-      ],
-      "Resource": [
-        "arn:aws:s3:::backups",
-        "arn:aws:s3:::backups/*"
-      ]
-    }
-  ]
+	"Version": "2012-10-17",
+	"Statement": 
+	[
+		{
+			"Action": 
+			[
+				"s3:PutBucketPolicy",
+				"s3:GetBucketPolicy",
+				"s3:DeleteBucketPolicy",
+				"s3:ListAllMyBuckets",
+				"s3:ListBucket"
+			],
+			"Effect": "Allow",
+			"Resource": 
+			[
+				"arn:aws:s3:::backups"
+			],
+			"Sid": ""
+		},
+		{
+			"Action": 
+			[
+				"s3:AbortMultipartUpload",
+				"s3:DeleteObject",
+				"s3:GetObject",
+				"s3:ListMultipartUploadParts",
+				"s3:PutObject"
+			],
+			"Effect": "Allow",
+			"Resource": 
+			[
+				"arn:aws:s3:::backups/*"
+			],
+			"Sid": ""
+		}
+	]
 }
 ```
 
