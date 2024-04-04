@@ -30,3 +30,6 @@ kubectl label nodes binesty-worker-05 node-group=application
 kubectl label nodes binesty-worker-06 node-group=application
 kubectl label nodes binesty-worker-07 node-group=application
 ````
+
+
+kubespray create dns: [service].[namespace].svc.binesty
