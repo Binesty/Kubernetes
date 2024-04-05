@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: minio-secret
+  name: minio
   namespace: longhorn-system
 type: Opaque
 data:
