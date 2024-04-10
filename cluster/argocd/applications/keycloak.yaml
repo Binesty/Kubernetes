@@ -24,8 +24,8 @@ metadata:
       updated...","status":"Healthy"},"kind":"StatefulSet","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"partitioned
       roll out complete: 1 new pods have been
       updated...","status":"Healthy"},"kind":"StatefulSet","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"externalURLs":["http://keycloak.binesty.corp/"],"images":["docker.io/bitnami/keycloak:23.0.7-debian-12-r4","docker.io/bitnami/postgresql:16.2.0-debian-12-r8"]},"sync":{"comparedTo":{"destination":{"namespace":"keycloak","server":"https://kubernetes.default.svc"},"source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.4.1"}},"revision":"19.4.1","status":"Synced"}}}
-  creationTimestamp: '2024-04-03T03:30:48Z'
-  generation: 663
+  creationTimestamp: '2024-04-05T04:45:33Z'
+  generation: 972
   labels:
     source: external
   managedFields:
@@ -80,16 +80,7 @@ metadata:
                 f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-03T03:30:48Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:spec:
-          f:syncPolicy:
-            f:automated: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-04-04T23:03:33Z'
+      time: '2024-04-05T04:45:33Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -109,14 +100,11 @@ metadata:
               f:retry: {}
               f:sync:
                 .: {}
-                f:prune: {}
                 f:revision: {}
                 f:syncOptions: {}
                 f:syncStrategy:
                   .: {}
-                  f:hook:
-                    .: {}
-                    f:force: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -142,17 +130,49 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-04T23:03:34Z'
+      time: '2024-04-10T22:38:39Z'
   name: keycloak
   namespace: argocd
-  resourceVersion: '556409'
-  uid: e13948f1-dbd8-43d1-be2e-03467258042e
+  resourceVersion: '850998'
+  uid: c04e3d9d-b84f-49e5-abd8-653c0c497b7b
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keycloak
 status:
   controllerNamespace: argocd
   health:
     status: Healthy
   history:
+    - deployStartedAt: '2023-08-28T14:07:00Z'
+      deployedAt: '2023-08-28T14:07:01Z'
+      id: 29
+      revision: 16.0.5
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 16.0.5
+    - deployStartedAt: '2023-08-28T14:10:14Z'
+      deployedAt: '2023-08-28T14:10:15Z'
+      id: 30
+      revision: 16.0.5
+      source:
+        chart: keycloak
+        helm:
+          parameters:
+            - name: ingress.enabled
+              value: 'true'
+            - name: ingress.hostname
+              value: keycloak.binesty.net
+            - name: ingress.ingressClassName
+              value: nginx
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 16.0.5
     - deployStartedAt: '2023-08-28T14:10:52Z'
       deployedAt: '2023-08-28T14:10:53Z'
       id: 31
@@ -265,8 +285,8 @@ status:
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.4.1
-    - deployStartedAt: '2024-04-03T03:34:03Z'
-      deployedAt: '2024-04-03T03:34:19Z'
+    - deployStartedAt: '2024-04-05T04:54:15Z'
+      deployedAt: '2024-04-05T04:54:24Z'
       id: 38
       revision: 19.4.1
       source:
@@ -281,65 +301,36 @@ status:
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.4.1
-    - deployStartedAt: '2024-04-03T04:21:45Z'
-      deployedAt: '2024-04-03T04:21:48Z'
-      id: 39
-      revision: 19.4.1
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 19.4.1
-    - deployStartedAt: '2024-04-03T04:33:41Z'
-      deployedAt: '2024-04-03T04:33:48Z'
-      id: 40
-      revision: 19.4.1
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 19.4.1
   operationState:
-    finishedAt: '2024-04-03T04:33:48Z'
+    finishedAt: '2024-04-05T04:54:24Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        prune: true
         revision: 19.4.1
         syncOptions:
           - CreateNamespace=true
-          - PruneLast=true
-          - Replace=true
         syncStrategy:
-          hook:
-            force: true
+          hook: {}
     phase: Succeeded
-    startedAt: '2024-04-03T04:33:41Z'
+    startedAt: '2024-04-05T04:54:15Z'
     syncResult:
       resources:
+        - group: ''
+          hookPhase: Running
+          kind: Namespace
+          message: namespace/keycloak created
+          name: keycloak
+          namespace: ''
+          status: Synced
+          syncPhase: PreSync
+          version: v1
         - group: networking.k8s.io
           hookPhase: Running
           kind: NetworkPolicy
-          message: |-
-            networkpolicy.networking.k8s.io "keycloak" deleted
-            networkpolicy.networking.k8s.io/keycloak replaced
+          message: networkpolicy.networking.k8s.io/keycloak created
           name: keycloak
           namespace: keycloak
           status: Synced
@@ -348,9 +339,7 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: NetworkPolicy
-          message: |-
-            networkpolicy.networking.k8s.io "keycloak-postgresql" deleted
-            networkpolicy.networking.k8s.io/keycloak-postgresql replaced
+          message: networkpolicy.networking.k8s.io/keycloak-postgresql created
           name: keycloak-postgresql
           namespace: keycloak
           status: Synced
@@ -359,10 +348,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: |-
-            serviceaccount "keycloak" deleted
-            serviceaccount/keycloak replaced
-          name: keycloak
+          message: serviceaccount/keycloak-postgresql created
+          name: keycloak-postgresql
           namespace: keycloak
           status: Synced
           syncPhase: Sync
@@ -370,20 +357,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: |-
-            serviceaccount "keycloak-postgresql" deleted
-            serviceaccount/keycloak-postgresql replaced
-          name: keycloak-postgresql
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Secret
-          message: |-
-            secret "keycloak" deleted
-            secret/keycloak replaced
+          message: serviceaccount/keycloak created
           name: keycloak
           namespace: keycloak
           status: Synced
@@ -392,10 +366,17 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: |-
-            secret "keycloak-postgresql" deleted
-            secret/keycloak-postgresql replaced
+          message: secret/keycloak-postgresql created
           name: keycloak-postgresql
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: secret/keycloak created
+          name: keycloak
           namespace: keycloak
           status: Synced
           syncPhase: Sync
@@ -403,9 +384,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: ConfigMap
-          message: |-
-            configmap "keycloak-env-vars" deleted
-            configmap/keycloak-env-vars replaced
+          message: configmap/keycloak-env-vars created
           name: keycloak-env-vars
           namespace: keycloak
           status: Synced
@@ -414,20 +393,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: |-
-            service "keycloak-postgresql-hl" deleted
-            service/keycloak-postgresql-hl replaced
-          name: keycloak-postgresql-hl
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: |-
-            service "keycloak-headless" deleted
-            service/keycloak-headless replaced
+          message: service/keycloak-headless created
           name: keycloak-headless
           namespace: keycloak
           status: Synced
@@ -436,9 +402,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: |-
-            service "keycloak" deleted
-            service/keycloak replaced
+          message: service/keycloak created
           name: keycloak
           namespace: keycloak
           status: Synced
@@ -447,10 +411,17 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: |-
-            service "keycloak-postgresql" deleted
-            service/keycloak-postgresql replaced
+          message: service/keycloak-postgresql created
           name: keycloak-postgresql
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/keycloak-postgresql-hl created
+          name: keycloak-postgresql-hl
           namespace: keycloak
           status: Synced
           syncPhase: Sync
@@ -458,21 +429,17 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: |-
-            statefulset.apps "keycloak-postgresql" deleted
-            statefulset.apps/keycloak-postgresql replaced
-          name: keycloak-postgresql
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apps
-          hookPhase: Running
-          kind: StatefulSet
-          message: |-
-            statefulset.apps "keycloak" deleted
-            statefulset.apps/keycloak replaced
+          message: statefulset.apps/keycloak created
           name: keycloak
+          namespace: keycloak
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: statefulset.apps/keycloak-postgresql created
+          name: keycloak-postgresql
           namespace: keycloak
           status: Synced
           syncPhase: Sync
@@ -480,9 +447,7 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: |-
-            ingress.networking.k8s.io "keycloak" deleted
-            ingress.networking.k8s.io/keycloak replaced
+          message: ingress.networking.k8s.io/keycloak created
           name: keycloak
           namespace: keycloak
           status: Synced
@@ -501,7 +466,7 @@ status:
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.4.1
-  reconciledAt: '2024-04-04T23:03:34Z'
+  reconciledAt: '2024-04-10T22:38:39Z'
   resources:
     - kind: ConfigMap
       name: keycloak-env-vars
@@ -638,6 +603,5 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 19.4.1
   syncPolicy:
-    automated: {}
     syncOptions:
       - CreateNamespace=true

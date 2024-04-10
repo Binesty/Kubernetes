@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-04-04T02:09:18Z'
-  generation: 13
+  creationTimestamp: '2024-04-09T19:03:22Z'
+  generation: 283
   labels:
     source: external
   managedFields:
@@ -27,7 +27,6 @@ metadata:
             f:targetRevision: {}
           f:syncPolicy:
             .: {}
-            f:automated: {}
             f:syncOptions: {}
         f:status:
           .: {}
@@ -41,7 +40,7 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-04T02:09:41Z'
+      time: '2024-04-09T19:03:46Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -58,14 +57,15 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:automated: {}
-              f:retry:
-                .: {}
-                f:limit: {}
+                f:username: {}
+              f:retry: {}
               f:sync:
                 .: {}
                 f:revision: {}
                 f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -95,39 +95,40 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-04T02:09:51Z'
+      time: '2024-04-10T22:35:39Z'
   name: crossplane
   namespace: argocd
-  resourceVersion: '285763'
-  uid: 5be19008-b836-450c-b8c3-25444d5fb7c8
+  resourceVersion: '849974'
+  uid: 2ee7d23a-813c-4665-936e-aca1765b016f
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/crossplane
 status:
   controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2024-04-04T02:09:18Z'
-      deployedAt: '2024-04-04T02:09:22Z'
+    - deployStartedAt: '2024-04-09T19:03:46Z'
+      deployedAt: '2024-04-09T19:03:50Z'
       id: 0
-      revision: 1.16.0-rc.0.147.gd35ecef8
+      revision: 1.16.0-rc.0.163.g87d6699b
       source:
         chart: crossplane
         repoURL: https://charts.crossplane.io/master/
-        targetRevision: 1.16.0-rc.0.147.gd35ecef8
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
   operationState:
-    finishedAt: '2024-04-04T02:09:22Z'
+    finishedAt: '2024-04-09T19:03:50Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        automated: true
-      retry:
-        limit: 5
+        username: admin
+      retry: {}
       sync:
-        revision: 1.16.0-rc.0.147.gd35ecef8
+        revision: 1.16.0-rc.0.163.g87d6699b
         syncOptions:
           - CreateNamespace=true
+        syncStrategy:
+          hook: {}
     phase: Succeeded
-    startedAt: '2024-04-04T02:09:18Z'
+    startedAt: '2024-04-09T19:03:46Z'
     syncResult:
       resources:
         - group: ''
@@ -142,8 +143,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/rbac-manager created
-          name: rbac-manager
+          message: serviceaccount/crossplane created
+          name: crossplane
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -151,8 +152,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/crossplane created
-          name: crossplane
+          message: serviceaccount/rbac-manager created
+          name: rbac-manager
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -169,8 +170,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: secret/crossplane-root-ca created
-          name: crossplane-root-ca
+          message: secret/crossplane-tls-client created
+          name: crossplane-tls-client
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -178,8 +179,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: secret/crossplane-tls-client created
-          name: crossplane-tls-client
+          message: secret/crossplane-root-ca created
+          name: crossplane-root-ca
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -187,8 +188,17 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view configured. Warning: resource clusterroles/crossplane:aggregate-to-view is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: crossplane:aggregate-to-view
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+            reconciled. reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+            configured. Warning: resource
+            clusterroles/crossplane:allowed-provider-permissions is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: crossplane:allowed-provider-permissions
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -196,8 +206,34 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse configured. Warning: resource clusterroles/crossplane:aggregate-to-browse is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: crossplane:aggregate-to-browse
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create update patch delete] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions customresourcedefinitions/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update patch delete] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[serviceaccounts services] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io pkg.crossplane.io secrets.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch delete watch] APIGroups:[extensions apps] Resources:[deployments] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch watch delete] APIGroups:[ coordination.k8s.io] Resources:[configmaps leases] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch watch delete] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane configured. Warning: resource clusterroles/crossplane:system:aggregate-to-crossplane is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:system:aggregate-to-crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[secrets namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterroles roles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterrolebindings rolebindings] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin configured. Warning: resource clusterroles/crossplane:aggregate-to-admin is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:aggregate-to-admin
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane-browse reconciled.
+            reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane-browse configured.
+            Warning: resource clusterroles/crossplane-browse is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: crossplane-browse
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -222,78 +258,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane reconciled.
-            reconciliation required create.
-            clusterrole.rbac.authorization.k8s.io/crossplane configured.
-            Warning: resource clusterroles/crossplane is missing the
-            kubectl.kubernetes.io/last-applied-configuration annotation which is
-            required by  apply.  apply should only be used on resources created
-            declaratively by either  create --save-config or  apply. The missing
-            annotation will be patched automatically.
-          name: crossplane
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[secrets namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterroles roles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterrolebindings rolebindings] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin configured. Warning: resource clusterroles/crossplane:aggregate-to-admin is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: crossplane:aggregate-to-admin
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
           message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit configured. Warning: resource clusterroles/crossplane:aggregate-to-edit is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
           name: crossplane:aggregate-to-edit
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane-admin reconciled.
-            reconciliation required create.
-            clusterrole.rbac.authorization.k8s.io/crossplane-admin configured.
-            Warning: resource clusterroles/crossplane-admin is missing the
-            kubectl.kubernetes.io/last-applied-configuration annotation which is
-            required by  apply.  apply should only be used on resources created
-            declaratively by either  create --save-config or  apply. The missing
-            annotation will be patched automatically.
-          name: crossplane-admin
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create update patch delete] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions customresourcedefinitions/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update patch delete] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[serviceaccounts services] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io pkg.crossplane.io secrets.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch delete watch] APIGroups:[extensions apps] Resources:[deployments] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch watch delete] APIGroups:[ coordination.k8s.io] Resources:[configmaps leases] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch watch delete] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane configured. Warning: resource clusterroles/crossplane:system:aggregate-to-crossplane is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: crossplane:system:aggregate-to-crossplane
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
-            reconciled. reconciliation required create.
-            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
-            configured. Warning: resource
-            clusterroles/crossplane:allowed-provider-permissions is missing the
-            kubectl.kubernetes.io/last-applied-configuration annotation which is
-            required by  apply.  apply should only be used on resources created
-            declaratively by either  create --save-config or  apply. The missing
-            annotation will be patched automatically.
-          name: crossplane:allowed-provider-permissions
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -328,15 +294,59 @@ status:
           hookPhase: Running
           kind: ClusterRole
           message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane-browse reconciled.
+            clusterrole.rbac.authorization.k8s.io/crossplane-admin reconciled.
             reconciliation required create.
-            clusterrole.rbac.authorization.k8s.io/crossplane-browse configured.
-            Warning: resource clusterroles/crossplane-browse is missing the
+            clusterrole.rbac.authorization.k8s.io/crossplane-admin configured.
+            Warning: resource clusterroles/crossplane-admin is missing the
             kubectl.kubernetes.io/last-applied-configuration annotation which is
             required by  apply.  apply should only be used on resources created
             declaratively by either  create --save-config or  apply. The missing
             annotation will be patched automatically.
-          name: crossplane-browse
+          name: crossplane-admin
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane reconciled.
+            reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane configured.
+            Warning: resource clusterroles/crossplane is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse configured. Warning: resource clusterroles/crossplane:aggregate-to-browse is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:aggregate-to-browse
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view configured. Warning: resource clusterroles/crossplane:aggregate-to-view is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:aggregate-to-view
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/crossplane reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:crossplane Namespace:crossplane}. clusterrolebinding.rbac.authorization.k8s.io/crossplane configured. Warning: resource clusterrolebindings/crossplane is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -355,15 +365,6 @@ status:
           kind: ClusterRoleBinding
           message: "clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:rbac-manager Namespace:crossplane}. clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager configured. Warning: resource clusterrolebindings/crossplane-rbac-manager is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
           name: crossplane-rbac-manager
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/crossplane reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:crossplane Namespace:crossplane}. clusterrolebinding.rbac.authorization.k8s.io/crossplane configured. Warning: resource clusterrolebindings/crossplane is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: crossplane
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -395,12 +396,12 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 1.16.0-rc.0.147.gd35ecef8
+      revision: 1.16.0-rc.0.163.g87d6699b
       source:
         chart: crossplane
         repoURL: https://charts.crossplane.io/master/
-        targetRevision: 1.16.0-rc.0.147.gd35ecef8
-  reconciledAt: '2024-04-04T02:09:23Z'
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
+  reconciledAt: '2024-04-10T22:35:39Z'
   resources:
     - kind: Secret
       name: crossplane-root-ca
@@ -528,7 +529,7 @@ status:
   sourceType: Helm
   summary:
     images:
-      - xpkg.upbound.io/crossplane/crossplane:v1.16.0-rc.0.147.gd35ecef8
+      - xpkg.upbound.io/crossplane/crossplane:v1.16.0-rc.0.163.g87d6699b
   sync:
     comparedTo:
       destination:
@@ -537,8 +538,8 @@ status:
       source:
         chart: crossplane
         repoURL: https://charts.crossplane.io/master/
-        targetRevision: 1.16.0-rc.0.147.gd35ecef8
-    revision: 1.16.0-rc.0.147.gd35ecef8
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
+    revision: 1.16.0-rc.0.163.g87d6699b
     status: Synced
 spec:
   destination:
@@ -548,8 +549,7 @@ spec:
   source:
     chart: crossplane
     repoURL: https://charts.crossplane.io/master/
-    targetRevision: 1.16.0-rc.0.147.gd35ecef8
+    targetRevision: 1.16.0-rc.0.163.g87d6699b
   syncPolicy:
-    automated: {}
     syncOptions:
       - CreateNamespace=true

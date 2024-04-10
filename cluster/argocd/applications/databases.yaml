@@ -1,8 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-04-03T01:35:45Z'
-  generation: 11
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-03T01:35:45Z","generation":11,"labels":{"source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-03T01:37:32Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:path":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-03T01:37:35Z"}],"name":"databases","namespace":"argocd","resourceVersion":"127899","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/databases","uid":"e1075755-475f-412e-b6b2-e8320a44420a"},"spec":{"destination":{"namespace":"databases","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/databases","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"automated":{},"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-03T01:35:47Z","deployedAt":"2024-04-03T01:35:48Z","id":0,"revision":"33e658e040ec1f3ced4d90a2cf78aff9f84882dd","source":{"path":"cluster/argocd/sources/databases","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-03T01:35:48Z","message":"successfully
+      synced (all tasks
+      run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"33e658e040ec1f3ced4d90a2cf78aff9f84882dd","syncOptions":["CreateNamespace=true"]}},"phase":"Succeeded","startedAt":"2024-04-03T01:35:47Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"PersistentVolumeClaim","message":"persistentvolumeclaim/postgres-pvc
+      created","name":"postgres-pvc","namespace":"databases","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/postgres
+      created","name":"postgres","namespace":"databases","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/postgres
+      created","name":"postgres","namespace":"databases","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"33e658e040ec1f3ced4d90a2cf78aff9f84882dd","source":{"path":"cluster/argocd/sources/databases","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-03T01:35:48Z","resources":[{"health":{"status":"Healthy"},"kind":"PersistentVolumeClaim","name":"postgres-pvc","namespace":"databases","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"postgres","namespace":"databases","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"partitioned
+      roll out complete: 1 new pods have been
+      updated...","status":"Healthy"},"kind":"StatefulSet","name":"postgres","namespace":"databases","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["postgres:13"]},"sync":{"comparedTo":{"destination":{"namespace":"databases","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/databases","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"33e658e040ec1f3ced4d90a2cf78aff9f84882dd","status":"Synced"}}}
+  creationTimestamp: '2024-04-05T04:45:33Z'
+  generation: 963
   labels:
     source: internal
   managedFields:
@@ -10,6 +20,9 @@ metadata:
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
             f:source: {}
@@ -27,26 +40,32 @@ metadata:
             f:targetRevision: {}
           f:syncPolicy:
             .: {}
-            f:automated: {}
             f:syncOptions: {}
         f:status:
           .: {}
+          f:controllerNamespace: {}
           f:health: {}
           f:summary: {}
           f:sync:
             .: {}
             f:comparedTo:
               .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
+              f:destination:
+                .: {}
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+      manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-03T01:37:32Z'
+      time: '2024-04-05T04:45:33Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
-          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -83,23 +102,15 @@ metadata:
           f:summary:
             f:images: {}
           f:sync:
-            f:comparedTo:
-              f:destination:
-                f:namespace: {}
-                f:server: {}
-              f:source:
-                f:path: {}
-                f:repoURL: {}
-                f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-03T01:37:35Z'
+      time: '2024-04-10T22:35:41Z'
   name: databases
   namespace: argocd
-  resourceVersion: '127899'
-  uid: e1075755-475f-412e-b6b2-e8320a44420a
+  resourceVersion: '849983'
+  uid: 554d9301-6b56-4eca-ac43-aaae8f40fcb1
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/databases
 status:
   controllerNamespace: argocd
@@ -114,8 +125,16 @@ status:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
+    - deployStartedAt: '2024-04-05T04:47:45Z'
+      deployedAt: '2024-04-05T04:47:58Z'
+      id: 1
+      revision: 281d71653b9c9f4ba74f008d5388ee00ff481b2e
+      source:
+        path: cluster/argocd/sources/databases
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-04-03T01:35:48Z'
+    finishedAt: '2024-04-05T04:47:58Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
@@ -123,21 +142,21 @@ status:
       retry:
         limit: 5
       sync:
-        revision: 33e658e040ec1f3ced4d90a2cf78aff9f84882dd
+        revision: 281d71653b9c9f4ba74f008d5388ee00ff481b2e
         syncOptions:
           - CreateNamespace=true
     phase: Succeeded
-    startedAt: '2024-04-03T01:35:47Z'
+    startedAt: '2024-04-05T04:47:45Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
-          kind: PersistentVolumeClaim
-          message: persistentvolumeclaim/postgres-pvc created
-          name: postgres-pvc
-          namespace: databases
+          kind: Namespace
+          message: namespace/databases created
+          name: databases
+          namespace: ''
           status: Synced
-          syncPhase: Sync
+          syncPhase: PreSync
           version: v1
         - group: ''
           hookPhase: Running
@@ -157,20 +176,13 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 33e658e040ec1f3ced4d90a2cf78aff9f84882dd
+      revision: 281d71653b9c9f4ba74f008d5388ee00ff481b2e
       source:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-03T01:35:48Z'
+  reconciledAt: '2024-04-10T22:35:39Z'
   resources:
-    - health:
-        status: Healthy
-      kind: PersistentVolumeClaim
-      name: postgres-pvc
-      namespace: databases
-      status: Synced
-      version: v1
     - health:
         status: Healthy
       kind: Service
@@ -200,7 +212,7 @@ status:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: 33e658e040ec1f3ced4d90a2cf78aff9f84882dd
+    revision: 7fc45060da8c2d88bf69b2388d7bb615deb36869
     status: Synced
 spec:
   destination:
@@ -212,6 +224,5 @@ spec:
     repoURL: git@github.com:Binesty/Kubernetes.git
     targetRevision: main
   syncPolicy:
-    automated: {}
     syncOptions:
       - CreateNamespace=true
