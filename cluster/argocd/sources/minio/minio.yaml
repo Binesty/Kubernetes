@@ -93,7 +93,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: minio-service
+  name: minio-service-console
   namespace: minio
 spec:
   selector:
@@ -103,6 +103,18 @@ spec:
     - port: 9090
       targetPort: 9090
       protocol: TCP  
+---  
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-service-api
+  namespace: minio
+spec:
+  selector:
+    app: minio
+  type: ClusterIP  
+  ports:
     - port: 9000
       targetPort: 9000
       protocol: TCP        
@@ -125,7 +137,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: minio-service
+            name: minio-service-console
             port:
               number: 9090
 ---
