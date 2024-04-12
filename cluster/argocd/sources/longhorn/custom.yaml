@@ -29,5 +29,5 @@ type: Opaque
 data:
   AWS_ACCESS_KEY_ID: bWluaW9hZG1pbg== # minioadmin
   AWS_SECRET_ACCESS_KEY: bWluaW9hZG1pbg== # minioadmin
-  AWS_ENDPOINTS: aHR0cDovL21pbmlvLWFwaS5taW5pby5zdmMuYmluZXN0eTo5MDAw # http://minio-api.minio.svc.binesty:9000  
+  AWS_ENDPOINTS: aHR0cDovL21pbmlvLXNlcnZpY2UtYXBpLm1pbmlvLnN2Yy5iaW5lc3R5OjkwMDAgIA== # http://minio-service-api.minio.svc.binesty:9000  
 ---
