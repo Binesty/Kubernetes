@@ -12,8 +12,9 @@ metadata:
       roll out complete: 1 new pods have been
       updated...","status":"Healthy"},"kind":"StatefulSet","name":"postgres","namespace":"databases","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["postgres:13"]},"sync":{"comparedTo":{"destination":{"namespace":"databases","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/databases","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"33e658e040ec1f3ced4d90a2cf78aff9f84882dd","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 963
+  generation: 1351
   labels:
+    project: infrastructure
     source: internal
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -65,6 +66,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:06:00Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -106,10 +116,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:35:41Z'
+      time: '2024-04-12T18:08:32Z'
   name: databases
   namespace: argocd
-  resourceVersion: '849983'
+  resourceVersion: '1240327'
   uid: 554d9301-6b56-4eca-ac43-aaae8f40fcb1
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/databases
 status:
@@ -181,7 +191,7 @@ status:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-10T22:35:39Z'
+  reconciledAt: '2024-04-12T18:08:30Z'
   resources:
     - health:
         status: Healthy
@@ -212,7 +222,7 @@ status:
         path: cluster/argocd/sources/databases
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: 7fc45060da8c2d88bf69b2388d7bb615deb36869
+    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
     status: Synced
 spec:
   destination:

@@ -34,8 +34,9 @@ metadata:
       created","name":"ingress-nginx-admission","namespace":"ingress-nginx","syncPhase":"PostSync","version":"v1"},{"group":"batch","hookPhase":"Succeeded","hookType":"PostSync","kind":"Job","message":"job.batch/ingress-nginx-admission-patch
       created","name":"ingress-nginx-admission-patch","namespace":"ingress-nginx","syncPhase":"PostSync","version":"v1"}],"revision":"4.10.0","source":{"chart":"ingress-nginx","helm":{"parameters":[{"name":"controller.service.loadBalancerIP"}]},"repoURL":"https://kubernetes.github.io/ingress-nginx","targetRevision":"4.10.0"}}},"reconciledAt":"2024-04-02T13:41:44Z","resources":[{"kind":"ConfigMap","name":"ingress-nginx-controller","namespace":"ingress-nginx","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"ingress-nginx-controller","namespace":"ingress-nginx","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"ingress-nginx-controller-admission","namespace":"ingress-nginx","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"ingress-nginx","namespace":"ingress-nginx","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"ValidatingWebhookConfiguration","name":"ingress-nginx-admission","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"ingress-nginx-controller","namespace":"ingress-nginx","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"IngressClass","name":"nginx","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"ingress-nginx","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"ingress-nginx","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"ingress-nginx","namespace":"ingress-nginx","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"ingress-nginx","namespace":"ingress-nginx","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["registry.k8s.io/ingress-nginx/controller:v1.10.0@sha256:42b3f0e5d0846876b1791cd3afeb5f1cbbe4259d6f35651dcc1b5c980925379c"]},"sync":{"comparedTo":{"destination":{"namespace":"ingress-nginx","server":"https://kubernetes.default.svc"},"source":{"chart":"ingress-nginx","helm":{"parameters":[{"name":"controller.service.loadBalancerIP"}]},"repoURL":"https://kubernetes.github.io/ingress-nginx","targetRevision":"4.10.0"}},"revision":"4.10.0","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 1028
+  generation: 1402
   labels:
+    project: infrastructure
     source: external
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -93,6 +94,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:19:33Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -138,10 +148,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:38:39Z'
+      time: '2024-04-12T18:11:31Z'
   name: ingress-nginx
   namespace: argocd
-  resourceVersion: '850991'
+  resourceVersion: '1241320'
   uid: 32260485-fd05-4849-acbb-b50475e2f43c
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/ingress-nginx
 status:
@@ -405,7 +415,7 @@ status:
             - name: controller.service.loadBalancerIP
         repoURL: https://kubernetes.github.io/ingress-nginx
         targetRevision: 4.10.0
-  reconciledAt: '2024-04-10T22:38:39Z'
+  reconciledAt: '2024-04-12T18:11:30Z'
   resources:
     - kind: ConfigMap
       name: ingress-nginx-controller

@@ -25,8 +25,9 @@ metadata:
       roll out complete: 1 new pods have been
       updated...","status":"Healthy"},"kind":"StatefulSet","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"externalURLs":["http://keycloak.binesty.corp/"],"images":["docker.io/bitnami/keycloak:23.0.7-debian-12-r4","docker.io/bitnami/postgresql:16.2.0-debian-12-r8"]},"sync":{"comparedTo":{"destination":{"namespace":"keycloak","server":"https://kubernetes.default.svc"},"source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.4.1"}},"revision":"19.4.1","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 972
+  generation: 1353
   labels:
+    project: infrastructure
     source: external
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -84,6 +85,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:23:52Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -130,10 +140,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:38:39Z'
+      time: '2024-04-12T18:11:31Z'
   name: keycloak
   namespace: argocd
-  resourceVersion: '850998'
+  resourceVersion: '1241325'
   uid: c04e3d9d-b84f-49e5-abd8-653c0c497b7b
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keycloak
 status:
@@ -466,7 +476,7 @@ status:
               value: nginx
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.4.1
-  reconciledAt: '2024-04-10T22:38:39Z'
+  reconciledAt: '2024-04-12T18:11:30Z'
   resources:
     - kind: ConfigMap
       name: keycloak-env-vars

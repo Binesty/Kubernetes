@@ -1,0 +1,608 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-04-09T19:03:22Z'
+  generation: 690
+  labels:
+    project: infrastructure
+    source: external
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:project: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:05:04Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:prune: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-04-12T18:08:31Z'
+  name: crossplane
+  namespace: argocd
+  resourceVersion: '1240307'
+  uid: 2ee7d23a-813c-4665-936e-aca1765b016f
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/crossplane
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-04-09T19:03:46Z'
+      deployedAt: '2024-04-09T19:03:50Z'
+      id: 0
+      revision: 1.16.0-rc.0.163.g87d6699b
+      source:
+        chart: crossplane
+        repoURL: https://charts.crossplane.io/master/
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
+    - deployStartedAt: '2024-04-11T11:55:45Z'
+      deployedAt: '2024-04-11T11:55:48Z'
+      id: 1
+      revision: 1.16.0-rc.0.163.g87d6699b
+      source:
+        chart: crossplane
+        repoURL: https://charts.crossplane.io/master/
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
+  operationState:
+    finishedAt: '2024-04-11T11:55:48Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        prune: true
+        revision: 1.16.0-rc.0.163.g87d6699b
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
+          - Replace=true
+        syncStrategy:
+          hook:
+            force: true
+    phase: Succeeded
+    startedAt: '2024-04-11T11:55:45Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "rbac-manager" deleted
+            serviceaccount/rbac-manager replaced
+          name: rbac-manager
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: |-
+            serviceaccount "crossplane" deleted
+            serviceaccount/crossplane replaced
+          name: crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: |-
+            secret "crossplane-tls-client" deleted
+            secret/crossplane-tls-client replaced
+          name: crossplane-tls-client
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: |-
+            secret "crossplane-root-ca" deleted
+            secret/crossplane-root-ca replaced
+          name: crossplane-root-ca
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: |-
+            secret "crossplane-tls-server" deleted
+            secret/crossplane-tls-server replaced
+          name: crossplane-tls-server
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "crossplane:aggregate-to-browse" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse
+            replaced
+          name: crossplane:aggregate-to-browse
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane reconciled.
+            clusterrole.rbac.authorization.k8s.io "crossplane" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane replaced
+          name: crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane-browse reconciled.
+            clusterrole.rbac.authorization.k8s.io "crossplane-browse" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane-browse replaced
+          name: crossplane-browse
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "crossplane:aggregate-to-view" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view
+            replaced
+          name: crossplane:aggregate-to-view
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "crossplane:system:aggregate-to-crossplane" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane
+            replaced
+          name: crossplane:system:aggregate-to-crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "crossplane:aggregate-to-admin" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin
+            replaced
+          name: crossplane:aggregate-to-admin
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "crossplane:aggregate-to-edit" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit
+            replaced
+          name: crossplane:aggregate-to-edit
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane-admin reconciled.
+            clusterrole.rbac.authorization.k8s.io "crossplane-admin" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane-admin replaced
+          name: crossplane-admin
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane-edit reconciled.
+            clusterrole.rbac.authorization.k8s.io "crossplane-edit" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane-edit replaced
+          name: crossplane-edit
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "crossplane-rbac-manager" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager
+            replaced
+          name: crossplane-rbac-manager
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane-view reconciled.
+            clusterrole.rbac.authorization.k8s.io "crossplane-view" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane-view replaced
+          name: crossplane-view
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "crossplane:allowed-provider-permissions" deleted
+
+            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+            replaced
+          name: crossplane:allowed-provider-permissions
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/crossplane-admin
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io
+            "crossplane-admin" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/crossplane-admin
+            replaced
+          name: crossplane-admin
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io
+            "crossplane-rbac-manager" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager
+            replaced
+          name: crossplane-rbac-manager
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/crossplane reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io "crossplane" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/crossplane replaced
+          name: crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: |-
+            service "crossplane-webhooks" deleted
+            service/crossplane-webhooks replaced
+          name: crossplane-webhooks
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: |-
+            deployment.apps "crossplane-rbac-manager" deleted
+            deployment.apps/crossplane-rbac-manager replaced
+          name: crossplane-rbac-manager
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: |-
+            deployment.apps "crossplane" deleted
+            deployment.apps/crossplane replaced
+          name: crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 1.16.0-rc.0.163.g87d6699b
+      source:
+        chart: crossplane
+        repoURL: https://charts.crossplane.io/master/
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
+  reconciledAt: '2024-04-12T18:08:30Z'
+  resources:
+    - kind: Secret
+      name: crossplane-root-ca
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: crossplane-tls-client
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - kind: Secret
+      name: crossplane-tls-server
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: crossplane-webhooks
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: crossplane
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: rbac-manager
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: crossplane
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: crossplane-rbac-manager
+      namespace: crossplane
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane-admin
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane-browse
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane-edit
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane-rbac-manager
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane-view
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane:aggregate-to-admin
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane:aggregate-to-browse
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane:aggregate-to-edit
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane:aggregate-to-view
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane:allowed-provider-permissions
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: crossplane:system:aggregate-to-crossplane
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: crossplane
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: crossplane-admin
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: crossplane-rbac-manager
+      status: Synced
+      version: v1
+  sourceType: Helm
+  summary:
+    images:
+      - xpkg.upbound.io/crossplane/crossplane:v1.16.0-rc.0.163.g87d6699b
+  sync:
+    comparedTo:
+      destination:
+        namespace: crossplane
+        server: https://kubernetes.default.svc
+      source:
+        chart: crossplane
+        repoURL: https://charts.crossplane.io/master/
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
+    revision: 1.16.0-rc.0.163.g87d6699b
+    status: Synced
+spec:
+  destination:
+    namespace: crossplane
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: crossplane
+    repoURL: https://charts.crossplane.io/master/
+    targetRevision: 1.16.0-rc.0.163.g87d6699b
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

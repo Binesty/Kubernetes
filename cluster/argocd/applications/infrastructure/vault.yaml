@@ -439,8 +439,9 @@ metadata:
       service_registration \"kubernetes\"
       {}"},{"name":"server.auditStorage.size","value":"5Gi"},{"name":"server.dataStorage.size","value":"5Gi"}]},"repoURL":"https://helm.releases.hashicorp.com","targetRevision":"0.27.0"}},"revision":"0.27.0","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:34Z'
-  generation: 1006
+  generation: 1411
   labels:
+    project: infrastructure
     source: external
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -498,6 +499,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T18:05:08Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -545,10 +555,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:44:39Z'
+      time: '2024-04-12T18:14:31Z'
   name: vault
   namespace: argocd
-  resourceVersion: '853014'
+  resourceVersion: '1242341'
   uid: 9f4a7c5d-6e44-45e0-97ae-1fc59f9f2f04
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/vault
 status:
@@ -883,7 +893,7 @@ status:
               value: 5Gi
         repoURL: https://helm.releases.hashicorp.com
         targetRevision: 0.27.0
-  reconciledAt: '2024-04-10T22:44:39Z'
+  reconciledAt: '2024-04-12T18:14:30Z'
   resources:
     - kind: ConfigMap
       name: vault-config

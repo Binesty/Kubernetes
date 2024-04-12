@@ -162,8 +162,9 @@ metadata:
       configured","name":"cheap","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1beta1"},{"group":"admissionregistration.k8s.io","hookPhase":"Running","kind":"ValidatingWebhookConfiguration","message":"validatingwebhookconfiguration.admissionregistration.k8s.io/metallb-webhook-configuration
       created","name":"metallb-webhook-configuration","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"5d32afa8071be936466c2429c4cc5b3b59ddd04c","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-02T13:19:40Z","resources":[{"kind":"ConfigMap","name":"metallb-excludel2","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"Namespace","name":"metallb-system","status":"Synced","version":"v1"},{"kind":"Secret","name":"metallb-webhook-cert","namespace":"metallb-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"metallb-webhook-service","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"speaker","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"ValidatingWebhookConfiguration","name":"metallb-webhook-configuration","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bfdprofiles.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bgpadvertisements.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bgppeers.metallb.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"communities.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"ipaddresspools.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"l2advertisements.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"servicel2statuses.metallb.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"DaemonSet","name":"speaker","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"metallb.io","kind":"IPAddressPool","name":"cheap","namespace":"metallb-system","status":"Synced","version":"v1beta1"},{"group":"metallb.io","kind":"L2Advertisement","name":"binesty-net","namespace":"metallb-system","status":"Synced","version":"v1beta1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"metallb-system:controller","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"metallb-system:speaker","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metallb-system:controller","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metallb-system:speaker","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"pod-lister","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"pod-lister","namespace":"metallb-system","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["quay.io/metallb/controller:v0.14.4","quay.io/metallb/speaker:v0.14.4"]},"sync":{"comparedTo":{"destination":{"namespace":"metallb-system","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"5d32afa8071be936466c2429c4cc5b3b59ddd04c","status":"OutOfSync"}}}
   creationTimestamp: '2024-04-05T04:45:34Z'
-  generation: 1069
+  generation: 1485
   labels:
+    project: infrastructure
     source: internal
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -215,6 +216,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:45:20Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -256,10 +266,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:38:39Z'
+      time: '2024-04-12T18:14:32Z'
   name: metallb
   namespace: argocd
-  resourceVersion: '851001'
+  resourceVersion: '1242355'
   uid: 457632e2-ba32-47c8-81ce-fd298cbb04ef
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metallb
 status:
@@ -618,7 +628,7 @@ status:
         path: cluster/argocd/sources/metallb
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-10T22:38:39Z'
+  reconciledAt: '2024-04-12T18:14:30Z'
   resources:
     - kind: ConfigMap
       name: metallb-excludel2
@@ -777,7 +787,7 @@ status:
         path: cluster/argocd/sources/metallb
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: 7fc45060da8c2d88bf69b2388d7bb615deb36869
+    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
     status: OutOfSync
 spec:
   destination:

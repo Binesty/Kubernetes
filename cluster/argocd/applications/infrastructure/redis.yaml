@@ -18,8 +18,9 @@ metadata:
       rolling update complete 3 pods at revision
       redis-node-5db9569bdc...","status":"Healthy"},"kind":"StatefulSet","name":"redis-node","namespace":"redis","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"redis","namespace":"redis","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["docker.io/bitnami/redis-sentinel:7.2.4-debian-12-r7","docker.io/bitnami/redis:7.2.4-debian-12-r9"]},"sync":{"comparedTo":{"destination":{"namespace":"redis","server":"https://kubernetes.default.svc"},"source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},"revision":"19.0.2","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:34Z'
-  generation: 1088
+  generation: 1527
   labels:
+    project: infrastructure
     source: external
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -77,6 +78,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T18:03:34Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -122,10 +132,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:41:39Z'
+      time: '2024-04-12T18:14:31Z'
   name: redis
   namespace: argocd
-  resourceVersion: '852000'
+  resourceVersion: '1242340'
   uid: ecd8320f-7bb2-4793-82db-fd4184ee7549
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/redis
 status:
@@ -279,7 +289,7 @@ status:
               value: 'true'
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.0.2
-  reconciledAt: '2024-04-10T22:41:39Z'
+  reconciledAt: '2024-04-12T18:14:30Z'
   resources:
     - kind: ConfigMap
       name: redis-configuration

@@ -1,0 +1,11 @@
+- name: Installing argocd business packages
+  hosts: commands
+  gather_facts: False
+
+  tasks:    
+    - name: Clean applications business
+      command: kubectl delete application --all -n argocd --selector=project=business
+      ignore_errors: yes
+    - name: Create applications business
+      command: kubectl apply -f /tmp/semaphore/argocd/applications/business
+      ignore_errors: yes   

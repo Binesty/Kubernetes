@@ -1,12 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-04-10T17:36:20Z'
-  generation: 133
+  creationTimestamp: '2024-04-11T19:56:35Z'
+  generation: 209
+  labels:
+    project: infrastructure
+    source: internal
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:project: {}
+            f:source: {}
         f:spec:
           .: {}
           f:destination:
@@ -16,10 +24,7 @@ metadata:
           f:project: {}
           f:source:
             .: {}
-            f:chart: {}
-            f:helm:
-              .: {}
-              f:parameters: {}
+            f:path: {}
             f:repoURL: {}
             f:targetRevision: {}
           f:syncPolicy:
@@ -37,7 +42,7 @@ metadata:
               f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-10T17:58:43Z'
+      time: '2024-04-12T17:46:29Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -54,14 +59,15 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:automated: {}
-              f:retry:
-                .: {}
-                f:limit: {}
+                f:username: {}
+              f:retry: {}
               f:sync:
                 .: {}
                 f:revision: {}
                 f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -70,10 +76,7 @@ metadata:
               f:revision: {}
               f:source:
                 .: {}
-                f:chart: {}
-                f:helm:
-                  .: {}
-                  f:parameters: {}
+                f:path: {}
                 f:repoURL: {}
                 f:targetRevision: {}
           f:reconciledAt: {}
@@ -88,77 +91,53 @@ metadata:
                 f:namespace: {}
                 f:server: {}
               f:source:
-                f:chart: {}
-                f:helm:
-                  .: {}
-                  f:parameters: {}
+                f:path: {}
                 f:repoURL: {}
                 f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:41:39Z'
+      time: '2024-04-12T18:14:32Z'
   name: minio
   namespace: argocd
-  resourceVersion: '851997'
-  uid: 4c11fae2-43fe-43aa-9a04-4218c72191c2
+  resourceVersion: '1242352'
+  uid: f6f093d4-ec42-43ee-b01e-a5ece480fccd
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/minio
 status:
   controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2024-04-10T17:36:21Z'
-      deployedAt: '2024-04-10T17:36:23Z'
+    - deployStartedAt: '2024-04-12T13:07:55Z'
+      deployedAt: '2024-04-12T13:07:57Z'
       id: 0
-      revision: 14.1.7
+      revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
       source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.corp
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 14.1.7
-    - deployStartedAt: '2024-04-10T17:58:43Z'
-      deployedAt: '2024-04-10T17:58:44Z'
-      id: 1
-      revision: 14.1.7
-      source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 14.1.7
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-04-10T17:58:44Z'
+    finishedAt: '2024-04-12T13:07:57Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        automated: true
-      retry:
-        limit: 5
+        username: admin
+      retry: {}
       sync:
-        revision: 14.1.7
+        revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
         syncOptions:
           - CreateNamespace=true
+        syncStrategy:
+          hook: {}
     phase: Succeeded
-    startedAt: '2024-04-10T17:58:43Z'
+    startedAt: '2024-04-12T13:07:55Z'
     syncResult:
       resources:
-        - group: networking.k8s.io
+        - group: ''
           hookPhase: Running
-          kind: NetworkPolicy
-          message: networkpolicy.networking.k8s.io/minio configured
+          kind: Namespace
+          message: namespace/minio configured
           name: minio
           namespace: minio
           status: Synced
@@ -166,18 +145,9 @@ status:
           version: v1
         - group: ''
           hookPhase: Running
-          kind: ServiceAccount
-          message: serviceaccount/minio unchanged
-          name: minio
-          namespace: minio
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Secret
-          message: secret/minio configured
-          name: minio
+          kind: PersistentVolume
+          message: persistentvolume/nfs-minio configured
+          name: nfs-minio
           namespace: minio
           status: Synced
           syncPhase: Sync
@@ -185,8 +155,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: PersistentVolumeClaim
-          message: persistentvolumeclaim/minio unchanged
-          name: minio
+          message: persistentvolumeclaim/nfs-minio configured
+          name: nfs-minio
           namespace: minio
           status: Synced
           syncPhase: Sync
@@ -194,8 +164,17 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/minio configured
-          name: minio
+          message: service/minio-service-console configured
+          name: minio-service-console
+          namespace: minio
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/minio-service-api configured
+          name: minio-service-api
           namespace: minio
           status: Synced
           syncPhase: Sync
@@ -212,48 +191,45 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/minio configured
-          name: minio
+          message: ingress.networking.k8s.io/minio-ingress configured
+          name: minio-ingress
           namespace: minio
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 14.1.7
+      revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
       source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 14.1.7
-  reconciledAt: '2024-04-10T22:41:39Z'
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-04-12T18:14:30Z'
   resources:
+    - kind: Namespace
+      name: minio
+      status: Synced
+      version: v1
+    - kind: PersistentVolume
+      name: nfs-minio
+      status: Synced
+      version: v1
     - health:
         status: Healthy
       kind: PersistentVolumeClaim
-      name: minio
-      namespace: minio
-      status: Synced
-      version: v1
-    - kind: Secret
-      name: minio
+      name: nfs-minio
       namespace: minio
       status: Synced
       version: v1
     - health:
         status: Healthy
       kind: Service
-      name: minio
+      name: minio-service-api
       namespace: minio
       status: Synced
       version: v1
-    - kind: ServiceAccount
-      name: minio
+    - health:
+        status: Healthy
+      kind: Service
+      name: minio-service-console
       namespace: minio
       status: Synced
       version: v1
@@ -269,40 +245,26 @@ status:
       health:
         status: Healthy
       kind: Ingress
-      name: minio
+      name: minio-ingress
       namespace: minio
       status: Synced
       version: v1
-    - group: networking.k8s.io
-      kind: NetworkPolicy
-      name: minio
-      namespace: minio
-      status: Synced
-      version: v1
-  sourceType: Helm
+  sourceType: Kustomize
   summary:
     externalURLs:
       - http://minio.binesty.corp/
     images:
-      - docker.io/bitnami/minio:2024.4.6-debian-12-r0
+      - quay.io/minio/minio:latest
   sync:
     comparedTo:
       destination:
         namespace: minio
         server: https://kubernetes.default.svc
       source:
-        chart: minio
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: minio.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 14.1.7
-    revision: 14.1.7
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
     status: Synced
 spec:
   destination:
@@ -310,17 +272,9 @@ spec:
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    chart: minio
-    helm:
-      parameters:
-        - name: ingress.enabled
-          value: 'true'
-        - name: ingress.hostname
-          value: minio.binesty.corp
-        - name: ingress.ingressClassName
-          value: nginx
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 14.1.7
+    path: cluster/argocd/sources/minio
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

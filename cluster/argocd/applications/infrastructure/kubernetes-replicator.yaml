@@ -35,8 +35,9 @@ metadata:
       automatically.","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/kubernetes-replicator
       created","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"2.9.2","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}}},"reconciledAt":"2024-04-02T22:30:33Z","resources":[{"kind":"ServiceAccount","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"kubernetes-replicator","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["quay.io/mittwald/kubernetes-replicator:v2.9.2"]},"sync":{"comparedTo":{"destination":{"namespace":"kubernetes-replicator","server":"https://kubernetes.default.svc"},"source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}},"revision":"2.9.2","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 964
+  generation: 1339
   labels:
+    project: infrastructure
     source: external
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -88,6 +89,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:25:49Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -130,10 +140,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:38:39Z'
+      time: '2024-04-12T18:14:30Z'
   name: kubernetes-replicator
   namespace: argocd
-  resourceVersion: '850989'
+  resourceVersion: '1242336'
   uid: 56bdd75f-dcde-4202-be23-c4aabe380eb5
   selfLink: >-
     /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kubernetes-replicator
@@ -216,7 +226,7 @@ status:
         chart: kubernetes-replicator
         repoURL: https://helm.mittwald.de
         targetRevision: 2.9.2
-  reconciledAt: '2024-04-10T22:38:39Z'
+  reconciledAt: '2024-04-12T18:14:30Z'
   resources:
     - kind: ServiceAccount
       name: kubernetes-replicator

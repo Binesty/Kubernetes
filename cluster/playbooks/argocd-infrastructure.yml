@@ -1,4 +1,4 @@
-- name: Installing argocd packages
+- name: Installing argocd infrastructure packages and configure cluster
   hosts: commands
   gather_facts: False
 
@@ -49,18 +49,18 @@
       ignore_errors: yes
     - name: Create repositories
       command: kubectl apply -f /tmp/semaphore/argocd/repositories
-      ignore_errors: yes          
-
-    - name: Clean applications
-      command: kubectl delete application --all -n argocd
       ignore_errors: yes
-    - name: Create applications
-      command: kubectl apply -f /tmp/semaphore/argocd/applications
-      ignore_errors: yes   
 
     - name: Delete projects
       command: kubectl delete appproject --all -n argocd     
       ignore_errors: yes
     - name: Create projects
       command: kubectl apply -f /tmp/semaphore/argocd/projects
-      ignore_errors: yes   
+      ignore_errors: yes
+
+    - name: Clean applications infrastructure
+      command: kubectl delete application --all -n argocd --selector=project=infrastructure
+      ignore_errors: yes
+    - name: Create applications infrastructure
+      command: kubectl apply -f /tmp/semaphore/argocd/applications/infrastructure
+      ignore_errors: yes     

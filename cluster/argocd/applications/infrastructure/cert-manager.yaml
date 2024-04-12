@@ -442,8 +442,9 @@ metadata:
       created","name":"cert-manager-startupapicheck:create-cert","namespace":"cert-manager","syncPhase":"PostSync","version":"v1"},{"group":"batch","hookPhase":"Succeeded","hookType":"PostSync","kind":"Job","message":"job.batch/cert-manager-startupapicheck
       created","name":"cert-manager-startupapicheck","namespace":"cert-manager","syncPhase":"PostSync","version":"v1"}],"revision":"v1.14.4","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}}},"reconciledAt":"2024-04-02T19:11:00Z","resources":[{"health":{"status":"Healthy"},"kind":"Service","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"MutatingWebhookConfiguration","name":"cert-manager-webhook","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"ValidatingWebhookConfiguration","name":"cert-manager-webhook","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"certificaterequests.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"certificates.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"challenges.acme.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"clusterissuers.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"issuers.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"orders.acme.cert-manager.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-cainjector","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-cluster-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-approve:cert-manager-io","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-certificates","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-certificatesigningrequests","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-challenges","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-clusterissuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-ingress-shim","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-issuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-orders","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-edit","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-webhook:subjectaccessreviews","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-cainjector","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-approve:cert-manager-io","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-certificates","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-certificatesigningrequests","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-challenges","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-clusterissuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-ingress-shim","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-issuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-orders","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-webhook:subjectaccessreviews","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["quay.io/jetstack/cert-manager-cainjector:v1.14.4","quay.io/jetstack/cert-manager-controller:v1.14.4","quay.io/jetstack/cert-manager-webhook:v1.14.4"]},"sync":{"comparedTo":{"destination":{"namespace":"cert-manager","server":"https://kubernetes.default.svc"},"source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}},"revision":"v1.14.4","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 991
+  generation: 1375
   labels:
+    project: infrastructure
     source: external
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -501,6 +502,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:04:00Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -546,10 +556,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:35:40Z'
+      time: '2024-04-12T18:08:31Z'
   name: cert-manager
   namespace: argocd
-  resourceVersion: '849975'
+  resourceVersion: '1240313'
   uid: c0d25a69-d216-4393-92de-402830ef54bf
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/cert-manager
 status:
@@ -1073,7 +1083,7 @@ status:
               value: 'true'
         repoURL: https://charts.jetstack.io
         targetRevision: v1.14.4
-  reconciledAt: '2024-04-10T22:35:39Z'
+  reconciledAt: '2024-04-12T18:08:30Z'
   resources:
     - health:
         status: Healthy

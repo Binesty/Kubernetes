@@ -54,8 +54,9 @@ metadata:
       created","name":"longhorn-ingress","namespace":"longhorn-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"scheduling.k8s.io","hookPhase":"Running","kind":"PriorityClass","message":"priorityclass.scheduling.k8s.io/longhorn-critical
       configured","name":"longhorn-critical","namespace":"longhorn-system","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"f57ed94e9c7fa0ff796ad0f0522acc78671b10b5","source":{"path":"cluster/argocd/sources/longhorn","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-03T23:01:09Z","resources":[{"kind":"ConfigMap","name":"longhorn-default-setting","namespace":"longhorn-system","status":"Synced","version":"v1"},{"kind":"ConfigMap","name":"longhorn-storageclass","namespace":"longhorn-system","status":"Synced","version":"v1"},{"kind":"Namespace","name":"longhorn-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"longhorn-admission-webhook","namespace":"longhorn-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"longhorn-backend","namespace":"longhorn-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"longhorn-conversion-webhook","namespace":"longhorn-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"longhorn-engine-manager","namespace":"longhorn-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"longhorn-frontend","namespace":"longhorn-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"longhorn-recovery-backend","namespace":"longhorn-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"longhorn-replica-manager","namespace":"longhorn-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"longhorn-service-account","namespace":"longhorn-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"longhorn-support-bundle","namespace":"longhorn-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"longhorn-ui-service-account","namespace":"longhorn-system","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"backingimagedatasources.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"backingimagemanagers.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"backingimages.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"backupbackingimages.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"backups.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"backuptargets.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"backupvolumes.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"engineimages.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"engines.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"instancemanagers.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"nodes.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"orphans.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"recurringjobs.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"replicas.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"settings.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"sharemanagers.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"snapshots.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"supportbundles.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"systembackups.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"systemrestores.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"volumeattachments.longhorn.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"volumes.longhorn.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"DaemonSet","name":"longhorn-manager","namespace":"longhorn-system","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"longhorn-driver-deployer","namespace":"longhorn-system","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"longhorn-ui","namespace":"longhorn-system","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"longhorn-ingress","namespace":"longhorn-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"longhorn-role","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"longhorn-bind","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"longhorn-support-bundle","status":"Synced","version":"v1"},{"group":"scheduling.k8s.io","kind":"PriorityClass","name":"longhorn-critical","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"externalURLs":["http://longhorn.binesty.corp/"],"images":["longhornio/longhorn-manager:v1.6.1","longhornio/longhorn-ui:v1.6.1"]},"sync":{"comparedTo":{"destination":{"namespace":"longhorn-system","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/longhorn","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"8bcb759b7b8e3d95b453d3b3c8823492f90983cb","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:34Z'
-  generation: 1079
+  generation: 1491
   labels:
+    project: infrastructure
     source: internal
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
@@ -107,6 +108,15 @@ metadata:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
+        f:metadata:
+          f:labels:
+            f:project: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-12T17:26:18Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
         f:status:
           f:health:
             f:status: {}
@@ -149,10 +159,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-10T22:38:40Z'
+      time: '2024-04-12T18:14:33Z'
   name: longhorn
   namespace: argocd
-  resourceVersion: '851004'
+  resourceVersion: '1242360'
   uid: 2128f5a6-b936-424e-910e-9f6d608649ee
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/longhorn
 status:
@@ -686,7 +696,7 @@ status:
         path: cluster/argocd/sources/longhorn
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-10T22:38:39Z'
+  reconciledAt: '2024-04-12T18:14:30Z'
   resources:
     - kind: ConfigMap
       name: longhorn-default-setting
@@ -705,7 +715,7 @@ status:
     - kind: Secret
       name: minio-secret
       namespace: longhorn-system
-      status: Synced
+      status: OutOfSync
       version: v1
     - health:
         status: Healthy
@@ -911,7 +921,7 @@ status:
       kind: Ingress
       name: longhorn-ingress
       namespace: longhorn-system
-      status: Synced
+      status: OutOfSync
       version: v1
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
@@ -949,8 +959,8 @@ status:
         path: cluster/argocd/sources/longhorn
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: 7fc45060da8c2d88bf69b2388d7bb615deb36869
-    status: Synced
+    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+    status: OutOfSync
 spec:
   destination:
     namespace: longhorn-system
