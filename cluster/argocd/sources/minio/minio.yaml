@@ -23,7 +23,7 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /var/nfs
+    path: /var/nfs/minio
     server: 192.168.0.150
 --- 
 
@@ -77,7 +77,7 @@ spec:
         - /bin/bash
         - -c
         args: 
-        - minio server /data --console-address :9090 --api-address :9000
+        - minio server /data --console-address :9090 --address :9000
         volumeMounts:
         - mountPath: /data
           name: minio-volume                

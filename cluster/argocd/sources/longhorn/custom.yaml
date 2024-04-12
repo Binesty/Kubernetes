@@ -27,8 +27,7 @@ metadata:
   namespace: longhorn-system
 type: Opaque
 data:
-  AWS_ACCESS_KEY_ID: YWRtaW4= # admin
-  AWS_SECRET_ACCESS_KEY: NzBmN3Y1ZjlPMg== # 70f7v5f9O2
-  AWS_ENDPOINTS: aHR0cDovL21pbmlvLm1pbmlvLnN2Yy5iaW5lc3R5OjkwMDA= # http://minio.minio.svc.binesty:9000
-  #AWS_CERT: LS0tL
+  AWS_ACCESS_KEY_ID: bWluaW9hZG1pbg== # minioadmin
+  AWS_SECRET_ACCESS_KEY: bWluaW9hZG1pbg== # minioadmin
+  AWS_ENDPOINTS: aHR0cDovL21pbmlvLWFwaS5taW5pby5zdmMuYmluZXN0eTo5MDAw # http://minio-api.minio.svc.binesty:9000  
 ---
