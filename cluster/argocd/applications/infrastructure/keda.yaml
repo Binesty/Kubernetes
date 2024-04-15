@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-options: ServerSideApply=true
     kubectl.kubernetes.io/last-applied-configuration: >
       {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{"argocd.argoproj.io/sync-options":"ServerSideApply=true"},"creationTimestamp":"2024-04-02T22:04:48Z","generation":59,"labels":{"source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:argocd.argoproj.io/sync-options":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-02T22:16:59Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:prune":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{".":{},"f:force":{}}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:path":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-02T22:17:58Z"}],"name":"keda","namespace":"argocd","resourceVersion":"66662","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keda","uid":"41f37aa2-dd15-4cda-b3da-88330f2faae5"},"spec":{"destination":{"namespace":"keda","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/keda","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"automated":{},"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T22:16:59Z","deployedAt":"2024-04-02T22:17:18Z","id":0,"revision":"9e1f5d9a7bbd9a73222c2c47495744188f313917","source":{"path":"cluster/argocd/sources/keda","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-02T22:17:18Z","message":"successfully
       synced (all tasks
@@ -63,7 +62,7 @@ metadata:
       all checks
       passed","status":"Healthy"},"kind":"APIService","name":"v1beta1.external.metrics.k8s.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"keda-admission","namespace":"keda","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"keda-metrics-apiserver","namespace":"keda","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"keda-operator","namespace":"keda","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"keda-external-metrics-reader","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"keda-operator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"keda-hpa-controller-external-metrics","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"keda-operator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"keda-system-auth-delegator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"keda-operator","namespace":"keda","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"keda-auth-reader","namespace":"keda","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"keda-operator","namespace":"keda","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["ghcr.io/kedacore/keda-admission-webhooks:2.13.1","ghcr.io/kedacore/keda-metrics-apiserver:2.13.1","ghcr.io/kedacore/keda:2.13.1"]},"sync":{"comparedTo":{"destination":{"namespace":"keda","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/keda","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"9e1f5d9a7bbd9a73222c2c47495744188f313917","status":"Synced"}}}
   creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 1457
+  generation: 1717
   labels:
     project: infrastructure
     source: internal
@@ -74,7 +73,6 @@ metadata:
         f:metadata:
           f:annotations:
             .: {}
-            f:argocd.argoproj.io/sync-options: {}
             f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
@@ -91,9 +89,7 @@ metadata:
             f:path: {}
             f:repoURL: {}
             f:targetRevision: {}
-          f:syncPolicy:
-            .: {}
-            f:syncOptions: {}
+          f:syncPolicy: {}
         f:status:
           .: {}
           f:controllerNamespace: {}
@@ -121,9 +117,12 @@ metadata:
         f:metadata:
           f:labels:
             f:project: {}
+        f:spec:
+          f:syncPolicy:
+            f:syncOptions: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-12T17:21:09Z'
+      time: '2024-04-15T18:49:53Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -171,10 +170,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:11:31Z'
+      time: '2024-04-15T20:03:39Z'
   name: keda
   namespace: argocd
-  resourceVersion: '1241331'
+  resourceVersion: '1497399'
   uid: 632de2cb-7476-4e49-8cd5-54e5f0a889d3
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keda
 status:
@@ -496,7 +495,7 @@ status:
         path: cluster/argocd/sources/keda
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-12T18:11:30Z'
+  reconciledAt: '2024-04-15T20:03:38Z'
   resources:
     - kind: Namespace
       name: keda
@@ -648,7 +647,7 @@ status:
         path: cluster/argocd/sources/keda
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+    revision: b89f4903d4f2e585130ab8b7b05c3bdb9c0763a4
     status: Synced
 spec:
   destination:
@@ -662,3 +661,4 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
