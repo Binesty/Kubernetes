@@ -18,7 +18,12 @@
       shell: "etcdutl snapshot restore /var/backups/{{version}}.db --data-dir=/var/lib/etcd"
       become: true   
 
-    - name: Reboot hosts etcd
+- name: Reboot Hosts Cluster
+  hosts: all 
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Reboot Hosts
       reboot:
       async: 120
       poll: 0
