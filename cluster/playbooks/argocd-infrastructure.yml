@@ -5,9 +5,8 @@
   tasks:    
     - name: Label worker nodes
       shell: kubectl label --overwrite nodes {{ item.node }} kubernetes.io/role=worker-{{ item.index }}
+      ignore_errors: yes
       loop:
-        - { node: binesty-worker-01, index: 01 }
-        - { node: binesty-worker-02, index: 02 }
         - { node: binesty-worker-03, index: 03 }
         - { node: binesty-worker-04, index: 04 }
         - { node: binesty-worker-05, index: 05 }
@@ -15,13 +14,22 @@
         - { node: binesty-worker-07, index: 07 }
 
     - name: Label management nodes
+      ignore_errors: yes
       shell: kubectl label nodes binesty-master node-group=management
+
+    - name: Label management nodes remove taint
+      shell: kubectl label nodes {{ item }} node-group=management
+      shell: kubectl taint nodes {{ item }} node-role.kubernetes.io/control-plane:NoSchedule- --overwrite
+      ignore_errors: yes
+      loop:
+        - binesty-master
+        - binesty-worker-01
+        - binesty-worker-02      
 
     - name: Label application nodes
       shell: kubectl label nodes {{ item }} node-group=application
-      loop:
-        - binesty-worker-01
-        - binesty-worker-02
+      ignore_errors: yes
+      loop:        
         - binesty-worker-03
         - binesty-worker-04
         - binesty-worker-05
@@ -34,10 +42,6 @@
       file:
         path: /tmp/semaphore/argocd
         state: absent
-
-    - name: Remove Taint NoSchedule
-      command: kubectl taint nodes binesty-master node-role.kubernetes.io/control-plane:NoSchedule- --overwrite
-      ignore_errors: yes
 
     - name: Copy argocd folder to remote
       copy:

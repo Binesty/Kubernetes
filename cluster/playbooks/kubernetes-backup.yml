@@ -1,0 +1,7 @@
+- name: Manual backup Kubernetes ETDC
+  hosts: etcd-master
+  become: yes  
+  tasks:
+    - name: Create manual backup etcd   
+      shell: "etcdctl --key /etc/ssl/etcd/ssl/admin-binesty-master-key.pem --cert /etc/ssl/etcd/ssl/admin-binesty-master.pem snapshot save /var/backups/manual-etcd-backup-$(date +%d-%m-%Y).db"
+      become: true

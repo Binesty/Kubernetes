@@ -1,0 +1,25 @@
+- name: Restore Kubernetes ETDC Backup
+  hosts: etcd-master
+  become: yes
+  vars_prompt:
+    - name: version db
+      prompt: "Enter version backup etcd"
+      private: no
+  tasks:      
+    - name: Stop etcd service using systemctl
+      systemd:
+        name: etcd
+        state: stopped
+
+    - name: Remove current etcd data
+      command: rm -rf /var/lib/etcd/member
+
+    - name: Restore backup etcd
+      shell: "etcdutl snapshot restore /var/backups/{{version}}.db --data-dir=/var/lib/etcd"
+      become: true   
+
+    - name: Reboot hosts etcd
+      reboot:
+      async: 120
+      poll: 0
+      ignore_errors: yes

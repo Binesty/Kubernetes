@@ -1,0 +1,5 @@
+- name: Crash Kubernetes ETDC
+  hosts: etcd
+  tasks:
+    - name: Remove current etcd data
+      command: rm -rf /var/lib/etcd/member

@@ -19,10 +19,12 @@
         path: /etc/exports
         state: touch
 
-    - name: Content file nfs /etc/exports
+    - name: Create share minio
       ansible.builtin.lineinfile:
         path: /etc/exports
-        line: "/var/nfs *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
+        line: "/var/nfs/minio *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
+        line: "/var/nfs/elastic *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
+        line: "/var/nfs/etcd *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
 
     - name: Enable and start NFS server service
       systemd:
@@ -32,6 +34,7 @@
 
     - name: Export NFS shares
       command: exportfs -rav
+      ignore_errors: yes
 
     - name: Show exported NFS shares
       command: showmount -e localhost
@@ -54,3 +57,4 @@
         - open-iscsi
         - nfs-common
         - nfs-kernel-server
+

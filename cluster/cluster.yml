@@ -68,11 +68,18 @@ nfs:
     binesty-master:
       ansible_host: 192.168.0.150
       ip: 192.168.0.150
-      access_ip: 192.168.0.150
+      access_ip: 192.168.0.150      
 
 commands:
   hosts:
     binesty-master:
       ansible_host: 192.168.0.150
       ip: 192.168.0.150
-      access_ip: 192.168.0.150         
+      access_ip: 192.168.0.150  
+
+etcd-master:
+  hosts:
+    binesty-master:
+      ansible_host: 192.168.0.150
+      ip: 192.168.0.150
+      access_ip: 192.168.0.150
