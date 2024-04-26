@@ -5,3 +5,43 @@ metadata:
   labels:
     use-vault: "true"
 ---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: crossplane
+  labels:
+    use-vault: "true"
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: elastic-stack
+  labels:
+    use-vault: "true"
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: keycloak
+  labels:
+    use-vault: "true"
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: minio
+  labels:
+    use-vault: "true"
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: redis
+  labels:
+    use-vault: "true"
+---
