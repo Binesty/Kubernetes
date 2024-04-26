@@ -43,11 +43,11 @@ all:
   children:
     kube_control_plane:
       hosts:
-        binesty-master:        
+        binesty-master:
     kube_node:
-      hosts:        
+      hosts:
         binesty-worker-01:
-        binesty-worker-02:
+        binesty-worker-02:	  
         binesty-worker-03:
         binesty-worker-04:
         binesty-worker-05:
@@ -55,7 +55,7 @@ all:
         binesty-worker-07:
     etcd:
       hosts:
-        binesty-master:        
+        binesty-master:  
     k8s_cluster:
       children:
         kube_control_plane:
@@ -68,15 +68,15 @@ nfs:
     binesty-master:
       ansible_host: 192.168.0.150
       ip: 192.168.0.150
-      access_ip: 192.168.0.150      
+      access_ip: 192.168.0.150
 
 commands:
   hosts:
     binesty-master:
       ansible_host: 192.168.0.150
       ip: 192.168.0.150
-      access_ip: 192.168.0.150  
-
+      access_ip: 192.168.0.150
+      
 etcd-master:
   hosts:
     binesty-master:

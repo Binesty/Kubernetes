@@ -7,6 +7,8 @@
       shell: kubectl label --overwrite nodes {{ item.node }} kubernetes.io/role=worker-{{ item.index }}
       ignore_errors: yes
       loop:
+        - { node: binesty-worker-01, index: 01 }
+        - { node: binesty-worker-02, index: 02 }
         - { node: binesty-worker-03, index: 03 }
         - { node: binesty-worker-04, index: 04 }
         - { node: binesty-worker-05, index: 05 }
@@ -22,14 +24,14 @@
       shell: kubectl taint nodes {{ item }} node-role.kubernetes.io/control-plane:NoSchedule- --overwrite
       ignore_errors: yes
       loop:
-        - binesty-master
-        - binesty-worker-01
-        - binesty-worker-02      
+        - binesty-master        
 
     - name: Label application nodes
       shell: kubectl label nodes {{ item }} node-group=application
       ignore_errors: yes
       loop:        
+        - binesty-worker-01
+        - binesty-worker-02
         - binesty-worker-03
         - binesty-worker-04
         - binesty-worker-05

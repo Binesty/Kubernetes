@@ -102,3 +102,15 @@ view disks to configure longhorn __hdd aditional__
 |   worker-06   |   sda    |   465 Gi  |  /data   |  30 Gi   |
 |   worker-07   |    -     |     -     |    -     |    -     |
 |                                                            |
+
+
+
+## Kubspray
+
+### playbook remove node
+remove node: parameter fix playbook: **["-e", "skip_confirmation=yes"]**  
+advanced parameter run playbook : **["-e", "node=node-name"]**  
+
+
+### playbook add node
+advanced parameter limit node: **["--limit=node-name"]**
