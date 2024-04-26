@@ -50,6 +50,10 @@
         src: /semaphore/argocd
         dest: /tmp/semaphore
 
+    - name: Create namespaces
+      command: kubectl apply -f /tmp/semaphore/argocd/namespaces
+      ignore_errors: yes
+
     - name: Delete repositories
       command: kubectl delete secret -n argocd --selector=argocd.argoproj.io/secret-type=repository
       ignore_errors: yes
