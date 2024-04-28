@@ -21,10 +21,7 @@
 
     - name: Create share minio
       ansible.builtin.lineinfile:
-        path: /etc/exports
-        line: "/var/nfs/minio *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
-        line: "/var/nfs/elastic *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
-        line: "/var/nfs/etcd *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
+        path: /etc/exports        
         line: "/var/nfs/volumes *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)"
 
     - name: Enable and start NFS server service
