@@ -10,6 +10,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nfs-minio
+  namespace: minio
   labels:
     storage.k8s.io/name: nfs
 spec:
