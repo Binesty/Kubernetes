@@ -1,0 +1,372 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-04-28T17:28:59Z'
+  generation: 42
+  labels:
+    project: infrastructure
+    source: external
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:project: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:chart: {}
+            f:helm:
+              .: {}
+              f:parameters: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-04-28T17:52:55Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:prune: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:chart: {}
+                f:helm:
+                  .: {}
+                  f:parameters: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-04-28T17:52:58Z'
+  name: nfs-provisioner
+  namespace: argocd
+  resourceVersion: '361615'
+  uid: 264e8455-ef8c-4948-88b5-1aa3fd42686c
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/nfs-provisioner
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-04-28T17:30:04Z'
+      deployedAt: '2024-04-28T17:30:13Z'
+      id: 0
+      revision: 4.0.18
+      source:
+        chart: nfs-subdir-external-provisioner
+        helm:
+          parameters:
+            - name: nfs.path
+              value: /var/nfs/volumes
+            - name: nfs.server
+              value: 192.168.0.150
+        repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+        targetRevision: 4.0.18
+    - deployStartedAt: '2024-04-28T17:52:55Z'
+      deployedAt: '2024-04-28T17:52:57Z'
+      id: 1
+      revision: 4.0.18
+      source:
+        chart: nfs-subdir-external-provisioner
+        helm:
+          parameters:
+            - name: nfs.path
+              value: /var/nfs/volumes
+            - name: nfs.server
+              value: 192.168.0.150
+            - name: storageClass.reclaimPolicy
+              value: Retain
+        repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+        targetRevision: 4.0.18
+  operationState:
+    finishedAt: '2024-04-28T17:52:57Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        prune: true
+        revision: 4.0.18
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
+          - Replace=true
+        syncStrategy:
+          hook:
+            force: true
+    phase: Succeeded
+    startedAt: '2024-04-28T17:52:55Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: >-
+            serviceaccount "nfs-provisioner-nfs-subdir-external-provisioner"
+            deleted
+
+            serviceaccount/nfs-provisioner-nfs-subdir-external-provisioner
+            replaced
+          name: nfs-provisioner-nfs-subdir-external-provisioner
+          namespace: nfs-provisioner
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: storage.k8s.io
+          hookPhase: Running
+          kind: StorageClass
+          message: |-
+            storageclass.storage.k8s.io "nfs-client" deleted
+            storageclass.storage.k8s.io/nfs-client replaced
+          name: nfs-client
+          namespace: nfs-provisioner
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/nfs-provisioner-nfs-subdir-external-provisioner-runner
+            reconciled. clusterrole.rbac.authorization.k8s.io
+            "nfs-provisioner-nfs-subdir-external-provisioner-runner" deleted
+
+            clusterrole.rbac.authorization.k8s.io/nfs-provisioner-nfs-subdir-external-provisioner-runner
+            replaced
+          name: nfs-provisioner-nfs-subdir-external-provisioner-runner
+          namespace: nfs-provisioner
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/run-nfs-provisioner-nfs-subdir-external-provisioner
+            reconciled. clusterrolebinding.rbac.authorization.k8s.io
+            "run-nfs-provisioner-nfs-subdir-external-provisioner" deleted
+
+            clusterrolebinding.rbac.authorization.k8s.io/run-nfs-provisioner-nfs-subdir-external-provisioner
+            replaced
+          name: run-nfs-provisioner-nfs-subdir-external-provisioner
+          namespace: nfs-provisioner
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: >-
+            role.rbac.authorization.k8s.io/leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+            reconciled. role.rbac.authorization.k8s.io
+            "leader-locking-nfs-provisioner-nfs-subdir-external-provisioner"
+            deleted
+
+            role.rbac.authorization.k8s.io/leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+            replaced
+          name: leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+          namespace: nfs-provisioner
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+            reconciled. rolebinding.rbac.authorization.k8s.io
+            "leader-locking-nfs-provisioner-nfs-subdir-external-provisioner"
+            deleted
+
+            rolebinding.rbac.authorization.k8s.io/leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+            replaced
+          name: leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+          namespace: nfs-provisioner
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: >-
+            deployment.apps "nfs-provisioner-nfs-subdir-external-provisioner"
+            deleted
+
+            deployment.apps/nfs-provisioner-nfs-subdir-external-provisioner
+            replaced
+          name: nfs-provisioner-nfs-subdir-external-provisioner
+          namespace: nfs-provisioner
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 4.0.18
+      source:
+        chart: nfs-subdir-external-provisioner
+        helm:
+          parameters:
+            - name: nfs.path
+              value: /var/nfs/volumes
+            - name: nfs.server
+              value: 192.168.0.150
+            - name: storageClass.reclaimPolicy
+              value: Retain
+        repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+        targetRevision: 4.0.18
+  reconciledAt: '2024-04-28T17:52:57Z'
+  resources:
+    - kind: ServiceAccount
+      name: nfs-provisioner-nfs-subdir-external-provisioner
+      namespace: nfs-provisioner
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: nfs-provisioner-nfs-subdir-external-provisioner
+      namespace: nfs-provisioner
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: nfs-provisioner-nfs-subdir-external-provisioner-runner
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: run-nfs-provisioner-nfs-subdir-external-provisioner
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+      namespace: nfs-provisioner
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: leader-locking-nfs-provisioner-nfs-subdir-external-provisioner
+      namespace: nfs-provisioner
+      status: Synced
+      version: v1
+    - group: storage.k8s.io
+      kind: StorageClass
+      name: nfs-client
+      status: Synced
+      version: v1
+  sourceType: Helm
+  summary:
+    images:
+      - registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+  sync:
+    comparedTo:
+      destination:
+        namespace: nfs-provisioner
+        server: https://kubernetes.default.svc
+      source:
+        chart: nfs-subdir-external-provisioner
+        helm:
+          parameters:
+            - name: nfs.path
+              value: /var/nfs/volumes
+            - name: nfs.server
+              value: 192.168.0.150
+            - name: storageClass.reclaimPolicy
+              value: Retain
+        repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+        targetRevision: 4.0.18
+    revision: 4.0.18
+    status: Synced
+spec:
+  destination:
+    namespace: nfs-provisioner
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: nfs-subdir-external-provisioner
+    helm:
+      parameters:
+        - name: nfs.path
+          value: /var/nfs/volumes
+        - name: nfs.server
+          value: 192.168.0.150
+        - name: storageClass.reclaimPolicy
+          value: Retain
+    repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+    targetRevision: 4.0.18
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

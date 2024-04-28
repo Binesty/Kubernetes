@@ -7,39 +7,19 @@ metadata:
 ---
 
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: nfs-minio
-  namespace: minio
-spec:
-  capacity:
-    storage: 10Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: slow
-  mountOptions:
-    - hard
-    - nfsvers=4.1
-  nfs:
-    path: /var/nfs/minio
-    server: 192.168.0.150
---- 
-
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nfs-minio
-  namespace: minio  
+  labels:
+    storage.k8s.io/name: nfs
 spec:
-  storageClassName: slow
   accessModes:
-  - ReadWriteMany
+    - ReadWriteMany
+  storageClassName: nfs-client
   resources:
     requests:
       storage: 10Gi
----
+---      
 
 apiVersion: apps/v1
 kind: Deployment
