@@ -19,15 +19,3 @@ spec:
             port:
               number: 80
 ---
-
-apiVersion: v1
-kind: Secret
-metadata:
-  name: minio-secret
-  namespace: longhorn-system
-type: Opaque
-data:
-  AWS_ACCESS_KEY_ID: bWluaW9hZG1pbg== # minioadmin
-  AWS_SECRET_ACCESS_KEY: bWluaW9hZG1pbg== # minioadmin
-  AWS_ENDPOINTS: aHR0cDovL21pbmlvLXNlcnZpY2UtYXBpLm1pbmlvLnN2Yy5iaW5lc3R5OjkwMDA= # http://minio-service-api.minio.svc.binesty:9000  
----
