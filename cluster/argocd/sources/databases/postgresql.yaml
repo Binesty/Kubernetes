@@ -51,6 +51,13 @@ spec:
           volumeMounts:
             - name: postgres-pv-claim
               mountPath: /var/lib/postgresql/data
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"              
   volumeClaimTemplates:
     - metadata:
         name: postgres-pv-claim
