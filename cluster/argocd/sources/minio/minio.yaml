@@ -54,6 +54,17 @@ spec:
       containers:
       - name: minio
         image: quay.io/minio/minio:latest
+        env:
+          - name: MINIO_ROOT_USER 
+            valueFrom:
+              secretKeyRef:
+                name: minio-user-secret
+                key: MINIO_ROOT_USER
+          - name: MINIO_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: minio-user-secret
+                key: MINIO_ROOT_PASSWORD        
         command:
         - /bin/bash
         - -c
