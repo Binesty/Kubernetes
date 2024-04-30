@@ -67,8 +67,7 @@ the [manifest](minio-backup.yaml) to deploy
 
 - On the configuration longhorn set endpoint minio in the section backup target:  s3://backups@dummyregion/longhorn
 
-- And Backup Target Credential Secret set name of secret created: minio-secret
+- And Backup Target Credential Secret set name of secret created: longhorn-backup-minio-secret
 
-- set region on configuration minio: us-west-1
 
 
