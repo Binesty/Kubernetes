@@ -20,20 +20,6 @@ spec:
       storage: 1Gi
 ---     
 
-apiVersion: v1
-kind: Secret
-metadata:
-  name: elastic-secret
-  namespace: elastic-stack
-type: Opaque
-data:
-  ELASTICSEARCH_HOST: ZWxhc3RpY3NlYXJjaC5vYnNlcnZhYmlsaXR5
-  ELASTICSEARCH_PORT: OTIwMA==
-  KIBANA_HOST: a2liYW5hLXNlcnZpY2Uub2JzZXJ2YWJpbGl0eQ==
-  ELASTIC_USERNAME: ZWxhc3RpYw==
-  ELASTIC_PASSWORD: cGFzc0AxMjM=
----
-
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
