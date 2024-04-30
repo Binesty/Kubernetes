@@ -45,3 +45,12 @@ metadata:
   labels:
     use-vault: "true"
 ---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: business
+  labels:
+    use-vault: "true"
+    use-binesty-registry: "true"
+---
