@@ -3,23 +3,31 @@ kind: Application
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-05T04:45:34Z","generation":1527,"labels":{"project":"infrastructure","source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-05T04:45:34Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{"f:project":{}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T18:03:34Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:14:31Z"}],"name":"redis","namespace":"argocd","resourceVersion":"1242340","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/redis","uid":"ecd8320f-7bb2-4793-82db-fd4184ee7549"},"spec":{"destination":{"namespace":"redis","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-03T00:34:46Z","deployedAt":"2024-04-03T00:34:48Z","id":0,"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},{"deployStartedAt":"2024-04-05T04:59:23Z","deployedAt":"2024-04-05T04:59:29Z","id":1,"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}}],"operationState":{"finishedAt":"2024-04-05T04:59:29Z","message":"successfully
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-22T13:06:00Z","generation":395,"labels":{"project":"infrastructure","source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:project":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:helm":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:chart":{},"f:helm":{},"f:repoURL":{},"f:targetRevision":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-22T13:06:00Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{"f:source":{"f:helm":{"f:parameters":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-24T17:56:21Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:prune":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{".":{},"f:force":{}}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:source":{"f:helm":{"f:parameters":{}}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-25T11:29:06Z"}],"name":"redis","namespace":"argocd","resourceVersion":"375406","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/redis","uid":"1049397f-279c-4769-a7d5-06b38edcbc00"},"spec":{"destination":{"namespace":"redis","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"},{"name":"replica.replicaCount","value":"1"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-03T00:34:46Z","deployedAt":"2024-04-03T00:34:48Z","id":0,"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},{"deployStartedAt":"2024-04-05T04:59:23Z","deployedAt":"2024-04-05T04:59:29Z","id":1,"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},{"deployStartedAt":"2024-04-22T16:49:56Z","deployedAt":"2024-04-22T16:50:01Z","id":2,"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},{"deployStartedAt":"2024-04-24T17:56:21Z","deployedAt":"2024-04-24T17:56:26Z","id":3,"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"},{"name":"replica.replicaCount","value":"1"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}}],"operationState":{"finishedAt":"2024-04-24T17:56:27Z","message":"successfully
       synced (all tasks
-      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"revision":"19.0.2","syncOptions":["CreateNamespace=true"],"syncStrategy":{"hook":{}}}},"phase":"Succeeded","startedAt":"2024-04-05T04:59:23Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/redis
-      created","name":"redis","namespace":"","status":"Synced","syncPhase":"PreSync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"NetworkPolicy","message":"networkpolicy.networking.k8s.io/redis
-      created","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/redis
-      created","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/redis
-      created","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/redis-health
-      created","name":"redis-health","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/redis-configuration
-      created","name":"redis-configuration","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/redis-scripts
-      created","name":"redis-scripts","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/redis-headless
-      created","name":"redis-headless","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/redis
-      created","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/redis-node
-      created","name":"redis-node","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}}},"reconciledAt":"2024-04-12T18:14:30Z","resources":[{"kind":"ConfigMap","name":"redis-configuration","namespace":"redis","status":"Synced","version":"v1"},{"kind":"ConfigMap","name":"redis-health","namespace":"redis","status":"Synced","version":"v1"},{"kind":"ConfigMap","name":"redis-scripts","namespace":"redis","status":"Synced","version":"v1"},{"kind":"Secret","name":"redis","namespace":"redis","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"redis","namespace":"redis","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"redis-headless","namespace":"redis","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"redis","namespace":"redis","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"statefulset
-      rolling update complete 3 pods at revision
-      redis-node-5db9569bdc...","status":"Healthy"},"kind":"StatefulSet","name":"redis-node","namespace":"redis","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"redis","namespace":"redis","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["docker.io/bitnami/redis-sentinel:7.2.4-debian-12-r7","docker.io/bitnami/redis:7.2.4-debian-12-r9"]},"sync":{"comparedTo":{"destination":{"namespace":"redis","server":"https://kubernetes.default.svc"},"source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},"revision":"19.0.2","status":"Synced"}}}
-  creationTimestamp: '2024-04-22T13:06:00Z'
-  generation: 395
+      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"prune":true,"revision":"19.0.2","syncOptions":["CreateNamespace=true","Replace=true","PruneLast=true"],"syncStrategy":{"hook":{"force":true}}}},"phase":"Succeeded","startedAt":"2024-04-24T17:56:21Z","syncResult":{"resources":[{"group":"networking.k8s.io","hookPhase":"Running","kind":"NetworkPolicy","message":"networkpolicy.networking.k8s.io
+      \"redis\" deleted\nnetworkpolicy.networking.k8s.io/redis
+      replaced","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount
+      \"redis\" deleted\nserviceaccount/redis
+      replaced","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret
+      \"redis\" deleted\nsecret/redis
+      replaced","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap
+      \"redis-health\" deleted\nconfigmap/redis-health
+      replaced","name":"redis-health","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap
+      \"redis-configuration\" deleted\nconfigmap/redis-configuration
+      replaced","name":"redis-configuration","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap
+      \"redis-scripts\" deleted\nconfigmap/redis-scripts
+      replaced","name":"redis-scripts","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service
+      \"redis-headless\" deleted\nservice/redis-headless
+      replaced","name":"redis-headless","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service
+      \"redis\" deleted\nservice/redis
+      replaced","name":"redis","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps
+      \"redis-node\" deleted\nstatefulset.apps/redis-node
+      replaced","name":"redis-node","namespace":"redis","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"19.0.2","source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"},{"name":"replica.replicaCount","value":"1"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}}},"reconciledAt":"2024-04-25T11:26:45Z","resources":[{"kind":"ConfigMap","name":"redis-configuration","namespace":"redis","status":"Synced","version":"v1"},{"kind":"ConfigMap","name":"redis-health","namespace":"redis","status":"Synced","version":"v1"},{"kind":"ConfigMap","name":"redis-scripts","namespace":"redis","status":"Synced","version":"v1"},{"kind":"Secret","name":"redis","namespace":"redis","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"redis","namespace":"redis","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"redis-headless","namespace":"redis","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"redis","namespace":"redis","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"statefulset
+      rolling update complete 1 pods at revision
+      redis-node-58964fc5f7...","status":"Healthy"},"kind":"StatefulSet","name":"redis-node","namespace":"redis","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"redis","namespace":"redis","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["docker.io/bitnami/redis-sentinel:7.2.4-debian-12-r7","docker.io/bitnami/redis:7.2.4-debian-12-r9"]},"sync":{"comparedTo":{"destination":{"namespace":"redis","server":"https://kubernetes.default.svc"},"source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"},{"name":"replica.replicaCount","value":"1"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},"revision":"19.0.2","status":"Synced"}}}
+  creationTimestamp: '2024-04-25T20:20:49Z'
+  generation: 878
   labels:
     project: infrastructure
     source: external
@@ -72,7 +80,7 @@ metadata:
                 f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-22T13:06:00Z'
+      time: '2024-04-25T20:20:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -82,7 +90,7 @@ metadata:
               f:parameters: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-24T17:56:21Z'
+      time: '2024-05-01T00:00:07Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -102,14 +110,11 @@ metadata:
               f:retry: {}
               f:sync:
                 .: {}
-                f:prune: {}
                 f:revision: {}
                 f:syncOptions: {}
                 f:syncStrategy:
                   .: {}
-                  f:hook:
-                    .: {}
-                    f:force: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -138,11 +143,11 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-25T11:29:06Z'
+      time: '2024-05-01T00:16:36Z'
   name: redis
   namespace: argocd
-  resourceVersion: '375406'
-  uid: 1049397f-279c-4769-a7d5-06b38edcbc00
+  resourceVersion: '879170'
+  uid: cfa613b9-8c6b-4532-b936-2ca234f50029
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/redis
 status:
   controllerNamespace: argocd
@@ -207,33 +212,72 @@ status:
               value: '1'
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.0.2
+    - deployStartedAt: '2024-04-26T00:50:14Z'
+      deployedAt: '2024-04-26T00:50:20Z'
+      id: 4
+      revision: 19.0.2
+      source:
+        chart: redis
+        helm:
+          parameters:
+            - name: auth.password
+              value: chageme
+            - name: sentinel.enabled
+              value: 'true'
+            - name: replica.replicaCount
+              value: '1'
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 19.0.2
+    - deployStartedAt: '2024-05-01T00:00:07Z'
+      deployedAt: '2024-05-01T00:00:09Z'
+      id: 5
+      revision: 19.0.2
+      source:
+        chart: redis
+        helm:
+          parameters:
+            - name: auth.password
+              value: chageme
+            - name: sentinel.enabled
+              value: 'true'
+            - name: replica.replicaCount
+              value: '1'
+            - name: auth.existingSecret
+              value: redis-secret
+            - name: auth.existingSecretPasswordKey
+              value: REDIS_PASSWORD
+        repoURL: https://charts.bitnami.com/bitnami
+        targetRevision: 19.0.2
   operationState:
-    finishedAt: '2024-04-24T17:56:27Z'
+    finishedAt: '2024-05-01T00:00:10Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        prune: true
         revision: 19.0.2
         syncOptions:
           - CreateNamespace=true
-          - Replace=true
-          - PruneLast=true
         syncStrategy:
-          hook:
-            force: true
+          hook: {}
     phase: Succeeded
-    startedAt: '2024-04-24T17:56:21Z'
+    startedAt: '2024-05-01T00:00:07Z'
     syncResult:
       resources:
+        - group: ''
+          hookPhase: Succeeded
+          kind: Secret
+          message: ignored (requires pruning)
+          name: redis
+          namespace: redis
+          status: PruneSkipped
+          syncPhase: Sync
+          version: v1
         - group: networking.k8s.io
           hookPhase: Running
           kind: NetworkPolicy
-          message: |-
-            networkpolicy.networking.k8s.io "redis" deleted
-            networkpolicy.networking.k8s.io/redis replaced
+          message: networkpolicy.networking.k8s.io/redis configured
           name: redis
           namespace: redis
           status: Synced
@@ -242,20 +286,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: |-
-            serviceaccount "redis" deleted
-            serviceaccount/redis replaced
-          name: redis
-          namespace: redis
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Secret
-          message: |-
-            secret "redis" deleted
-            secret/redis replaced
+          message: serviceaccount/redis unchanged
           name: redis
           namespace: redis
           status: Synced
@@ -264,20 +295,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: ConfigMap
-          message: |-
-            configmap "redis-health" deleted
-            configmap/redis-health replaced
-          name: redis-health
-          namespace: redis
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ConfigMap
-          message: |-
-            configmap "redis-configuration" deleted
-            configmap/redis-configuration replaced
+          message: configmap/redis-configuration unchanged
           name: redis-configuration
           namespace: redis
           status: Synced
@@ -286,9 +304,16 @@ status:
         - group: ''
           hookPhase: Running
           kind: ConfigMap
-          message: |-
-            configmap "redis-scripts" deleted
-            configmap/redis-scripts replaced
+          message: configmap/redis-health unchanged
+          name: redis-health
+          namespace: redis
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/redis-scripts unchanged
           name: redis-scripts
           namespace: redis
           status: Synced
@@ -297,9 +322,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: |-
-            service "redis-headless" deleted
-            service/redis-headless replaced
+          message: service/redis-headless unchanged
           name: redis-headless
           namespace: redis
           status: Synced
@@ -308,9 +331,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: |-
-            service "redis" deleted
-            service/redis replaced
+          message: service/redis configured
           name: redis
           namespace: redis
           status: Synced
@@ -319,9 +340,7 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: |-
-            statefulset.apps "redis-node" deleted
-            statefulset.apps/redis-node replaced
+          message: statefulset.apps/redis-node configured
           name: redis-node
           namespace: redis
           status: Synced
@@ -338,9 +357,13 @@ status:
               value: 'true'
             - name: replica.replicaCount
               value: '1'
+            - name: auth.existingSecret
+              value: redis-secret
+            - name: auth.existingSecretPasswordKey
+              value: REDIS_PASSWORD
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.0.2
-  reconciledAt: '2024-04-25T11:26:45Z'
+  reconciledAt: '2024-05-01T00:16:36Z'
   resources:
     - kind: ConfigMap
       name: redis-configuration
@@ -354,11 +377,6 @@ status:
       version: v1
     - kind: ConfigMap
       name: redis-scripts
-      namespace: redis
-      status: Synced
-      version: v1
-    - kind: Secret
-      name: redis
       namespace: redis
       status: Synced
       version: v1
@@ -385,7 +403,7 @@ status:
       health:
         message: >-
           statefulset rolling update complete 1 pods at revision
-          redis-node-58964fc5f7...
+          redis-node-7f9454d9bf...
         status: Healthy
       kind: StatefulSet
       name: redis-node
@@ -418,6 +436,10 @@ status:
               value: 'true'
             - name: replica.replicaCount
               value: '1'
+            - name: auth.existingSecret
+              value: redis-secret
+            - name: auth.existingSecretPasswordKey
+              value: REDIS_PASSWORD
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.0.2
     revision: 19.0.2
@@ -437,6 +459,10 @@ spec:
           value: 'true'
         - name: replica.replicaCount
           value: '1'
+        - name: auth.existingSecret
+          value: redis-secret
+        - name: auth.existingSecretPasswordKey
+          value: REDIS_PASSWORD
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 19.0.2
   syncPolicy:
