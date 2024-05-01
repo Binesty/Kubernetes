@@ -114,3 +114,16 @@ advanced parameter run playbook : **["-e", "node=node-name"]**
 
 ### playbook add node
 advanced parameter limit node: **["--limit=node-name"]**
+
+
+### install k9s
+```bash
+wget https://github.com/derailed/k9s/releases/download/v0.32.4/k9s_Linux_amd64.tar.gz -O /tmp/k9s.tar.gz 
+tar -zxvf /tmp/k9s.tar.gz --directory /tmp/ 
+chmod +x /tmp/k9s 
+sudo mv /tmp/k9s /usr/local/bin/k9s 
+```
+
+### use vs code editor
+nano .bashrc  
+KUBE_EDITOR='code -w'
