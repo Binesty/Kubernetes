@@ -115,8 +115,14 @@ spec:
           value: "true"
         - name: KC_METRICS_ENABLED
           value: "true"
+        - name: KC_HOSTNAME
+          value: "localhost"    
         - name: KC_HTTP_ENABLED
-          value: "true"          
+          value: "true"  
+        - name: KC_HOSTNAME_STRICT
+          value: "false" 
+        - name: KC_HOSTNAME_STRICT_HTTPS
+          value: "false"                              
         - name: KC_LOG_LEVEL
           value: INFO
         - name: KC_DB
