@@ -1,4 +1,27 @@
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-configmap
+  namespace: keycloak
+data:
+  JAVA_OPTS_APPEND: '-Djgroups.dns.query=keycloak-service.keycloak.svc.binesty'
+  KEYCLOAK_ADMIN: master
+  KEYCLOAK_CACHE_STACK: kubernetes
+  KEYCLOAK_CACHE_TYPE: ispn
+  KEYCLOAK_DATABASE_HOST: keycloak-postgres-service.svc.binesty
+  KEYCLOAK_DATABASE_NAME: keycloak
+  KEYCLOAK_DATABASE_USER: postgres
+  KEYCLOAK_DATABASE_PORT: '5432'
+  KEYCLOAK_ENABLE_HTTPS: 'false'
+  KEYCLOAK_ENABLE_STATISTICS: 'false'
+  KEYCLOAK_HTTP_PORT: '8080'
+  KEYCLOAK_LOG_LEVEL: INFO
+  KEYCLOAK_LOG_OUTPUT: default
+  KEYCLOAK_PRODUCTION: 'false'
+  KEYCLOAK_PROXY: passthrough
+---
+
+apiVersion: v1
 kind: Service
 metadata:
   name: keycloak-postgres-service
@@ -36,6 +59,8 @@ spec:
           envFrom:
             - secretRef:
                 name: keycloak-secret
+            - configMapRef:
+                name: keycloak-configmap               
           ports:
             - containerPort: 5432
               name: postgres
