@@ -3,31 +3,142 @@ kind: Application
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-02T19:10:03Z","generation":28,"labels":{"source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-02T19:10:31Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-02T19:11:01Z"}],"name":"cert-manager","namespace":"argocd","resourceVersion":"21229","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/cert-manager","uid":"6c32cd5b-972a-4720-a64b-460792bab289"},"spec":{"destination":{"namespace":"cert-manager","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"},"syncPolicy":{"automated":{},"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T19:10:04Z","deployedAt":"2024-04-02T19:10:59Z","id":0,"revision":"v1.14.4","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}}],"operationState":{"finishedAt":"2024-04-02T19:10:59Z","message":"successfully
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-05T04:45:33Z","generation":1375,"labels":{"project":"infrastructure","source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-05T04:45:33Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{"f:project":{}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T17:04:00Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:08:31Z"}],"name":"cert-manager","namespace":"argocd","resourceVersion":"1240313","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/cert-manager","uid":"c0d25a69-d216-4393-92de-402830ef54bf"},"spec":{"destination":{"namespace":"cert-manager","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T19:10:04Z","deployedAt":"2024-04-02T19:10:59Z","id":0,"revision":"v1.14.4","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}},{"deployStartedAt":"2024-04-05T05:11:10Z","deployedAt":"2024-04-05T05:12:20Z","id":1,"revision":"v1.14.4","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}}],"operationState":{"finishedAt":"2024-04-05T05:12:21Z","message":"successfully
       synced (no more
-      tasks)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"v1.14.4","syncOptions":["CreateNamespace=true"]}},"phase":"Succeeded","startedAt":"2024-04-02T19:10:04Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/cert-manager
+      tasks)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"revision":"v1.14.4","syncOptions":["CreateNamespace=true"],"syncStrategy":{"hook":{}}}},"phase":"Succeeded","startedAt":"2024-04-05T05:11:10Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/cert-manager
       created","name":"cert-manager","namespace":"","status":"Synced","syncPhase":"PreSync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"ServiceAccount","message":"serviceaccount/cert-manager-webhook
-      created","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"ServiceAccount","message":"serviceaccount/cert-manager-cainjector
-      created","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"ServiceAccount","message":"serviceaccount/cert-manager
-      created","name":"cert-manager","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io
+      created","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"ServiceAccount","message":"serviceaccount/cert-manager
+      created","name":"cert-manager","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"ServiceAccount","message":"serviceaccount/cert-manager-cainjector
+      created","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io
       created","name":"orders.acme.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io
       created","name":"certificaterequests.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io
-      created","name":"certificates.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io
+      created","name":"certificates.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io
+      created","name":"issuers.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io
       created","name":"challenges.acme.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io
-      created","name":"clusterissuers.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Succeeded","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io
-      created","name":"issuers.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
+      created","name":"clusterissuers.cert-manager.io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
       reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[approve] APIGroups:[cert-manager.io]
+      added:\n\t\t{Verbs:[get list watch update] APIGroups:[certificates.k8s.io]
+      Resources:[certificatesigningrequests] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[update patch]
+      APIGroups:[certificates.k8s.io]
+      Resources:[certificatesigningrequests/status] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[sign] APIGroups:[certificates.k8s.io]
       Resources:[signers] ResourceNames:[issuers.cert-manager.io/*
-      clusterissuers.cert-manager.io/*] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
+      clusterissuers.cert-manager.io/*] NonResourceURLs:[]}\n\t\t{Verbs:[create]
+      APIGroups:[authorization.k8s.io] Resources:[subjectaccessreviews]
+      ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
       configured. Warning: resource
-      clusterroles/cert-manager-controller-approve:cert-manager-io is missing
+      clusterroles/cert-manager-controller-certificatesigningrequests is missing
       the kubectl.kubernetes.io/last-applied-configuration annotation which is
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-controller-approve:cert-manager-io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges
+      automatically.","name":"cert-manager-controller-certificatesigningrequests","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io]
+      Resources:[certificates certificates/status certificaterequests
+      certificaterequests/status] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
+      APIGroups:[cert-manager.io] Resources:[certificates certificaterequests
+      clusterissuers issuers] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[cert-manager.io]
+      Resources:[certificates/finalizers certificaterequests/finalizers]
+      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list
+      watch] APIGroups:[acme.cert-manager.io] Resources:[orders]
+      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create
+      update delete patch] APIGroups:[] Resources:[secrets] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
+      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates
+      configured. Warning: resource
+      clusterroles/cert-manager-controller-certificates is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-controller-certificates","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[update patch] APIGroups:[acme.cert-manager.io]
+      Resources:[orders orders/status] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
+      APIGroups:[acme.cert-manager.io] Resources:[orders challenges]
+      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
+      APIGroups:[cert-manager.io] Resources:[clusterissuers issuers]
+      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete]
+      APIGroups:[acme.cert-manager.io] Resources:[challenges] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[acme.cert-manager.io]
+      Resources:[orders/finalizers] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[]
+      Resources:[secrets] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
+      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders
+      configured. Warning: resource clusterroles/cert-manager-controller-orders
+      is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+      which is required by  apply.  apply should only be used on resources
+      created declaratively by either  create --save-config or  apply. The
+      missing annotation will be patched
+      automatically.","name":"cert-manager-controller-orders","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io]
+      Resources:[issuers issuers/status] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
+      APIGroups:[cert-manager.io] Resources:[issuers] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete]
+      APIGroups:[] Resources:[secrets] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
+      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers
+      configured. Warning: resource clusterroles/cert-manager-controller-issuers
+      is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+      which is required by  apply.  apply should only be used on resources
+      created declaratively by either  create --save-config or  apply. The
+      missing annotation will be patched
+      automatically.","name":"cert-manager-controller-issuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[create] APIGroups:[authorization.k8s.io]
+      Resources:[subjectaccessreviews] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
+      configured. Warning: resource
+      clusterroles/cert-manager-webhook:subjectaccessreviews is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-webhook:subjectaccessreviews","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-edit
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[create delete deletecollection patch update]
+      APIGroups:[cert-manager.io] Resources:[certificates certificaterequests
+      issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update]
+      APIGroups:[cert-manager.io] Resources:[certificates/status]
+      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete
+      deletecollection patch update] APIGroups:[acme.cert-manager.io]
+      Resources:[challenges orders] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-edit configured.
+      Warning: resource clusterroles/cert-manager-edit is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-edit","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io]
+      Resources:[clusterissuers clusterissuers/status] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
+      APIGroups:[cert-manager.io] Resources:[clusterissuers] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete]
+      APIGroups:[] Resources:[secrets] ResourceNames:[]
+      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
+      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers
+      configured. Warning: resource
+      clusterroles/cert-manager-controller-clusterissuers is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-controller-clusterissuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges
       reconciled. reconciliation required create\n\tmissing rules
       added:\n\t\t{Verbs:[update patch] APIGroups:[acme.cert-manager.io]
       Resources:[challenges challenges/status] ResourceNames:[]
@@ -58,46 +169,7 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-controller-challenges","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io]
-      Resources:[certificates certificates/status certificaterequests
-      certificaterequests/status] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[cert-manager.io] Resources:[certificates certificaterequests
-      clusterissuers issuers] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[cert-manager.io]
-      Resources:[certificates/finalizers certificaterequests/finalizers]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list
-      watch] APIGroups:[acme.cert-manager.io] Resources:[orders]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create
-      update delete patch] APIGroups:[] Resources:[secrets] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
-      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates
-      configured. Warning: resource
-      clusterroles/cert-manager-controller-certificates is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-controller-certificates","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io]
-      Resources:[issuers issuers/status] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[cert-manager.io] Resources:[issuers] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete]
-      APIGroups:[] Resources:[secrets] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
-      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers
-      configured. Warning: resource clusterroles/cert-manager-controller-issuers
-      is missing the kubectl.kubernetes.io/last-applied-configuration annotation
-      which is required by  apply.  apply should only be used on resources
-      created declaratively by either  create --save-config or  apply. The
-      missing annotation will be patched
-      automatically.","name":"cert-manager-controller-issuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-view
+      automatically.","name":"cert-manager-controller-challenges","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-view
       reconciled. reconciliation required create\n\tmissing rules
       added:\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io]
       Resources:[certificates certificaterequests issuers] ResourceNames:[]
@@ -110,63 +182,17 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-view","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-edit
+      automatically.","name":"cert-manager-view","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-cluster-view
       reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[create delete deletecollection patch update]
-      APIGroups:[cert-manager.io] Resources:[certificates certificaterequests
-      issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update]
-      APIGroups:[cert-manager.io] Resources:[certificates/status]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete
-      deletecollection patch update] APIGroups:[acme.cert-manager.io]
-      Resources:[challenges orders] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-edit configured.
-      Warning: resource clusterroles/cert-manager-edit is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-edit","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[get list watch update] APIGroups:[certificates.k8s.io]
-      Resources:[certificatesigningrequests] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[update patch]
-      APIGroups:[certificates.k8s.io]
-      Resources:[certificatesigningrequests/status] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[sign] APIGroups:[certificates.k8s.io]
-      Resources:[signers] ResourceNames:[issuers.cert-manager.io/*
-      clusterissuers.cert-manager.io/*] NonResourceURLs:[]}\n\t\t{Verbs:[create]
-      APIGroups:[authorization.k8s.io] Resources:[subjectaccessreviews]
-      ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
-      configured. Warning: resource
-      clusterroles/cert-manager-controller-certificatesigningrequests is missing
-      the kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-controller-certificatesigningrequests","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[update patch] APIGroups:[acme.cert-manager.io]
-      Resources:[orders orders/status] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[acme.cert-manager.io] Resources:[orders challenges]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[cert-manager.io] Resources:[clusterissuers issuers]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete]
-      APIGroups:[acme.cert-manager.io] Resources:[challenges] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[acme.cert-manager.io]
-      Resources:[orders/finalizers] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[]
-      Resources:[secrets] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
-      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders
-      configured. Warning: resource clusterroles/cert-manager-controller-orders
-      is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+      added:\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io]
+      Resources:[clusterissuers] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-cluster-view
+      configured. Warning: resource clusterroles/cert-manager-cluster-view is
+      missing the kubectl.kubernetes.io/last-applied-configuration annotation
       which is required by  apply.  apply should only be used on resources
       created declaratively by either  create --save-config or  apply. The
       missing annotation will be patched
-      automatically.","name":"cert-manager-controller-orders","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector
+      automatically.","name":"cert-manager-cluster-view","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector
       reconciled. reconciliation required create\n\tmissing rules
       added:\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io]
       Resources:[certificates] ResourceNames:[]
@@ -188,35 +214,19 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers
+      automatically.","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
       reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io]
-      Resources:[clusterissuers clusterissuers/status] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[cert-manager.io] Resources:[clusterissuers] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete]
-      APIGroups:[] Resources:[secrets] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
-      Resources:[events] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers
+      added:\n\t\t{Verbs:[approve] APIGroups:[cert-manager.io]
+      Resources:[signers] ResourceNames:[issuers.cert-manager.io/*
+      clusterissuers.cert-manager.io/*] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
       configured. Warning: resource
-      clusterroles/cert-manager-controller-clusterissuers is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      clusterroles/cert-manager-controller-approve:cert-manager-io is missing
+      the kubectl.kubernetes.io/last-applied-configuration annotation which is
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-controller-clusterissuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[create] APIGroups:[authorization.k8s.io]
-      Resources:[subjectaccessreviews] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
-      configured. Warning: resource
-      clusterroles/cert-manager-webhook:subjectaccessreviews is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-webhook:subjectaccessreviews","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim
+      automatically.","name":"cert-manager-controller-approve:cert-manager-io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim
       reconciled. reconciliation required create\n\tmissing rules
       added:\n\t\t{Verbs:[create update delete] APIGroups:[cert-manager.io]
       Resources:[certificates certificaterequests] ResourceNames:[]
@@ -241,17 +251,7 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-controller-ingress-shim","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/cert-manager-cluster-view
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io]
-      Resources:[clusterissuers] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/cert-manager-cluster-view
-      configured. Warning: resource clusterroles/cert-manager-cluster-view is
-      missing the kubectl.kubernetes.io/last-applied-configuration annotation
-      which is required by  apply.  apply should only be used on resources
-      created declaratively by either  create --save-config or  apply. The
-      missing annotation will be patched
-      automatically.","name":"cert-manager-cluster-view","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector
+      automatically.","name":"cert-manager-controller-ingress-shim","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector
       reconciled. reconciliation required create\n\tmissing subjects
       added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-cainjector
       Namespace:cert-manager}.
@@ -261,62 +261,7 @@ metadata:
       which is required by  apply.  apply should only be used on resources
       created declaratively by either  create --save-config or  apply. The
       missing annotation will be patched
-      automatically.","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
-      Namespace:cert-manager}.
-      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim
-      configured. Warning: resource
-      clusterrolebindings/cert-manager-controller-ingress-shim is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-controller-ingress-shim","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
-      Namespace:cert-manager}.
-      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers
-      configured. Warning: resource
-      clusterrolebindings/cert-manager-controller-issuers is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-controller-issuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
-      Namespace:cert-manager}.
-      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
-      configured. Warning: resource
-      clusterrolebindings/cert-manager-controller-approve:cert-manager-io is
-      missing the kubectl.kubernetes.io/last-applied-configuration annotation
-      which is required by  apply.  apply should only be used on resources
-      created declaratively by either  create --save-config or  apply. The
-      missing annotation will be patched
-      automatically.","name":"cert-manager-controller-approve:cert-manager-io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-webhook
-      Namespace:cert-manager}.
-      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
-      configured. Warning: resource
-      clusterrolebindings/cert-manager-webhook:subjectaccessreviews is missing
-      the kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-webhook:subjectaccessreviews","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
-      Namespace:cert-manager}.
-      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges
-      configured. Warning: resource
-      clusterrolebindings/cert-manager-controller-challenges is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager-controller-challenges","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificates
+      automatically.","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificates
       reconciled. reconciliation required create\n\tmissing subjects
       added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
       Namespace:cert-manager}.
@@ -327,29 +272,40 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-controller-certificates","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
+      automatically.","name":"cert-manager-controller-certificates","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges
       reconciled. reconciliation required create\n\tmissing subjects
       added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
       Namespace:cert-manager}.
-      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
+      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges
       configured. Warning: resource
-      clusterrolebindings/cert-manager-controller-certificatesigningrequests is
-      missing the kubectl.kubernetes.io/last-applied-configuration annotation
-      which is required by  apply.  apply should only be used on resources
-      created declaratively by either  create --save-config or  apply. The
-      missing annotation will be patched
-      automatically.","name":"cert-manager-controller-certificatesigningrequests","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
-      Namespace:cert-manager}.
-      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders
-      configured. Warning: resource
-      clusterrolebindings/cert-manager-controller-orders is missing the
+      clusterrolebindings/cert-manager-controller-challenges is missing the
       kubectl.kubernetes.io/last-applied-configuration annotation which is
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-controller-orders","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers
+      automatically.","name":"cert-manager-controller-challenges","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers
+      reconciled. reconciliation required create\n\tmissing subjects
+      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
+      Namespace:cert-manager}.
+      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers
+      configured. Warning: resource
+      clusterrolebindings/cert-manager-controller-issuers is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-controller-issuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
+      reconciled. reconciliation required create\n\tmissing subjects
+      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-webhook
+      Namespace:cert-manager}.
+      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews
+      configured. Warning: resource
+      clusterrolebindings/cert-manager-webhook:subjectaccessreviews is missing
+      the kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-webhook:subjectaccessreviews","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers
       reconciled. reconciliation required create\n\tmissing subjects
       added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
       Namespace:cert-manager}.
@@ -360,19 +316,63 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-controller-clusterissuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"Role","message":"role.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[get list watch update] APIGroups:[]
-      Resources:[secrets] ResourceNames:[cert-manager-webhook-ca]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[] Resources:[secrets]
-      ResourceNames:[] NonResourceURLs:[]}.
-      role.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving
-      configured. Warning: resource roles/cert-manager-webhook:dynamic-serving
-      is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+      automatically.","name":"cert-manager-controller-clusterissuers","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim
+      reconciled. reconciliation required create\n\tmissing subjects
+      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
+      Namespace:cert-manager}.
+      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim
+      configured. Warning: resource
+      clusterrolebindings/cert-manager-controller-ingress-shim is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-controller-ingress-shim","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
+      reconciled. reconciliation required create\n\tmissing subjects
+      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
+      Namespace:cert-manager}.
+      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io
+      configured. Warning: resource
+      clusterrolebindings/cert-manager-controller-approve:cert-manager-io is
+      missing the kubectl.kubernetes.io/last-applied-configuration annotation
       which is required by  apply.  apply should only be used on resources
       created declaratively by either  create --save-config or  apply. The
       missing annotation will be patched
-      automatically.","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"Role","message":"role.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection
+      automatically.","name":"cert-manager-controller-approve:cert-manager-io","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders
+      reconciled. reconciliation required create\n\tmissing subjects
+      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
+      Namespace:cert-manager}.
+      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders
+      configured. Warning: resource
+      clusterrolebindings/cert-manager-controller-orders is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager-controller-orders","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
+      reconciled. reconciliation required create\n\tmissing subjects
+      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
+      Namespace:cert-manager}.
+      clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests
+      configured. Warning: resource
+      clusterrolebindings/cert-manager-controller-certificatesigningrequests is
+      missing the kubectl.kubernetes.io/last-applied-configuration annotation
+      which is required by  apply.  apply should only be used on resources
+      created declaratively by either  create --save-config or  apply. The
+      missing annotation will be patched
+      automatically.","name":"cert-manager-controller-certificatesigningrequests","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"Role","message":"role.rbac.authorization.k8s.io/cert-manager:leaderelection
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[get update patch] APIGroups:[coordination.k8s.io]
+      Resources:[leases] ResourceNames:[cert-manager-controller]
+      NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[coordination.k8s.io]
+      Resources:[leases] ResourceNames:[] NonResourceURLs:[]}.
+      role.rbac.authorization.k8s.io/cert-manager:leaderelection configured.
+      Warning: resource roles/cert-manager:leaderelection is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"Role","message":"role.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection
       reconciled. reconciliation required create\n\tmissing rules
       added:\n\t\t{Verbs:[get update patch] APIGroups:[coordination.k8s.io]
       Resources:[leases] ResourceNames:[cert-manager-cainjector-leader-election
@@ -385,19 +385,19 @@ metadata:
       which is required by  apply.  apply should only be used on resources
       created declaratively by either  create --save-config or  apply. The
       missing annotation will be patched
-      automatically.","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"Role","message":"role.rbac.authorization.k8s.io/cert-manager:leaderelection
+      automatically.","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"Role","message":"role.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving
       reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[get update patch] APIGroups:[coordination.k8s.io]
-      Resources:[leases] ResourceNames:[cert-manager-controller]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[coordination.k8s.io]
-      Resources:[leases] ResourceNames:[] NonResourceURLs:[]}.
-      role.rbac.authorization.k8s.io/cert-manager:leaderelection configured.
-      Warning: resource roles/cert-manager:leaderelection is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving
+      added:\n\t\t{Verbs:[get list watch update] APIGroups:[]
+      Resources:[secrets] ResourceNames:[cert-manager-webhook-ca]
+      NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[] Resources:[secrets]
+      ResourceNames:[] NonResourceURLs:[]}.
+      role.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving
+      configured. Warning: resource roles/cert-manager-webhook:dynamic-serving
+      is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+      which is required by  apply.  apply should only be used on resources
+      created declaratively by either  create --save-config or  apply. The
+      missing annotation will be patched
+      automatically.","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving
       reconciled. reconciliation required create\n\tmissing subjects
       added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-webhook
       Namespace:cert-manager}.
@@ -408,17 +408,7 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
-      Namespace:cert-manager}.
-      rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection
-      configured. Warning: resource rolebindings/cert-manager:leaderelection is
-      missing the kubectl.kubernetes.io/last-applied-configuration annotation
-      which is required by  apply.  apply should only be used on resources
-      created declaratively by either  create --save-config or  apply. The
-      missing annotation will be patched
-      automatically.","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection
+      automatically.","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/cert-manager-cainjector:leaderelection
       reconciled. reconciliation required create\n\tmissing subjects
       added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-cainjector
       Namespace:cert-manager}.
@@ -429,20 +419,30 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"Service","message":"service/cert-manager
+      automatically.","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection
+      reconciled. reconciliation required create\n\tmissing subjects
+      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager
+      Namespace:cert-manager}.
+      rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection
+      configured. Warning: resource rolebindings/cert-manager:leaderelection is
+      missing the kubectl.kubernetes.io/last-applied-configuration annotation
+      which is required by  apply.  apply should only be used on resources
+      created declaratively by either  create --save-config or  apply. The
+      missing annotation will be patched
+      automatically.","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"Service","message":"service/cert-manager
       created","name":"cert-manager","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","kind":"Service","message":"service/cert-manager-webhook
-      created","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Succeeded","kind":"Deployment","message":"deployment.apps/cert-manager-webhook
       created","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Succeeded","kind":"Deployment","message":"deployment.apps/cert-manager-cainjector
       created","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Succeeded","kind":"Deployment","message":"deployment.apps/cert-manager
-      created","name":"cert-manager","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"admissionregistration.k8s.io","hookPhase":"Succeeded","kind":"MutatingWebhookConfiguration","message":"mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
+      created","name":"cert-manager","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Succeeded","kind":"Deployment","message":"deployment.apps/cert-manager-webhook
+      created","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"admissionregistration.k8s.io","hookPhase":"Succeeded","kind":"MutatingWebhookConfiguration","message":"mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
       created","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"admissionregistration.k8s.io","hookPhase":"Succeeded","kind":"ValidatingWebhookConfiguration","message":"validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
       created","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Succeeded","hookType":"PostSync","kind":"ServiceAccount","message":"cert-manager-startupapicheck
       created","name":"cert-manager-startupapicheck","namespace":"cert-manager","syncPhase":"PostSync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","hookType":"PostSync","kind":"Role","message":"cert-manager-startupapicheck:create-cert
       created","name":"cert-manager-startupapicheck:create-cert","namespace":"cert-manager","syncPhase":"PostSync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Succeeded","hookType":"PostSync","kind":"RoleBinding","message":"cert-manager-startupapicheck:create-cert
       created","name":"cert-manager-startupapicheck:create-cert","namespace":"cert-manager","syncPhase":"PostSync","version":"v1"},{"group":"batch","hookPhase":"Succeeded","hookType":"PostSync","kind":"Job","message":"job.batch/cert-manager-startupapicheck
-      created","name":"cert-manager-startupapicheck","namespace":"cert-manager","syncPhase":"PostSync","version":"v1"}],"revision":"v1.14.4","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}}},"reconciledAt":"2024-04-02T19:11:00Z","resources":[{"health":{"status":"Healthy"},"kind":"Service","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"MutatingWebhookConfiguration","name":"cert-manager-webhook","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"ValidatingWebhookConfiguration","name":"cert-manager-webhook","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"certificaterequests.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"certificates.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"challenges.acme.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"clusterissuers.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"issuers.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"orders.acme.cert-manager.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-cainjector","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-cluster-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-approve:cert-manager-io","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-certificates","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-certificatesigningrequests","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-challenges","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-clusterissuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-ingress-shim","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-issuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-orders","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-edit","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-webhook:subjectaccessreviews","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-cainjector","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-approve:cert-manager-io","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-certificates","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-certificatesigningrequests","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-challenges","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-clusterissuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-ingress-shim","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-issuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-orders","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-webhook:subjectaccessreviews","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["quay.io/jetstack/cert-manager-cainjector:v1.14.4","quay.io/jetstack/cert-manager-controller:v1.14.4","quay.io/jetstack/cert-manager-webhook:v1.14.4"]},"sync":{"comparedTo":{"destination":{"namespace":"cert-manager","server":"https://kubernetes.default.svc"},"source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}},"revision":"v1.14.4","status":"Synced"}}}
-  creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 1375
+      created","name":"cert-manager-startupapicheck","namespace":"cert-manager","syncPhase":"PostSync","version":"v1"}],"revision":"v1.14.4","source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}}},"reconciledAt":"2024-04-12T18:08:30Z","resources":[{"health":{"status":"Healthy"},"kind":"Service","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"MutatingWebhookConfiguration","name":"cert-manager-webhook","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"ValidatingWebhookConfiguration","name":"cert-manager-webhook","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"certificaterequests.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"certificates.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"challenges.acme.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"clusterissuers.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"issuers.cert-manager.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"orders.acme.cert-manager.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager-cainjector","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"cert-manager-webhook","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-cainjector","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-cluster-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-approve:cert-manager-io","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-certificates","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-certificatesigningrequests","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-challenges","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-clusterissuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-ingress-shim","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-issuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-controller-orders","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-edit","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cert-manager-webhook:subjectaccessreviews","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-cainjector","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-approve:cert-manager-io","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-certificates","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-certificatesigningrequests","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-challenges","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-clusterissuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-ingress-shim","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-issuers","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-controller-orders","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"cert-manager-webhook:subjectaccessreviews","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager-webhook:dynamic-serving","namespace":"cert-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager-cainjector:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"cert-manager:leaderelection","namespace":"kube-system","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["quay.io/jetstack/cert-manager-cainjector:v1.14.4","quay.io/jetstack/cert-manager-controller:v1.14.4","quay.io/jetstack/cert-manager-webhook:v1.14.4"]},"sync":{"comparedTo":{"destination":{"namespace":"cert-manager","server":"https://kubernetes.default.svc"},"source":{"chart":"cert-manager","helm":{"parameters":[{"name":"installCRDs","value":"true"}]},"repoURL":"https://charts.jetstack.io","targetRevision":"v1.14.4"}},"revision":"v1.14.4","status":"Synced"}}}
+  creationTimestamp: '2024-04-25T20:20:49Z'
+  generation: 1438
   labels:
     project: infrastructure
     source: external
@@ -456,6 +456,7 @@ metadata:
             f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
+            f:project: {}
             f:source: {}
         f:spec:
           .: {}
@@ -498,16 +499,7 @@ metadata:
                 f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-05T04:45:33Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            f:project: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-04-12T17:04:00Z'
+      time: '2024-04-25T20:20:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -556,11 +548,11 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:08:31Z'
+      time: '2024-05-03T16:58:39Z'
   name: cert-manager
   namespace: argocd
-  resourceVersion: '1240313'
-  uid: c0d25a69-d216-4393-92de-402830ef54bf
+  resourceVersion: '1534452'
+  uid: 471fded6-d8e4-412d-9136-b74cb64480cd
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/cert-manager
 status:
   controllerNamespace: argocd
@@ -591,8 +583,20 @@ status:
               value: 'true'
         repoURL: https://charts.jetstack.io
         targetRevision: v1.14.4
+    - deployStartedAt: '2024-04-26T00:20:07Z'
+      deployedAt: '2024-04-26T00:23:49Z'
+      id: 2
+      revision: v1.14.4
+      source:
+        chart: cert-manager
+        helm:
+          parameters:
+            - name: installCRDs
+              value: 'true'
+        repoURL: https://charts.jetstack.io
+        targetRevision: v1.14.4
   operationState:
-    finishedAt: '2024-04-05T05:12:21Z'
+    finishedAt: '2024-04-26T00:23:49Z'
     message: successfully synced (no more tasks)
     operation:
       initiatedBy:
@@ -605,7 +609,7 @@ status:
         syncStrategy:
           hook: {}
     phase: Succeeded
-    startedAt: '2024-04-05T05:11:10Z'
+    startedAt: '2024-04-26T00:20:07Z'
     syncResult:
       resources:
         - group: ''
@@ -616,6 +620,15 @@ status:
           namespace: ''
           status: Synced
           syncPhase: PreSync
+          version: v1
+        - group: ''
+          hookPhase: Succeeded
+          kind: ServiceAccount
+          message: serviceaccount/cert-manager-cainjector created
+          name: cert-manager-cainjector
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
           version: v1
         - group: ''
           hookPhase: Succeeded
@@ -635,11 +648,13 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: ''
+        - group: apiextensions.k8s.io
           hookPhase: Succeeded
-          kind: ServiceAccount
-          message: serviceaccount/cert-manager-cainjector created
-          name: cert-manager-cainjector
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io
+            created
+          name: certificaterequests.cert-manager.io
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -659,17 +674,6 @@ status:
           hookPhase: Succeeded
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io
-            created
-          name: certificaterequests.cert-manager.io
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: apiextensions.k8s.io
-          hookPhase: Succeeded
-          kind: CustomResourceDefinition
-          message: >-
             customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io
             created
           name: certificates.cert-manager.io
@@ -681,9 +685,9 @@ status:
           hookPhase: Succeeded
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io
+            customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io
             created
-          name: issuers.cert-manager.io
+          name: clusterissuers.cert-manager.io
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -703,45 +707,9 @@ status:
           hookPhase: Succeeded
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io
+            customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io
             created
-          name: clusterissuers.cert-manager.io
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch update] APIGroups:[certificates.k8s.io] Resources:[certificatesigningrequests] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update patch] APIGroups:[certificates.k8s.io] Resources:[certificatesigningrequests/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[sign] APIGroups:[certificates.k8s.io] Resources:[signers] ResourceNames:[issuers.cert-manager.io/* clusterissuers.cert-manager.io/*] NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[authorization.k8s.io] Resources:[subjectaccessreviews] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests configured. Warning: resource clusterroles/cert-manager-controller-certificatesigningrequests is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-certificatesigningrequests
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io] Resources:[certificates certificates/status certificaterequests certificaterequests/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[certificates certificaterequests clusterissuers issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[cert-manager.io] Resources:[certificates/finalizers certificaterequests/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list watch] APIGroups:[acme.cert-manager.io] Resources:[orders] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete patch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates configured. Warning: resource clusterroles/cert-manager-controller-certificates is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-certificates
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[acme.cert-manager.io] Resources:[orders orders/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[acme.cert-manager.io] Resources:[orders challenges] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[clusterissuers issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete] APIGroups:[acme.cert-manager.io] Resources:[challenges] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[acme.cert-manager.io] Resources:[orders/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders configured. Warning: resource clusterroles/cert-manager-controller-orders is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-orders
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io] Resources:[issuers issuers/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers configured. Warning: resource clusterroles/cert-manager-controller-issuers is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-issuers
+          name: issuers.cert-manager.io
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -758,35 +726,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
           kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-edit reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create delete deletecollection patch update] APIGroups:[cert-manager.io] Resources:[certificates certificaterequests issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[cert-manager.io] Resources:[certificates/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete deletecollection patch update] APIGroups:[acme.cert-manager.io] Resources:[challenges orders] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-edit configured. Warning: resource clusterroles/cert-manager-edit is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-edit
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRole
           message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io] Resources:[clusterissuers clusterissuers/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[clusterissuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers configured. Warning: resource clusterroles/cert-manager-controller-clusterissuers is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
           name: cert-manager-controller-clusterissuers
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[acme.cert-manager.io] Resources:[challenges challenges/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[acme.cert-manager.io] Resources:[challenges] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[issuers clusterissuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create delete] APIGroups:[] Resources:[pods services] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create delete update] APIGroups:[networking.k8s.io] Resources:[ingresses] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create delete update] APIGroups:[gateway.networking.k8s.io] Resources:[httproutes] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[route.openshift.io] Resources:[routes/custom-host] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[acme.cert-manager.io] Resources:[challenges/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges configured. Warning: resource clusterroles/cert-manager-controller-challenges is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-challenges
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-view reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[certificates certificaterequests issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[acme.cert-manager.io] Resources:[challenges orders] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-view configured. Warning: resource clusterroles/cert-manager-view is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-view
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -803,6 +744,60 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
           kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[approve] APIGroups:[cert-manager.io] Resources:[signers] ResourceNames:[issuers.cert-manager.io/* clusterissuers.cert-manager.io/*] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io configured. Warning: resource clusterroles/cert-manager-controller-approve:cert-manager-io is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-approve:cert-manager-io
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch update] APIGroups:[certificates.k8s.io] Resources:[certificatesigningrequests] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update patch] APIGroups:[certificates.k8s.io] Resources:[certificatesigningrequests/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[sign] APIGroups:[certificates.k8s.io] Resources:[signers] ResourceNames:[issuers.cert-manager.io/* clusterissuers.cert-manager.io/*] NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[authorization.k8s.io] Resources:[subjectaccessreviews] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificatesigningrequests configured. Warning: resource clusterroles/cert-manager-controller-certificatesigningrequests is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-certificatesigningrequests
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-edit reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create delete deletecollection patch update] APIGroups:[cert-manager.io] Resources:[certificates certificaterequests issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[cert-manager.io] Resources:[certificates/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete deletecollection patch update] APIGroups:[acme.cert-manager.io] Resources:[challenges orders] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-edit configured. Warning: resource clusterroles/cert-manager-edit is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-edit
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io] Resources:[issuers issuers/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-issuers configured. Warning: resource clusterroles/cert-manager-controller-issuers is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-issuers
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-view reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[certificates certificaterequests issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[acme.cert-manager.io] Resources:[challenges orders] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-view configured. Warning: resource clusterroles/cert-manager-view is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-view
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[acme.cert-manager.io] Resources:[orders orders/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[acme.cert-manager.io] Resources:[orders challenges] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[clusterissuers issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete] APIGroups:[acme.cert-manager.io] Resources:[challenges] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[acme.cert-manager.io] Resources:[orders/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-orders configured. Warning: resource clusterroles/cert-manager-controller-orders is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-orders
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRole
           message: "clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[certificates] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get create update patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch update patch] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch update patch] APIGroups:[apiregistration.k8s.io] Resources:[apiservices] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch update patch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-cainjector configured. Warning: resource clusterroles/cert-manager-cainjector is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
           name: cert-manager-cainjector
           namespace: cert-manager
@@ -812,8 +807,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
           kind: ClusterRole
-          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[approve] APIGroups:[cert-manager.io] Resources:[signers] ResourceNames:[issuers.cert-manager.io/* clusterissuers.cert-manager.io/*] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-approve:cert-manager-io configured. Warning: resource clusterroles/cert-manager-controller-approve:cert-manager-io is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-approve:cert-manager-io
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[cert-manager.io] Resources:[certificates certificates/status certificaterequests certificaterequests/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[certificates certificaterequests clusterissuers issuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[cert-manager.io] Resources:[certificates/finalizers certificaterequests/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list watch] APIGroups:[acme.cert-manager.io] Resources:[orders] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update delete patch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-certificates configured. Warning: resource clusterroles/cert-manager-controller-certificates is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-certificates
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -829,9 +824,9 @@ status:
           version: v1
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
-          kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-cainjector Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector configured. Warning: resource clusterrolebindings/cert-manager-cainjector is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-cainjector
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[update patch] APIGroups:[acme.cert-manager.io] Resources:[challenges challenges/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[acme.cert-manager.io] Resources:[challenges] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[cert-manager.io] Resources:[issuers clusterissuers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create delete] APIGroups:[] Resources:[pods services] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create delete update] APIGroups:[networking.k8s.io] Resources:[ingresses] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create delete update] APIGroups:[gateway.networking.k8s.io] Resources:[httproutes] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[route.openshift.io] Resources:[routes/custom-host] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[acme.cert-manager.io] Resources:[challenges/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/cert-manager-controller-challenges configured. Warning: resource clusterroles/cert-manager-controller-challenges is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-challenges
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -848,44 +843,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
           kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges configured. Warning: resource clusterrolebindings/cert-manager-controller-challenges is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-challenges
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers configured. Warning: resource clusterrolebindings/cert-manager-controller-issuers is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-issuers
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-webhook Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews configured. Warning: resource clusterrolebindings/cert-manager-webhook:subjectaccessreviews is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-webhook:subjectaccessreviews
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers configured. Warning: resource clusterrolebindings/cert-manager-controller-clusterissuers is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-clusterissuers
-          namespace: cert-manager
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Succeeded
-          kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim configured. Warning: resource clusterrolebindings/cert-manager-controller-ingress-shim is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-ingress-shim
+          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders configured. Warning: resource clusterrolebindings/cert-manager-controller-orders is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-orders
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -902,8 +861,44 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
           kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-orders configured. Warning: resource clusterrolebindings/cert-manager-controller-orders is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-controller-orders
+          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-clusterissuers configured. Warning: resource clusterrolebindings/cert-manager-controller-clusterissuers is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-clusterissuers
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-challenges configured. Warning: resource clusterrolebindings/cert-manager-controller-challenges is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-challenges
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-cainjector Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-cainjector configured. Warning: resource clusterrolebindings/cert-manager-cainjector is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-cainjector
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-webhook Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-webhook:subjectaccessreviews configured. Warning: resource clusterrolebindings/cert-manager-webhook:subjectaccessreviews is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-webhook:subjectaccessreviews
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Succeeded
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-ingress-shim configured. Warning: resource clusterrolebindings/cert-manager-controller-ingress-shim is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-ingress-shim
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -919,10 +914,10 @@ status:
           version: v1
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
-          kind: Role
-          message: "role.rbac.authorization.k8s.io/cert-manager:leaderelection reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get update patch] APIGroups:[coordination.k8s.io] Resources:[leases] ResourceNames:[cert-manager-controller] NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[coordination.k8s.io] Resources:[leases] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/cert-manager:leaderelection configured. Warning: resource roles/cert-manager:leaderelection is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager:leaderelection
-          namespace: kube-system
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. clusterrolebinding.rbac.authorization.k8s.io/cert-manager-controller-issuers configured. Warning: resource clusterrolebindings/cert-manager-controller-issuers is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-controller-issuers
+          namespace: cert-manager
           status: Synced
           syncPhase: Sync
           version: v1
@@ -946,10 +941,10 @@ status:
           version: v1
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
-          kind: RoleBinding
-          message: "rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-webhook Namespace:cert-manager}. rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving configured. Warning: resource rolebindings/cert-manager-webhook:dynamic-serving is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager-webhook:dynamic-serving
-          namespace: cert-manager
+          kind: Role
+          message: "role.rbac.authorization.k8s.io/cert-manager:leaderelection reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get update patch] APIGroups:[coordination.k8s.io] Resources:[leases] ResourceNames:[cert-manager-controller] NonResourceURLs:[]}\n\t\t{Verbs:[create] APIGroups:[coordination.k8s.io] Resources:[leases] ResourceNames:[] NonResourceURLs:[]}. role.rbac.authorization.k8s.io/cert-manager:leaderelection configured. Warning: resource roles/cert-manager:leaderelection is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager:leaderelection
+          namespace: kube-system
           status: Synced
           syncPhase: Sync
           version: v1
@@ -965,18 +960,18 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
           kind: RoleBinding
-          message: "rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection configured. Warning: resource rolebindings/cert-manager:leaderelection is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: cert-manager:leaderelection
-          namespace: kube-system
+          message: "rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager-webhook Namespace:cert-manager}. rolebinding.rbac.authorization.k8s.io/cert-manager-webhook:dynamic-serving configured. Warning: resource rolebindings/cert-manager-webhook:dynamic-serving is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager-webhook:dynamic-serving
+          namespace: cert-manager
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: ''
+        - group: rbac.authorization.k8s.io
           hookPhase: Succeeded
-          kind: Service
-          message: service/cert-manager created
-          name: cert-manager
-          namespace: cert-manager
+          kind: RoleBinding
+          message: "rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:cert-manager Namespace:cert-manager}. rolebinding.rbac.authorization.k8s.io/cert-manager:leaderelection configured. Warning: resource rolebindings/cert-manager:leaderelection is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: cert-manager:leaderelection
+          namespace: kube-system
           status: Synced
           syncPhase: Sync
           version: v1
@@ -989,11 +984,11 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: apps
+        - group: ''
           hookPhase: Succeeded
-          kind: Deployment
-          message: deployment.apps/cert-manager-cainjector created
-          name: cert-manager-cainjector
+          kind: Service
+          message: service/cert-manager created
+          name: cert-manager
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -1016,13 +1011,11 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-        - group: admissionregistration.k8s.io
+        - group: apps
           hookPhase: Succeeded
-          kind: MutatingWebhookConfiguration
-          message: >-
-            mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
-            created
-          name: cert-manager-webhook
+          kind: Deployment
+          message: deployment.apps/cert-manager-cainjector created
+          name: cert-manager-cainjector
           namespace: cert-manager
           status: Synced
           syncPhase: Sync
@@ -1032,6 +1025,17 @@ status:
           kind: ValidatingWebhookConfiguration
           message: >-
             validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
+            created
+          name: cert-manager-webhook
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: admissionregistration.k8s.io
+          hookPhase: Succeeded
+          kind: MutatingWebhookConfiguration
+          message: >-
+            mutatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook
             created
           name: cert-manager-webhook
           namespace: cert-manager
@@ -1083,7 +1087,7 @@ status:
               value: 'true'
         repoURL: https://charts.jetstack.io
         targetRevision: v1.14.4
-  reconciledAt: '2024-04-12T18:08:30Z'
+  reconciledAt: '2024-05-03T16:58:38Z'
   resources:
     - health:
         status: Healthy

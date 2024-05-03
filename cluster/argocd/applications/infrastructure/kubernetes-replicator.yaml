@@ -3,10 +3,9 @@ kind: Application
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-02T22:30:28Z","generation":12,"labels":{"source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-02T22:30:46Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:chart":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-02T22:31:44Z"}],"name":"kubernetes-replicator","namespace":"argocd","resourceVersion":"70327","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kubernetes-replicator","uid":"5acd7852-3043-419d-91ad-3331a6da61a0"},"spec":{"destination":{"namespace":"kubernetes-replicator","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"},"syncPolicy":{"automated":{},"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T22:30:28Z","deployedAt":"2024-04-02T22:30:32Z","id":0,"revision":"2.9.2","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}}],"operationState":{"finishedAt":"2024-04-02T22:30:33Z","message":"successfully
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-05T04:45:33Z","generation":1339,"labels":{"project":"infrastructure","source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:chart":{},"f:repoURL":{},"f:targetRevision":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-05T04:45:33Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{"f:project":{}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T17:25:49Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:14:30Z"}],"name":"kubernetes-replicator","namespace":"argocd","resourceVersion":"1242336","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kubernetes-replicator","uid":"56bdd75f-dcde-4202-be23-c4aabe380eb5"},"spec":{"destination":{"namespace":"kubernetes-replicator","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T22:30:28Z","deployedAt":"2024-04-02T22:30:32Z","id":0,"revision":"2.9.2","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}},{"deployStartedAt":"2024-04-05T04:59:34Z","deployedAt":"2024-04-05T04:59:37Z","id":1,"revision":"2.9.2","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}}],"operationState":{"finishedAt":"2024-04-05T04:59:37Z","message":"successfully
       synced (all tasks
-      run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"2.9.2","syncOptions":["CreateNamespace=true"]}},"phase":"Succeeded","startedAt":"2024-04-02T22:30:28Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/kubernetes-replicator
-      created","name":"kubernetes-replicator","namespace":"","status":"Synced","syncPhase":"PreSync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/kubernetes-replicator
+      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"revision":"2.9.2","syncOptions":["CreateNamespace=true"],"syncStrategy":{"hook":{}}}},"phase":"Succeeded","startedAt":"2024-04-05T04:59:34Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/kubernetes-replicator
       created","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/kubernetes-replicator
       reconciled. reconciliation required create\n\tmissing rules
       added:\n\t\t{Verbs:[get watch list] APIGroups:[] Resources:[namespaces]
@@ -33,9 +32,9 @@ metadata:
       created declaratively by either  create --save-config or  apply. The
       missing annotation will be patched
       automatically.","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/kubernetes-replicator
-      created","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"2.9.2","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}}},"reconciledAt":"2024-04-02T22:30:33Z","resources":[{"kind":"ServiceAccount","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"kubernetes-replicator","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["quay.io/mittwald/kubernetes-replicator:v2.9.2"]},"sync":{"comparedTo":{"destination":{"namespace":"kubernetes-replicator","server":"https://kubernetes.default.svc"},"source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}},"revision":"2.9.2","status":"Synced"}}}
-  creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 1339
+      created","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"2.9.2","source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}}},"reconciledAt":"2024-04-12T18:14:30Z","resources":[{"kind":"ServiceAccount","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"kubernetes-replicator","namespace":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"kubernetes-replicator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"kubernetes-replicator","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["quay.io/mittwald/kubernetes-replicator:v2.9.2"]},"sync":{"comparedTo":{"destination":{"namespace":"kubernetes-replicator","server":"https://kubernetes.default.svc"},"source":{"chart":"kubernetes-replicator","repoURL":"https://helm.mittwald.de","targetRevision":"2.9.2"}},"revision":"2.9.2","status":"Synced"}}}
+  creationTimestamp: '2024-04-25T20:20:49Z'
+  generation: 1421
   labels:
     project: infrastructure
     source: external
@@ -49,6 +48,7 @@ metadata:
             f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
+            f:project: {}
             f:source: {}
         f:spec:
           .: {}
@@ -85,16 +85,7 @@ metadata:
                 f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-05T04:45:33Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            f:project: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-04-12T17:25:49Z'
+      time: '2024-04-25T20:20:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -140,11 +131,11 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:14:30Z'
+      time: '2024-05-03T17:01:38Z'
   name: kubernetes-replicator
   namespace: argocd
-  resourceVersion: '1242336'
-  uid: 56bdd75f-dcde-4202-be23-c4aabe380eb5
+  resourceVersion: '1535603'
+  uid: 75654733-b87e-433b-848e-87e0dd494830
   selfLink: >-
     /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kubernetes-replicator
 status:
@@ -168,8 +159,16 @@ status:
         chart: kubernetes-replicator
         repoURL: https://helm.mittwald.de
         targetRevision: 2.9.2
+    - deployStartedAt: '2024-04-26T01:06:25Z'
+      deployedAt: '2024-04-26T01:06:26Z'
+      id: 2
+      revision: 2.9.2
+      source:
+        chart: kubernetes-replicator
+        repoURL: https://helm.mittwald.de
+        targetRevision: 2.9.2
   operationState:
-    finishedAt: '2024-04-05T04:59:37Z'
+    finishedAt: '2024-04-26T01:06:26Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
@@ -182,7 +181,7 @@ status:
         syncStrategy:
           hook: {}
     phase: Succeeded
-    startedAt: '2024-04-05T04:59:34Z'
+    startedAt: '2024-04-26T01:06:25Z'
     syncResult:
       resources:
         - group: ''
@@ -226,7 +225,7 @@ status:
         chart: kubernetes-replicator
         repoURL: https://helm.mittwald.de
         targetRevision: 2.9.2
-  reconciledAt: '2024-04-12T18:14:30Z'
+  reconciledAt: '2024-05-03T17:01:38Z'
   resources:
     - kind: ServiceAccount
       name: kubernetes-replicator

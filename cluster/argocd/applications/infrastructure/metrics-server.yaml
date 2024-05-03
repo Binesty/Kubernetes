@@ -3,21 +3,10 @@ kind: Application
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-02T19:37:47Z","generation":14,"labels":{"source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-02T19:38:06Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:path":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-02T19:39:23Z"}],"name":"metrics-server","namespace":"argocd","resourceVersion":"28283","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metrics-server","uid":"f4ec2352-a60e-4629-a5cf-143f4df79aef"},"spec":{"destination":{"namespace":"kube-system","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"automated":{}}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T19:37:51Z","deployedAt":"2024-04-02T19:37:52Z","id":0,"revision":"e5ad3104ceace29389a302deda8efe9fe35e5d85","source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-02T19:37:52Z","message":"successfully
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-05T04:45:34Z","generation":1417,"labels":{"project":"infrastructure","source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-05T04:45:34Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{"f:project":{}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T17:46:02Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:14:32Z"}],"name":"metrics-server","namespace":"argocd","resourceVersion":"1242354","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metrics-server","uid":"9450349e-919f-42f7-b77d-c5527afa5d4b"},"spec":{"destination":{"namespace":"kube-system","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T19:37:51Z","deployedAt":"2024-04-02T19:37:52Z","id":0,"revision":"e5ad3104ceace29389a302deda8efe9fe35e5d85","source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-05T04:47:45Z","deployedAt":"2024-04-05T04:47:51Z","id":1,"revision":"281d71653b9c9f4ba74f008d5388ee00ff481b2e","source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-05T04:47:51Z","message":"successfully
       synced (all tasks
-      run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"e5ad3104ceace29389a302deda8efe9fe35e5d85"}},"phase":"Succeeded","startedAt":"2024-04-02T19:37:51Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/metrics-server
-      created","name":"metrics-server","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[get list watch] APIGroups:[metrics.k8s.io]
-      Resources:[pods nodes] ResourceNames:[] NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader
-      configured. Warning: resource
-      clusterroles/system:aggregated-metrics-reader is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"system:aggregated-metrics-reader","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/system:metrics-server
+      run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"281d71653b9c9f4ba74f008d5388ee00ff481b2e"}},"phase":"Succeeded","startedAt":"2024-04-05T04:47:45Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/metrics-server
+      created","name":"metrics-server","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/system:metrics-server
       reconciled. reconciliation required create\n\tmissing rules
       added:\n\t\t{Verbs:[get] APIGroups:[] Resources:[nodes/metrics]
       ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
@@ -28,7 +17,18 @@ metadata:
       required by  apply.  apply should only be used on resources created
       declaratively by either  create --save-config or  apply. The missing
       annotation will be patched
-      automatically.","name":"system:metrics-server","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator
+      automatically.","name":"system:metrics-server","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader
+      reconciled. reconciliation required create\n\tmissing rules
+      added:\n\t\t{Verbs:[get list watch] APIGroups:[metrics.k8s.io]
+      Resources:[pods nodes] ResourceNames:[] NonResourceURLs:[]}.
+      clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader
+      configured. Warning: resource
+      clusterroles/system:aggregated-metrics-reader is missing the
+      kubectl.kubernetes.io/last-applied-configuration annotation which is
+      required by  apply.  apply should only be used on resources created
+      declaratively by either  create --save-config or  apply. The missing
+      annotation will be patched
+      automatically.","name":"system:aggregated-metrics-reader","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator
       reconciled. reconciliation required create\n\tmissing subjects
       added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metrics-server
       Namespace:kube-system}.
@@ -62,11 +62,11 @@ metadata:
       automatically.","name":"metrics-server-auth-reader","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/metrics-server
       created","name":"metrics-server","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/metrics-server
       created","name":"metrics-server","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiregistration.k8s.io","hookPhase":"Running","kind":"APIService","message":"apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io
-      created","name":"v1beta1.metrics.k8s.io","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"e5ad3104ceace29389a302deda8efe9fe35e5d85","source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-02T19:37:52Z","resources":[{"health":{"status":"Healthy"},"kind":"Service","name":"metrics-server","namespace":"kube-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"metrics-server","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"apiregistration.k8s.io","health":{"message":"Passed:
+      created","name":"v1beta1.metrics.k8s.io","namespace":"kube-system","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"281d71653b9c9f4ba74f008d5388ee00ff481b2e","source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-12T18:14:30Z","resources":[{"health":{"status":"Healthy"},"kind":"Service","name":"metrics-server","namespace":"kube-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"metrics-server","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"apiregistration.k8s.io","health":{"message":"Passed:
       all checks
-      passed","status":"Healthy"},"kind":"APIService","name":"v1beta1.metrics.k8s.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"metrics-server","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:aggregated-metrics-reader","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:metrics-server","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metrics-server:system:auth-delegator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"system:metrics-server","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"metrics-server-auth-reader","namespace":"kube-system","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["registry.k8s.io/metrics-server/metrics-server:v0.7.1"]},"sync":{"comparedTo":{"destination":{"namespace":"kube-system","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"e5ad3104ceace29389a302deda8efe9fe35e5d85","status":"Synced"}}}
-  creationTimestamp: '2024-04-05T04:45:34Z'
-  generation: 1417
+      passed","status":"Healthy"},"kind":"APIService","name":"v1beta1.metrics.k8s.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"metrics-server","namespace":"kube-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:aggregated-metrics-reader","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:metrics-server","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metrics-server:system:auth-delegator","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"system:metrics-server","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"metrics-server-auth-reader","namespace":"kube-system","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["registry.k8s.io/metrics-server/metrics-server:v0.7.1"]},"sync":{"comparedTo":{"destination":{"namespace":"kube-system","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/metrics-server","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"d904e809be85b0bb64ac0d9190cda6eca26b24a4","status":"Synced"}}}
+  creationTimestamp: '2024-04-25T20:20:49Z'
+  generation: 1386
   labels:
     project: infrastructure
     source: internal
@@ -80,6 +80,7 @@ metadata:
             f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
+            f:project: {}
             f:source: {}
         f:spec:
           .: {}
@@ -114,16 +115,7 @@ metadata:
                 f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-05T04:45:34Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            f:project: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-04-12T17:46:02Z'
+      time: '2024-04-25T20:20:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -139,13 +131,14 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:automated: {}
-              f:retry:
-                .: {}
-                f:limit: {}
+                f:username: {}
+              f:retry: {}
               f:sync:
                 .: {}
                 f:revision: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -167,11 +160,11 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:14:32Z'
+      time: '2024-05-03T17:01:38Z'
   name: metrics-server
   namespace: argocd
-  resourceVersion: '1242354'
-  uid: 9450349e-919f-42f7-b77d-c5527afa5d4b
+  resourceVersion: '1535601'
+  uid: bcdbffe8-7709-4751-9c2d-1aebd920ad6f
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metrics-server
 status:
   controllerNamespace: argocd
@@ -194,18 +187,27 @@ status:
         path: cluster/argocd/sources/metrics-server
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
+    - deployStartedAt: '2024-04-26T00:20:02Z'
+      deployedAt: '2024-04-26T00:20:04Z'
+      id: 2
+      revision: 53a12d603f32692babbacf9cca77dbfb2cc73461
+      source:
+        path: cluster/argocd/sources/metrics-server
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-04-05T04:47:51Z'
+    finishedAt: '2024-04-26T00:20:04Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        automated: true
-      retry:
-        limit: 5
+        username: admin
+      retry: {}
       sync:
-        revision: 281d71653b9c9f4ba74f008d5388ee00ff481b2e
+        revision: 53a12d603f32692babbacf9cca77dbfb2cc73461
+        syncStrategy:
+          hook: {}
     phase: Succeeded
-    startedAt: '2024-04-05T04:47:45Z'
+    startedAt: '2024-04-26T00:20:02Z'
     syncResult:
       resources:
         - group: ''
@@ -238,8 +240,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metrics-server Namespace:kube-system}. clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator configured. Warning: resource clusterrolebindings/metrics-server:system:auth-delegator is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: metrics-server:system:auth-delegator
+          message: "clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metrics-server Namespace:kube-system}. clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server configured. Warning: resource clusterrolebindings/system:metrics-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: system:metrics-server
           namespace: kube-system
           status: Synced
           syncPhase: Sync
@@ -247,8 +249,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRoleBinding
-          message: "clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metrics-server Namespace:kube-system}. clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server configured. Warning: resource clusterrolebindings/system:metrics-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
-          name: system:metrics-server
+          message: "clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:metrics-server Namespace:kube-system}. clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator configured. Warning: resource clusterrolebindings/metrics-server:system:auth-delegator is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: metrics-server:system:auth-delegator
           namespace: kube-system
           status: Synced
           syncPhase: Sync
@@ -289,12 +291,12 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 281d71653b9c9f4ba74f008d5388ee00ff481b2e
+      revision: 53a12d603f32692babbacf9cca77dbfb2cc73461
       source:
         path: cluster/argocd/sources/metrics-server
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-12T18:14:30Z'
+  reconciledAt: '2024-05-03T17:01:38Z'
   resources:
     - health:
         status: Healthy
@@ -363,7 +365,7 @@ status:
         path: cluster/argocd/sources/metrics-server
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+    revision: 5590b0e7f8918733d981c4404af88e436cab6e51
     status: Synced
 spec:
   destination:

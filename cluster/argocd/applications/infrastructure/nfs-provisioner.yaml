@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2024-04-28T17:28:59Z'
-  generation: 42
+  generation: 1095
   labels:
     project: infrastructure
     source: external
@@ -109,10 +109,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-28T17:52:58Z'
+      time: '2024-05-03T17:04:38Z'
   name: nfs-provisioner
   namespace: argocd
-  resourceVersion: '361615'
+  resourceVersion: '1538067'
   uid: 264e8455-ef8c-4948-88b5-1aa3fd42686c
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/nfs-provisioner
 status:
@@ -285,7 +285,7 @@ status:
               value: Retain
         repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
         targetRevision: 4.0.18
-  reconciledAt: '2024-04-28T17:52:57Z'
+  reconciledAt: '2024-05-03T17:04:38Z'
   resources:
     - kind: ServiceAccount
       name: nfs-provisioner-nfs-subdir-external-provisioner

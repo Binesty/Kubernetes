@@ -3,32 +3,32 @@ kind: Application
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-03T12:19:12Z","generation":17,"labels":{"source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-03T12:19:39Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:externalURLs":{},"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:path":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-03T12:22:04Z"}],"name":"elastic-stack","namespace":"argocd","resourceVersion":"51397","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/elastic-stack","uid":"314d1c79-eefa-4138-8d27-7173fdf39a14"},"spec":{"destination":{"namespace":"elastic-stack","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"automated":{},"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-03T12:19:16Z","deployedAt":"2024-04-03T12:19:19Z","id":0,"revision":"53f4740cd97f9e6c04976c5200d47dfb28480237","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-03T12:19:19Z","message":"successfully
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-05T04:45:33Z","generation":1619,"labels":{"project":"infrastructure","source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-05T04:45:33Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{"f:project":{}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T17:07:45Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:externalURLs":{},"f:images":{}},"f:sync":{"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:08:32Z"}],"name":"elastic-stack","namespace":"argocd","resourceVersion":"1240324","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/elastic-stack","uid":"d47f1c6c-6ad8-45aa-b0a9-2bc1b1fdd918"},"spec":{"destination":{"namespace":"elastic-stack","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-03T12:19:16Z","deployedAt":"2024-04-03T12:19:19Z","id":0,"revision":"53f4740cd97f9e6c04976c5200d47dfb28480237","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-05T04:47:45Z","deployedAt":"2024-04-05T04:47:52Z","id":1,"revision":"281d71653b9c9f4ba74f008d5388ee00ff481b2e","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-10T23:48:33Z","deployedAt":"2024-04-10T23:48:34Z","id":2,"revision":"7ecb2bbd901aaa592bfa3e23f0667dc1d7dc3693","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-10T23:58:40Z","deployedAt":"2024-04-10T23:58:43Z","id":3,"revision":"7ecb2bbd901aaa592bfa3e23f0667dc1d7dc3693","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-11T19:55:17Z","deployedAt":"2024-04-11T19:55:19Z","id":4,"revision":"62f4ca845c36da82c660a86bd5a6cf42625f38f0","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-11T19:55:19Z","message":"successfully
       synced (all tasks
-      run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"53f4740cd97f9e6c04976c5200d47dfb28480237","syncOptions":["CreateNamespace=true"]}},"phase":"Succeeded","startedAt":"2024-04-03T12:19:16Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/elastic-stack
-      created","name":"elastic-stack","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/elastic-secret
-      created","name":"elastic-secret","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/apm-server-config
-      created","name":"apm-server-config","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/logstash-configmap
-      created","name":"logstash-configmap","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"PersistentVolume","message":"persistentvolume/nfs-backup-elastic
+      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"revision":"62f4ca845c36da82c660a86bd5a6cf42625f38f0","syncOptions":["CreateNamespace=true"],"syncStrategy":{"hook":{}}}},"phase":"Succeeded","startedAt":"2024-04-11T19:55:17Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/elastic-stack
+      unchanged","name":"elastic-stack","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/elastic-secret
+      unchanged","name":"elastic-secret","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/apm-server-config
+      unchanged","name":"apm-server-config","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/logstash-configmap
+      unchanged","name":"logstash-configmap","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"PersistentVolume","message":"persistentvolume/nfs-backup-elastic
       created","name":"nfs-backup-elastic","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"PersistentVolumeClaim","message":"persistentvolumeclaim/nfs-backup-elastic
-      created","name":"nfs-backup-elastic","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/elasticsearch
-      created","name":"elasticsearch","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/apm-server
-      created","name":"apm-server","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/kibana-service
-      created","name":"kibana-service","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/logstash-service
-      created","name":"logstash-service","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/kibana
-      created","name":"kibana","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/logstash
-      created","name":"logstash","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/elasticsearch-cluster
-      created","name":"elasticsearch-cluster","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/apm-server
-      created","name":"apm-server","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/elasticsearch-ingress
-      created","name":"elasticsearch-ingress","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/kibana-ingress
-      created","name":"kibana-ingress","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/apm-ingress
-      created","name":"apm-ingress","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"53f4740cd97f9e6c04976c5200d47dfb28480237","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-03T12:19:19Z","resources":[{"kind":"ConfigMap","name":"apm-server-config","namespace":"elastic-stack","status":"Synced","version":"v1"},{"kind":"ConfigMap","name":"logstash-configmap","namespace":"elastic-stack","status":"Synced","version":"v1"},{"kind":"Namespace","name":"elastic-stack","status":"Synced","version":"v1"},{"kind":"PersistentVolume","name":"nfs-backup-elastic","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"PersistentVolumeClaim","name":"nfs-backup-elastic","namespace":"elastic-stack","status":"Synced","version":"v1"},{"kind":"Secret","name":"elastic-secret","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"apm-server","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"elasticsearch","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"kibana-service","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"logstash-service","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"kibana","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"logstash","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"partitioned
+      created","name":"nfs-backup-elastic","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/apm-server
+      unchanged","name":"apm-server","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/kibana-service
+      unchanged","name":"kibana-service","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/logstash-service
+      unchanged","name":"logstash-service","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/elasticsearch
+      unchanged","name":"elasticsearch","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/kibana
+      configured","name":"kibana","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/logstash
+      configured","name":"logstash","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/apm-server
+      configured","name":"apm-server","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/elasticsearch-cluster
+      configured","name":"elasticsearch-cluster","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/kibana-ingress
+      unchanged","name":"kibana-ingress","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/apm-ingress
+      unchanged","name":"apm-ingress","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/elasticsearch-ingress
+      unchanged","name":"elasticsearch-ingress","namespace":"elastic-stack","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"62f4ca845c36da82c660a86bd5a6cf42625f38f0","source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-12T18:08:30Z","resources":[{"kind":"ConfigMap","name":"apm-server-config","namespace":"elastic-stack","status":"Synced","version":"v1"},{"kind":"ConfigMap","name":"logstash-configmap","namespace":"elastic-stack","status":"Synced","version":"v1"},{"kind":"Namespace","name":"elastic-stack","status":"Synced","version":"v1"},{"kind":"PersistentVolume","name":"nfs-backup-elastic","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"PersistentVolumeClaim","name":"nfs-backup-elastic","namespace":"elastic-stack","status":"Synced","version":"v1"},{"kind":"Secret","name":"elastic-secret","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"apm-server","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"elasticsearch","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"kibana-service","namespace":"elastic-stack","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"logstash-service","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"kibana","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"logstash","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"partitioned
       roll out complete: 1 new pods have been
       updated...","status":"Healthy"},"kind":"StatefulSet","name":"apm-server","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"partitioned
       roll out complete: 1 new pods have been
-      updated...","status":"Healthy"},"kind":"StatefulSet","name":"elasticsearch-cluster","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"apm-ingress","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"elasticsearch-ingress","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"kibana-ingress","namespace":"elastic-stack","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"externalURLs":["http://apm.binesty.corp/","http://elasticsearch.binesty.corp/","http://kibana.binesty.corp/"],"images":["busybox","docker.elastic.co/apm/apm-server:7.17.9","docker.elastic.co/elasticsearch/elasticsearch:7.17.9","docker.elastic.co/kibana/kibana:7.17.9","docker.elastic.co/logstash/logstash:7.17.9"]},"sync":{"comparedTo":{"destination":{"namespace":"elastic-stack","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"53f4740cd97f9e6c04976c5200d47dfb28480237","status":"Synced"}}}
-  creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 1619
+      updated...","status":"Healthy"},"kind":"StatefulSet","name":"elasticsearch-cluster","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"apm-ingress","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"elasticsearch-ingress","namespace":"elastic-stack","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"kibana-ingress","namespace":"elastic-stack","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"externalURLs":["http://apm.binesty.corp/","http://elasticsearch.binesty.corp/","http://kibana.binesty.corp/"],"images":["busybox","docker.elastic.co/apm/apm-server:7.17.9","docker.elastic.co/elasticsearch/elasticsearch:7.17.9","docker.elastic.co/kibana/kibana:7.17.9","docker.elastic.co/logstash/logstash:7.17.9"]},"sync":{"comparedTo":{"destination":{"namespace":"elastic-stack","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/elastic-stack","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"d904e809be85b0bb64ac0d9190cda6eca26b24a4","status":"Synced"}}}
+  creationTimestamp: '2024-04-25T20:20:49Z'
+  generation: 1823
   labels:
     project: infrastructure
     source: internal
@@ -42,6 +42,7 @@ metadata:
             f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
+            f:project: {}
             f:source: {}
         f:spec:
           .: {}
@@ -78,16 +79,7 @@ metadata:
                 f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-05T04:45:33Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            f:project: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-04-12T17:07:45Z'
+      time: '2024-04-25T20:20:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -134,11 +126,11 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:08:32Z'
+      time: '2024-05-03T16:58:41Z'
   name: elastic-stack
   namespace: argocd
-  resourceVersion: '1240324'
-  uid: d47f1c6c-6ad8-45aa-b0a9-2bc1b1fdd918
+  resourceVersion: '1534465'
+  uid: 07ef08f2-1e23-4485-9e65-66b9105c78da
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/elastic-stack
 status:
   controllerNamespace: argocd
@@ -185,27 +177,57 @@ status:
         path: cluster/argocd/sources/elastic-stack
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
+    - deployStartedAt: '2024-04-26T00:50:08Z'
+      deployedAt: '2024-04-26T00:50:17Z'
+      id: 5
+      revision: 53a12d603f32692babbacf9cca77dbfb2cc73461
+      source:
+        path: cluster/argocd/sources/elastic-stack
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-04-28T18:55:22Z'
+      deployedAt: '2024-04-28T18:55:23Z'
+      id: 6
+      revision: d168e8769722f5553084df19d39afec90a164503
+      source:
+        path: cluster/argocd/sources/elastic-stack
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-04-30T13:08:12Z'
+      deployedAt: '2024-04-30T13:08:13Z'
+      id: 7
+      revision: fc5c1040e80baa41e6152b37daf186fd8bf66cbd
+      source:
+        path: cluster/argocd/sources/elastic-stack
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-04-11T19:55:19Z'
+    finishedAt: '2024-04-30T13:08:13Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        revision: 62f4ca845c36da82c660a86bd5a6cf42625f38f0
+        revision: fc5c1040e80baa41e6152b37daf186fd8bf66cbd
         syncOptions:
           - CreateNamespace=true
         syncStrategy:
           hook: {}
     phase: Succeeded
-    startedAt: '2024-04-11T19:55:17Z'
+    startedAt: '2024-04-30T13:08:12Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: Namespace
-          message: namespace/elastic-stack unchanged
+          message: >-
+            namespace/elastic-stack configured. Warning: resource
+            namespaces/elastic-stack is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: elastic-stack
           namespace: elastic-stack
           status: Synced
@@ -213,17 +235,14 @@ status:
           version: v1
         - group: ''
           hookPhase: Running
-          kind: Secret
-          message: secret/elastic-secret unchanged
-          name: elastic-secret
-          namespace: elastic-stack
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
           kind: ConfigMap
-          message: configmap/apm-server-config unchanged
+          message: >-
+            configmap/apm-server-config configured. Warning: resource
+            configmaps/apm-server-config is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: apm-server-config
           namespace: elastic-stack
           status: Synced
@@ -232,17 +251,14 @@ status:
         - group: ''
           hookPhase: Running
           kind: ConfigMap
-          message: configmap/logstash-configmap unchanged
+          message: >-
+            configmap/logstash-configmap configured. Warning: resource
+            configmaps/logstash-configmap is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: logstash-configmap
-          namespace: elastic-stack
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: PersistentVolume
-          message: persistentvolume/nfs-backup-elastic created
-          name: nfs-backup-elastic
           namespace: elastic-stack
           status: Synced
           syncPhase: Sync
@@ -259,8 +275,14 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/apm-server unchanged
-          name: apm-server
+          message: >-
+            service/elasticsearch configured. Warning: resource
+            services/elasticsearch is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: elasticsearch
           namespace: elastic-stack
           status: Synced
           syncPhase: Sync
@@ -268,16 +290,13 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/kibana-service unchanged
-          name: kibana-service
-          namespace: elastic-stack
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: service/logstash-service unchanged
+          message: >-
+            service/logstash-service configured. Warning: resource
+            services/logstash-service is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: logstash-service
           namespace: elastic-stack
           status: Synced
@@ -286,8 +305,28 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/elasticsearch unchanged
-          name: elasticsearch
+          message: >-
+            service/apm-server configured. Warning: resource services/apm-server
+            is missing the kubectl.kubernetes.io/last-applied-configuration
+            annotation which is required by  apply.  apply should only be used
+            on resources created declaratively by either  create --save-config
+            or  apply. The missing annotation will be patched automatically.
+          name: apm-server
+          namespace: elastic-stack
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: >-
+            service/kibana-service configured. Warning: resource
+            services/kibana-service is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: kibana-service
           namespace: elastic-stack
           status: Synced
           syncPhase: Sync
@@ -295,7 +334,13 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: deployment.apps/kibana configured
+          message: >-
+            deployment.apps/kibana configured. Warning: resource
+            deployments/kibana is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: kibana
           namespace: elastic-stack
           status: Synced
@@ -304,7 +349,13 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: deployment.apps/logstash configured
+          message: >-
+            deployment.apps/logstash configured. Warning: resource
+            deployments/logstash is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: logstash
           namespace: elastic-stack
           status: Synced
@@ -313,7 +364,13 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: statefulset.apps/apm-server configured
+          message: >-
+            statefulset.apps/apm-server configured. Warning: resource
+            statefulsets/apm-server is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: apm-server
           namespace: elastic-stack
           status: Synced
@@ -322,7 +379,13 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: statefulset.apps/elasticsearch-cluster configured
+          message: >-
+            statefulset.apps/elasticsearch-cluster configured. Warning: resource
+            statefulsets/elasticsearch-cluster is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: elasticsearch-cluster
           namespace: elastic-stack
           status: Synced
@@ -331,7 +394,13 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/kibana-ingress unchanged
+          message: >-
+            ingress.networking.k8s.io/kibana-ingress configured. Warning:
+            resource ingresses/kibana-ingress is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: kibana-ingress
           namespace: elastic-stack
           status: Synced
@@ -340,7 +409,13 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/apm-ingress unchanged
+          message: >-
+            ingress.networking.k8s.io/apm-ingress configured. Warning: resource
+            ingresses/apm-ingress is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: apm-ingress
           namespace: elastic-stack
           status: Synced
@@ -349,18 +424,24 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/elasticsearch-ingress unchanged
+          message: >-
+            ingress.networking.k8s.io/elasticsearch-ingress configured. Warning:
+            resource ingresses/elasticsearch-ingress is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: elasticsearch-ingress
           namespace: elastic-stack
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 62f4ca845c36da82c660a86bd5a6cf42625f38f0
+      revision: fc5c1040e80baa41e6152b37daf186fd8bf66cbd
       source:
         path: cluster/argocd/sources/elastic-stack
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-12T18:08:30Z'
+  reconciledAt: '2024-05-03T16:58:38Z'
   resources:
     - kind: ConfigMap
       name: apm-server-config
@@ -372,23 +453,10 @@ status:
       namespace: elastic-stack
       status: Synced
       version: v1
-    - kind: Namespace
-      name: elastic-stack
-      status: Synced
-      version: v1
-    - kind: PersistentVolume
-      name: nfs-backup-elastic
-      status: Synced
-      version: v1
     - health:
         status: Healthy
       kind: PersistentVolumeClaim
       name: nfs-backup-elastic
-      namespace: elastic-stack
-      status: Synced
-      version: v1
-    - kind: Secret
-      name: elastic-secret
       namespace: elastic-stack
       status: Synced
       version: v1
@@ -499,7 +567,7 @@ status:
         path: cluster/argocd/sources/elastic-stack
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+    revision: 5590b0e7f8918733d981c4404af88e436cab6e51
     status: Synced
 spec:
   destination:

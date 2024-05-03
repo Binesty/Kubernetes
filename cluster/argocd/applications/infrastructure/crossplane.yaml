@@ -1,8 +1,84 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-04-09T19:03:22Z'
-  generation: 690
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-09T19:03:22Z","generation":690,"labels":{"project":"infrastructure","source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:project":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T17:05:04Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:prune":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{".":{},"f:force":{}}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:chart":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:08:31Z"}],"name":"crossplane","namespace":"argocd","resourceVersion":"1240307","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/crossplane","uid":"2ee7d23a-813c-4665-936e-aca1765b016f"},"spec":{"destination":{"namespace":"crossplane","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"crossplane","repoURL":"https://charts.crossplane.io/master/","targetRevision":"1.16.0-rc.0.163.g87d6699b"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-09T19:03:46Z","deployedAt":"2024-04-09T19:03:50Z","id":0,"revision":"1.16.0-rc.0.163.g87d6699b","source":{"chart":"crossplane","repoURL":"https://charts.crossplane.io/master/","targetRevision":"1.16.0-rc.0.163.g87d6699b"}},{"deployStartedAt":"2024-04-11T11:55:45Z","deployedAt":"2024-04-11T11:55:48Z","id":1,"revision":"1.16.0-rc.0.163.g87d6699b","source":{"chart":"crossplane","repoURL":"https://charts.crossplane.io/master/","targetRevision":"1.16.0-rc.0.163.g87d6699b"}}],"operationState":{"finishedAt":"2024-04-11T11:55:48Z","message":"successfully
+      synced (all tasks
+      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"prune":true,"revision":"1.16.0-rc.0.163.g87d6699b","syncOptions":["CreateNamespace=true","PruneLast=true","Replace=true"],"syncStrategy":{"hook":{"force":true}}}},"phase":"Succeeded","startedAt":"2024-04-11T11:55:45Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount
+      \"rbac-manager\" deleted\nserviceaccount/rbac-manager
+      replaced","name":"rbac-manager","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount
+      \"crossplane\" deleted\nserviceaccount/crossplane
+      replaced","name":"crossplane","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret
+      \"crossplane-tls-client\" deleted\nsecret/crossplane-tls-client
+      replaced","name":"crossplane-tls-client","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret
+      \"crossplane-root-ca\" deleted\nsecret/crossplane-root-ca
+      replaced","name":"crossplane-root-ca","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret
+      \"crossplane-tls-server\" deleted\nsecret/crossplane-tls-server
+      replaced","name":"crossplane-tls-server","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse
+      reconciled. clusterrole.rbac.authorization.k8s.io
+      \"crossplane:aggregate-to-browse\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse
+      replaced","name":"crossplane:aggregate-to-browse","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane
+      reconciled. clusterrole.rbac.authorization.k8s.io \"crossplane\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane
+      replaced","name":"crossplane","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane-browse
+      reconciled. clusterrole.rbac.authorization.k8s.io \"crossplane-browse\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane-browse
+      replaced","name":"crossplane-browse","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view
+      reconciled. clusterrole.rbac.authorization.k8s.io
+      \"crossplane:aggregate-to-view\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view
+      replaced","name":"crossplane:aggregate-to-view","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane
+      reconciled. clusterrole.rbac.authorization.k8s.io
+      \"crossplane:system:aggregate-to-crossplane\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane
+      replaced","name":"crossplane:system:aggregate-to-crossplane","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin
+      reconciled. clusterrole.rbac.authorization.k8s.io
+      \"crossplane:aggregate-to-admin\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin
+      replaced","name":"crossplane:aggregate-to-admin","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit
+      reconciled. clusterrole.rbac.authorization.k8s.io
+      \"crossplane:aggregate-to-edit\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit
+      replaced","name":"crossplane:aggregate-to-edit","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane-admin
+      reconciled. clusterrole.rbac.authorization.k8s.io \"crossplane-admin\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane-admin
+      replaced","name":"crossplane-admin","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane-edit
+      reconciled. clusterrole.rbac.authorization.k8s.io \"crossplane-edit\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane-edit
+      replaced","name":"crossplane-edit","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager
+      reconciled. clusterrole.rbac.authorization.k8s.io
+      \"crossplane-rbac-manager\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager
+      replaced","name":"crossplane-rbac-manager","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane-view
+      reconciled. clusterrole.rbac.authorization.k8s.io \"crossplane-view\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane-view
+      replaced","name":"crossplane-view","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+      reconciled. clusterrole.rbac.authorization.k8s.io
+      \"crossplane:allowed-provider-permissions\"
+      deleted\nclusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+      replaced","name":"crossplane:allowed-provider-permissions","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/crossplane-admin
+      reconciled. clusterrolebinding.rbac.authorization.k8s.io
+      \"crossplane-admin\"
+      deleted\nclusterrolebinding.rbac.authorization.k8s.io/crossplane-admin
+      replaced","name":"crossplane-admin","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager
+      reconciled. clusterrolebinding.rbac.authorization.k8s.io
+      \"crossplane-rbac-manager\"
+      deleted\nclusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager
+      replaced","name":"crossplane-rbac-manager","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/crossplane
+      reconciled. clusterrolebinding.rbac.authorization.k8s.io \"crossplane\"
+      deleted\nclusterrolebinding.rbac.authorization.k8s.io/crossplane
+      replaced","name":"crossplane","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service
+      \"crossplane-webhooks\" deleted\nservice/crossplane-webhooks
+      replaced","name":"crossplane-webhooks","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps
+      \"crossplane-rbac-manager\"
+      deleted\ndeployment.apps/crossplane-rbac-manager
+      replaced","name":"crossplane-rbac-manager","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps
+      \"crossplane\" deleted\ndeployment.apps/crossplane
+      replaced","name":"crossplane","namespace":"crossplane","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"1.16.0-rc.0.163.g87d6699b","source":{"chart":"crossplane","repoURL":"https://charts.crossplane.io/master/","targetRevision":"1.16.0-rc.0.163.g87d6699b"}}},"reconciledAt":"2024-04-12T18:08:30Z","resources":[{"kind":"Secret","name":"crossplane-root-ca","namespace":"crossplane","status":"Synced","version":"v1"},{"kind":"Secret","name":"crossplane-tls-client","namespace":"crossplane","status":"Synced","version":"v1"},{"kind":"Secret","name":"crossplane-tls-server","namespace":"crossplane","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"crossplane-webhooks","namespace":"crossplane","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"crossplane","namespace":"crossplane","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"rbac-manager","namespace":"crossplane","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"crossplane","namespace":"crossplane","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"crossplane-rbac-manager","namespace":"crossplane","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane-admin","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane-browse","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane-edit","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane-rbac-manager","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane:aggregate-to-admin","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane:aggregate-to-browse","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane:aggregate-to-edit","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane:aggregate-to-view","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane:allowed-provider-permissions","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"crossplane:system:aggregate-to-crossplane","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"crossplane","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"crossplane-admin","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"crossplane-rbac-manager","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["xpkg.upbound.io/crossplane/crossplane:v1.16.0-rc.0.163.g87d6699b"]},"sync":{"comparedTo":{"destination":{"namespace":"crossplane","server":"https://kubernetes.default.svc"},"source":{"chart":"crossplane","repoURL":"https://charts.crossplane.io/master/","targetRevision":"1.16.0-rc.0.163.g87d6699b"}},"revision":"1.16.0-rc.0.163.g87d6699b","status":"Synced"}}}
+  creationTimestamp: '2024-04-25T20:20:49Z'
+  generation: 1433
   labels:
     project: infrastructure
     source: external
@@ -11,6 +87,9 @@ metadata:
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
             f:project: {}
@@ -32,22 +111,29 @@ metadata:
             f:syncOptions: {}
         f:status:
           .: {}
+          f:controllerNamespace: {}
           f:health: {}
           f:summary: {}
           f:sync:
             .: {}
             f:comparedTo:
               .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
+              f:destination:
+                .: {}
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                .: {}
+                f:chart: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+      manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-12T17:05:04Z'
+      time: '2024-04-25T20:20:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
-          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -63,14 +149,11 @@ metadata:
               f:retry: {}
               f:sync:
                 .: {}
-                f:prune: {}
                 f:revision: {}
                 f:syncOptions: {}
                 f:syncStrategy:
                   .: {}
-                  f:hook:
-                    .: {}
-                    f:force: {}
+                  f:hook: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -88,23 +171,15 @@ metadata:
           f:summary:
             f:images: {}
           f:sync:
-            f:comparedTo:
-              f:destination:
-                f:namespace: {}
-                f:server: {}
-              f:source:
-                f:chart: {}
-                f:repoURL: {}
-                f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:08:31Z'
+      time: '2024-05-03T16:58:38Z'
   name: crossplane
   namespace: argocd
-  resourceVersion: '1240307'
-  uid: 2ee7d23a-813c-4665-936e-aca1765b016f
+  resourceVersion: '1534449'
+  uid: c18921f5-1d7b-4af5-ad62-8b9f170d73c9
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/crossplane
 status:
   controllerNamespace: argocd
@@ -127,44 +202,44 @@ status:
         chart: crossplane
         repoURL: https://charts.crossplane.io/master/
         targetRevision: 1.16.0-rc.0.163.g87d6699b
+    - deployStartedAt: '2024-04-26T00:49:46Z'
+      deployedAt: '2024-04-26T00:49:50Z'
+      id: 2
+      revision: 1.16.0-rc.0.163.g87d6699b
+      source:
+        chart: crossplane
+        repoURL: https://charts.crossplane.io/master/
+        targetRevision: 1.16.0-rc.0.163.g87d6699b
   operationState:
-    finishedAt: '2024-04-11T11:55:48Z'
+    finishedAt: '2024-04-26T00:49:50Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        prune: true
         revision: 1.16.0-rc.0.163.g87d6699b
         syncOptions:
           - CreateNamespace=true
-          - PruneLast=true
-          - Replace=true
         syncStrategy:
-          hook:
-            force: true
+          hook: {}
     phase: Succeeded
-    startedAt: '2024-04-11T11:55:45Z'
+    startedAt: '2024-04-26T00:49:46Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
-          kind: ServiceAccount
-          message: |-
-            serviceaccount "rbac-manager" deleted
-            serviceaccount/rbac-manager replaced
-          name: rbac-manager
-          namespace: crossplane
+          kind: Namespace
+          message: namespace/crossplane created
+          name: crossplane
+          namespace: ''
           status: Synced
-          syncPhase: Sync
+          syncPhase: PreSync
           version: v1
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: |-
-            serviceaccount "crossplane" deleted
-            serviceaccount/crossplane replaced
+          message: serviceaccount/crossplane created
           name: crossplane
           namespace: crossplane
           status: Synced
@@ -172,11 +247,9 @@ status:
           version: v1
         - group: ''
           hookPhase: Running
-          kind: Secret
-          message: |-
-            secret "crossplane-tls-client" deleted
-            secret/crossplane-tls-client replaced
-          name: crossplane-tls-client
+          kind: ServiceAccount
+          message: serviceaccount/rbac-manager created
+          name: rbac-manager
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -184,9 +257,16 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: |-
-            secret "crossplane-root-ca" deleted
-            secret/crossplane-root-ca replaced
+          message: secret/crossplane-tls-server created
+          name: crossplane-tls-server
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Secret
+          message: secret/crossplane-root-ca created
           name: crossplane-root-ca
           namespace: crossplane
           status: Synced
@@ -195,10 +275,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: Secret
-          message: |-
-            secret "crossplane-tls-server" deleted
-            secret/crossplane-tls-server replaced
-          name: crossplane-tls-server
+          message: secret/crossplane-tls-client created
+          name: crossplane-tls-client
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -207,26 +285,16 @@ status:
           hookPhase: Running
           kind: ClusterRole
           message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "crossplane:aggregate-to-browse" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse
-            replaced
-          name: crossplane:aggregate-to-browse
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane reconciled.
-            clusterrole.rbac.authorization.k8s.io "crossplane" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane replaced
-          name: crossplane
+            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+            reconciled. reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
+            configured. Warning: resource
+            clusterroles/crossplane:allowed-provider-permissions is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: crossplane:allowed-provider-permissions
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -236,9 +304,13 @@ status:
           kind: ClusterRole
           message: >-
             clusterrole.rbac.authorization.k8s.io/crossplane-browse reconciled.
-            clusterrole.rbac.authorization.k8s.io "crossplane-browse" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane-browse replaced
+            reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane-browse configured.
+            Warning: resource clusterroles/crossplane-browse is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: crossplane-browse
           namespace: crossplane
           status: Synced
@@ -248,111 +320,14 @@ status:
           hookPhase: Running
           kind: ClusterRole
           message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "crossplane:aggregate-to-view" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view
-            replaced
-          name: crossplane:aggregate-to-view
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "crossplane:system:aggregate-to-crossplane" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane
-            replaced
-          name: crossplane:system:aggregate-to-crossplane
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "crossplane:aggregate-to-admin" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin
-            replaced
-          name: crossplane:aggregate-to-admin
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "crossplane:aggregate-to-edit" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit
-            replaced
-          name: crossplane:aggregate-to-edit
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane-admin reconciled.
-            clusterrole.rbac.authorization.k8s.io "crossplane-admin" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane-admin replaced
-          name: crossplane-admin
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane-edit reconciled.
-            clusterrole.rbac.authorization.k8s.io "crossplane-edit" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane-edit replaced
-          name: crossplane-edit
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "crossplane-rbac-manager" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager
-            replaced
-          name: crossplane-rbac-manager
-          namespace: crossplane
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRole
-          message: >-
             clusterrole.rbac.authorization.k8s.io/crossplane-view reconciled.
-            clusterrole.rbac.authorization.k8s.io "crossplane-view" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane-view replaced
+            reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane-view configured.
+            Warning: resource clusterroles/crossplane-view is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: crossplane-view
           namespace: crossplane
           status: Synced
@@ -362,27 +337,31 @@ status:
           hookPhase: Running
           kind: ClusterRole
           message: >-
-            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
-            reconciled. clusterrole.rbac.authorization.k8s.io
-            "crossplane:allowed-provider-permissions" deleted
-
-            clusterrole.rbac.authorization.k8s.io/crossplane:allowed-provider-permissions
-            replaced
-          name: crossplane:allowed-provider-permissions
+            clusterrole.rbac.authorization.k8s.io/crossplane reconciled.
+            reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane configured.
+            Warning: resource clusterroles/crossplane is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: crossplane
           namespace: crossplane
           status: Synced
           syncPhase: Sync
           version: v1
         - group: rbac.authorization.k8s.io
           hookPhase: Running
-          kind: ClusterRoleBinding
+          kind: ClusterRole
           message: >-
-            clusterrolebinding.rbac.authorization.k8s.io/crossplane-admin
-            reconciled. clusterrolebinding.rbac.authorization.k8s.io
-            "crossplane-admin" deleted
-
-            clusterrolebinding.rbac.authorization.k8s.io/crossplane-admin
-            replaced
+            clusterrole.rbac.authorization.k8s.io/crossplane-admin reconciled.
+            reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane-admin configured.
+            Warning: resource clusterroles/crossplane-admin is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: crossplane-admin
           namespace: crossplane
           status: Synced
@@ -390,14 +369,88 @@ status:
           version: v1
         - group: rbac.authorization.k8s.io
           hookPhase: Running
-          kind: ClusterRoleBinding
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-browse configured. Warning: resource clusterroles/crossplane:aggregate-to-browse is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:aggregate-to-browse
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
           message: >-
-            clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager
-            reconciled. clusterrolebinding.rbac.authorization.k8s.io
-            "crossplane-rbac-manager" deleted
-
-            clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager
-            replaced
+            clusterrole.rbac.authorization.k8s.io/crossplane-edit reconciled.
+            reconciliation required create.
+            clusterrole.rbac.authorization.k8s.io/crossplane-edit configured.
+            Warning: resource clusterroles/crossplane-edit is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: crossplane-edit
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-view configured. Warning: resource clusterroles/crossplane:aggregate-to-view is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:aggregate-to-view
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[secrets namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterroles roles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterrolebindings rolebindings] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-admin configured. Warning: resource clusterroles/crossplane:aggregate-to-admin is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:aggregate-to-admin
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create update patch delete] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apps] Resources:[deployments] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[] Resources:[namespaces/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.crossplane.io] Resources:[compositeresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[apiextensions.crossplane.io] Resources:[compositeresourcedefinitions/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[pkg.crossplane.io] Resources:[providerrevisions] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[pkg.crossplane.io] Resources:[providerrevisions/finalizers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update patch escalate] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterroles roles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[bind] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterroles] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[rbac.authorization.k8s.io] Resources:[clusterrolebindings] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch watch delete] APIGroups:[ coordination.k8s.io] Resources:[configmaps leases] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane-rbac-manager configured. Warning: resource clusterroles/crossplane-rbac-manager is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane-rbac-manager
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[pkg.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:aggregate-to-edit configured. Warning: resource clusterroles/crossplane:aggregate-to-edit is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:aggregate-to-edit
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[create update patch delete] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions customresourcedefinitions/status] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch create update patch delete] APIGroups:[] Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[] Resources:[serviceaccounts services] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[*] APIGroups:[apiextensions.crossplane.io pkg.crossplane.io secrets.crossplane.io] Resources:[*] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch delete watch] APIGroups:[extensions apps] Resources:[deployments] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch watch delete] APIGroups:[ coordination.k8s.io] Resources:[configmaps leases] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list create update patch watch delete] APIGroups:[admissionregistration.k8s.io] Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/crossplane:system:aggregate-to-crossplane configured. Warning: resource clusterroles/crossplane:system:aggregate-to-crossplane is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane:system:aggregate-to-crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/crossplane reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:crossplane Namespace:crossplane}. clusterrolebinding.rbac.authorization.k8s.io/crossplane configured. Warning: resource clusterrolebindings/crossplane is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane
+          namespace: crossplane
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:rbac-manager Namespace:crossplane}. clusterrolebinding.rbac.authorization.k8s.io/crossplane-rbac-manager configured. Warning: resource clusterrolebindings/crossplane-rbac-manager is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
           name: crossplane-rbac-manager
           namespace: crossplane
           status: Synced
@@ -406,12 +459,8 @@ status:
         - group: rbac.authorization.k8s.io
           hookPhase: Running
           kind: ClusterRoleBinding
-          message: >-
-            clusterrolebinding.rbac.authorization.k8s.io/crossplane reconciled.
-            clusterrolebinding.rbac.authorization.k8s.io "crossplane" deleted
-
-            clusterrolebinding.rbac.authorization.k8s.io/crossplane replaced
-          name: crossplane
+          message: "clusterrolebinding.rbac.authorization.k8s.io/crossplane-admin reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:Group APIGroup:rbac.authorization.k8s.io Name:crossplane:masters Namespace:}. clusterrolebinding.rbac.authorization.k8s.io/crossplane-admin configured. Warning: resource clusterrolebindings/crossplane-admin is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: crossplane-admin
           namespace: crossplane
           status: Synced
           syncPhase: Sync
@@ -419,9 +468,7 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: |-
-            service "crossplane-webhooks" deleted
-            service/crossplane-webhooks replaced
+          message: service/crossplane-webhooks created
           name: crossplane-webhooks
           namespace: crossplane
           status: Synced
@@ -430,9 +477,7 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: |-
-            deployment.apps "crossplane-rbac-manager" deleted
-            deployment.apps/crossplane-rbac-manager replaced
+          message: deployment.apps/crossplane-rbac-manager created
           name: crossplane-rbac-manager
           namespace: crossplane
           status: Synced
@@ -441,9 +486,7 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: |-
-            deployment.apps "crossplane" deleted
-            deployment.apps/crossplane replaced
+          message: deployment.apps/crossplane created
           name: crossplane
           namespace: crossplane
           status: Synced
@@ -454,7 +497,7 @@ status:
         chart: crossplane
         repoURL: https://charts.crossplane.io/master/
         targetRevision: 1.16.0-rc.0.163.g87d6699b
-  reconciledAt: '2024-04-12T18:08:30Z'
+  reconciledAt: '2024-05-03T16:58:38Z'
   resources:
     - kind: Secret
       name: crossplane-root-ca

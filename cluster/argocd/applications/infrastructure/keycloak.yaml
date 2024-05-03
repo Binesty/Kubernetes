@@ -1,44 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-02T23:26:41Z","generation":21,"labels":{"source":"external"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:sourceType":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-02T23:26:41Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{"f:source":{"f:targetRevision":{}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-02T23:27:45Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:chart":{},"f:helm":{".":{},"f:parameters":{}},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:summary":{"f:externalURLs":{},"f:images":{}},"f:sync":{"f:comparedTo":{"f:source":{"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-02T23:30:50Z"}],"name":"keycloak","namespace":"argocd","resourceVersion":"87246","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keycloak","uid":"8b542eaf-03b0-4595-8799-9cd4a39b1e4a"},"spec":{"destination":{"namespace":"keycloak","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.4.1"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2023-08-24T01:52:09Z","deployedAt":"2023-08-24T01:52:22Z","id":28,"revision":"16.0.5","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.0.5"}},{"deployStartedAt":"2023-08-28T14:07:00Z","deployedAt":"2023-08-28T14:07:01Z","id":29,"revision":"16.0.5","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.0.5"}},{"deployStartedAt":"2023-08-28T14:10:14Z","deployedAt":"2023-08-28T14:10:15Z","id":30,"revision":"16.0.5","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.0.5"}},{"deployStartedAt":"2023-08-28T14:10:52Z","deployedAt":"2023-08-28T14:10:53Z","id":31,"revision":"16.0.5","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.0.5"}},{"deployStartedAt":"2023-09-14T20:36:20Z","deployedAt":"2023-09-14T20:36:22Z","id":32,"revision":"16.1.4","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.1.4"}},{"deployStartedAt":"2023-09-14T20:43:43Z","deployedAt":"2023-09-14T20:43:46Z","id":33,"revision":"16.1.4","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.net"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.1.4"}},{"deployStartedAt":"2023-09-28T16:42:07Z","deployedAt":"2023-09-28T16:42:08Z","id":34,"revision":"16.1.7","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.1.7"}},{"deployStartedAt":"2023-09-28T16:47:45Z","deployedAt":"2023-09-28T16:47:46Z","id":35,"revision":"16.1.7","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.1.7"}},{"deployStartedAt":"2023-09-28T16:48:13Z","deployedAt":"2023-09-28T16:48:15Z","id":36,"revision":"16.1.7","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"16.1.7"}},{"deployStartedAt":"2024-04-02T23:27:45Z","deployedAt":"2024-04-02T23:27:49Z","id":37,"revision":"19.4.1","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.4.1"}}],"operationState":{"finishedAt":"2024-04-02T23:27:49Z","message":"successfully
-      synced (all tasks
-      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"revision":"19.4.1","syncOptions":["CreateNamespace=true"],"syncStrategy":{"hook":{}}}},"phase":"Succeeded","startedAt":"2024-04-02T23:27:45Z","syncResult":{"resources":[{"group":"networking.k8s.io","hookPhase":"Running","kind":"NetworkPolicy","message":"networkpolicy.networking.k8s.io/keycloak
-      created","name":"keycloak","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"NetworkPolicy","message":"networkpolicy.networking.k8s.io/keycloak-postgresql
-      created","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/keycloak
-      created","name":"keycloak","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/keycloak-postgresql
-      created","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/keycloak-postgresql
-      created","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/keycloak
-      created","name":"keycloak","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/keycloak-env-vars
-      created","name":"keycloak-env-vars","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/keycloak-postgresql-hl
-      created","name":"keycloak-postgresql-hl","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/keycloak-headless
-      created","name":"keycloak-headless","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/keycloak
-      created","name":"keycloak","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/keycloak-postgresql
-      created","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/keycloak-postgresql
-      created","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"StatefulSet","message":"statefulset.apps/keycloak
-      created","name":"keycloak","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/keycloak
-      created","name":"keycloak","namespace":"keycloak","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"19.4.1","source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.4.1"}}},"reconciledAt":"2024-04-02T23:30:50Z","resources":[{"kind":"ConfigMap","name":"keycloak-env-vars","namespace":"keycloak","status":"Synced","version":"v1"},{"kind":"Secret","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"kind":"Secret","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"keycloak-headless","namespace":"keycloak","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"keycloak-postgresql-hl","namespace":"keycloak","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"partitioned
-      roll out complete: 1 new pods have been
-      updated...","status":"Healthy"},"kind":"StatefulSet","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"apps","health":{"message":"partitioned
-      roll out complete: 1 new pods have been
-      updated...","status":"Healthy"},"kind":"StatefulSet","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"keycloak","namespace":"keycloak","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"keycloak-postgresql","namespace":"keycloak","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"externalURLs":["http://keycloak.binesty.corp/"],"images":["docker.io/bitnami/keycloak:23.0.7-debian-12-r4","docker.io/bitnami/postgresql:16.2.0-debian-12-r8"]},"sync":{"comparedTo":{"destination":{"namespace":"keycloak","server":"https://kubernetes.default.svc"},"source":{"chart":"keycloak","helm":{"parameters":[{"name":"ingress.enabled","value":"true"},{"name":"ingress.hostname","value":"keycloak.binesty.corp"},{"name":"ingress.ingressClassName","value":"nginx"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.4.1"}},"revision":"19.4.1","status":"Synced"}}}
-  creationTimestamp: '2024-04-05T04:45:33Z'
-  generation: 1353
+  creationTimestamp: '2024-05-03T02:25:37Z'
+  generation: 171
   labels:
     project: infrastructure
-    source: external
+    source: internal
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
-          f:annotations:
-            .: {}
-            f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
+            f:project: {}
             f:source: {}
         f:spec:
           .: {}
@@ -49,10 +24,7 @@ metadata:
           f:project: {}
           f:source:
             .: {}
-            f:chart: {}
-            f:helm:
-              .: {}
-              f:parameters: {}
+            f:path: {}
             f:repoURL: {}
             f:targetRevision: {}
           f:syncPolicy:
@@ -60,41 +32,22 @@ metadata:
             f:syncOptions: {}
         f:status:
           .: {}
-          f:controllerNamespace: {}
           f:health: {}
           f:summary: {}
           f:sync:
             .: {}
             f:comparedTo:
               .: {}
-              f:destination:
-                .: {}
-                f:namespace: {}
-                f:server: {}
-              f:source:
-                .: {}
-                f:chart: {}
-                f:helm:
-                  .: {}
-                  f:parameters: {}
-                f:repoURL: {}
-                f:targetRevision: {}
-      manager: kubectl-client-side-apply
-      operation: Update
-      time: '2024-04-05T04:45:33Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            f:project: {}
+              f:destination: {}
+              f:source: {}
       manager: argocd-server
       operation: Update
-      time: '2024-04-12T17:23:52Z'
+      time: '2024-05-03T02:29:18Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
+          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -114,7 +67,9 @@ metadata:
                 f:syncOptions: {}
                 f:syncStrategy:
                   .: {}
-                  f:hook: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -123,10 +78,7 @@ metadata:
               f:revision: {}
               f:source:
                 .: {}
-                f:chart: {}
-                f:helm:
-                  .: {}
-                  f:parameters: {}
+                f:path: {}
                 f:repoURL: {}
                 f:targetRevision: {}
           f:reconciledAt: {}
@@ -136,266 +88,79 @@ metadata:
             f:externalURLs: {}
             f:images: {}
           f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:11:31Z'
+      time: '2024-05-03T16:58:41Z'
   name: keycloak
   namespace: argocd
-  resourceVersion: '1241325'
-  uid: c04e3d9d-b84f-49e5-abd8-653c0c497b7b
+  resourceVersion: '1534463'
+  uid: db084b83-c526-482a-bc12-8e7c1b4c4dc0
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/keycloak
 status:
   controllerNamespace: argocd
   health:
     status: Healthy
   history:
-    - deployStartedAt: '2023-08-28T14:07:00Z'
-      deployedAt: '2023-08-28T14:07:01Z'
-      id: 29
-      revision: 16.0.5
+    - deployStartedAt: '2024-05-03T02:26:37Z'
+      deployedAt: '2024-05-03T02:26:41Z'
+      id: 0
+      revision: 08da1a328a6a000090effabac578be9ddc271dd1
       source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.0.5
-    - deployStartedAt: '2023-08-28T14:10:14Z'
-      deployedAt: '2023-08-28T14:10:15Z'
-      id: 30
-      revision: 16.0.5
+        path: cluster/argocd/sources/keycloak
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-05-03T02:27:48Z'
+      deployedAt: '2024-05-03T02:27:52Z'
+      id: 1
+      revision: 5590b0e7f8918733d981c4404af88e436cab6e51
       source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.0.5
-    - deployStartedAt: '2023-08-28T14:10:52Z'
-      deployedAt: '2023-08-28T14:10:53Z'
-      id: 31
-      revision: 16.0.5
+        path: cluster/argocd/sources/keycloak
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-05-03T02:29:18Z'
+      deployedAt: '2024-05-03T02:29:21Z'
+      id: 2
+      revision: 5590b0e7f8918733d981c4404af88e436cab6e51
       source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.0.5
-    - deployStartedAt: '2023-09-14T20:36:20Z'
-      deployedAt: '2023-09-14T20:36:22Z'
-      id: 32
-      revision: 16.1.4
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.1.4
-    - deployStartedAt: '2023-09-14T20:43:43Z'
-      deployedAt: '2023-09-14T20:43:46Z'
-      id: 33
-      revision: 16.1.4
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.net
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.1.4
-    - deployStartedAt: '2023-09-28T16:42:07Z'
-      deployedAt: '2023-09-28T16:42:08Z'
-      id: 34
-      revision: 16.1.7
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.1.7
-    - deployStartedAt: '2023-09-28T16:47:45Z'
-      deployedAt: '2023-09-28T16:47:46Z'
-      id: 35
-      revision: 16.1.7
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.1.7
-    - deployStartedAt: '2023-09-28T16:48:13Z'
-      deployedAt: '2023-09-28T16:48:15Z'
-      id: 36
-      revision: 16.1.7
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 16.1.7
-    - deployStartedAt: '2024-04-02T23:27:45Z'
-      deployedAt: '2024-04-02T23:27:49Z'
-      id: 37
-      revision: 19.4.1
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 19.4.1
-    - deployStartedAt: '2024-04-05T04:54:15Z'
-      deployedAt: '2024-04-05T04:54:24Z'
-      id: 38
-      revision: 19.4.1
-      source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 19.4.1
+        path: cluster/argocd/sources/keycloak
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-04-05T04:54:24Z'
+    finishedAt: '2024-05-03T02:29:21Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        revision: 19.4.1
+        revision: 5590b0e7f8918733d981c4404af88e436cab6e51
         syncOptions:
           - CreateNamespace=true
+          - Replace=true
         syncStrategy:
-          hook: {}
+          hook:
+            force: true
     phase: Succeeded
-    startedAt: '2024-04-05T04:54:15Z'
+    startedAt: '2024-05-03T02:29:18Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
-          kind: Namespace
-          message: namespace/keycloak created
-          name: keycloak
-          namespace: ''
-          status: Synced
-          syncPhase: PreSync
-          version: v1
-        - group: networking.k8s.io
-          hookPhase: Running
-          kind: NetworkPolicy
-          message: networkpolicy.networking.k8s.io/keycloak created
-          name: keycloak
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: networking.k8s.io
-          hookPhase: Running
-          kind: NetworkPolicy
-          message: networkpolicy.networking.k8s.io/keycloak-postgresql created
-          name: keycloak-postgresql
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ServiceAccount
-          message: serviceaccount/keycloak-postgresql created
-          name: keycloak-postgresql
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: ServiceAccount
-          message: serviceaccount/keycloak created
-          name: keycloak
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Secret
-          message: secret/keycloak-postgresql created
-          name: keycloak-postgresql
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Secret
-          message: secret/keycloak created
-          name: keycloak
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
           kind: ConfigMap
-          message: configmap/keycloak-env-vars created
-          name: keycloak-env-vars
+          message: |-
+            configmap "keycloak-configmap" deleted
+            configmap/keycloak-configmap replaced
+          name: keycloak-configmap
           namespace: keycloak
           status: Synced
           syncPhase: Sync
@@ -403,8 +168,10 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/keycloak-headless created
-          name: keycloak-headless
+          message: |-
+            service "keycloak-service" deleted
+            service/keycloak-service replaced
+          name: keycloak-service
           namespace: keycloak
           status: Synced
           syncPhase: Sync
@@ -412,34 +179,20 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/keycloak created
-          name: keycloak
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: service/keycloak-postgresql created
-          name: keycloak-postgresql
-          namespace: keycloak
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
-          kind: Service
-          message: service/keycloak-postgresql-hl created
-          name: keycloak-postgresql-hl
+          message: |-
+            service "keycloak-postgres-service" deleted
+            service/keycloak-postgres-service replaced
+          name: keycloak-postgres-service
           namespace: keycloak
           status: Synced
           syncPhase: Sync
           version: v1
         - group: apps
           hookPhase: Running
-          kind: StatefulSet
-          message: statefulset.apps/keycloak created
+          kind: Deployment
+          message: |-
+            deployment.apps "keycloak" deleted
+            deployment.apps/keycloak replaced
           name: keycloak
           namespace: keycloak
           status: Synced
@@ -448,8 +201,10 @@ status:
         - group: apps
           hookPhase: Running
           kind: StatefulSet
-          message: statefulset.apps/keycloak-postgresql created
-          name: keycloak-postgresql
+          message: |-
+            statefulset.apps "keycloak-postgres" deleted
+            statefulset.apps/keycloak-postgres replaced
+          name: keycloak-postgres
           namespace: keycloak
           status: Synced
           syncPhase: Sync
@@ -457,77 +212,45 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/keycloak created
-          name: keycloak
+          message: |-
+            ingress.networking.k8s.io "keycloak-ingress" deleted
+            ingress.networking.k8s.io/keycloak-ingress replaced
+          name: keycloak-ingress
           namespace: keycloak
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 19.4.1
+      revision: 5590b0e7f8918733d981c4404af88e436cab6e51
       source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 19.4.1
-  reconciledAt: '2024-04-12T18:11:30Z'
+        path: cluster/argocd/sources/keycloak
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-05-03T16:58:38Z'
   resources:
     - kind: ConfigMap
-      name: keycloak-env-vars
+      name: keycloak-configmap
       namespace: keycloak
       status: Synced
       version: v1
-    - kind: Secret
+    - health:
+        status: Healthy
+      kind: Service
+      name: keycloak-postgres-service
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: keycloak-service
+      namespace: keycloak
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
       name: keycloak
-      namespace: keycloak
-      status: OutOfSync
-      version: v1
-    - kind: Secret
-      name: keycloak-postgresql
-      namespace: keycloak
-      status: OutOfSync
-      version: v1
-    - health:
-        status: Healthy
-      kind: Service
-      name: keycloak
-      namespace: keycloak
-      status: Synced
-      version: v1
-    - health:
-        status: Healthy
-      kind: Service
-      name: keycloak-headless
-      namespace: keycloak
-      status: Synced
-      version: v1
-    - health:
-        status: Healthy
-      kind: Service
-      name: keycloak-postgresql
-      namespace: keycloak
-      status: Synced
-      version: v1
-    - health:
-        status: Healthy
-      kind: Service
-      name: keycloak-postgresql-hl
-      namespace: keycloak
-      status: Synced
-      version: v1
-    - kind: ServiceAccount
-      name: keycloak
-      namespace: keycloak
-      status: Synced
-      version: v1
-    - kind: ServiceAccount
-      name: keycloak-postgresql
       namespace: keycloak
       status: Synced
       version: v1
@@ -536,16 +259,7 @@ status:
         message: 'partitioned roll out complete: 1 new pods have been updated...'
         status: Healthy
       kind: StatefulSet
-      name: keycloak
-      namespace: keycloak
-      status: OutOfSync
-      version: v1
-    - group: apps
-      health:
-        message: 'partitioned roll out complete: 1 new pods have been updated...'
-        status: Healthy
-      kind: StatefulSet
-      name: keycloak-postgresql
+      name: keycloak-postgres
       namespace: keycloak
       status: Synced
       version: v1
@@ -553,65 +267,37 @@ status:
       health:
         status: Healthy
       kind: Ingress
-      name: keycloak
+      name: keycloak-ingress
       namespace: keycloak
       status: Synced
       version: v1
-    - group: networking.k8s.io
-      kind: NetworkPolicy
-      name: keycloak
-      namespace: keycloak
-      status: Synced
-      version: v1
-    - group: networking.k8s.io
-      kind: NetworkPolicy
-      name: keycloak-postgresql
-      namespace: keycloak
-      status: Synced
-      version: v1
-  sourceType: Helm
+  sourceType: Kustomize
   summary:
     externalURLs:
       - http://keycloak.binesty.corp/
     images:
-      - docker.io/bitnami/keycloak:23.0.7-debian-12-r4
-      - docker.io/bitnami/postgresql:16.2.0-debian-12-r8
+      - postgres:latest
+      - quay.io/keycloak/keycloak:23.0.4
   sync:
     comparedTo:
       destination:
         namespace: keycloak
         server: https://kubernetes.default.svc
       source:
-        chart: keycloak
-        helm:
-          parameters:
-            - name: ingress.enabled
-              value: 'true'
-            - name: ingress.hostname
-              value: keycloak.binesty.corp
-            - name: ingress.ingressClassName
-              value: nginx
-        repoURL: https://charts.bitnami.com/bitnami
-        targetRevision: 19.4.1
-    revision: 19.4.1
-    status: OutOfSync
+        path: cluster/argocd/sources/keycloak
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: 5590b0e7f8918733d981c4404af88e436cab6e51
+    status: Synced
 spec:
   destination:
     namespace: keycloak
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    chart: keycloak
-    helm:
-      parameters:
-        - name: ingress.enabled
-          value: 'true'
-        - name: ingress.hostname
-          value: keycloak.binesty.corp
-        - name: ingress.ingressClassName
-          value: nginx
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 19.4.1
+    path: cluster/argocd/sources/keycloak
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

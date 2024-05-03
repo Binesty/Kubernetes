@@ -27,7 +27,7 @@ metadata:
       rolling update complete 1 pods at revision
       redis-node-58964fc5f7...","status":"Healthy"},"kind":"StatefulSet","name":"redis-node","namespace":"redis","status":"Synced","version":"v1"},{"group":"networking.k8s.io","kind":"NetworkPolicy","name":"redis","namespace":"redis","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"images":["docker.io/bitnami/redis-sentinel:7.2.4-debian-12-r7","docker.io/bitnami/redis:7.2.4-debian-12-r9"]},"sync":{"comparedTo":{"destination":{"namespace":"redis","server":"https://kubernetes.default.svc"},"source":{"chart":"redis","helm":{"parameters":[{"name":"auth.password","value":"chageme"},{"name":"sentinel.enabled","value":"true"},{"name":"replica.replicaCount","value":"1"}]},"repoURL":"https://charts.bitnami.com/bitnami","targetRevision":"19.0.2"}},"revision":"19.0.2","status":"Synced"}}}
   creationTimestamp: '2024-04-25T20:20:49Z'
-  generation: 878
+  generation: 1450
   labels:
     project: infrastructure
     source: external
@@ -143,10 +143,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-05-01T00:16:36Z'
+      time: '2024-05-03T17:04:38Z'
   name: redis
   namespace: argocd
-  resourceVersion: '879170'
+  resourceVersion: '1538070'
   uid: cfa613b9-8c6b-4532-b936-2ca234f50029
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/redis
 status:
@@ -363,7 +363,7 @@ status:
               value: REDIS_PASSWORD
         repoURL: https://charts.bitnami.com/bitnami
         targetRevision: 19.0.2
-  reconciledAt: '2024-05-01T00:16:36Z'
+  reconciledAt: '2024-05-03T17:04:38Z'
   resources:
     - kind: ConfigMap
       name: redis-configuration

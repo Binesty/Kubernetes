@@ -1,8 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: '2024-04-11T19:56:35Z'
-  generation: 209
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-11T19:56:35Z","generation":209,"labels":{"project":"infrastructure","source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:project":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T17:46:29Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:username":{}},"f:retry":{},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{},"f:syncStrategy":{".":{},"f:hook":{}}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:externalURLs":{},"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:path":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:14:32Z"}],"name":"minio","namespace":"argocd","resourceVersion":"1242352","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/minio","uid":"f6f093d4-ec42-43ee-b01e-a5ece480fccd"},"spec":{"destination":{"namespace":"minio","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/minio","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-12T13:07:55Z","deployedAt":"2024-04-12T13:07:57Z","id":0,"revision":"d904e809be85b0bb64ac0d9190cda6eca26b24a4","source":{"path":"cluster/argocd/sources/minio","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-12T13:07:57Z","message":"successfully
+      synced (all tasks
+      run)","operation":{"initiatedBy":{"username":"admin"},"retry":{},"sync":{"revision":"d904e809be85b0bb64ac0d9190cda6eca26b24a4","syncOptions":["CreateNamespace=true"],"syncStrategy":{"hook":{}}}},"phase":"Succeeded","startedAt":"2024-04-12T13:07:55Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/minio
+      configured","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"PersistentVolume","message":"persistentvolume/nfs-minio
+      configured","name":"nfs-minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"PersistentVolumeClaim","message":"persistentvolumeclaim/nfs-minio
+      configured","name":"nfs-minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/minio-service-console
+      configured","name":"minio-service-console","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/minio-service-api
+      configured","name":"minio-service-api","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/minio
+      configured","name":"minio","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/minio-ingress
+      configured","name":"minio-ingress","namespace":"minio","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"d904e809be85b0bb64ac0d9190cda6eca26b24a4","source":{"path":"cluster/argocd/sources/minio","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-12T18:14:30Z","resources":[{"kind":"Namespace","name":"minio","status":"Synced","version":"v1"},{"kind":"PersistentVolume","name":"nfs-minio","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"PersistentVolumeClaim","name":"nfs-minio","namespace":"minio","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"minio-service-api","namespace":"minio","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"minio-service-console","namespace":"minio","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"minio","namespace":"minio","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"minio-ingress","namespace":"minio","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"externalURLs":["http://minio.binesty.corp/"],"images":["quay.io/minio/minio:latest"]},"sync":{"comparedTo":{"destination":{"namespace":"minio","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/minio","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"d904e809be85b0bb64ac0d9190cda6eca26b24a4","status":"Synced"}}}
+  creationTimestamp: '2024-04-28T18:14:44Z'
+  generation: 1063
   labels:
     project: infrastructure
     source: internal
@@ -11,6 +23,9 @@ metadata:
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
             f:project: {}
@@ -32,22 +47,29 @@ metadata:
             f:syncOptions: {}
         f:status:
           .: {}
+          f:controllerNamespace: {}
           f:health: {}
           f:summary: {}
           f:sync:
             .: {}
             f:comparedTo:
               .: {}
-              f:destination: {}
-              f:source: {}
-      manager: argocd-server
+              f:destination:
+                .: {}
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+      manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-12T17:46:29Z'
+      time: '2024-04-28T18:14:44Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
         f:status:
-          f:controllerNamespace: {}
           f:health:
             f:status: {}
           f:history: {}
@@ -86,23 +108,15 @@ metadata:
             f:externalURLs: {}
             f:images: {}
           f:sync:
-            f:comparedTo:
-              f:destination:
-                f:namespace: {}
-                f:server: {}
-              f:source:
-                f:path: {}
-                f:repoURL: {}
-                f:targetRevision: {}
             f:revision: {}
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:14:32Z'
+      time: '2024-05-03T17:01:38Z'
   name: minio
   namespace: argocd
-  resourceVersion: '1242352'
-  uid: f6f093d4-ec42-43ee-b01e-a5ece480fccd
+  resourceVersion: '1535604'
+  uid: 4d04bbcc-447f-4934-b600-684797a7493d
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/minio
 status:
   controllerNamespace: argocd
@@ -117,27 +131,48 @@ status:
         path: cluster/argocd/sources/minio
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
+    - deployStartedAt: '2024-04-28T18:14:54Z'
+      deployedAt: '2024-04-28T18:14:55Z'
+      id: 1
+      revision: 43b61aa6ef5a8977d8f1d5247e297f9afe36aa58
+      source:
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-04-30T14:43:43Z'
+      deployedAt: '2024-04-30T14:43:45Z'
+      id: 2
+      revision: 7d8ffa621fe3e874267da0535c545ac42b77f04a
+      source:
+        path: cluster/argocd/sources/minio
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-04-12T13:07:57Z'
+    finishedAt: '2024-04-30T14:43:45Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
         username: admin
       retry: {}
       sync:
-        revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+        revision: 7d8ffa621fe3e874267da0535c545ac42b77f04a
         syncOptions:
           - CreateNamespace=true
         syncStrategy:
           hook: {}
     phase: Succeeded
-    startedAt: '2024-04-12T13:07:55Z'
+    startedAt: '2024-04-30T14:43:43Z'
     syncResult:
       resources:
         - group: ''
           hookPhase: Running
           kind: Namespace
-          message: namespace/minio configured
+          message: >-
+            namespace/minio configured. Warning: resource namespaces/minio is
+            missing the kubectl.kubernetes.io/last-applied-configuration
+            annotation which is required by  apply.  apply should only be used
+            on resources created declaratively by either  create --save-config
+            or  apply. The missing annotation will be patched automatically.
           name: minio
           namespace: minio
           status: Synced
@@ -145,17 +180,8 @@ status:
           version: v1
         - group: ''
           hookPhase: Running
-          kind: PersistentVolume
-          message: persistentvolume/nfs-minio configured
-          name: nfs-minio
-          namespace: minio
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: ''
-          hookPhase: Running
           kind: PersistentVolumeClaim
-          message: persistentvolumeclaim/nfs-minio configured
+          message: persistentvolumeclaim/nfs-minio unchanged
           name: nfs-minio
           namespace: minio
           status: Synced
@@ -164,8 +190,14 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/minio-service-console configured
-          name: minio-service-console
+          message: >-
+            service/minio-service-api configured. Warning: resource
+            services/minio-service-api is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: minio-service-api
           namespace: minio
           status: Synced
           syncPhase: Sync
@@ -173,8 +205,14 @@ status:
         - group: ''
           hookPhase: Running
           kind: Service
-          message: service/minio-service-api configured
-          name: minio-service-api
+          message: >-
+            service/minio-service-console configured. Warning: resource
+            services/minio-service-console is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
+          name: minio-service-console
           namespace: minio
           status: Synced
           syncPhase: Sync
@@ -182,7 +220,13 @@ status:
         - group: apps
           hookPhase: Running
           kind: Deployment
-          message: deployment.apps/minio configured
+          message: >-
+            deployment.apps/minio configured. Warning: resource
+            deployments/minio is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: minio
           namespace: minio
           status: Synced
@@ -191,25 +235,27 @@ status:
         - group: networking.k8s.io
           hookPhase: Running
           kind: Ingress
-          message: ingress.networking.k8s.io/minio-ingress configured
+          message: >-
+            ingress.networking.k8s.io/minio-ingress configured. Warning:
+            resource ingresses/minio-ingress is missing the
+            kubectl.kubernetes.io/last-applied-configuration annotation which is
+            required by  apply.  apply should only be used on resources created
+            declaratively by either  create --save-config or  apply. The missing
+            annotation will be patched automatically.
           name: minio-ingress
           namespace: minio
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+      revision: 7d8ffa621fe3e874267da0535c545ac42b77f04a
       source:
         path: cluster/argocd/sources/minio
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-12T18:14:30Z'
+  reconciledAt: '2024-05-03T17:01:38Z'
   resources:
     - kind: Namespace
       name: minio
-      status: Synced
-      version: v1
-    - kind: PersistentVolume
-      name: nfs-minio
       status: Synced
       version: v1
     - health:
@@ -264,7 +310,7 @@ status:
         path: cluster/argocd/sources/minio
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+    revision: 5590b0e7f8918733d981c4404af88e436cab6e51
     status: Synced
 spec:
   destination:

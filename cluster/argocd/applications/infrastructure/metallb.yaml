@@ -3,166 +3,48 @@ kind: Application
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-02T13:19:34Z","generation":13,"labels":{"source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:controllerNamespace":{},"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:comparedTo":{"f:destination":{"f:namespace":{},"f:server":{}},"f:source":{"f:path":{},"f:repoURL":{},"f:targetRevision":{}}},"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-02T13:20:00Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:automated":{},"f:syncOptions":{}}},"f:status":{".":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{},"f:source":{}}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-02T13:20:06Z"}],"name":"metallb","namespace":"argocd","resourceVersion":"46541","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metallb","uid":"89523660-01ca-4713-aa86-5b4be24e41e0"},"spec":{"destination":{"namespace":"metallb-system","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"automated":{},"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T13:19:37Z","deployedAt":"2024-04-02T13:19:40Z","id":0,"revision":"5d32afa8071be936466c2429c4cc5b3b59ddd04c","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-02T13:19:40Z","message":"successfully
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2024-04-05T04:45:34Z","generation":1485,"labels":{"project":"infrastructure","source":"internal"},"managedFields":[{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}},"f:labels":{".":{},"f:source":{}}},"f:spec":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:project":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}},"f:syncPolicy":{".":{},"f:syncOptions":{}}},"f:status":{".":{},"f:controllerNamespace":{},"f:health":{},"f:summary":{},"f:sync":{".":{},"f:comparedTo":{".":{},"f:destination":{".":{},"f:namespace":{},"f:server":{}},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-04-05T04:45:34Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{"f:project":{}}}},"manager":"argocd-server","operation":"Update","time":"2024-04-12T17:45:20Z"},{"apiVersion":"argoproj.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:health":{"f:status":{}},"f:history":{},"f:operationState":{".":{},"f:finishedAt":{},"f:message":{},"f:operation":{".":{},"f:initiatedBy":{".":{},"f:automated":{}},"f:retry":{".":{},"f:limit":{}},"f:sync":{".":{},"f:revision":{},"f:syncOptions":{}}},"f:phase":{},"f:startedAt":{},"f:syncResult":{".":{},"f:resources":{},"f:revision":{},"f:source":{".":{},"f:path":{},"f:repoURL":{},"f:targetRevision":{}}}},"f:reconciledAt":{},"f:resources":{},"f:sourceType":{},"f:summary":{"f:images":{}},"f:sync":{"f:revision":{},"f:status":{}}}},"manager":"argocd-application-controller","operation":"Update","time":"2024-04-12T18:14:32Z"}],"name":"metallb","namespace":"argocd","resourceVersion":"1242355","selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metallb","uid":"457632e2-ba32-47c8-81ce-fd298cbb04ef"},"spec":{"destination":{"namespace":"metallb-system","server":"https://kubernetes.default.svc"},"project":"infrastructure","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"},"syncPolicy":{"syncOptions":["CreateNamespace=true"]}},"status":{"controllerNamespace":"argocd","health":{"status":"Healthy"},"history":[{"deployStartedAt":"2024-04-02T13:19:37Z","deployedAt":"2024-04-02T13:19:40Z","id":0,"revision":"5d32afa8071be936466c2429c4cc5b3b59ddd04c","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-05T04:47:47Z","deployedAt":"2024-04-05T04:48:05Z","id":1,"revision":"281d71653b9c9f4ba74f008d5388ee00ff481b2e","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-05T12:39:04Z","deployedAt":"2024-04-05T12:39:07Z","id":2,"revision":"09c62b9d7871392d1ef88808c09121c7e7c2c4fe","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-09T00:30:19Z","deployedAt":"2024-04-09T00:30:24Z","id":3,"revision":"4297259d0b361742d3499f91d0069f5433a291fc","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-09T12:29:58Z","deployedAt":"2024-04-09T12:30:01Z","id":4,"revision":"362cced900366e01378ab3709461e91feef27b85","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-09T12:51:02Z","deployedAt":"2024-04-09T12:51:07Z","id":5,"revision":"3335887d029dd36da866fbbf56539d146c271ff2","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},{"deployStartedAt":"2024-04-09T13:02:59Z","deployedAt":"2024-04-09T13:03:04Z","id":6,"revision":"7fc45060da8c2d88bf69b2388d7bb615deb36869","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}],"operationState":{"finishedAt":"2024-04-09T13:03:04Z","message":"successfully
       synced (all tasks
-      run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"5d32afa8071be936466c2429c4cc5b3b59ddd04c"}},"phase":"Succeeded","startedAt":"2024-04-02T13:19:37Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/metallb-system
-      configured","name":"metallb-system","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/controller
-      created","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/speaker
-      created","name":"speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/metallb-webhook-cert
-      created","name":"metallb-webhook-cert","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/metallb-excludel2
-      created","name":"metallb-excludel2","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/communities.metallb.io
+      run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"revision":"7fc45060da8c2d88bf69b2388d7bb615deb36869","syncOptions":["CreateNamespace=true"]}},"phase":"Succeeded","startedAt":"2024-04-09T13:02:59Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"Namespace","message":"namespace/metallb-system
+      unchanged","name":"metallb-system","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/speaker
+      unchanged","name":"speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ServiceAccount","message":"serviceaccount/controller
+      unchanged","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Secret","message":"secret/metallb-webhook-cert
+      unchanged","name":"metallb-webhook-cert","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/metallb-excludel2
+      unchanged","name":"metallb-excludel2","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/bfdprofiles.metallb.io
+      unchanged","name":"bfdprofiles.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/communities.metallb.io
       unchanged","name":"communities.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/servicel2statuses.metallb.io
-      unchanged","name":"servicel2statuses.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/bfdprofiles.metallb.io
-      unchanged","name":"bfdprofiles.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/l2advertisements.metallb.io
-      unchanged","name":"l2advertisements.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/ipaddresspools.metallb.io
-      unchanged","name":"ipaddresspools.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/bgpadvertisements.metallb.io
-      unchanged","name":"bgpadvertisements.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/bgppeers.metallb.io
-      configured","name":"bgppeers.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/metallb-system:speaker
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[*] APIGroups:[metallb.io] Resources:[servicel2statuses
-      servicel2statuses/status] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[]
-      Resources:[services endpoints nodes namespaces] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[discovery.k8s.io] Resources:[endpointslices] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
-      Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[use]
-      APIGroups:[policy] Resources:[podsecuritypolicies] ResourceNames:[speaker]
-      NonResourceURLs:[]}.
-      clusterrole.rbac.authorization.k8s.io/metallb-system:speaker configured.
-      Warning: resource clusterroles/metallb-system:speaker is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"metallb-system:speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/metallb-system:controller
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[services
-      namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list]
-      APIGroups:[] Resources:[nodes] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[update] APIGroups:[]
-      Resources:[services/status] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[create patch] APIGroups:[]
-      Resources:[events] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[use]
-      APIGroups:[policy] Resources:[podsecuritypolicies]
-      ResourceNames:[controller] NonResourceURLs:[]}\n\t\t{Verbs:[create delete
-      get list patch update watch] APIGroups:[admissionregistration.k8s.io]
-      Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations]
-      ResourceNames:[metallb-webhook-configuration]
-      NonResourceURLs:[]}\n\t\t{Verbs:[list watch]
-      APIGroups:[admissionregistration.k8s.io]
-      Resources:[validatingwebhookconfigurations mutatingwebhookconfigurations]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[create delete get list
-      patch update watch] APIGroups:[apiextensions.k8s.io]
-      Resources:[customresourcedefinitions]
-      ResourceNames:[bfdprofiles.metallb.io bgpadvertisements.metallb.io
-      bgppeers.metallb.io ipaddresspools.metallb.io l2advertisements.metallb.io
-      communities.metallb.io] NonResourceURLs:[]}\n\t\t{Verbs:[list watch]
-      APIGroups:[apiextensions.k8s.io] Resources:[customresourcedefinitions]
-      ResourceNames:[] NonResourceURLs:[]}.
+      unchanged","name":"servicel2statuses.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/l2advertisements.metallb.io
+      unchanged","name":"l2advertisements.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/bgpadvertisements.metallb.io
+      unchanged","name":"bgpadvertisements.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/ipaddresspools.metallb.io
+      unchanged","name":"ipaddresspools.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apiextensions.k8s.io","hookPhase":"Running","kind":"CustomResourceDefinition","message":"customresourcedefinition.apiextensions.k8s.io/bgppeers.metallb.io
+      configured","name":"bgppeers.metallb.io","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/metallb-system:controller
+      reconciled.
       clusterrole.rbac.authorization.k8s.io/metallb-system:controller
-      configured. Warning: resource clusterroles/metallb-system:controller is
-      missing the kubectl.kubernetes.io/last-applied-configuration annotation
-      which is required by  apply.  apply should only be used on resources
-      created declaratively by either  create --save-config or  apply. The
-      missing annotation will be patched
-      automatically.","name":"metallb-system:controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:controller
-      Namespace:metallb-system}.
-      clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller
-      configured. Warning: resource
-      clusterrolebindings/metallb-system:controller is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"metallb-system:controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:speaker
-      Namespace:metallb-system}.
+      unchanged","name":"metallb-system:controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRole","message":"clusterrole.rbac.authorization.k8s.io/metallb-system:speaker
+      reconciled. clusterrole.rbac.authorization.k8s.io/metallb-system:speaker
+      unchanged","name":"metallb-system:speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
+      reconciled.
       clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
-      configured. Warning: resource clusterrolebindings/metallb-system:speaker
-      is missing the kubectl.kubernetes.io/last-applied-configuration annotation
-      which is required by  apply.  apply should only be used on resources
-      created declaratively by either  create --save-config or  apply. The
-      missing annotation will be patched
-      automatically.","name":"metallb-system:speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"Role","message":"role.rbac.authorization.k8s.io/controller
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[create delete get list patch update watch]
-      APIGroups:[] Resources:[secrets] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[list] APIGroups:[] Resources:[secrets]
-      ResourceNames:[memberlist] NonResourceURLs:[]}\n\t\t{Verbs:[get]
-      APIGroups:[apps] Resources:[deployments] ResourceNames:[controller]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list] APIGroups:[metallb.io]
-      Resources:[bgppeers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get
-      list watch] APIGroups:[metallb.io] Resources:[bfdprofiles]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[metallb.io] Resources:[ipaddresspools] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io]
-      Resources:[bgpadvertisements] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io]
-      Resources:[l2advertisements] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io]
-      Resources:[communities] ResourceNames:[] NonResourceURLs:[]}.
-      role.rbac.authorization.k8s.io/controller configured. Warning: resource
-      roles/controller is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"Role","message":"role.rbac.authorization.k8s.io/pod-lister
-      reconciled. reconciliation required create\n\tmissing rules
-      added:\n\t\t{Verbs:[list] APIGroups:[] Resources:[pods] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[]
-      Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get
-      list watch] APIGroups:[] Resources:[configmaps] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io]
-      Resources:[bfdprofiles] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io]
-      Resources:[bgppeers] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get
-      list watch] APIGroups:[metallb.io] Resources:[l2advertisements]
-      ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch]
-      APIGroups:[metallb.io] Resources:[bgpadvertisements] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io]
-      Resources:[ipaddresspools] ResourceNames:[]
-      NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[metallb.io]
-      Resources:[communities] ResourceNames:[] NonResourceURLs:[]}.
-      role.rbac.authorization.k8s.io/pod-lister configured. Warning: resource
-      roles/pod-lister is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"pod-lister","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/controller
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:controller
-      Namespace:metallb-system}.
-      rolebinding.rbac.authorization.k8s.io/controller configured. Warning:
-      resource rolebindings/controller is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/pod-lister
-      reconciled. reconciliation required create\n\tmissing subjects
-      added:\n\t\t{Kind:ServiceAccount APIGroup: Name:speaker
-      Namespace:metallb-system}.
-      rolebinding.rbac.authorization.k8s.io/pod-lister configured. Warning:
-      resource rolebindings/pod-lister is missing the
-      kubectl.kubernetes.io/last-applied-configuration annotation which is
-      required by  apply.  apply should only be used on resources created
-      declaratively by either  create --save-config or  apply. The missing
-      annotation will be patched
-      automatically.","name":"pod-lister","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/metallb-webhook-service
-      created","name":"metallb-webhook-service","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"DaemonSet","message":"daemonset.apps/speaker
-      created","name":"speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/controller
-      created","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"metallb.io","hookPhase":"Running","kind":"L2Advertisement","message":"l2advertisement.metallb.io/binesty-net
-      configured","name":"binesty-net","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1beta1"},{"group":"metallb.io","hookPhase":"Running","kind":"IPAddressPool","message":"ipaddresspool.metallb.io/cheap
-      configured","name":"cheap","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1beta1"},{"group":"admissionregistration.k8s.io","hookPhase":"Running","kind":"ValidatingWebhookConfiguration","message":"validatingwebhookconfiguration.admissionregistration.k8s.io/metallb-webhook-configuration
-      created","name":"metallb-webhook-configuration","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"5d32afa8071be936466c2429c4cc5b3b59ddd04c","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-02T13:19:40Z","resources":[{"kind":"ConfigMap","name":"metallb-excludel2","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"Namespace","name":"metallb-system","status":"Synced","version":"v1"},{"kind":"Secret","name":"metallb-webhook-cert","namespace":"metallb-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"metallb-webhook-service","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"speaker","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"ValidatingWebhookConfiguration","name":"metallb-webhook-configuration","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bfdprofiles.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bgpadvertisements.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bgppeers.metallb.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"communities.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"ipaddresspools.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"l2advertisements.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"servicel2statuses.metallb.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"DaemonSet","name":"speaker","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"metallb.io","kind":"IPAddressPool","name":"cheap","namespace":"metallb-system","status":"Synced","version":"v1beta1"},{"group":"metallb.io","kind":"L2Advertisement","name":"binesty-net","namespace":"metallb-system","status":"Synced","version":"v1beta1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"metallb-system:controller","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"metallb-system:speaker","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metallb-system:controller","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metallb-system:speaker","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"pod-lister","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"pod-lister","namespace":"metallb-system","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["quay.io/metallb/controller:v0.14.4","quay.io/metallb/speaker:v0.14.4"]},"sync":{"comparedTo":{"destination":{"namespace":"metallb-system","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"5d32afa8071be936466c2429c4cc5b3b59ddd04c","status":"OutOfSync"}}}
-  creationTimestamp: '2024-04-05T04:45:34Z'
-  generation: 1485
+      unchanged","name":"metallb-system:speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"ClusterRoleBinding","message":"clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller
+      reconciled.
+      clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller
+      unchanged","name":"metallb-system:controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"Role","message":"role.rbac.authorization.k8s.io/controller
+      reconciled. role.rbac.authorization.k8s.io/controller
+      unchanged","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"Role","message":"role.rbac.authorization.k8s.io/pod-lister
+      reconciled. role.rbac.authorization.k8s.io/pod-lister
+      unchanged","name":"pod-lister","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/controller
+      reconciled. rolebinding.rbac.authorization.k8s.io/controller
+      unchanged","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"rbac.authorization.k8s.io","hookPhase":"Running","kind":"RoleBinding","message":"rolebinding.rbac.authorization.k8s.io/pod-lister
+      reconciled. rolebinding.rbac.authorization.k8s.io/pod-lister
+      unchanged","name":"pod-lister","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/metallb-webhook-service
+      unchanged","name":"metallb-webhook-service","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"DaemonSet","message":"daemonset.apps/speaker
+      unchanged","name":"speaker","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/controller
+      unchanged","name":"controller","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"metallb.io","hookPhase":"Running","kind":"L2Advertisement","message":"l2advertisement.metallb.io/binesty-net
+      unchanged","name":"binesty-net","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1beta1"},{"group":"metallb.io","hookPhase":"Running","kind":"IPAddressPool","message":"ipaddresspool.metallb.io/cheap
+      unchanged","name":"cheap","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1beta1"},{"group":"admissionregistration.k8s.io","hookPhase":"Running","kind":"ValidatingWebhookConfiguration","message":"validatingwebhookconfiguration.admissionregistration.k8s.io/metallb-webhook-configuration
+      configured","name":"metallb-webhook-configuration","namespace":"metallb-system","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"7fc45060da8c2d88bf69b2388d7bb615deb36869","source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}}},"reconciledAt":"2024-04-12T18:14:30Z","resources":[{"kind":"ConfigMap","name":"metallb-excludel2","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"Namespace","name":"metallb-system","status":"Synced","version":"v1"},{"kind":"Secret","name":"metallb-webhook-cert","namespace":"metallb-system","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"metallb-webhook-service","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"kind":"ServiceAccount","name":"speaker","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"admissionregistration.k8s.io","kind":"ValidatingWebhookConfiguration","name":"metallb-webhook-configuration","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bfdprofiles.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bgpadvertisements.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"bgppeers.metallb.io","status":"OutOfSync","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"communities.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"ipaddresspools.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"l2advertisements.metallb.io","status":"Synced","version":"v1"},{"group":"apiextensions.k8s.io","kind":"CustomResourceDefinition","name":"servicel2statuses.metallb.io","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"DaemonSet","name":"speaker","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"metallb.io","kind":"IPAddressPool","name":"cheap","namespace":"metallb-system","status":"Synced","version":"v1beta1"},{"group":"metallb.io","kind":"L2Advertisement","name":"binesty-net","namespace":"metallb-system","status":"Synced","version":"v1beta1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"metallb-system:controller","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"metallb-system:speaker","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metallb-system:controller","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRoleBinding","name":"metallb-system:speaker","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"Role","name":"pod-lister","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"controller","namespace":"metallb-system","status":"Synced","version":"v1"},{"group":"rbac.authorization.k8s.io","kind":"RoleBinding","name":"pod-lister","namespace":"metallb-system","status":"Synced","version":"v1"}],"sourceType":"Kustomize","summary":{"images":["quay.io/metallb/controller:v0.14.4","quay.io/metallb/speaker:v0.14.4"]},"sync":{"comparedTo":{"destination":{"namespace":"metallb-system","server":"https://kubernetes.default.svc"},"source":{"path":"cluster/argocd/sources/metallb","repoURL":"git@github.com:Binesty/Kubernetes.git","targetRevision":"main"}},"revision":"d904e809be85b0bb64ac0d9190cda6eca26b24a4","status":"OutOfSync"}}}
+  creationTimestamp: '2024-04-25T20:20:49Z'
+  generation: 1492
   labels:
     project: infrastructure
     source: internal
@@ -176,6 +58,7 @@ metadata:
             f:kubectl.kubernetes.io/last-applied-configuration: {}
           f:labels:
             .: {}
+            f:project: {}
             f:source: {}
         f:spec:
           .: {}
@@ -212,16 +95,7 @@ metadata:
                 f:targetRevision: {}
       manager: kubectl-client-side-apply
       operation: Update
-      time: '2024-04-05T04:45:34Z'
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:labels:
-            f:project: {}
-      manager: argocd-server
-      operation: Update
-      time: '2024-04-12T17:45:20Z'
+      time: '2024-04-25T20:20:49Z'
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
       fieldsV1:
@@ -237,14 +111,17 @@ metadata:
               .: {}
               f:initiatedBy:
                 .: {}
-                f:automated: {}
-              f:retry:
-                .: {}
-                f:limit: {}
+                f:username: {}
+              f:retry: {}
               f:sync:
                 .: {}
                 f:revision: {}
                 f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook:
+                    .: {}
+                    f:force: {}
             f:phase: {}
             f:startedAt: {}
             f:syncResult:
@@ -266,11 +143,11 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-04-12T18:14:32Z'
+      time: '2024-05-03T17:01:39Z'
   name: metallb
   namespace: argocd
-  resourceVersion: '1242355'
-  uid: 457632e2-ba32-47c8-81ce-fd298cbb04ef
+  resourceVersion: '1535613'
+  uid: 4c9744b5-0d3b-4c40-8b98-5ebbdda91978
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/metallb
 status:
   controllerNamespace: argocd
@@ -333,20 +210,30 @@ status:
         path: cluster/argocd/sources/metallb
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
+    - deployStartedAt: '2024-04-25T23:57:09Z'
+      deployedAt: '2024-04-25T23:57:13Z'
+      id: 7
+      revision: 53a12d603f32692babbacf9cca77dbfb2cc73461
+      source:
+        path: cluster/argocd/sources/metallb
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
   operationState:
-    finishedAt: '2024-04-09T13:03:04Z'
+    finishedAt: '2024-04-25T23:57:13Z'
     message: successfully synced (all tasks run)
     operation:
       initiatedBy:
-        automated: true
-      retry:
-        limit: 5
+        username: admin
+      retry: {}
       sync:
-        revision: 7fc45060da8c2d88bf69b2388d7bb615deb36869
+        revision: 53a12d603f32692babbacf9cca77dbfb2cc73461
         syncOptions:
           - CreateNamespace=true
+        syncStrategy:
+          hook:
+            force: true
     phase: Succeeded
-    startedAt: '2024-04-09T13:02:59Z'
+    startedAt: '2024-04-25T23:57:09Z'
     syncResult:
       resources:
         - group: ''
@@ -361,8 +248,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/speaker unchanged
-          name: speaker
+          message: serviceaccount/controller unchanged
+          name: controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -370,8 +257,8 @@ status:
         - group: ''
           hookPhase: Running
           kind: ServiceAccount
-          message: serviceaccount/controller unchanged
-          name: controller
+          message: serviceaccount/speaker unchanged
+          name: speaker
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -398,9 +285,9 @@ status:
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/bfdprofiles.metallb.io
+            customresourcedefinition.apiextensions.k8s.io/servicel2statuses.metallb.io
             unchanged
-          name: bfdprofiles.metallb.io
+          name: servicel2statuses.metallb.io
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -420,9 +307,9 @@ status:
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/servicel2statuses.metallb.io
+            customresourcedefinition.apiextensions.k8s.io/bfdprofiles.metallb.io
             unchanged
-          name: servicel2statuses.metallb.io
+          name: bfdprofiles.metallb.io
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -442,9 +329,9 @@ status:
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/bgpadvertisements.metallb.io
+            customresourcedefinition.apiextensions.k8s.io/ipaddresspools.metallb.io
             unchanged
-          name: bgpadvertisements.metallb.io
+          name: ipaddresspools.metallb.io
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -453,9 +340,9 @@ status:
           hookPhase: Running
           kind: CustomResourceDefinition
           message: >-
-            customresourcedefinition.apiextensions.k8s.io/ipaddresspools.metallb.io
+            customresourcedefinition.apiextensions.k8s.io/bgpadvertisements.metallb.io
             unchanged
-          name: ipaddresspools.metallb.io
+          name: bgpadvertisements.metallb.io
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -475,11 +362,11 @@ status:
           hookPhase: Running
           kind: ClusterRole
           message: >-
-            clusterrole.rbac.authorization.k8s.io/metallb-system:controller
+            clusterrole.rbac.authorization.k8s.io/metallb-system:speaker
             reconciled.
-            clusterrole.rbac.authorization.k8s.io/metallb-system:controller
+            clusterrole.rbac.authorization.k8s.io/metallb-system:speaker
             unchanged
-          name: metallb-system:controller
+          name: metallb-system:speaker
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -488,24 +375,11 @@ status:
           hookPhase: Running
           kind: ClusterRole
           message: >-
-            clusterrole.rbac.authorization.k8s.io/metallb-system:speaker
+            clusterrole.rbac.authorization.k8s.io/metallb-system:controller
             reconciled.
-            clusterrole.rbac.authorization.k8s.io/metallb-system:speaker
+            clusterrole.rbac.authorization.k8s.io/metallb-system:controller
             unchanged
-          name: metallb-system:speaker
-          namespace: metallb-system
-          status: Synced
-          syncPhase: Sync
-          version: v1
-        - group: rbac.authorization.k8s.io
-          hookPhase: Running
-          kind: ClusterRoleBinding
-          message: >-
-            clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
-            reconciled.
-            clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
-            unchanged
-          name: metallb-system:speaker
+          name: metallb-system:controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -519,6 +393,19 @@ status:
             clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller
             unchanged
           name: metallb-system:controller
+          namespace: metallb-system
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker
+            unchanged
+          name: metallb-system:speaker
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -549,9 +436,9 @@ status:
           hookPhase: Running
           kind: RoleBinding
           message: >-
-            rolebinding.rbac.authorization.k8s.io/controller reconciled.
-            rolebinding.rbac.authorization.k8s.io/controller unchanged
-          name: controller
+            rolebinding.rbac.authorization.k8s.io/pod-lister reconciled.
+            rolebinding.rbac.authorization.k8s.io/pod-lister unchanged
+          name: pod-lister
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -560,9 +447,9 @@ status:
           hookPhase: Running
           kind: RoleBinding
           message: >-
-            rolebinding.rbac.authorization.k8s.io/pod-lister reconciled.
-            rolebinding.rbac.authorization.k8s.io/pod-lister unchanged
-          name: pod-lister
+            rolebinding.rbac.authorization.k8s.io/controller reconciled.
+            rolebinding.rbac.authorization.k8s.io/controller unchanged
+          name: controller
           namespace: metallb-system
           status: Synced
           syncPhase: Sync
@@ -597,7 +484,7 @@ status:
         - group: metallb.io
           hookPhase: Running
           kind: L2Advertisement
-          message: l2advertisement.metallb.io/binesty-net unchanged
+          message: l2advertisement.metallb.io/binesty-net created
           name: binesty-net
           namespace: metallb-system
           status: Synced
@@ -606,7 +493,7 @@ status:
         - group: metallb.io
           hookPhase: Running
           kind: IPAddressPool
-          message: ipaddresspool.metallb.io/cheap unchanged
+          message: ipaddresspool.metallb.io/cheap created
           name: cheap
           namespace: metallb-system
           status: Synced
@@ -623,12 +510,12 @@ status:
           status: Synced
           syncPhase: Sync
           version: v1
-      revision: 7fc45060da8c2d88bf69b2388d7bb615deb36869
+      revision: 53a12d603f32692babbacf9cca77dbfb2cc73461
       source:
         path: cluster/argocd/sources/metallb
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-04-12T18:14:30Z'
+  reconciledAt: '2024-05-03T17:01:38Z'
   resources:
     - kind: ConfigMap
       name: metallb-excludel2
@@ -787,7 +674,7 @@ status:
         path: cluster/argocd/sources/metallb
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: d904e809be85b0bb64ac0d9190cda6eca26b24a4
+    revision: 5590b0e7f8918733d981c4404af88e436cab6e51
     status: OutOfSync
 spec:
   destination:
