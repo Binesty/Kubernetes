@@ -5,10 +5,11 @@ metadata:
   namespace: keycloak
 data:
   JAVA_OPTS_APPEND: '-Djgroups.dns.query=keycloak-service.keycloak.svc.binesty'
-  KEYCLOAK_CACHE_STACK: kubernetes
-  KEYCLOAK_CACHE_TYPE: ispn
   KEYCLOAK_DATABASE_HOST: keycloak-postgres-service.svc.binesty
+  KEYCLOAK_CACHE_TYPE: ispn
+  KEYCLOAK_CACHE_STACK: kubernetes
   KEYCLOAK_DATABASE_PORT: '5432'
+  KEYCLOAK_DATABASE_NAME: 'keycloak'
   KEYCLOAK_ENABLE_HTTPS: 'false'
   KEYCLOAK_ENABLE_STATISTICS: 'false'
   KEYCLOAK_HTTP_PORT: '8080'
@@ -16,6 +17,8 @@ data:
   KEYCLOAK_LOG_OUTPUT: default
   KEYCLOAK_PRODUCTION: 'false'
   KEYCLOAK_PROXY: passthrough
+  KEYCLOAK_HEALTH_ENABLED: 'false'
+  KEYCLOAK_METRICS_ENABLED: 'false'
 ---
 
 apiVersion: v1
@@ -53,11 +56,19 @@ spec:
       containers:
         - name: keycloak-postgres
           image: postgres:latest          
-          envFrom:
-            - secretRef:
-                name: keycloak-secret
-            - configMapRef:
-                name: keycloak-configmap               
+          env:
+            - name: POSTGRES_USER 
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secret
+                  key: POSTGRES_PASSWORD              
+            - name: PGDATA
+              value: /var/lib/postgresql/pgdata
           ports:
             - containerPort: 5432
               name: postgres
@@ -120,6 +131,9 @@ spec:
       - name: keycloak
         image: quay.io/keycloak/keycloak:23.0.4
         args: ["start-dev"]
+        envFrom:
+        - configMapRef:
+            name: keycloak-configmap
         env:
         - name: KEYCLOAK_ADMIN
           valueFrom:
@@ -131,50 +145,26 @@ spec:
             secretKeyRef:
               key: KEYCLOAK_ADMIN_PASSWORD
               name: keycloak-secret
-        - name: KC_DB_USERNAME
+        - name: KEYCLOAK_DATABASE_USER
           valueFrom:
             secretKeyRef:
               name: keycloak-secret
               key: POSTGRES_USER
-        - name: KC_DB_PASSWORD
+        - name: KEYCLOAK_DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: keycloak-secret
-              key: POSTGRES_PASSWORD              
-        - name: KC_HEALTH_ENABLED
-          value: "true"
-        - name: KC_METRICS_ENABLED
-          value: "true"
-        - name: KC_HTTP_ENABLED
-          value: "true"  
-        - name: KC_HOSTNAME_STRICT_HTTPS
-          value: "false"                              
-        - name: KC_LOG_LEVEL
-          value: INFO
-        - name: PGDATA
-          value: /var/lib/postgresql/data/pgdata
+              key: POSTGRES_PASSWORD
         ports:
         - name: http
           containerPort: 8080
-        readinessProbe:
-          httpGet:
-            path: /health/ready
-            port: 8080
-          initialDelaySeconds: 250
-          periodSeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /health/live
-            port: 8080
-          initialDelaySeconds: 500
-          periodSeconds: 30
         resources:
             limits:
-              memory: 512Mi
+              memory: 800Mi
               cpu: "1"
             requests:
-              memory: 256Mi
-              cpu: "0.2"
+              memory: 500Mi
+              cpu: "0.5"
 ---              
 
 apiVersion: networking.k8s.io/v1
