@@ -5,12 +5,9 @@ metadata:
   namespace: keycloak
 data:
   JAVA_OPTS_APPEND: '-Djgroups.dns.query=keycloak-service.keycloak.svc.binesty'
-  KEYCLOAK_ADMIN: master
   KEYCLOAK_CACHE_STACK: kubernetes
   KEYCLOAK_CACHE_TYPE: ispn
   KEYCLOAK_DATABASE_HOST: keycloak-postgres-service.svc.binesty
-  KEYCLOAK_DATABASE_NAME: keycloak
-  KEYCLOAK_DATABASE_USER: postgres
   KEYCLOAK_DATABASE_PORT: '5432'
   KEYCLOAK_ENABLE_HTTPS: 'false'
   KEYCLOAK_ENABLE_STATISTICS: 'false'
@@ -121,7 +118,7 @@ spec:
     spec:
       containers:
       - name: keycloak
-        image: quay.io/keycloak/keycloak:24.0.3
+        image: quay.io/keycloak/keycloak:23.0.4
         args: ["start-dev"]
         env:
         - name: KEYCLOAK_ADMIN
@@ -134,8 +131,16 @@ spec:
             secretKeyRef:
               key: KEYCLOAK_ADMIN_PASSWORD
               name: keycloak-secret
-        - name: KC_PROXY
-          value: "edge"
+        - name: KC_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-secret
+              key: POSTGRES_USER
+        - name: KC_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-secret
+              key: POSTGRES_PASSWORD              
         - name: KC_HEALTH_ENABLED
           value: "true"
         - name: KC_METRICS_ENABLED
@@ -146,25 +151,8 @@ spec:
           value: "false"                              
         - name: KC_LOG_LEVEL
           value: INFO
-        - name: KC_DB
-          value: postgres
-        - name: POSTGRES_DB
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-secret
-              key: POSTGRES_DB
-        - name: KC_DB_URL
-          value: jdbc:postgresql://keycloak-postgres-service/$(POSTGRES_DB)
-        - name: KC_DB_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-secret
-              key: POSTGRES_USER
-        - name: KC_DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-secret
-              key: POSTGRES_PASSWORD
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
         ports:
         - name: http
           containerPort: 8080
