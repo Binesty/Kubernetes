@@ -1,5 +1,5 @@
 # Build from Debian based python image
-FROM python:3.10.12-slim-bullseye
+FROM python:latest
 
 # Set default environment variables 
 ENV SEMAPHORE_DB_USER=semaphore
@@ -24,8 +24,8 @@ RUN cd /tmp/kubespray && pip install -U -r requirements.txt
 
 # Download and install semaphore
 RUN cd /tmp && wget https://github.com/ansible-semaphore/semaphore/releases/\
-download/v2.9.64/semaphore_2.9.64_linux_amd64.deb 
-RUN dpkg -i /tmp/semaphore_2.9.64_linux_amd64.deb 
+download/v2.9.75/semaphore_2.9.75_linux_amd64.deb 
+RUN dpkg -i /tmp/semaphore_2.9.75_linux_amd64.deb 
 
 # Copy playbooks
 COPY playbooks /semaphore/playbooks
@@ -39,6 +39,6 @@ COPY entrypoint.sh /semaphore/entrypoint.sh
 RUN chmod +x /semaphore/entrypoint.sh
 
 # Clean up
-RUN rm -rf /tmp/kubespray && rm -rf /tmp/semaphore_2.9.45_linux_amd64.deb 
+RUN rm -rf /tmp/kubespray && rm -rf /tmp/semaphore_2.9.75_linux_amd64.deb 
 # Startup process
 ENTRYPOINT ["/semaphore/entrypoint.sh"]
