@@ -1,0 +1,485 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-05-09T01:23:42Z'
+  generation: 284
+  labels:
+    project: business
+    source: internal
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:project: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:automated: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-05-09T16:42:09Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-05-09T20:23:56Z'
+  name: platform
+  namespace: argocd
+  resourceVersion: '2986021'
+  uid: 0579cc41-4cf6-4472-8b63-b0f13ea4b771
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/platform
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-05-09T01:25:36Z'
+      deployedAt: '2024-05-09T01:25:40Z'
+      id: 0
+      revision: 6f09c854c92b6a63fa7ba33916b171db1c5c9b23
+      source:
+        path: infrastructure/kubernetes
+        repoURL: git@github.com:Binesty/Platform.git
+        targetRevision: staging
+    - deployStartedAt: '2024-05-09T01:38:59Z'
+      deployedAt: '2024-05-09T01:39:04Z'
+      id: 1
+      revision: b178addf4c4cfd97370f8ba53a017dc9ac8eaa00
+      source:
+        path: infrastructure/kubernetes
+        repoURL: git@github.com:Binesty/Platform.git
+        targetRevision: staging
+    - deployStartedAt: '2024-05-09T13:21:18Z'
+      deployedAt: '2024-05-09T13:21:22Z'
+      id: 2
+      revision: c03efb272044d06963ecfffb5e8f266b10dcf516
+      source:
+        path: infrastructure/kubernetes
+        repoURL: git@github.com:Binesty/Platform.git
+        targetRevision: staging
+  operationState:
+    finishedAt: '2024-05-09T13:21:22Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: c03efb272044d06963ecfffb5e8f266b10dcf516
+        syncOptions:
+          - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: '2024-05-09T13:21:18Z'
+    syncResult:
+      resources:
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: Role
+          message: >-
+            role.rbac.authorization.k8s.io/pod-reader reconciled.
+            role.rbac.authorization.k8s.io/pod-reader unchanged
+          name: pod-reader
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/pod-reader-binding reconciled.
+            rolebinding.rbac.authorization.k8s.io/pod-reader-binding configured
+          name: pod-reader-binding
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/analyzer-service unchanged
+          name: analyzer-service
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/manager-service unchanged
+          name: manager-service
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/collector-service unchanged
+          name: collector-service
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/search-service unchanged
+          name: search-service
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/application-service unchanged
+          name: application-service
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/analyzer configured
+          name: analyzer
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/collector configured
+          name: collector
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/manager configured
+          name: manager
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/application configured
+          name: application
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/search configured
+          name: search
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/search-ingress unchanged
+          name: search-ingress
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/application-ingress unchanged
+          name: application-ingress
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/manager-ingress unchanged
+          name: manager-ingress
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: external-secrets.io
+          hookPhase: Running
+          kind: ExternalSecret
+          message: >-
+            externalsecret.external-secrets.io/externalsecret-platform
+            configured
+          name: externalsecret-platform
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1beta1
+        - group: external-secrets.io
+          hookPhase: Running
+          kind: ClusterSecretStore
+          message: >-
+            clustersecretstore.external-secrets.io/externalsecret-platform-store
+            unchanged
+          name: externalsecret-platform-store
+          namespace: business
+          status: Synced
+          syncPhase: Sync
+          version: v1beta1
+      revision: c03efb272044d06963ecfffb5e8f266b10dcf516
+      source:
+        path: infrastructure/kubernetes
+        repoURL: git@github.com:Binesty/Platform.git
+        targetRevision: staging
+  reconciledAt: '2024-05-09T20:23:54Z'
+  resources:
+    - health:
+        status: Healthy
+      kind: Service
+      name: analyzer-service
+      namespace: business
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: application-service
+      namespace: business
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: collector-service
+      namespace: business
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: manager-service
+      namespace: business
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: search-service
+      namespace: business
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: analyzer
+      namespace: business
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: application
+      namespace: business
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: collector
+      namespace: business
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: manager
+      namespace: business
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: search
+      namespace: business
+      status: Synced
+      version: v1
+    - group: external-secrets.io
+      health:
+        message: store validated
+        status: Healthy
+      kind: ClusterSecretStore
+      name: externalsecret-platform-store
+      status: Synced
+      version: v1beta1
+    - group: external-secrets.io
+      health:
+        message: Secret was synced
+        status: Healthy
+      kind: ExternalSecret
+      name: externalsecret-platform
+      namespace: business
+      status: Synced
+      version: v1beta1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: application-ingress
+      namespace: business
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: manager-ingress
+      namespace: business
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: search-ingress
+      namespace: business
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: pod-reader
+      namespace: business
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: pod-reader-binding
+      namespace: business
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary:
+    externalURLs:
+      - http://application.binesty.corp/
+      - http://manager.binesty.corp/
+      - http://search.binesty.corp/
+    images:
+      - binesty.azurecr.io/analyzer:0.1.0.0403
+      - binesty.azurecr.io/application:0.1.0.0403
+      - binesty.azurecr.io/collector:0.1.0.0403
+      - binesty.azurecr.io/manager:0.1.0.0403
+      - binesty.azurecr.io/search:0.1.0.0403
+  sync:
+    comparedTo:
+      destination:
+        namespace: business
+        server: https://kubernetes.default.svc
+      source:
+        path: infrastructure/kubernetes
+        repoURL: git@github.com:Binesty/Platform.git
+        targetRevision: staging
+    revision: c03efb272044d06963ecfffb5e8f266b10dcf516
+    status: Synced
+spec:
+  destination:
+    namespace: business
+    server: https://kubernetes.default.svc
+  project: applications
+  source:
+    path: infrastructure/kubernetes
+    repoURL: git@github.com:Binesty/Platform.git
+    targetRevision: staging
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
