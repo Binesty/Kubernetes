@@ -1,0 +1,20 @@
+- name: Reboot Hosts Cluster
+  hosts: all   
+  become: yes
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+
+    - name: Perform system upgrade
+      apt:
+        upgrade: dist
+        autoremove: yes
+        autoclean: yes
+
+    - name: Perform release upgrade
+      command: do-release-upgrade -f DistUpgradeViewNonInteractive
+      args:
+        creates: /var/log/dist-upgrade/main.log
+      async: 3600
+      poll: 0
