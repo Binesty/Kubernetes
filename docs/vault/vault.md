@@ -67,12 +67,12 @@ kubectl exec -ti vault-0 -n vault -- vault operator unseal 3CYMyETcA+nBMT0JaKX25
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:    
-    kubernetes.io/ingress.class: nginx    
+  annotations:        
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: vault-ingress
   namespace: vault
 spec:
+  ingressClassName: nginx
   rules:
   - host: vault.binesty.net
     http:

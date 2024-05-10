@@ -143,12 +143,12 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:    
-    kubernetes.io/ingress.class: nginx    
+  annotations:        
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: elasticsearch-ingress
   namespace: elastic-stack
 spec:
+  ingressClassName: nginx
   rules:
   - host: elasticsearch.binesty.corp
     http:
@@ -443,11 +443,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:    
-    kubernetes.io/ingress.class: nginx    
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: apm-ingress
   namespace: elastic-stack
 spec:
+  ingressClassName: nginx
   rules:
   - host: apm.binesty.corp
     http:
@@ -528,11 +528,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:    
-    kubernetes.io/ingress.class: nginx    
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: kibana-ingress
   namespace: elastic-stack
 spec:
+  ingressClassName: nginx
   rules:
   - host: kibana.binesty.corp
     http:

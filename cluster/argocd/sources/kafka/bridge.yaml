@@ -1,0 +1,35 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaBridge
+metadata:
+  name: kafka-bridge
+  namespace: kafka
+spec:
+  replicas: 1
+  bootstrapServers: kafka-cluster-kafka-bootstrap:9092
+  http:
+    port: 8080
+    # cors:
+    #   allowedOrigins: "https://strimzi.io"
+    #   allowedMethods: "GET,POST,PUT,DELETE,OPTIONS,PATCH"
+---
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:    
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: kafka-ui-ingress
+  namespace: kafka
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: kafka-bridge.binesty.corp
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          serviceName: kafka-bridge-bridge-service
+          servicePort: 8080
+---

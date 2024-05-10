@@ -1,0 +1,88 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-ui-configmap
+  namespace: kafka
+data:  
+  KAFKA_CLUSTERS_0_NAME: "kafka-cluster"
+  KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka-cluster-zookeeper-nodes.kafka.svc.binesty:2181"
+  # KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="kafkasuper" password="R0h7ZW92aq";'
+  # KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: "SASL_SSL"
+  # KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM: "SCRAM-SHA-512"
+  # KAFKA_CLUSTERS_0_PROPERTIES_SSL_PROTOCOL: "TLSv1.2"
+  # KAFKA_CLUSTERS_0_PROPERTIES_SSL_ENABLED_PROTOCOLS: "TLSv1.2"
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-ui-deployment
+  namespace: kafka
+  labels:
+    app: kafka-ui
+    namespace: kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-ui
+  template:
+    metadata:
+      labels:
+        app: kafka-ui
+    spec:
+      containers:
+      - name: kafka-ui
+        image: provectuslabs/kafka-ui:master
+        envFrom:
+        - configMapRef:
+            name: kafka-ui-configmap
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 8080
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-ui-service
+  namespace: kafka
+spec:
+  selector:
+    app: kafka-ui
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 31006
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:    
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: kafka-ui-ingress
+  namespace: kafka
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: kafka.binesty.corp
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kafka-ui-service
+            port:
+              number: 8080
+---
