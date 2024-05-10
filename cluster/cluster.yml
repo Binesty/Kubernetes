@@ -62,7 +62,24 @@ all:
         kube_node:
     calico_rr:
       hosts: 
-      
+
+kafka:
+  hosts:
+    binesty-worker-01:
+      ansible_host: 192.168.0.151
+      ip: 192.168.0.151
+      access_ip: 192.168.0.151
+
+    binesty-worker-02:
+      ansible_host: 192.168.0.152
+      ip: 192.168.0.152
+      access_ip: 192.168.0.152
+
+    binesty-worker-03:
+      ansible_host: 192.168.0.153
+      ip: 192.168.0.153
+      access_ip: 192.168.0.153
+
 nfs:
   hosts:
     binesty-master:

@@ -38,6 +38,14 @@
         - binesty-worker-06
         - binesty-worker-07
 
+    - name: Label kafka nodes
+      shell: kubectl label nodes {{ item }} broker=kafka
+      ignore_errors: yes
+      loop:        
+        - binesty-worker-01
+        - binesty-worker-02
+        - binesty-worker-03
+
     - name: Delete directory Remote argocd
       become: yes 
       ignore_errors: yes

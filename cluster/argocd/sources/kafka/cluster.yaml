@@ -17,6 +17,38 @@ spec:
         port: 9093
         type: internal
         tls: true
+    storage:
+      class: local-path
+      type: persistent-claim
+      size: 5Gi
+      deleteClaim: true
+    resources:
+      requests:
+        memory: 500Mi
+        cpu: "1"
+      limits:
+        memory: 500Mi
+        cpu: "1"
+    template:
+      pod:
+        affinity:
+          nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                    - key: broker
+                      operator: In
+                      values:
+                      - kafka
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: strimzi.io/name
+                      operator: In
+                      values:
+                      - kafka-cluster-kafka
+                topologyKey: "kubernetes.io/hostname"
     config:
       #ssl.cipher.suites: "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
       #ssl.enabled.protocols: "TLSv1.2"
@@ -62,12 +94,7 @@ spec:
       # Enable auto creation of topic on the server
       #  Default: true
       auto.create.topics.enable: "true"
-
-    storage:
-      # class: ...
-      type: persistent-claim
-      size: 2Gi
-      deleteClaim: true
+      
     metricsConfig:
       type: jmxPrometheusExporter
       valueFrom:
