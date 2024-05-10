@@ -19,7 +19,7 @@ kind: Ingress
 metadata:
   annotations:    
     nginx.ingress.kubernetes.io/rewrite-target: /
-  name: kafka-ui-ingress
+  name: kafka-bridge-ingress
   namespace: kafka
 spec:
   ingressClassName: nginx
