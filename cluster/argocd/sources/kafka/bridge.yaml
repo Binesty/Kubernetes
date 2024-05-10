@@ -32,4 +32,4 @@ spec:
 #         backend:
 #           serviceName: kafka-bridge-bridge-service
 #           servicePort: 8080
----
+# ---
