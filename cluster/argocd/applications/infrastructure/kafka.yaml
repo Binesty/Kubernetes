@@ -1,0 +1,844 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-05-10T01:16:48Z'
+  generation: 36
+  labels:
+    project: infrastructure
+    source: internal
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:project: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-05-10T01:23:59Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-05-10T01:25:12Z'
+  name: kafka
+  namespace: argocd
+  resourceVersion: '3096516'
+  uid: 89b31518-f591-492d-9e16-c17b9bf4c47c
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/kafka
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-05-10T01:19:52Z'
+      deployedAt: '2024-05-10T01:19:55Z'
+      id: 0
+      revision: d3cbb790698a46f9488245a6dd3fca53be04cf3f
+      source:
+        path: cluster/argocd/sources/kafka
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-05-10T01:20:47Z'
+      deployedAt: '2024-05-10T01:20:50Z'
+      id: 1
+      revision: d3cbb790698a46f9488245a6dd3fca53be04cf3f
+      source:
+        path: cluster/argocd/sources/kafka
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-05-10T01:21:55Z'
+      deployedAt: '2024-05-10T01:22:03Z'
+      id: 2
+      revision: c19aff0c2f9fa9af637dace658517f75ff21d1e8
+      source:
+        path: cluster/argocd/sources/kafka
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-05-10T01:23:59Z'
+      deployedAt: '2024-05-10T01:24:02Z'
+      id: 3
+      revision: c19aff0c2f9fa9af637dace658517f75ff21d1e8
+      source:
+        path: cluster/argocd/sources/kafka
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  operationState:
+    finishedAt: '2024-05-10T01:24:02Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: c19aff0c2f9fa9af637dace658517f75ff21d1e8
+        syncOptions:
+          - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: '2024-05-10T01:23:59Z'
+    syncResult:
+      resources:
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/strimzi-cluster-operator unchanged
+          name: strimzi-cluster-operator
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/strimzi-cluster-operator unchanged
+          name: strimzi-cluster-operator
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/kafka-ui-configmap unchanged
+          name: kafka-ui-configmap
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/kafka-metrics unchanged
+          name: kafka-metrics
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkaconnectors.kafka.strimzi.io
+            unchanged
+          name: kafkaconnectors.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkarebalances.kafka.strimzi.io
+            unchanged
+          name: kafkarebalances.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkatopics.kafka.strimzi.io
+            unchanged
+          name: kafkatopics.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkausers.kafka.strimzi.io
+            unchanged
+          name: kafkausers.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/strimzipodsets.core.strimzi.io
+            unchanged
+          name: strimzipodsets.core.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkabridges.kafka.strimzi.io
+            unchanged
+          name: kafkabridges.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkanodepools.kafka.strimzi.io
+            unchanged
+          name: kafkanodepools.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkaconnects.kafka.strimzi.io
+            unchanged
+          name: kafkaconnects.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkamirrormakers.kafka.strimzi.io
+            unchanged
+          name: kafkamirrormakers.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkamirrormaker2s.kafka.strimzi.io
+            unchanged
+          name: kafkamirrormaker2s.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/kafkas.kafka.strimzi.io
+            unchanged
+          name: kafkas.kafka.strimzi.io
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-leader-election
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-leader-election
+            unchanged
+          name: strimzi-cluster-operator-leader-election
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/strimzi-kafka-broker
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/strimzi-kafka-broker unchanged
+          name: strimzi-kafka-broker
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/strimzi-entity-operator
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/strimzi-entity-operator
+            unchanged
+          name: strimzi-entity-operator
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-watched
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-watched
+            unchanged
+          name: strimzi-cluster-operator-watched
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-global
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-global
+            unchanged
+          name: strimzi-cluster-operator-global
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/strimzi-kafka-client
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/strimzi-kafka-client unchanged
+          name: strimzi-kafka-client
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: >-
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-namespaced
+            reconciled.
+            clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-namespaced
+            unchanged
+          name: strimzi-cluster-operator-namespaced
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-kafka-client-delegation
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-kafka-client-delegation
+            unchanged
+          name: strimzi-cluster-operator-kafka-client-delegation
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator
+            unchanged
+          name: strimzi-cluster-operator
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: >-
+            clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-kafka-broker-delegation
+            reconciled.
+            clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-kafka-broker-delegation
+            unchanged
+          name: strimzi-cluster-operator-kafka-broker-delegation
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator
+            reconciled.
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator
+            unchanged
+          name: strimzi-cluster-operator
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-entity-operator-delegation
+            reconciled.
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-entity-operator-delegation
+            unchanged
+          name: strimzi-cluster-operator-entity-operator-delegation
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-watched
+            reconciled.
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-watched
+            unchanged
+          name: strimzi-cluster-operator-watched
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: RoleBinding
+          message: >-
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-leader-election
+            reconciled.
+            rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-leader-election
+            unchanged
+          name: strimzi-cluster-operator-leader-election
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/kafka-ui-service unchanged
+          name: kafka-ui-service
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/kafka-ui-deployment configured
+          name: kafka-ui-deployment
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: Deployment
+          message: deployment.apps/strimzi-cluster-operator configured
+          name: strimzi-cluster-operator
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/kafka-ui-ingress unchanged
+          name: kafka-ui-ingress
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: monitoring.coreos.com
+          hookPhase: Running
+          kind: PodMonitor
+          message: podmonitor.monitoring.coreos.com/cluster-operator-metrics unchanged
+          name: cluster-operator-metrics
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: monitoring.coreos.com
+          hookPhase: Running
+          kind: PodMonitor
+          message: podmonitor.monitoring.coreos.com/bridge-metrics unchanged
+          name: bridge-metrics
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: monitoring.coreos.com
+          hookPhase: Running
+          kind: PodMonitor
+          message: podmonitor.monitoring.coreos.com/entity-operator-metrics unchanged
+          name: entity-operator-metrics
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: kafka.strimzi.io
+          hookPhase: Running
+          kind: KafkaBridge
+          message: kafkabridge.kafka.strimzi.io/kafka-bridge unchanged
+          name: kafka-bridge
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1beta2
+        - group: kafka.strimzi.io
+          hookPhase: Running
+          kind: Kafka
+          message: kafka.kafka.strimzi.io/kafka-cluster unchanged
+          name: kafka-cluster
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1beta2
+        - group: monitoring.coreos.com
+          hookPhase: Running
+          kind: PodMonitor
+          message: podmonitor.monitoring.coreos.com/kafka-resources-metrics unchanged
+          name: kafka-resources-metrics
+          namespace: kafka
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: c19aff0c2f9fa9af637dace658517f75ff21d1e8
+      source:
+        path: cluster/argocd/sources/kafka
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-05-10T01:24:02Z'
+  resources:
+    - kind: ConfigMap
+      name: kafka-metrics
+      namespace: kafka
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: kafka-ui-configmap
+      namespace: kafka
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: strimzi-cluster-operator
+      namespace: kafka
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: kafka-ui-service
+      namespace: kafka
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: strimzi-cluster-operator
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkabridges.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkaconnectors.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkaconnects.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkamirrormaker2s.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkamirrormakers.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkanodepools.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkarebalances.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkas.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkatopics.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: kafkausers.kafka.strimzi.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: strimzipodsets.core.strimzi.io
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: kafka-ui-deployment
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: strimzi-cluster-operator
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: kafka.strimzi.io
+      health:
+        status: Healthy
+      kind: Kafka
+      name: kafka-cluster
+      namespace: kafka
+      status: Synced
+      version: v1beta2
+    - group: kafka.strimzi.io
+      kind: KafkaBridge
+      name: kafka-bridge
+      namespace: kafka
+      status: Synced
+      version: v1beta2
+    - group: monitoring.coreos.com
+      kind: PodMonitor
+      name: bridge-metrics
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PodMonitor
+      name: cluster-operator-metrics
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PodMonitor
+      name: entity-operator-metrics
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: monitoring.coreos.com
+      kind: PodMonitor
+      name: kafka-resources-metrics
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: kafka-ui-ingress
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: strimzi-cluster-operator-global
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: strimzi-cluster-operator-leader-election
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: strimzi-cluster-operator-namespaced
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: strimzi-cluster-operator-watched
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: strimzi-entity-operator
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: strimzi-kafka-broker
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: strimzi-kafka-client
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: strimzi-cluster-operator
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: strimzi-cluster-operator-kafka-broker-delegation
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: strimzi-cluster-operator-kafka-client-delegation
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: strimzi-cluster-operator
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: strimzi-cluster-operator-entity-operator-delegation
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: strimzi-cluster-operator-leader-election
+      namespace: kafka
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: strimzi-cluster-operator-watched
+      namespace: kafka
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary:
+    externalURLs:
+      - http://kafka.binesty.corp/
+    images:
+      - provectuslabs/kafka-ui:master
+      - quay.io/strimzi/kafka-bridge:0.28.0
+      - quay.io/strimzi/kafka:0.40.0-kafka-3.7.0
+      - quay.io/strimzi/operator:0.40.0
+  sync:
+    comparedTo:
+      destination:
+        namespace: kafka
+        server: https://kubernetes.default.svc
+      source:
+        path: cluster/argocd/sources/kafka
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: c19aff0c2f9fa9af637dace658517f75ff21d1e8
+    status: Synced
+spec:
+  destination:
+    namespace: kafka
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    path: cluster/argocd/sources/kafka
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
