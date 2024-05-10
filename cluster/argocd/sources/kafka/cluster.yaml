@@ -7,7 +7,7 @@ spec:
   kafka:
     version: 3.7.0 # Kafka version
     # If have cruisecontrol must be greater than 1
-    replicas: 1 # Replicas specifies the number of broker nodes.
+    replicas: 3 # Replicas specifies the number of broker nodes.
     listeners: # Listeners configure how clients connect to the Kafka cluster
       - name: plain
         port: 9092
