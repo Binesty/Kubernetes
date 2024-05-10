@@ -14,22 +14,22 @@ spec:
 ---
 
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:    
-    nginx.ingress.kubernetes.io/rewrite-target: /
-  name: kafka-bridge-ingress
-  namespace: kafka
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: kafka-bridge.binesty.corp
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          serviceName: kafka-bridge-bridge-service
-          servicePort: 8080
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   annotations:    
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+#   name: kafka-bridge-ingress
+#   namespace: kafka
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: kafka-bridge.binesty.corp
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           serviceName: kafka-bridge-bridge-service
+#           servicePort: 8080
 ---
