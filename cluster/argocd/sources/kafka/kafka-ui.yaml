@@ -5,7 +5,8 @@ metadata:
   namespace: kafka
 data:  
   KAFKA_CLUSTERS_0_NAME: "kafka-cluster"
-  KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka-cluster-zookeeper-nodes.kafka.svc.binesty:2181"
+  KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka-cluster-kafka-brokers.kafka.svc.binesty:9092"
+  KAFKA_CLUSTERS_0_ZOOKEEPER: "kafka-cluster-zookeeper-nodes.kafka.svc.binesty:2181"
   # KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="kafkasuper" password="R0h7ZW92aq";'
   # KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: "SASL_SSL"
   # KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM: "SCRAM-SHA-512"
