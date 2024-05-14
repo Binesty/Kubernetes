@@ -57,6 +57,14 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: cert-manager
+  labels:
+    use-vault: "true"
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
   name: business
   labels:
     use-vault: "true"
