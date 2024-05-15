@@ -1,0 +1,217 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-05-15T19:12:15Z'
+  generation: 28
+  labels:
+    project: infrastructure
+    source: internal
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-05-15T19:42:05Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:project: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-05-15T19:42:58Z'
+  name: issuers
+  namespace: argocd
+  resourceVersion: '4444032'
+  uid: f26de317-ebd5-460b-bfa4-c00a1a215298
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/issuers
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-05-15T19:12:32Z'
+      deployedAt: '2024-05-15T19:12:33Z'
+      id: 0
+      revision: 745da0e6100d4f7c9879c693e513bf07f41e9280
+      source:
+        path: cluster/argocd/sources/issuers
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    - deployStartedAt: '2024-05-15T19:41:59Z'
+      deployedAt: '2024-05-15T19:42:04Z'
+      id: 1
+      revision: a6ecca005f0eb99c92d6c80993fa0062373c8107
+      source:
+        path: cluster/argocd/sources/issuers
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  operationState:
+    finishedAt: '2024-05-15T19:42:04Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: a6ecca005f0eb99c92d6c80993fa0062373c8107
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: '2024-05-15T19:41:59Z'
+    syncResult:
+      resources:
+        - group: cert-manager.io
+          hookPhase: Running
+          kind: ClusterIssuer
+          message: clusterissuer.cert-manager.io/binesty-ca-issuer configured
+          name: binesty-ca-issuer
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: cert-manager.io
+          hookPhase: Running
+          kind: Certificate
+          message: certificate.cert-manager.io/binesty-selfsigned-ca configured
+          name: binesty-selfsigned-ca
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: cert-manager.io
+          hookPhase: Running
+          kind: ClusterIssuer
+          message: clusterissuer.cert-manager.io/selfsigned-issuer configured
+          name: selfsigned-issuer
+          namespace: cert-manager
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: a6ecca005f0eb99c92d6c80993fa0062373c8107
+      source:
+        path: cluster/argocd/sources/issuers
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-05-15T19:42:05Z'
+  resources:
+    - group: cert-manager.io
+      health:
+        message: Certificate is up to date and has not expired
+        status: Healthy
+      kind: Certificate
+      name: binesty-selfsigned-ca
+      namespace: cert-manager
+      status: Synced
+      version: v1
+    - group: cert-manager.io
+      health:
+        message: Signing CA verified
+        status: Healthy
+      kind: ClusterIssuer
+      name: binesty-ca-issuer
+      status: Synced
+      version: v1
+    - group: cert-manager.io
+      health:
+        status: Healthy
+      kind: ClusterIssuer
+      name: selfsigned-issuer
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary: {}
+  sync:
+    comparedTo:
+      destination:
+        namespace: cert-manager
+        server: https://kubernetes.default.svc
+      source:
+        path: cluster/argocd/sources/issuers
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: 6ee3aadf84e4f10882bce5bc040cc037bca3b99f
+    status: Synced
+spec:
+  destination:
+    namespace: cert-manager
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    path: cluster/argocd/sources/issuers
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
+  syncPolicy: {}
