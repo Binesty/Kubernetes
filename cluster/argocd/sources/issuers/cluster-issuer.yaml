@@ -1,9 +1,7 @@
-# clusterissuer-lets-encrypt-staging.yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: cluster-issuer-self-signed    
-  namespace: cert-manager
+  name: selfsigned-issuer
 spec:
   selfSigned: {}
 ---
@@ -11,30 +9,25 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: binesty-certificate  
+  name: binesty-selfsigned-ca
   namespace: cert-manager
 spec:
   isCA: true
-  duration: 43800h # 5 years
-  commonName: "binesty.com"
-  dnsNames:
-    - "binesty.com"
-  secretName: binesty-certificate-key-pair
+  commonName: binesty-selfsigned-ca
+  secretName: root-secret
   privateKey:
     algorithm: ECDSA
-    size: 256  
+    size: 256
   issuerRef:
+    name: selfsigned-issuer
     kind: ClusterIssuer
-    name: cluster-issuer
     group: cert-manager.io
---- 
+---
 
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: cluster-issuer
-  namespace: cert-manager
+  name: binesty-ca-issuer
 spec:
   ca:
-    secretName: binesty-certificate-key-pair
----
+    secretName: root-secret
