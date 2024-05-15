@@ -1,6 +1,7 @@
 # clusterissuer-lets-encrypt-staging.yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
+namespace: cert-manager
 metadata:
   name: cluster-issuer-self-signed
 spec:
@@ -32,6 +33,7 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: cluster-issuer
+  namespace: cert-manager
 spec:
   ca:
     secretName: binesty-certificate-key-pair
