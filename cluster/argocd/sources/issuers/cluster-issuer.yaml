@@ -13,7 +13,9 @@ metadata:
   namespace: cert-manager
 spec:
   isCA: true
-  commonName: binesty-selfsigned-ca
+  commonName: "*.binesty.io"
+  dnsNames:
+    - "*.binesty.io"
   secretName: root-secret
   privateKey:
     algorithm: ECDSA
