@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:        
-    cert-manager.io/cluster-issuer: cluster-issuer
+    cert-manager.io/cluster-issuer: binesty-ca-issuer
     cert-manager.io/duration: 2160h # 90d
     cert-manager.io/renew-before: 360h # 15d  
     nginx.ingress.kubernetes.io/rewrite-target: /
