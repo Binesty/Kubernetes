@@ -4,4 +4,4 @@ resources:
 - cert-manager.yaml
 - cluster-issuer.yaml
 
-namespace: databases
+namespace: cert-manager
