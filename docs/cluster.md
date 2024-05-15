@@ -33,3 +33,8 @@ kubectl label nodes binesty-worker-07 node-group=application
 
 
 kubespray create dns: [service].[namespace].svc.binesty
+
+
+## Certificates SelfSigned Staging Environment
+import certificate *.binesty.com to trusted certificates on machine.
+

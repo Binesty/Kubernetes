@@ -144,13 +144,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:        
+    cert-manager.io/cluster-issuer: cluster-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: elasticsearch-ingress
   namespace: elastic-stack
 spec:
   ingressClassName: nginx
   rules:
-  - host: elasticsearch.binesty.corp
+  - host: elasticsearch.binesty.io
     http:
       paths:
       - path: /
@@ -160,6 +163,10 @@ spec:
             name: elasticsearch
             port:
               number: 9200
+  tls:
+    - hosts:
+        - elasticsearch.binesty.io
+      secretName: elasticsearch-binesty-certificate-key-pair              
 ---
 
 apiVersion: v1
@@ -443,13 +450,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:    
+    cert-manager.io/cluster-issuer: cluster-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d  
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: apm-ingress
   namespace: elastic-stack
 spec:
   ingressClassName: nginx
   rules:
-  - host: apm.binesty.corp
+  - host: apm.binesty.io
     http:
       paths:
       - path: /
@@ -459,6 +469,10 @@ spec:
             name: apm-server
             port:
               number: 8200
+  tls:
+    - hosts:
+        - apm.binesty.io
+      secretName: apm-binesty-certificate-key-pair              
 ---
 
 apiVersion: apps/v1
@@ -528,13 +542,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:    
+    cert-manager.io/cluster-issuer: cluster-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: kibana-ingress
   namespace: elastic-stack
 spec:
   ingressClassName: nginx
   rules:
-  - host: kibana.binesty.corp
+  - host: kibana.binesty.io
     http:
       paths:
       - path: /
@@ -544,4 +561,8 @@ spec:
             name: kibana-service
             port:
               number: 80
+  tls:
+    - hosts:
+        - kibana.binesty.io
+      secretName: kibana-binesty-certificate-key-pair              
 ---

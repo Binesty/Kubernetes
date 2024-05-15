@@ -2,13 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:        
+    cert-manager.io/cluster-issuer: cluster-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d  
     nginx.ingress.kubernetes.io/rewrite-target: /
   name: longhorn-ingress
   namespace: longhorn-system
 spec:
   ingressClassName: nginx
   rules:
-  - host: longhorn.binesty.corp
+  - host: longhorn.binesty.io
     http:
       paths:
       - path: /
@@ -18,4 +21,8 @@ spec:
             name: longhorn-frontend
             port:
               number: 80
+  tls:
+    - hosts:
+        - longhorn.binesty.io
+      secretName: longhorn-binesty-certificate-key-pair              
 ---
