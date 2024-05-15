@@ -1,9 +1,9 @@
 # clusterissuer-lets-encrypt-staging.yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
-namespace: cert-manager
 metadata:
-  name: cluster-issuer-self-signed
+  name: cluster-issuer-self-signed  
+  namespace: cert-manager
 spec:
   selfSigned: {}
 ---
