@@ -15,7 +15,7 @@ data:
   KEYCLOAK_HTTP_PORT: '8080'
   KEYCLOAK_LOG_LEVEL: INFO
   KEYCLOAK_LOG_OUTPUT: default
-  KEYCLOAK_PRODUCTION: 'true'
+  KEYCLOAK_PRODUCTION: 'false'
   KEYCLOAK_PROXY: passthrough
   KEYCLOAK_HEALTH_ENABLED: 'true'
   KEYCLOAK_METRICS_ENABLED: 'true'
@@ -130,7 +130,7 @@ spec:
       containers:
       - name: keycloak
         image: quay.io/keycloak/keycloak:23.0.4
-        #args: ["start-dev"]
+        args: ["start-dev"]
         envFrom:
         - configMapRef:
             name: keycloak-configmap
