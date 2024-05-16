@@ -17,8 +17,8 @@ data:
   KEYCLOAK_LOG_OUTPUT: default
   KEYCLOAK_PRODUCTION: 'false'
   KEYCLOAK_PROXY: passthrough
-  KEYCLOAK_HEALTH_ENABLED: 'true'
-  KEYCLOAK_METRICS_ENABLED: 'true'
+  KEYCLOAK_HEALTH_ENABLED: 'false'
+  KEYCLOAK_METRICS_ENABLED: 'false'
 ---
 
 apiVersion: v1
