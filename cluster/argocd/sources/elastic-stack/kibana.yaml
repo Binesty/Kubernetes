@@ -1,0 +1,109 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: elastic-stack
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      nodeSelector:
+        node-group: application
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:7.17.9
+        imagePullPolicy: IfNotPresent      
+        volumeMounts:
+        - name: tls
+          mountPath: "/etc/ca-certificates/"
+          readOnly: true  
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+          requests:
+            cpu: 100m
+            memory: 1Gi
+        env:
+          - name: server.ssl.enabled
+            value: "true"
+          - name: server.ssl.certificate
+            value: "/etc/ca-certificates/tls.crt"
+          - name: server.ssl.key
+            value: "/etc/ca-certificates/tls.key"
+          - name: server.ssl.certificateAuthorities          
+            value: "/etc/ca-certificates/ca.crt"
+          - name: ELASTICSEARCH_URL
+            value: http://elasticsearch.elastic-stack:9200
+          - name: SERVERNAME
+            value: "kibana-service"
+          - name: ELASTICSEARCH_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: elastic-secret
+                key: ELASTIC_USERNAME
+          - name: ELASTICSEARCH_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: elastic-secret
+                key: ELASTIC_PASSWORD
+        ports:
+        - containerPort: 5601
+      volumes: 
+      - name: tls
+        secret:
+          secretName: elasticsearch-binesty-certificate-key-pair
+          optional: false        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana-service
+  namespace: elastic-stack
+spec:
+  selector: 
+    app: kibana
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 5601
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:    
+    cert-manager.io/cluster-issuer: binesty-ca-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: kibana-ingress
+  namespace: elastic-stack
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: kibana.binesty.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kibana-service
+            port:
+              number: 80
+  tls:
+    - hosts:
+        - kibana.binesty.io
+      secretName: kibana-binesty-certificate-key-pair              
+---

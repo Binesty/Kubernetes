@@ -60,6 +60,7 @@ metadata:
   name: cert-manager
   labels:
     use-vault: "true"
+    use-root-certificate: "true"
 ---
 
 apiVersion: v1
@@ -69,4 +70,14 @@ metadata:
   labels:
     use-vault: "true"
     use-binesty-registry: "true"
+    use-root-certificate: "true"
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vault
+  labels:
+    use-vault: "true"    
+    use-root-certificate: "true"
 ---

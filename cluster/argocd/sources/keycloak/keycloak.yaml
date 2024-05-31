@@ -212,4 +212,3 @@ spec:
         - keycloak.binesty.io
       secretName: keycloak-binesty-certificate-key-pair              
 ---
-
