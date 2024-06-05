@@ -1,0 +1,463 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-06-05T20:59:22Z'
+  generation: 3
+  labels:
+    project: infrastructure
+    source: internal
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-06-05T20:59:33Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:project: {}
+            f:source: {}
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-06-05T21:00:48Z'
+  name: argocd
+  namespace: argocd
+  resourceVersion: '8829101'
+  uid: 684753ea-9738-4b04-980e-f72d75e03b6d
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/argocd
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  reconciledAt: '2024-06-05T20:59:30Z'
+  resources:
+    - kind: ConfigMap
+      name: argocd-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ConfigMap
+      name: argocd-cmd-params-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ConfigMap
+      name: argocd-gpg-keys-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ConfigMap
+      name: argocd-notifications-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ConfigMap
+      name: argocd-rbac-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ConfigMap
+      name: argocd-ssh-known-hosts-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ConfigMap
+      name: argocd-tls-certs-cm
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: Secret
+      name: argocd-notifications-secret
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: Secret
+      name: argocd-secret
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-dex-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-metrics
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-notifications-controller-metrics
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-redis
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-repo-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: argocd-server-metrics
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-application-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-dex-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-redis
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-repo-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - kind: ServiceAccount
+      name: argocd-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: applications.argoproj.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: applicationsets.argoproj.io
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: appprojects.argoproj.io
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: argocd-dex-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: argocd-redis
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: argocd-repo-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: apps
+      health:
+        status: Healthy
+      kind: Deployment
+      name: argocd-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 1 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: argocd-application-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-application-controller-network-policy
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-applicationset-controller-network-policy
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-dex-server-network-policy
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-notifications-controller-network-policy
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-redis-network-policy
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-repo-server-network-policy
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      name: argocd-server-network-policy
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: argocd-application-controller
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: argocd-applicationset-controller
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: argocd-server
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: argocd-application-controller
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: argocd-applicationset-controller
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: argocd-server
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-application-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-dex-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-redis
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: Role
+      name: argocd-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-application-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-applicationset-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-dex-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-notifications-controller
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-redis
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argocd-server
+      namespace: argocd
+      status: OutOfSync
+      version: v1
+  sourceType: Kustomize
+  summary:
+    images:
+      - ghcr.io/dexidp/dex:v2.38.0
+      - quay.io/argoproj/argocd:v2.11.2
+      - redis:7.0.14-alpine
+  sync:
+    comparedTo:
+      destination:
+        namespace: argocd
+        server: https://kubernetes.default.svc
+      source:
+        path: cluster/argocd/sources/argocd
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: a151549c36ed8d922b1c60061a3a75f604b80575
+    status: OutOfSync
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    path: cluster/argocd/sources/argocd
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
