@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: postgres:latest
+        image: postgres:13
         ports:
         - containerPort: 5432
           name: postgres
@@ -43,6 +43,7 @@ spec:
       name: postgres-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "longhorn"
       resources:
         requests:
-          storage: 1Gi
+          storage: 2Gi

@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+  namespace: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: binesty-ca-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"    
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: "nginx"
+  rules:
+  - host: argocd.binesty.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              name: https
+  tls:
+    - hosts:
+        - argocd.binesty.io
+      secretName: argocd-binesty-certificate-key-pair 
