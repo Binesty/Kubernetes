@@ -36,6 +36,8 @@ metadata:
   name: minio
   labels:
     use-vault: "true"
+    app.kubernetes.io/instance: minio
+    kubernetes.io/metadata.name: minio
 ---
 
 apiVersion: v1
