@@ -18,3 +18,9 @@
         creates: /var/log/dist-upgrade/main.log
       async: 3600
       poll: 0
+
+    - name: Reboot Hosts
+      reboot:
+      async: 120
+      poll: 0
+      ignore_errors: yes      
