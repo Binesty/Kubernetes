@@ -1,0 +1,458 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: '2024-07-02T19:27:30Z'
+  generation: 17
+  managedFields:
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:destination:
+            .: {}
+            f:namespace: {}
+            f:server: {}
+          f:project: {}
+          f:source:
+            .: {}
+            f:path: {}
+            f:repoURL: {}
+            f:targetRevision: {}
+          f:syncPolicy:
+            .: {}
+            f:syncOptions: {}
+        f:status:
+          .: {}
+          f:health: {}
+          f:summary: {}
+          f:sync:
+            .: {}
+            f:comparedTo:
+              .: {}
+              f:destination: {}
+              f:source: {}
+      manager: argocd-server
+      operation: Update
+      time: '2024-07-02T19:28:03Z'
+    - apiVersion: argoproj.io/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:controllerNamespace: {}
+          f:health:
+            f:status: {}
+          f:history: {}
+          f:operationState:
+            .: {}
+            f:finishedAt: {}
+            f:message: {}
+            f:operation:
+              .: {}
+              f:initiatedBy:
+                .: {}
+                f:username: {}
+              f:retry: {}
+              f:sync:
+                .: {}
+                f:revision: {}
+                f:syncOptions: {}
+                f:syncStrategy:
+                  .: {}
+                  f:hook: {}
+            f:phase: {}
+            f:startedAt: {}
+            f:syncResult:
+              .: {}
+              f:resources: {}
+              f:revision: {}
+              f:source:
+                .: {}
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+          f:reconciledAt: {}
+          f:resources: {}
+          f:sourceType: {}
+          f:summary:
+            f:externalURLs: {}
+            f:images: {}
+          f:sync:
+            f:comparedTo:
+              f:destination:
+                f:namespace: {}
+                f:server: {}
+              f:source:
+                f:path: {}
+                f:repoURL: {}
+                f:targetRevision: {}
+            f:revision: {}
+            f:status: {}
+      manager: argocd-application-controller
+      operation: Update
+      time: '2024-07-02T19:48:32Z'
+  name: pyroscope
+  namespace: argocd
+  resourceVersion: '14900904'
+  uid: 1e1bfc38-136b-463c-b46b-e9aea114ac09
+  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/pyroscope
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+    - deployStartedAt: '2024-07-02T19:28:03Z'
+      deployedAt: '2024-07-02T19:28:04Z'
+      id: 0
+      initiatedBy:
+        username: admin
+      revision: 4719d578e76311121e15c8fae20f5d4fdd120a9d
+      source:
+        path: cluster/argocd/sources/pyroscope
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  operationState:
+    finishedAt: '2024-07-02T19:28:04Z'
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 4719d578e76311121e15c8fae20f5d4fdd120a9d
+        syncOptions:
+          - CreateNamespace=true
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: '2024-07-02T19:28:03Z'
+    syncResult:
+      resources:
+        - group: policy
+          hookPhase: Running
+          kind: PodDisruptionBudget
+          message: poddisruptionbudget.policy/pyroscope created
+          name: pyroscope
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/pyroscope-agent created
+          name: pyroscope-agent
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ServiceAccount
+          message: serviceaccount/pyroscope created
+          name: pyroscope
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/pyroscope-overrides-config created
+          name: pyroscope-overrides-config
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/pyroscope-config created
+          name: pyroscope-config
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: ConfigMap
+          message: configmap/grafana-agent-config-pyroscope created
+          name: grafana-agent-config-pyroscope
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apiextensions.k8s.io
+          hookPhase: Running
+          kind: CustomResourceDefinition
+          message: >-
+            customresourcedefinition.apiextensions.k8s.io/podlogs.monitoring.grafana.com
+            configured
+          name: podlogs.monitoring.grafana.com
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/pyroscope-agent reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get list watch] APIGroups:[ discovery.k8s.io networking.k8s.io] Resources:[endpoints endpointslices ingresses nodes nodes/proxy nodes/metrics pods services] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[pods pods/log namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[monitoring.grafana.com] Resources:[podlogs] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[monitoring.coreos.com] Resources:[prometheusrules] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get] APIGroups:[] Resources:[] ResourceNames:[] NonResourceURLs:[/metrics]}\n\t\t{Verbs:[get list watch] APIGroups:[monitoring.coreos.com] Resources:[podmonitors servicemonitors probes] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get list watch] APIGroups:[] Resources:[events] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/pyroscope-agent configured. Warning: resource clusterroles/pyroscope-agent is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: pyroscope-agent
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRole
+          message: "clusterrole.rbac.authorization.k8s.io/pyroscope-pyroscope reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[list watch] APIGroups:[] Resources:[pods] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get] APIGroups:[] Resources:[nodes] ResourceNames:[] NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/pyroscope-pyroscope configured. Warning: resource clusterroles/pyroscope-pyroscope is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: pyroscope-pyroscope
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/pyroscope-agent reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:pyroscope-agent Namespace:pyroscope}. clusterrolebinding.rbac.authorization.k8s.io/pyroscope-agent configured. Warning: resource clusterrolebindings/pyroscope-agent is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: pyroscope-agent
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: rbac.authorization.k8s.io
+          hookPhase: Running
+          kind: ClusterRoleBinding
+          message: "clusterrolebinding.rbac.authorization.k8s.io/pyroscope-pyroscope reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup: Name:pyroscope Namespace:pyroscope}. clusterrolebinding.rbac.authorization.k8s.io/pyroscope-pyroscope configured. Warning: resource clusterrolebindings/pyroscope-pyroscope is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically."
+          name: pyroscope-pyroscope
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/pyroscope-agent-cluster created
+          name: pyroscope-agent-cluster
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/pyroscope-memberlist created
+          name: pyroscope-memberlist
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/pyroscope-headless created
+          name: pyroscope-headless
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/pyroscope-agent created
+          name: pyroscope-agent
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: ''
+          hookPhase: Running
+          kind: Service
+          message: service/pyroscope created
+          name: pyroscope
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: statefulset.apps/pyroscope-agent created
+          name: pyroscope-agent
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: apps
+          hookPhase: Running
+          kind: StatefulSet
+          message: statefulset.apps/pyroscope created
+          name: pyroscope
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+        - group: networking.k8s.io
+          hookPhase: Running
+          kind: Ingress
+          message: ingress.networking.k8s.io/pyroscope-ingress created
+          name: pyroscope-ingress
+          namespace: pyroscope
+          status: Synced
+          syncPhase: Sync
+          version: v1
+      revision: 4719d578e76311121e15c8fae20f5d4fdd120a9d
+      source:
+        path: cluster/argocd/sources/pyroscope
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+  reconciledAt: '2024-07-02T19:48:32Z'
+  resources:
+    - kind: ConfigMap
+      name: grafana-agent-config-pyroscope
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: pyroscope-config
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - kind: ConfigMap
+      name: pyroscope-overrides-config
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: pyroscope
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: pyroscope-agent
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: pyroscope-agent-cluster
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: pyroscope-headless
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - health:
+        status: Healthy
+      kind: Service
+      name: pyroscope-memberlist
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: pyroscope
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - kind: ServiceAccount
+      name: pyroscope-agent
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: podlogs.monitoring.grafana.com
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 1 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: pyroscope
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - group: apps
+      health:
+        message: 'partitioned roll out complete: 1 new pods have been updated...'
+        status: Healthy
+      kind: StatefulSet
+      name: pyroscope-agent
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - group: networking.k8s.io
+      health:
+        status: Healthy
+      kind: Ingress
+      name: pyroscope-ingress
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - group: policy
+      kind: PodDisruptionBudget
+      name: pyroscope
+      namespace: pyroscope
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: pyroscope-agent
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: pyroscope-pyroscope
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: pyroscope-agent
+      status: Synced
+      version: v1
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: pyroscope-pyroscope
+      status: Synced
+      version: v1
+  sourceType: Kustomize
+  summary:
+    externalURLs:
+      - https://pyroscope.binesty.io/
+    images:
+      - docker.io/grafana/agent:v0.36.2
+      - docker.io/jimmidyson/configmap-reload:v0.8.0
+      - grafana/pyroscope:1.6.1
+  sync:
+    comparedTo:
+      destination:
+        namespace: pyroscope
+        server: https://kubernetes.default.svc
+      source:
+        path: cluster/argocd/sources/pyroscope
+        repoURL: git@github.com:Binesty/Kubernetes.git
+        targetRevision: main
+    revision: 4719d578e76311121e15c8fae20f5d4fdd120a9d
+    status: Synced
+spec:
+  destination:
+    namespace: pyroscope
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    path: cluster/argocd/sources/pyroscope
+    repoURL: git@github.com:Binesty/Kubernetes.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
