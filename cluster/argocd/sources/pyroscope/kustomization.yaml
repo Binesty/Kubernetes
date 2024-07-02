@@ -4,7 +4,7 @@ resources:
 - crd.yaml
 - accounts.yaml
 - pyroscope.yaml
-- configuraitons.yaml
+- configurations.yaml
 - ingress.yaml
 
 namespace: pyroscope
