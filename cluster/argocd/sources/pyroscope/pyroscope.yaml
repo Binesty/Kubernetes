@@ -1,0 +1,284 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: all
+    app.kubernetes.io/instance: pyroscope
+  name: pyroscope
+  namespace: pyroscope
+spec:
+  ports:
+    - name: http2
+      port: 4040
+      protocol: TCP
+      targetPort: http2
+  selector:
+    app.kubernetes.io/component: all
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: pyroscope
+  type: ClusterIP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope    
+  name: pyroscope-agent
+  namespace: pyroscope
+spec:
+  ports:
+    - name: http-metrics
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: agent
+  type: ClusterIP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope
+  name: pyroscope-agent-cluster
+  namespace: pyroscope
+spec:
+  clusterIP: None
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: agent
+  type: ClusterIP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: all
+    app.kubernetes.io/instance: pyroscope   
+  name: pyroscope-headless
+  namespace: pyroscope
+spec:
+  clusterIP: None
+  ports:
+    - name: http2
+      port: 4040
+      protocol: TCP
+      targetPort: http2
+  selector:
+    app.kubernetes.io/component: all
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: pyroscope
+  type: ClusterIP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope
+  name: pyroscope-memberlist
+  namespace: pyroscope
+spec:
+  clusterIP: None
+  ports:
+    - name: memberlist
+      port: 7946
+      protocol: TCP
+      targetPort: 7946
+  publishNotReadyAddresses: true
+  selector:
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: pyroscope
+  type: ClusterIP
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/component: all
+    app.kubernetes.io/instance: pyroscope
+  name: pyroscope
+  namespace: pyroscope
+spec:
+  podManagementPolicy: Parallel
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: all
+      app.kubernetes.io/instance: pyroscope
+      app.kubernetes.io/name: pyroscope
+  serviceName: pyroscope-headless
+  template:
+    metadata:
+      annotations:
+        checksum/config: 5108431e1cca4f9f1ab47b550ab1277e841b0e15884017a87b2eea29a930e50b
+        profiles.grafana.com/cpu.port_name: http2
+        profiles.grafana.com/cpu.scrape: 'true'
+        profiles.grafana.com/goroutine.port_name: http2
+        profiles.grafana.com/goroutine.scrape: 'true'
+        profiles.grafana.com/memory.port_name: http2
+        profiles.grafana.com/memory.scrape: 'true'
+      labels:
+        app.kubernetes.io/component: all
+        app.kubernetes.io/instance: pyroscope
+        app.kubernetes.io/name: pyroscope
+        name: pyroscope
+    spec:
+      containers:
+        - args:
+            - '-target=all'
+            - '-self-profiling.disable-push=true'
+            - '-server.http-listen-port=4040'
+            - '-memberlist.cluster-label=pyroscope-pyroscope'
+            - >-
+              -memberlist.join=dns+pyroscope-memberlist.pyroscope.svc.cluster.local.:7946
+            - '-config.file=/etc/pyroscope/config.yaml'
+            - '-runtime-config.file=/etc/pyroscope/overrides/overrides.yaml'
+            - '-log.level=debug'
+          image: 'grafana/pyroscope:1.6.1'
+          imagePullPolicy: IfNotPresent
+          name: pyroscope
+          ports:
+            - containerPort: 4040
+              name: http2
+              protocol: TCP
+            - containerPort: 7946
+              name: memberlist
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http2
+              scheme: HTTP
+          resources: {}
+          securityContext: {}
+          volumeMounts:
+            - mountPath: /etc/pyroscope/config.yaml
+              name: config
+              subPath: config.yaml
+            - mountPath: /etc/pyroscope/overrides/
+              name: overrides-config
+            - mountPath: /data
+              name: data
+      dnsPolicy: ClusterFirst
+      securityContext:
+        fsGroup: 10001
+        runAsNonRoot: true
+        runAsUser: 10001
+      serviceAccountName: pyroscope
+      volumes:
+        - configMap:
+            name: pyroscope-config
+          name: config
+        - configMap:
+            name: pyroscope-overrides-config
+          name: overrides-config
+        - emptyDir: {}
+          name: data
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope
+  name: pyroscope-agent
+  namespace: pyroscope
+spec:
+  minReadySeconds: 10
+  podManagementPolicy: Parallel
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: pyroscope
+      app.kubernetes.io/name: agent
+  serviceName: pyroscope-agent
+  template:
+    metadata:
+      annotations:
+        profiles.grafana.com/cpu.port_name: http-metrics
+        profiles.grafana.com/cpu.scrape: 'true'
+        profiles.grafana.com/goroutine.port_name: http-metrics
+        profiles.grafana.com/goroutine.scrape: 'true'
+        profiles.grafana.com/memory.port_name: http-metrics
+        profiles.grafana.com/memory.scrape: 'true'
+      labels:
+        app.kubernetes.io/instance: pyroscope
+        app.kubernetes.io/name: agent
+    spec:
+      containers:
+        - args:
+            - run
+            - /etc/agent/config.river
+            - '--storage.path=/tmp/agent'
+            - '--server.http.listen-addr=0.0.0.0:80'
+            - '--cluster.enabled=true'
+            - '--cluster.join-addresses=pyroscope-agent-cluster'
+          env:
+            - name: AGENT_MODE
+              value: flow
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          image: 'docker.io/grafana/agent:v0.36.2'
+          imagePullPolicy: IfNotPresent
+          name: grafana-agent
+          ports:
+            - containerPort: 80
+              name: http-metrics
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: 80
+            initialDelaySeconds: 10
+            timeoutSeconds: 1
+          volumeMounts:
+            - mountPath: /etc/agent
+              name: config
+        - args:
+            - '--volume-dir=/etc/agent'
+            - '--webhook-url=http://localhost:80/-/reload'
+          image: 'docker.io/jimmidyson/configmap-reload:v0.8.0'
+          name: config-reloader
+          resources:
+            requests:
+              cpu: 1m
+              memory: 5Mi
+          volumeMounts:
+            - mountPath: /etc/agent
+              name: config
+      dnsPolicy: ClusterFirst
+      serviceAccountName: pyroscope-agent
+      volumes:
+        - configMap:
+            name: grafana-agent-config-pyroscope
+          name: config
+---
+
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    app.kubernetes.io/component: all
+    app.kubernetes.io/instance: pyroscope
+  name: pyroscope
+  namespace: pyroscope
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: all
+      app.kubernetes.io/instance: pyroscope
+      app.kubernetes.io/name: pyroscope
+---

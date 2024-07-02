@@ -115,6 +115,9 @@ advanced parameter run playbook : **["-e", "node=node-name"]**
 ### playbook add node
 advanced parameter limit node: **["--limit=node-name"]**
 
+### upgrade cluster
+set parameter unsafe upgrade **["-e", "upgrade_cluster_setup=true"]**
+
 
 ### install k9s
 ```bash

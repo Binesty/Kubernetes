@@ -1,0 +1,29 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:  
+    cert-manager.io/cluster-issuer: binesty-ca-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d        
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: pyroscope-ingress
+  namespace: pyroscope
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: pyroscope.binesty.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: pyroscope
+            port:
+              number: 4040
+  tls:
+    - hosts:
+        - pyroscope.binesty.io
+      secretName: pyroscope-binesty-certificate-key-pair              
+---

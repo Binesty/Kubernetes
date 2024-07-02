@@ -1,0 +1,151 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope    
+    app.kubernetes.io/name: pyroscope
+  name: pyroscope
+  namespace: pyroscope
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: agent
+  name: pyroscope-agent
+  namespace: pyroscope
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: agent
+  name: pyroscope-agent
+rules:
+  - apiGroups:
+      - ''
+      - discovery.k8s.io
+      - networking.k8s.io
+    resources:
+      - endpoints
+      - endpointslices
+      - ingresses
+      - nodes
+      - nodes/proxy
+      - nodes/metrics
+      - pods
+      - services
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ''
+    resources:
+      - pods
+      - pods/log
+      - namespaces
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - monitoring.grafana.com
+    resources:
+      - podlogs
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - prometheusrules
+    verbs:
+      - get
+      - list
+      - watch
+  - nonResourceURLs:
+      - /metrics
+    verbs:
+      - get
+  - apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - podmonitors
+      - servicemonitors
+      - probes
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ''
+    resources:
+      - events
+    verbs:
+      - get
+      - list
+      - watch
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope    
+    app.kubernetes.io/name: pyroscope
+  name: pyroscope-pyroscope
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - pods
+    verbs:
+      - list
+      - watch
+  - apiGroups:
+      - ''
+    resources:
+      - nodes
+    verbs:
+      - get
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: agent
+  name: pyroscope-agent
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pyroscope-agent
+subjects:
+  - kind: ServiceAccount
+    name: pyroscope-agent
+    namespace: pyroscope
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/instance: pyroscope
+    app.kubernetes.io/name: pyroscope    
+  name: pyroscope-pyroscope
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pyroscope-pyroscope
+subjects:
+  - kind: ServiceAccount
+    name: pyroscope
+    namespace: pyroscope
+---
