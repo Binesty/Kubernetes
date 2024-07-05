@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: '2024-07-02T19:27:30Z'
-  generation: 17
+  generation: 558
   managedFields:
     - apiVersion: argoproj.io/v1alpha1
       fieldsType: FieldsV1
@@ -90,10 +90,10 @@ metadata:
             f:status: {}
       manager: argocd-application-controller
       operation: Update
-      time: '2024-07-02T19:48:32Z'
+      time: '2024-07-04T23:44:58Z'
   name: pyroscope
   namespace: argocd
-  resourceVersion: '14900904'
+  resourceVersion: '15483628'
   uid: 1e1bfc38-136b-463c-b46b-e9aea114ac09
   selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/pyroscope
 status:
@@ -306,7 +306,7 @@ status:
         path: cluster/argocd/sources/pyroscope
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-  reconciledAt: '2024-07-02T19:48:32Z'
+  reconciledAt: '2024-07-04T23:44:58Z'
   resources:
     - kind: ConfigMap
       name: grafana-agent-config-pyroscope
@@ -442,7 +442,7 @@ status:
         path: cluster/argocd/sources/pyroscope
         repoURL: git@github.com:Binesty/Kubernetes.git
         targetRevision: main
-    revision: 4719d578e76311121e15c8fae20f5d4fdd120a9d
+    revision: d4855c38901ff3834fbd520307a93540f5f1fa96
     status: Synced
 spec:
   destination:
