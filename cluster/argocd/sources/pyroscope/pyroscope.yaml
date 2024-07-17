@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/component: all
     app.kubernetes.io/instance: pyroscope
   name: pyroscope
-  namespace: pyroscope
+  namespace: observability
 spec:
   ports:
     - name: http2
@@ -25,7 +25,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: pyroscope    
   name: pyroscope-agent
-  namespace: pyroscope
+  namespace: observability
 spec:
   ports:
     - name: http-metrics
@@ -44,7 +44,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: pyroscope
   name: pyroscope-agent-cluster
-  namespace: pyroscope
+  namespace: observability
 spec:
   clusterIP: None
   ports:
@@ -65,7 +65,7 @@ metadata:
     app.kubernetes.io/component: all
     app.kubernetes.io/instance: pyroscope   
   name: pyroscope-headless
-  namespace: pyroscope
+  namespace: observability
 spec:
   clusterIP: None
   ports:
@@ -86,7 +86,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: pyroscope
   name: pyroscope-memberlist
-  namespace: pyroscope
+  namespace: observability
 spec:
   clusterIP: None
   ports:
@@ -108,7 +108,7 @@ metadata:
     app.kubernetes.io/component: all
     app.kubernetes.io/instance: pyroscope
   name: pyroscope
-  namespace: pyroscope
+  namespace: observability
 spec:
   podManagementPolicy: Parallel
   replicas: 1
@@ -193,7 +193,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: pyroscope
   name: pyroscope-agent
-  namespace: pyroscope
+  namespace: observability
 spec:
   minReadySeconds: 10
   podManagementPolicy: Parallel
@@ -273,7 +273,7 @@ metadata:
     app.kubernetes.io/component: all
     app.kubernetes.io/instance: pyroscope
   name: pyroscope
-  namespace: pyroscope
+  namespace: observability
 spec:
   maxUnavailable: 1
   selector:

@@ -13,7 +13,7 @@
         - { node: binesty-worker-04, index: 04 }
         - { node: binesty-worker-05, index: 05 }
         - { node: binesty-worker-06, index: 06 }
-        - { node: binesty-worker-07, index: 07 }
+        - { node: binesty-worker-10, index: 07 }
 
     - name: Label management nodes
       ignore_errors: yes
@@ -36,7 +36,7 @@
         - binesty-worker-04
         - binesty-worker-05
         - binesty-worker-06
-        - binesty-worker-07
+        - binesty-worker-10
 
     - name: Label kafka nodes
       shell: kubectl label nodes {{ item }} broker=kafka

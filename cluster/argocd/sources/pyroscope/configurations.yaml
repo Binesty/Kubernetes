@@ -20,7 +20,7 @@ metadata:
     app.kubernetes.io/instance: pyroscope
     app.kubernetes.io/name: pyroscope
   name: pyroscope-config
-  namespace: pyroscope
+  namespace: observability
 ---
 
 apiVersion: v1
@@ -34,4 +34,4 @@ metadata:
     app.kubernetes.io/instance: pyroscope    
     app.kubernetes.io/name: pyroscope
   name: pyroscope-overrides-config
-  namespace: pyroscope
+  namespace: observability

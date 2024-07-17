@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/instance: pyroscope    
     app.kubernetes.io/name: pyroscope
   name: pyroscope
-  namespace: pyroscope
+  namespace: observability
 ---
 
 apiVersion: v1
@@ -15,7 +15,7 @@ metadata:
     app.kubernetes.io/instance: pyroscope
     app.kubernetes.io/name: agent
   name: pyroscope-agent
-  namespace: pyroscope
+  namespace: observability
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
@@ -130,7 +130,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: pyroscope-agent
-    namespace: pyroscope
+    namespace: observability
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
@@ -146,6 +146,6 @@ roleRef:
   name: pyroscope-pyroscope
 subjects:
   - kind: ServiceAccount
-    name: pyroscope
-    namespace: pyroscope
+    name: observability
+    namespace: observability
 ---

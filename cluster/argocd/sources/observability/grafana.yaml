@@ -1,0 +1,120 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-secret
+  namespace: observability
+type: Opaque
+data:  
+  admin-password: R3JAZmFuYSEhMDk=    # base64 encoded value of 'Gr@fana!!09'
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-config
+  namespace: observability
+data:
+  grafana.ini: |
+    [paths]
+    data = /var/lib/grafana/data
+    logs = /var/log/grafana
+    plugins = /var/lib/grafana/plugins
+    provisioning = /etc/grafana/provisioning
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: grafana
+  namespace: observability
+spec:
+  selector:
+    matchLabels:
+      app: grafana
+  serviceName: "grafana-service"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      securityContext:
+        runAsUser: 472
+        runAsGroup: 472
+        fsGroup: 472
+      containers:
+      - name: grafana
+        image: grafana/grafana:latest
+        ports:
+        - containerPort: 3000
+          name: grafana   
+        command: ["sh", "-c", "grafana-cli admin reset-admin-password ${GF_SECURITY_ADMIN_PASSWORD} && /run.sh"]
+        env:     
+        - name: GF_SECURITY_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: grafana-secret
+              key: admin-password        
+        volumeMounts:
+        - name: grafana-storage
+          mountPath: /var/lib/grafana
+        - name: grafana-config
+          mountPath: /etc/grafana/provisioning
+      volumes:
+      - name: grafana-config
+        configMap:
+          name: grafana-config
+  volumeClaimTemplates:
+  - metadata:
+      name: grafana-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
+      storageClassName: longhorn
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-service
+  namespace: observability
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: grafana
+  type: ClusterIP
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:  
+    cert-manager.io/cluster-issuer: binesty-ca-issuer
+    cert-manager.io/duration: 2160h # 90d
+    cert-manager.io/renew-before: 360h # 15d        
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: grafana-ingress
+  namespace: observability
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: grafana.binesty.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana-service
+            port:
+              number: 3000
+  tls:
+    - hosts:
+        - grafana.binesty.io
+      secretName: grafana-binesty-certificate-key-pair              
+---
+

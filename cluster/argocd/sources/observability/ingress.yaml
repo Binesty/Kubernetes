@@ -1,4 +1,3 @@
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -7,23 +6,23 @@ metadata:
     cert-manager.io/duration: 2160h # 90d
     cert-manager.io/renew-before: 360h # 15d        
     nginx.ingress.kubernetes.io/rewrite-target: /
-  name: pyroscope-ingress
-  namespace: observability
+  name: grafana-ingress
+  namespace: monitoring
 spec:
   ingressClassName: nginx
   rules:
-  - host: pyroscope.binesty.io
+  - host: grafana.binesty.io
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: pyroscope
+            name: monitoring-grafana
             port:
-              number: 4040
+              number: 3000
   tls:
     - hosts:
-        - pyroscope.binesty.io
-      secretName: pyroscope-binesty-certificate-key-pair   
+        - grafana.binesty.io
+      secretName: grafana-binesty-certificate-key-pair              
 ---
